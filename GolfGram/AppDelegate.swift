@@ -8,6 +8,7 @@
 
 import UIKit
 import ChameleonFramework
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		//change color of tab bar items
 		UITabBar.appearance().tintColor = UIColor.flatGreenDark
-		
+		FirebaseApp.configure()
 
 		return true
 	}

@@ -40,12 +40,12 @@
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xXH-ai-KpF">
                                         <rect key="frame" x="0.0" y="100" width="335" height="44"/>
-                                        <color key="backgroundColor" white="1" alpha="0.25511023116438358" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="1" alpha="0.4708904109589041" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="FCW-YL-Mcy"/>
                                         </constraints>
                                         <state key="normal" title="Sign In">
-                                            <color key="titleColor" white="1" alpha="0.60423801369863017" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
                                             <segue destination="u0f-wI-JQP" kind="presentation" id="NFH-1M-Xz2"/>
@@ -72,7 +72,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.0013124258556698337" green="0.46220653553299496" blue="0.0020363482120164325" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="1IS-Pv-ZAK" firstAttribute="centerX" secondItem="Wjm-MR-2JI" secondAttribute="centerX" id="0gL-Oj-qdo"/>
                             <constraint firstItem="g21-f6-ftO" firstAttribute="leading" secondItem="YqE-i6-g4g" secondAttribute="leading" id="8rt-GX-Gfh"/>
@@ -86,6 +86,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YqE-i6-g4g"/>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="V45-3L-7ed" id="4GJ-qF-pF4"/>
+                        <outlet property="passwordTextField" destination="rRV-OC-gqA" id="DnE-5J-7Gb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KBE-K0-09D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -131,14 +135,15 @@
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tMy-Lt-vT4">
                                         <rect key="frame" x="0.0" y="150" width="335" height="44"/>
-                                        <color key="backgroundColor" white="1" alpha="0.25511023119999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="1" alpha="0.47121147263835622" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="yzS-mr-LGS"/>
                                         </constraints>
                                         <state key="normal" title="Sign Up">
-                                            <color key="titleColor" white="1" alpha="0.60423801369999997" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
+                                            <action selector="signUpPressed:" destination="J62-SA-9Ff" eventType="touchUpInside" id="YoD-pJ-1e8"/>
                                             <segue destination="u0f-wI-JQP" kind="presentation" id="OOV-j7-0Pv"/>
                                         </connections>
                                     </button>
@@ -164,7 +169,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.0013124258559999999" green="0.46220653550000002" blue="0.0020363482119999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="hkf-WR-hm3" firstAttribute="centerX" secondItem="o92-PL-5pM" secondAttribute="centerX" id="6Y8-8L-cGl"/>
                             <constraint firstItem="4XA-Gj-O4A" firstAttribute="leading" secondItem="iUa-7j-QLu" secondAttribute="leading" constant="20" id="D9D-PD-2AK"/>
@@ -178,6 +183,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iUa-7j-QLu"/>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="RLr-6L-8Ma" id="vif-q4-rpp"/>
+                        <outlet property="passwordTextField" destination="aMt-dx-EbG" id="tap-2N-jaO"/>
+                        <outlet property="profileImage" destination="hkf-WR-hm3" id="e7y-xu-Ouw"/>
+                        <outlet property="usernameTextField" destination="aas-Kw-tKK" id="bUL-pk-0k2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ixm-ro-5pw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

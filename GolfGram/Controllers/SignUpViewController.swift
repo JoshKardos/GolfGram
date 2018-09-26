@@ -7,12 +7,22 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseDatabase
+
 
 class SignUpViewController: UIViewController {
-
-    override func viewDidLoad() {
+	@IBOutlet weak var usernameTextField: UITextField!
+	@IBOutlet weak var emailTextField: UITextField!
+	@IBOutlet weak var passwordTextField: UITextField!
+	@IBOutlet weak var profileImage: UIImageView!
+	
+	
+	override func viewDidLoad() {
         super.viewDidLoad()
 
+		profileImage.layer.cornerRadius = 10
+		profileImage.clipsToBounds = true
         // Do any additional setup after loading the view.
     }
     
@@ -20,14 +30,20 @@ class SignUpViewController: UIViewController {
 		dismiss(animated: true, completion: nil)
 	}
 	
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+	@IBAction func signUpPressed(_ sender: Any) {
+		
+		
+		Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
+			
+			if error != nil {
+				print("Eror creating user: \(error!.localizedDescription)")
+				return
+			}
+			let ref = Database.database().reference()
+			let usersReference = ref.child("users")
+			usersReference.childByAutoId().setValue(["username": self.usernameTextField.text!, "email" : self.emailTextField.text!])
+			//let newUserReference = usersReference.child(idUser)
+		}
+	}
+	
 }

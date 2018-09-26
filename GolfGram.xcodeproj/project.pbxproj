@@ -24,6 +24,7 @@
 		B34E7890215B438A00A79B10 /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B34E788F215B438A00A79B10 /* Camera.storyboard */; };
 		B34E7892215B43B500A79B10 /* Activity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B34E7891215B43B500A79B10 /* Activity.storyboard */; };
 		B34E7894215B43E500A79B10 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B34E7893215B43E500A79B10 /* Profile.storyboard */; };
+		B34E7899215B5B6400A79B10 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B34E7898215B5B6400A79B10 /* GoogleService-Info.plist */; };
 		EA8BD63C795CB3941B53D9D6 /* Pods_GolfGram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64B9A61353F02E67967D9ED5 /* Pods_GolfGram.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,7 @@
 		B34E788F215B438A00A79B10 /* Camera.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
 		B34E7891215B43B500A79B10 /* Activity.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Activity.storyboard; sourceTree = "<group>"; };
 		B34E7893215B43E500A79B10 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		B34E7898215B5B6400A79B10 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E8F724A2EF8FBDD9ABB0F2D5 /* Pods-GolfGram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GolfGram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GolfGram/Pods-GolfGram.debug.xcconfig"; sourceTree = "<group>"; };
 		FAD97F567FDAA698DBD18A0B /* Pods-GolfGram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GolfGram.release.xcconfig"; path = "Pods/Target Support Files/Pods-GolfGram/Pods-GolfGram.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,6 +110,7 @@
 				B32F2500215AA8B500930BAA /* Assets.xcassets */,
 				B30830062158961C004D0B1A /* LaunchScreen.storyboard */,
 				B30830092158961C004D0B1A /* Info.plist */,
+				B34E7898215B5B6400A79B10 /* GoogleService-Info.plist */,
 			);
 			path = GolfGram;
 			sourceTree = "<group>";
@@ -115,8 +118,8 @@
 		B32F2504215AB98200930BAA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B32F24FC2159C4C800930BAA /* SignUpViewController.swift */,
 				B32F24FA2159B87C00930BAA /* SignInViewController.swift */,
+				B32F24FC2159C4C800930BAA /* SignUpViewController.swift */,
 				B32F2502215AB96700930BAA /* HomeViewController.swift */,
 				B32F2505215AB9AE00930BAA /* DiscoverViewController.swift */,
 				B32F2507215AB9C100930BAA /* CameraViewController.swift */,
@@ -200,6 +203,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B34E7899215B5B6400A79B10 /* GoogleService-Info.plist in Resources */,
 				B30830082158961C004D0B1A /* LaunchScreen.storyboard in Resources */,
 				B34E7890215B438A00A79B10 /* Camera.storyboard in Resources */,
 				B34E788C215B354E00A79B10 /* Home.storyboard in Resources */,
@@ -247,12 +251,20 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-GolfGram/Pods-GolfGram-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
