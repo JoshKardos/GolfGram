@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home-->
+        <scene sceneID="kN0-a8-aEG">
+            <objects>
+                <viewController id="Rt0-8Q-bzd" customClass="HomeViewController" customModule="GolfGram" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZTD-eQ-DcS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="MgF-fV-Lhp"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Home" id="9DC-Tn-OIU"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="blL-ZA-LVm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5164" y="-834"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="e7R-7I-LBu">
+            <objects>
+                <navigationController storyboardIdentifier="NavigationHome" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tum-o4-ZC7" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="home" selectedImage="home selected" id="9ZR-XC-5I3">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="t1R-ZH-OH3">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Rt0-8Q-bzd" kind="relationship" relationship="rootViewController" id="fc7-ox-q6J"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xli-uz-q2F" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5164" y="-1612"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="home" width="30" height="30"/>
+        <image name="home selected" width="30" height="30"/>
+    </resources>
+</document>
