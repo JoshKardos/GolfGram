@@ -18,6 +18,7 @@
 		B32F2508215AB9C100930BAA /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F2507215AB9C100930BAA /* CameraViewController.swift */; };
 		B32F250A215AB9F000930BAA /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F2509215AB9F000930BAA /* ActivityViewController.swift */; };
 		B32F250C215ABA1700930BAA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F250B215ABA1700930BAA /* ProfileViewController.swift */; };
+		B34E788A215B0AA600A79B10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B34E7889215B0AA600A79B10 /* Main.storyboard */; };
 		EA8BD63C795CB3941B53D9D6 /* Pods_GolfGram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64B9A61353F02E67967D9ED5 /* Pods_GolfGram.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,7 @@
 		B32F2507215AB9C100930BAA /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		B32F2509215AB9F000930BAA /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		B32F250B215ABA1700930BAA /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		B34E7889215B0AA600A79B10 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		E8F724A2EF8FBDD9ABB0F2D5 /* Pods-GolfGram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GolfGram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GolfGram/Pods-GolfGram.debug.xcconfig"; sourceTree = "<group>"; };
 		FAD97F567FDAA698DBD18A0B /* Pods-GolfGram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GolfGram.release.xcconfig"; path = "Pods/Target Support Files/Pods-GolfGram/Pods-GolfGram.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,6 +94,7 @@
 			children = (
 				B3082FFD2158961B004D0B1A /* AppDelegate.swift */,
 				B308300F21589A82004D0B1A /* Start.storyboard */,
+				B34E7889215B0AA600A79B10 /* Main.storyboard */,
 				B32F2504215AB98200930BAA /* ViewControllers */,
 				B32F2500215AA8B500930BAA /* Assets.xcassets */,
 				B30830062158961C004D0B1A /* LaunchScreen.storyboard */,
@@ -177,6 +180,7 @@
 				B30830082158961C004D0B1A /* LaunchScreen.storyboard in Resources */,
 				B32F2501215AA8B500930BAA /* Assets.xcassets in Resources */,
 				B308301021589A82004D0B1A /* Start.storyboard in Resources */,
+				B34E788A215B0AA600A79B10 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
