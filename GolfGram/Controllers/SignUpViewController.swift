@@ -18,6 +18,7 @@ class SignUpViewController: UIViewController {
 	@IBOutlet weak var passwordTextField: UITextField!
 	@IBOutlet weak var profileImage: UIImageView!
 	
+	@IBOutlet weak var signUpButton: UIButton!
 	var selectedImage : UIImage?
 	//var imageURL:URL?
 	
@@ -33,9 +34,33 @@ class SignUpViewController: UIViewController {
 		
 		profileImage.addGestureRecognizer(tapGesture)
 		
+		//DEACTIVATE BUTTON ON LOAD
+		signUpButton.setTitleColor(UIColor.lightText, for: UIControl.State.normal)
+		signUpButton.isEnabled = false
+		
+		handleTextField()
+		
+		
         // Do any additional setup after loading the view.
     }
 	
+	func handleTextField(){
+		usernameTextField.addTarget(self, action:#selector(SignUpViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
+		emailTextField.addTarget(self, action:#selector(SignUpViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
+		passwordTextField.addTarget(self, action:#selector(SignUpViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
+	
+	}
+	
+	@objc func textFieldDidChange(){
+		guard let username = usernameTextField.text, !username.isEmpty, let email = emailTextField.text, !email.isEmpty, let password = passwordTextField.text, !password.isEmpty else {
+			
+			signUpButton.setTitleColor(UIColor.lightText, for: UIControl.State.normal)
+			signUpButton.isEnabled = false
+			return
+		}
+		signUpButton.setTitleColor(UIColor.white, for: UIControl.State.normal)
+		signUpButton.isEnabled = true
+	}
 	@objc func handleSelectProfileImageView(){
 		
 		let pickerController = UIImagePickerController()
@@ -51,53 +76,16 @@ class SignUpViewController: UIViewController {
 	}
 	
 	@IBAction func signUpPressed(_ sender: Any) {
-		
-		/////////////////////
-		////Create User//////
-		/////////////////////
-		Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
-			if error != nil {
-				print("Eror creating user: \(error!.localizedDescription)")
-				return
-			}
-		
-			//Get reference to the profile images//
-			///////////////////////////////////////
-			let storageRef = Storage.storage().reference(forURL: "gs://golfgram-68599.appspot.com").child("profile_image").child((user?.user.uid)!)
-			
-			//Must have selected an image
-			if let profileImg = self.selectedImage{
-				print("Inside")
-				
-				//turn sleected photo into jpeg
-				guard let imageData = profileImg.jpegData(compressionQuality: 0.1) else { fatalError("ERROR INSIDE")}
-				
-				//insert jpeg data into database with the url
-				storageRef.putData(imageData, metadata: nil, completion: { (metadata, error) in
-					if error != nil{
-						print("Error \(error?.localizedDescription)")
-						return
-					}
-					storageRef.downloadURL { (url, error) in
-						if error != nil{
-							print("Error \(error?.localizedDescription)")
-							return
-						}
-						//get url of image
-						guard let profileImageUrl = url?.absoluteString else {return}
-						
-						//get referenece to users in the database
-						let usersRef = Database.database().reference().child("users")
-						
-						
-						//save user(username, email, profileImage)
-						usersRef.childByAutoId().setValue(["username": self.usernameTextField.text!, "email" : self.emailTextField.text!, "profileImageUrl": profileImageUrl])
-					}
-				})
-			}
+		//Must have selected an image, image turned to jpeg
+		if let profileImg = self.selectedImage,let imageData = profileImg.jpegData(compressionQuality: 0.1) {
+
+			AuthService.signUp(username: usernameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, imageData: imageData, onSuccess: {
+				self.performSegue(withIdentifier: "signUpToTabbarVC", sender: nil)
+			}, onError: {errorString in
+				print(errorString!)
+			})
 		}
 	}
-	
 }
 
 
