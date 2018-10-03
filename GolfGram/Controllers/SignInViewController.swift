@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import ProgressHUD
 
 class SignInViewController: UIViewController {
 	@IBOutlet weak var emailTextField: UITextField!
@@ -23,6 +24,10 @@ class SignInViewController: UIViewController {
 		
 		handleTextField()
 		
+	}
+	
+	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+		view.endEditing(true)
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
@@ -50,14 +55,17 @@ class SignInViewController: UIViewController {
 	@IBAction func signInButton(_ sender: Any) {
 		
 		
+		view.endEditing(true)
+		ProgressHUD.show("Waiting...", interaction: false)
+		
 		AuthService.signIn(email: emailTextField.text!, password: passwordTextField.text!, onSuccess:{
-			//print("OnSuccess")
+			
+			ProgressHUD.showSuccess("Success")
 			self.performSegue(withIdentifier: "signInToTabbarVC", sender: nil)
 			
 		}, onError: { errorString in
 			
-			print(errorString!)
-			
+			ProgressHUD.showError(errorString!)
 		})
 	}
 	

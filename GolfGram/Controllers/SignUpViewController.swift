@@ -10,6 +10,8 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
+import ProgressHUD
+
 
 class SignUpViewController: UIViewController {
 	
@@ -44,6 +46,10 @@ class SignUpViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 	
+	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+		view.endEditing(true)
+	}
+	
 	func handleTextField(){
 		usernameTextField.addTarget(self, action:#selector(SignUpViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
 		emailTextField.addTarget(self, action:#selector(SignUpViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
@@ -76,14 +82,24 @@ class SignUpViewController: UIViewController {
 	}
 	
 	@IBAction func signUpPressed(_ sender: Any) {
+		view.endEditing(true)
+		ProgressHUD.show("Waiting...", interaction: false)
 		//Must have selected an image, image turned to jpeg
-		if let profileImg = self.selectedImage,let imageData = profileImg.jpegData(compressionQuality: 0.1) {
+		if let profileImg = self.selectedImage{
+			if let imageData = profileImg.jpegData(compressionQuality: 0.1) {
 
 			AuthService.signUp(username: usernameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, imageData: imageData, onSuccess: {
+				
+				ProgressHUD.showSuccess("Success")
 				self.performSegue(withIdentifier: "signUpToTabbarVC", sender: nil)
+			
 			}, onError: {errorString in
-				print(errorString!)
+			
+				ProgressHUD.showError(errorString!)
 			})
+			}
+		} else {
+			ProgressHUD.showError("Could not sign up user")
 		}
 	}
 }

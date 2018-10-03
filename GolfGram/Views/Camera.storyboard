@@ -16,14 +16,67 @@
                     <view key="view" contentMode="scaleToFill" id="doy-8j-9GL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OXI-N1-N2U">
+                                <rect key="frame" x="0.0" y="64" width="375" height="100"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="O6u-VS-AZ9">
+                                        <rect key="frame" x="96" y="10" width="271" height="80"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="kGB-HZ-4e4"/>
+                                        </constraints>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="CNr-bE-zpl">
+                                        <rect key="frame" x="8" y="10" width="80" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="ide-GA-Yax"/>
+                                            <constraint firstAttribute="width" constant="80" id="klP-YD-5Ny"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="Z1X-cC-0Gr"/>
+                                    <constraint firstItem="O6u-VS-AZ9" firstAttribute="leading" secondItem="CNr-bE-zpl" secondAttribute="trailing" constant="8" id="fRe-Gg-8xg"/>
+                                    <constraint firstItem="O6u-VS-AZ9" firstAttribute="top" secondItem="OXI-N1-N2U" secondAttribute="top" constant="10" id="gzx-uq-P7w"/>
+                                    <constraint firstItem="CNr-bE-zpl" firstAttribute="leading" secondItem="OXI-N1-N2U" secondAttribute="leading" constant="8" id="lke-jt-3kl"/>
+                                    <constraint firstAttribute="bottom" secondItem="O6u-VS-AZ9" secondAttribute="bottom" constant="10" id="nFC-nC-jsB"/>
+                                    <constraint firstAttribute="bottom" secondItem="CNr-bE-zpl" secondAttribute="bottom" constant="10" id="oLA-Re-Kf9"/>
+                                    <constraint firstItem="CNr-bE-zpl" firstAttribute="top" secondItem="OXI-N1-N2U" secondAttribute="top" constant="10" id="ssz-40-VDS"/>
+                                    <constraint firstAttribute="trailing" secondItem="O6u-VS-AZ9" secondAttribute="trailing" constant="8" id="uil-b7-9LZ"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="znh-LV-Xzf">
+                                <rect key="frame" x="8" y="609" width="359" height="50"/>
+                                <color key="backgroundColor" red="0.94509803920000002" green="0.65490196079999996" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="osT-bh-Ek0"/>
+                                </constraints>
+                                <state key="normal" title="Share">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Hr5-Nc-GnN" firstAttribute="bottom" secondItem="znh-LV-Xzf" secondAttribute="bottom" constant="8" id="W8X-Xt-PuR"/>
+                            <constraint firstItem="Hr5-Nc-GnN" firstAttribute="trailing" secondItem="znh-LV-Xzf" secondAttribute="trailing" constant="8" id="aAk-05-efF"/>
+                            <constraint firstItem="OXI-N1-N2U" firstAttribute="trailing" secondItem="Hr5-Nc-GnN" secondAttribute="trailing" id="fki-Zs-Lc1"/>
+                            <constraint firstItem="OXI-N1-N2U" firstAttribute="top" secondItem="Hr5-Nc-GnN" secondAttribute="top" id="rRL-O1-Dnt"/>
+                            <constraint firstItem="OXI-N1-N2U" firstAttribute="leading" secondItem="Hr5-Nc-GnN" secondAttribute="leading" id="vEx-sN-aah"/>
+                            <constraint firstItem="znh-LV-Xzf" firstAttribute="leading" secondItem="Hr5-Nc-GnN" secondAttribute="leading" constant="8" id="ydL-Xz-pIy"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Hr5-Nc-GnN"/>
                     </view>
                     <navigationItem key="navigationItem" title="Camera" id="YHd-UN-Z7C"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L5D-1e-Moy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6673" y="-834"/>
+            <point key="canvasLocation" x="6672.8000000000002" y="-834.33283358320841"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hbm-UB-fgi">
@@ -49,5 +102,6 @@
     </scenes>
     <resources>
         <image name="camera" width="30" height="30"/>
+        <image name="imagePlaceholder" width="30" height="30"/>
     </resources>
 </document>
