@@ -51,9 +51,9 @@ class SignUpViewController: UIViewController {
 	}
 	
 	func handleTextField(){
-		usernameTextField.addTarget(self, action:#selector(SignUpViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
-		emailTextField.addTarget(self, action:#selector(SignUpViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
-		passwordTextField.addTarget(self, action:#selector(SignUpViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
+		usernameTextField.addTarget(self, action:#selector(self.textFieldDidChange), for: UIControl.Event.editingChanged)
+		emailTextField.addTarget(self, action:#selector(self.textFieldDidChange), for: UIControl.Event.editingChanged)
+		passwordTextField.addTarget(self, action:#selector(self.textFieldDidChange), for: UIControl.Event.editingChanged)
 	
 	}
 	
@@ -88,7 +88,7 @@ class SignUpViewController: UIViewController {
 		if let profileImg = self.selectedImage{
 			if let imageData = profileImg.jpegData(compressionQuality: 0.1) {
 
-			AuthService.signUp(username: usernameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, imageData: imageData, onSuccess: {
+				AuthService.signUp(username: usernameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, imageData: imageData, onSuccess: {
 				
 				ProgressHUD.showSuccess("Success")
 				self.performSegue(withIdentifier: "signUpToTabbarVC", sender: nil)

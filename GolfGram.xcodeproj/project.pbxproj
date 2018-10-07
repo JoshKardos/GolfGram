@@ -26,6 +26,9 @@
 		B34E7894215B43E500A79B10 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B34E7893215B43E500A79B10 /* Profile.storyboard */; };
 		B34E7899215B5B6400A79B10 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B34E7898215B5B6400A79B10 /* GoogleService-Info.plist */; };
 		B34E789B2163337700A79B10 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34E789A2163337700A79B10 /* AuthService.swift */; };
+		B34E78A021681CA000A79B10 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34E789F21681CA000A79B10 /* Post.swift */; };
+		B34E78A2216829A400A79B10 /* PostCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34E78A1216829A400A79B10 /* PostCellViewController.swift */; };
+		B34E78A42169BABC00A79B10 /* UserCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34E78A32169BABC00A79B10 /* UserCellViewController.swift */; };
 		EA8BD63C795CB3941B53D9D6 /* Pods_GolfGram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64B9A61353F02E67967D9ED5 /* Pods_GolfGram.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +55,9 @@
 		B34E7893215B43E500A79B10 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		B34E7898215B5B6400A79B10 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B34E789A2163337700A79B10 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		B34E789F21681CA000A79B10 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		B34E78A1216829A400A79B10 /* PostCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellViewController.swift; sourceTree = "<group>"; };
+		B34E78A32169BABC00A79B10 /* UserCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellViewController.swift; sourceTree = "<group>"; };
 		E8F724A2EF8FBDD9ABB0F2D5 /* Pods-GolfGram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GolfGram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GolfGram/Pods-GolfGram.debug.xcconfig"; sourceTree = "<group>"; };
 		FAD97F567FDAA698DBD18A0B /* Pods-GolfGram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GolfGram.release.xcconfig"; path = "Pods/Target Support Files/Pods-GolfGram/Pods-GolfGram.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,6 +114,7 @@
 			children = (
 				B3082FFD2158961B004D0B1A /* AppDelegate.swift */,
 				B34E789A2163337700A79B10 /* AuthService.swift */,
+				B34E789E21681C8400A79B10 /* Models */,
 				B34E7895215B447400A79B10 /* Views */,
 				B32F2504215AB98200930BAA /* Controllers */,
 				B32F2500215AA8B500930BAA /* Assets.xcassets */,
@@ -128,6 +135,8 @@
 				B32F2507215AB9C100930BAA /* CameraViewController.swift */,
 				B32F2509215AB9F000930BAA /* ActivityViewController.swift */,
 				B32F250B215ABA1700930BAA /* ProfileViewController.swift */,
+				B34E78A1216829A400A79B10 /* PostCellViewController.swift */,
+				B34E78A32169BABC00A79B10 /* UserCellViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -144,6 +153,14 @@
 				B34E7893215B43E500A79B10 /* Profile.storyboard */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B34E789E21681C8400A79B10 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B34E789F21681CA000A79B10 /* Post.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,6 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B32F24FD2159C4C800930BAA /* SignUpViewController.swift in Sources */,
+				B34E78A42169BABC00A79B10 /* UserCellViewController.swift in Sources */,
 				B32F24FB2159B87C00930BAA /* SignInViewController.swift in Sources */,
 				B3082FFE2158961B004D0B1A /* AppDelegate.swift in Sources */,
 				B34E789B2163337700A79B10 /* AuthService.swift in Sources */,
@@ -292,6 +310,8 @@
 				B32F2506215AB9AE00930BAA /* DiscoverViewController.swift in Sources */,
 				B32F250C215ABA1700930BAA /* ProfileViewController.swift in Sources */,
 				B32F2508215AB9C100930BAA /* CameraViewController.swift in Sources */,
+				B34E78A021681CA000A79B10 /* Post.swift in Sources */,
+				B34E78A2216829A400A79B10 /* PostCellViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

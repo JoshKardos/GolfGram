@@ -59,8 +59,8 @@ class AuthService {
 					}
 					//get url of image
 					guard let profileImageUrl = url?.absoluteString else {return}
-					
-					self.signUpUser(profileImageUrl: profileImageUrl, username: username, email: email, uid: (user?.user.uid)!, onSuccess: onSuccess)
+					let uid = Auth.auth().currentUser!.uid
+					self.signUpUser(profileImageUrl: profileImageUrl, username: username, email: email, uid: uid, onSuccess: onSuccess)
 					
 					
 				}
@@ -74,7 +74,7 @@ class AuthService {
 		let usersRef = Database.database().reference().child("users")
 		
 		//save user(username, email, profileImage)
-		usersRef.childByAutoId().setValue(["username": username, "email" : email, "profileImageUrl": profileImageUrl])
+		usersRef.child(uid).setValue(["username": username, "email" : email, "profileImageUrl": profileImageUrl, "uid": uid])
 		
 		onSuccess()
 	}
