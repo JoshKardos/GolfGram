@@ -16,9 +16,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="2kw-tm-ZG6">
+                        <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="prominent" text="" placeholder="Search" id="2kw-tm-ZG6">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <offsetWrapper key="searchFieldBackgroundPositionAdjustment" horizontal="0.0" vertical="0.0"/>
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
@@ -38,9 +39,9 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jca-N0-yPo">
-                                            <rect key="frame" x="111" y="27" width="248" height="21"/>
+                                            <rect key="frame" x="111" y="27" width="159" height="21"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" secondItem="jca-N0-yPo" secondAttribute="height" multiplier="248:21" id="fPC-eq-ltq"/>
+                                                <constraint firstAttribute="width" secondItem="jca-N0-yPo" secondAttribute="height" multiplier="53:7" id="rlx-mh-3ee"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -49,11 +50,10 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="2F8-V7-uen" firstAttribute="leading" secondItem="0oP-pZ-BKj" secondAttribute="leading" constant="16" id="MR0-45-msr"/>
-                                        <constraint firstItem="jca-N0-yPo" firstAttribute="top" secondItem="0oP-pZ-BKj" secondAttribute="top" constant="27" id="Xln-q8-5H7"/>
-                                        <constraint firstAttribute="trailing" secondItem="jca-N0-yPo" secondAttribute="trailing" constant="16" id="ft6-5y-Ip3"/>
+                                        <constraint firstItem="jca-N0-yPo" firstAttribute="top" secondItem="0oP-pZ-BKj" secondAttribute="top" constant="27" id="bgT-bf-r1a"/>
                                         <constraint firstItem="2F8-V7-uen" firstAttribute="top" secondItem="0oP-pZ-BKj" secondAttribute="top" constant="13" id="jkW-5B-V4K"/>
                                         <constraint firstAttribute="bottom" secondItem="2F8-V7-uen" secondAttribute="bottom" constant="13.5" id="jky-PT-3WQ"/>
-                                        <constraint firstItem="jca-N0-yPo" firstAttribute="leading" secondItem="2F8-V7-uen" secondAttribute="trailing" constant="43" id="u17-38-TeD"/>
+                                        <constraint firstItem="jca-N0-yPo" firstAttribute="leading" secondItem="2F8-V7-uen" secondAttribute="trailing" constant="43" id="uRp-2c-ptn"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

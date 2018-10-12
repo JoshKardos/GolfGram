@@ -11,6 +11,7 @@ import ProgressHUD
 import FirebaseDatabase
 import FirebaseStorage
 import FirebaseDatabase
+import FirebaseAuth
 
 class CameraViewController: UIViewController {
 
@@ -27,7 +28,6 @@ class CameraViewController: UIViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-
 		let tapGesture = UITapGestureRecognizer(target: self, action: #selector(CameraViewController.handleSelectPhoto))
 		photo.isUserInteractionEnabled = true
 		
@@ -131,9 +131,11 @@ class CameraViewController: UIViewController {
 		//Reference to new post
 		let newPostRef = postsRef.child(newPostId!)
 		
+		//set current user id
+		let userId = Auth.auth().currentUser!.uid
 		
 		//set the value of the new post reference
-		newPostRef.setValue(["photoUrl": photoUrl, "caption": captionTextView.text!]) { (error, ref) in
+		newPostRef.setValue(["photoUrl": photoUrl, "caption": captionTextView.text!, "photoId": newPostId, "senderId":userId]) { (error, ref) in
 			if error != nil {
 				ProgressHUD.showError(error!.localizedDescription)
 				return

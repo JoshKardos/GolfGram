@@ -8,13 +8,17 @@
 
 import Foundation
 class Post{
-	var caption: String
-	var photoUrl: String
+	var caption: String?
+	var photoId: String?
+	var photoUrl: String?
+	var senderId: String?
 	
 	
-	init(captionText: String, photoUrlString: String){
-		caption = captionText
+	init(captionString: String, photoIdString: String, photoUrlString: String, senderIdString: String){
+		caption = captionString
+		photoId = photoIdString
 		photoUrl = photoUrlString
+		senderId = senderIdString
 	}
 	
 }

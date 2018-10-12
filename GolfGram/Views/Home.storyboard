@@ -21,42 +21,55 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="736"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="295" id="d3x-XR-UuT" customClass="PostCellViewController" customModule="GolfGram" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="295"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="323" id="d3x-XR-UuT" customClass="PostCellViewController" customModule="GolfGram" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="323"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d3x-XR-UuT" id="XJq-im-ya1">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="294.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="322.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1kj-R1-roF">
-                                                    <rect key="frame" x="85" y="11" width="205" height="201"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="1kj-R1-roF" secondAttribute="height" multiplier="205:201" id="Ugn-Y2-XZz"/>
-                                                    </constraints>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="agp-6j-gyr">
-                                                    <rect key="frame" x="71" y="220" width="233" height="64"/>
+                                                    <rect key="frame" x="71" y="274.5" width="233" height="20"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="agp-6j-gyr" secondAttribute="height" multiplier="233:64" id="DI3-Ro-SRT"/>
+                                                        <constraint firstAttribute="width" secondItem="agp-6j-gyr" secondAttribute="height" multiplier="233:20" id="Kov-93-tnO"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tsk-af-fjc">
+                                                    <rect key="frame" x="15" y="25" width="239.5" height="21.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="Tsk-af-fjc" secondAttribute="height" multiplier="78:7" id="aas-50-1cc"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1kj-R1-roF">
+                                                    <rect key="frame" x="85" y="65.5" width="205" height="201"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="1kj-R1-roF" secondAttribute="height" multiplier="205:201" id="6F3-aX-1zW"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="1kj-R1-roF" secondAttribute="trailing" constant="85" id="1Xy-6G-KlI"/>
-                                                <constraint firstItem="1kj-R1-roF" firstAttribute="top" secondItem="XJq-im-ya1" secondAttribute="top" constant="11" id="ApZ-1A-mUb"/>
-                                                <constraint firstAttribute="bottom" secondItem="agp-6j-gyr" secondAttribute="bottom" constant="10.5" id="Lo4-l9-t3M"/>
-                                                <constraint firstItem="agp-6j-gyr" firstAttribute="top" secondItem="1kj-R1-roF" secondAttribute="bottom" constant="8" id="Qcw-dF-YNj"/>
-                                                <constraint firstItem="agp-6j-gyr" firstAttribute="leading" secondItem="XJq-im-ya1" secondAttribute="leading" constant="71" id="bwQ-ZY-iEb"/>
-                                                <constraint firstItem="1kj-R1-roF" firstAttribute="leading" secondItem="XJq-im-ya1" secondAttribute="leading" constant="85" id="qQD-3Y-OgJ"/>
-                                                <constraint firstAttribute="trailing" secondItem="agp-6j-gyr" secondAttribute="trailing" constant="71" id="uH3-Pb-llR"/>
+                                                <constraint firstItem="agp-6j-gyr" firstAttribute="top" secondItem="1kj-R1-roF" secondAttribute="bottom" constant="8" id="1Mm-ox-Gbu"/>
+                                                <constraint firstAttribute="bottom" secondItem="agp-6j-gyr" secondAttribute="bottom" constant="28" id="7MS-Ja-WXw"/>
+                                                <constraint firstItem="agp-6j-gyr" firstAttribute="top" secondItem="1kj-R1-roF" secondAttribute="bottom" constant="8" id="7Wa-I9-aki"/>
+                                                <constraint firstItem="Tsk-af-fjc" firstAttribute="leading" secondItem="XJq-im-ya1" secondAttribute="leading" constant="15" id="Ei9-QB-J3o"/>
+                                                <constraint firstItem="1kj-R1-roF" firstAttribute="leading" secondItem="XJq-im-ya1" secondAttribute="leading" constant="85" id="Qdv-SR-nHJ"/>
+                                                <constraint firstItem="Tsk-af-fjc" firstAttribute="top" secondItem="XJq-im-ya1" secondAttribute="top" constant="25" id="YbA-Cn-2fD"/>
+                                                <constraint firstItem="agp-6j-gyr" firstAttribute="leading" secondItem="XJq-im-ya1" secondAttribute="leading" constant="71" id="jJ2-fJ-iUi"/>
+                                                <constraint firstAttribute="trailing" secondItem="1kj-R1-roF" secondAttribute="trailing" constant="85" id="lnn-Rw-6zb"/>
+                                                <constraint firstAttribute="trailing" secondItem="agp-6j-gyr" secondAttribute="trailing" constant="71" id="n7N-2f-qpc"/>
+                                                <constraint firstItem="1kj-R1-roF" firstAttribute="top" secondItem="Tsk-af-fjc" secondAttribute="bottom" constant="19" id="ofM-6Y-meY"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="cellImage" destination="1kj-R1-roF" id="s9r-gc-qUJ"/>
                                             <outlet property="cellLabel" destination="agp-6j-gyr" id="tFE-WV-C6l"/>
+                                            <outlet property="usernameLabel" destination="Tsk-af-fjc" id="UgQ-KY-2K5"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -80,6 +93,7 @@
                     </navigationItem>
                     <size key="freeformSize" width="375" height="800"/>
                     <connections>
+                        <outlet property="logOutButton" destination="Wsk-Cq-2pf" id="1Ef-rM-lBl"/>
                         <outlet property="tableView" destination="awx-y1-f60" id="h5O-dP-3q1"/>
                     </connections>
                 </viewController>

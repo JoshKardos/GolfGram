@@ -15,7 +15,7 @@ class DiscoverViewController: UITableViewController, UISearchResultsUpdating {
 	@IBOutlet weak var searchBar: UISearchBar!
 	
 	
-	var usersArray = [NSDictionary?]()
+	static var usersArray = [NSDictionary?]()
 	var filteredUsers = [NSDictionary?]()
 	
 	var databaseRef = Database.database().reference()
@@ -26,11 +26,12 @@ class DiscoverViewController: UITableViewController, UISearchResultsUpdating {
 
 		searchController.searchResultsUpdater = self
 		searchController.dimsBackgroundDuringPresentation = false
+		searchController.searchBar.tintColor = UIColor.flatGreenDark
 		definesPresentationContext = true
 		tableView.tableHeaderView = searchController.searchBar
 		
 		databaseRef.child("users").queryOrdered(byChild: "name").observe(.childAdded) { (snapshot) in
-			self.usersArray.append(snapshot.value as? NSDictionary)
+			DiscoverViewController.usersArray.append(snapshot.value as? NSDictionary)
 
 			//self.insert
 		}
@@ -44,7 +45,7 @@ class DiscoverViewController: UITableViewController, UISearchResultsUpdating {
 			return filteredUsers.count
 		}
 		
-		return self.usersArray.count
+		return DiscoverViewController.usersArray.count
 	}
 	
 	//text to put in cell
@@ -57,7 +58,7 @@ class DiscoverViewController: UITableViewController, UISearchResultsUpdating {
 		if searchController.isActive && searchController.searchBar.text != ""{
 			user = filteredUsers[indexPath.row]
 		} else {
-			user = self.usersArray[indexPath.row]
+			user = DiscoverViewController.usersArray[indexPath.row]
 		}
 		
 		let url = URL(string: user?["profileImageUrl"] as! String)//NSURL.init(fileURLWithPath: posts[indexPath.row].photoUrl)
@@ -80,7 +81,7 @@ class DiscoverViewController: UITableViewController, UISearchResultsUpdating {
 
 		var isFollower = false
 
-		let otherUser = self.usersArray[indexPath.row]
+		let otherUser = DiscoverViewController.usersArray[indexPath.row]
 		let otherUserUid = otherUser!["uid"] as! String
 		
 		ref.child("users").child(uid).child("following").queryOrderedByKey().observeSingleEvent(of: .value) { (snapshot) in
@@ -123,7 +124,7 @@ class DiscoverViewController: UITableViewController, UISearchResultsUpdating {
 		let uid = Auth.auth().currentUser!.uid
 		let ref = Database.database().reference()
 		
-		let otherUser = self.usersArray[indexPath.row]
+		let otherUser = DiscoverViewController.usersArray[indexPath.row]
 		let otherUserUid = otherUser!["uid"] as! String
 		
 		ref.child("users").child(uid).child("following").queryOrderedByKey().observeSingleEvent(of: .value) { (snapshot) in
@@ -157,7 +158,7 @@ extension DiscoverViewController: UISearchBarDelegate{
 	
 	func filterContent(searchText: String){
 		
-		self.filteredUsers = self.usersArray.filter{ user in
+		self.filteredUsers = DiscoverViewController.usersArray.filter{ user in
 			
 			let username = user!["username"] as? String
 			
@@ -168,7 +169,6 @@ extension DiscoverViewController: UISearchBarDelegate{
 		tableView.reloadData()
 		
 	}
-	
 	
 	func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
 		//todoItems = todoItems?.filter("title CONTAINS[cd] %@",searchBar.text!).sorted(byKeyPath: "dateCreated", ascending: true)
