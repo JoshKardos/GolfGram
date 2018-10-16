@@ -37,36 +37,34 @@ class HomeViewController: UIViewController {
 		let ref = Database.database().reference()
 		posts.removeAll()
 		following.removeAll()
+		
 		//access posts
 		ref.child("users").queryOrderedByKey().observeSingleEvent(of: .value) { (snapshot) in
 			
+			//all users
 			let users = snapshot.value as! [String: AnyObject]
-			for(_, value) in users {
-				if let uid = value["uid"] as? String {
+			for(_, user) in users {
+				//
+				if let uid = user["uid"] as? String {
 					if uid == Auth.auth().currentUser?.uid{
-						
-						
-						if let followingUsers = value["following"] as? [String: String]{
-							
-			
+						//current user
+					
+						//access followers of current user
+						if let followingUsers = user["following"] as? [String: String]{
 							for(_, user) in followingUsers{
-								self.following.append(user)
+								self.following.append(user)//add all the user's following
 							}
+							//following is filled
 						}
-						//self.following.append(Auth.auth().currentUser!.uid)
-						
+						//access posts
 						ref.child("posts").queryOrderedByKey().observeSingleEvent(of: .value, with: { (snap) in//get all posts
 							
+							if	let posts = snap.value as? [String: AnyObject]{
 							
-							
-							if	let postsSnap = snap.value as? [String: AnyObject]{//store in variable
-							
-							for(_, post) in postsSnap {
-								if let userId = value["uid"] as? String {
-									print("NOW HERE")
+							for(_, post) in posts {
+								//individual post
+								if let userId = post["senderId"] as? String {
 									for each in self.following {
-										
-										print("********* HERE \(each)")
 										if each == userId {
 											if let caption = post["caption"] as? String, let photoId = post["photoId"] as? String, let photoUrl = post["photoUrl"]as? String, let senderId = post["senderId"] as? String{
 												

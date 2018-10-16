@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseDatabase
 import FirebaseAuth
+import ProgressHUD
 class DiscoverViewController: UITableViewController, UISearchResultsUpdating {
 	
 	let searchController = UISearchController(searchResultsController: nil)
@@ -20,7 +21,7 @@ class DiscoverViewController: UITableViewController, UISearchResultsUpdating {
 	
 	var databaseRef = Database.database().reference()
 	
-	
+
 	override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,6 +31,8 @@ class DiscoverViewController: UITableViewController, UISearchResultsUpdating {
 		definesPresentationContext = true
 		tableView.tableHeaderView = searchController.searchBar
 		
+		//remove in order to mae sure its a fresh search fucntion when signing in
+		DiscoverViewController.usersArray.removeAll()
 		databaseRef.child("users").queryOrdered(byChild: "name").observe(.childAdded) { (snapshot) in
 			DiscoverViewController.usersArray.append(snapshot.value as? NSDictionary)
 
@@ -91,19 +94,20 @@ class DiscoverViewController: UITableViewController, UISearchResultsUpdating {
 				for(ke, value) in following {
 					
 					if value as! String == otherUserUid{
+	
+							isFollower = true
+
+							ref.child("users").child(uid).child("following/\(ke)").removeValue()
+							ref.child("users").child(otherUserUid).child("followers/\(ke)").removeValue()
+
+							tableView.cellForRow(at: indexPath)?.accessoryType = .none
 						
-						isFollower = true
-
-						ref.child("users").child(uid).child("following/\(ke)").removeValue()
-						ref.child("users").child(otherUserUid).child("followers/\(ke)").removeValue()
-
-						tableView.cellForRow(at: indexPath)?.accessoryType = .none
 					}
 					
 				}
 			}
 		
-			if !isFollower {
+			if !isFollower && uid != otherUserUid{
 				let following = ["following/\(key)" : otherUserUid ]
 				let followers = ["followers/\(key)" : uid ]
 				
@@ -111,8 +115,8 @@ class DiscoverViewController: UITableViewController, UISearchResultsUpdating {
 				ref.child("users").child(otherUserUid).updateChildValues(followers)
 				
 				tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-				
-				
+			} else if uid == otherUserUid{
+				ProgressHUD.showError("Cannot follow yourself")
 			}
 			
 			

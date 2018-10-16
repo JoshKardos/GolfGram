@@ -18,6 +18,7 @@
 		B32F2508215AB9C100930BAA /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F2507215AB9C100930BAA /* CameraViewController.swift */; };
 		B32F250A215AB9F000930BAA /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F2509215AB9F000930BAA /* ActivityViewController.swift */; };
 		B32F250C215ABA1700930BAA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F250B215ABA1700930BAA /* ProfileViewController.swift */; };
+		B3433A9821744C8C00BE44D7 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3433A9721744C8C00BE44D7 /* MessagesViewController.swift */; };
 		B34E788A215B0AA600A79B10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B34E7889215B0AA600A79B10 /* Main.storyboard */; };
 		B34E788C215B354E00A79B10 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B34E788B215B354E00A79B10 /* Home.storyboard */; };
 		B34E788E215B361500A79B10 /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B34E788D215B361500A79B10 /* Discover.storyboard */; };
@@ -47,6 +48,7 @@
 		B32F2507215AB9C100930BAA /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		B32F2509215AB9F000930BAA /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		B32F250B215ABA1700930BAA /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		B3433A9721744C8C00BE44D7 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		B34E7889215B0AA600A79B10 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		B34E788B215B354E00A79B10 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		B34E788D215B361500A79B10 /* Discover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Discover.storyboard; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				B32F250B215ABA1700930BAA /* ProfileViewController.swift */,
 				B34E78A1216829A400A79B10 /* PostCellViewController.swift */,
 				B34E78A32169BABC00A79B10 /* UserCellViewController.swift */,
+				B3433A9721744C8C00BE44D7 /* MessagesViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				B34E789B2163337700A79B10 /* AuthService.swift in Sources */,
 				B32F2503215AB96700930BAA /* HomeViewController.swift in Sources */,
 				B32F250A215AB9F000930BAA /* ActivityViewController.swift in Sources */,
+				B3433A9821744C8C00BE44D7 /* MessagesViewController.swift in Sources */,
 				B32F2506215AB9AE00930BAA /* DiscoverViewController.swift in Sources */,
 				B32F250C215ABA1700930BAA /* ProfileViewController.swift in Sources */,
 				B32F2508215AB9C100930BAA /* CameraViewController.swift in Sources */,
