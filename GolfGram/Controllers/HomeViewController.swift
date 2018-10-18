@@ -130,6 +130,16 @@ extension HomeViewController: UITableViewDataSource{
 		cell.cellImage.image = UIImage(data: imageData as! Data)
 		cell.cellLabel.text = self.posts[indexPath.row].caption
 		
+		Database.database().reference().child("users").child(posts[indexPath.row].senderId!).observeSingleEvent(of: .value, with: {(snapshot) in
+			
+			let username = (snapshot.value as! NSDictionary)["username"] as! String
+			
+			cell.usernameLabel.text = username
+			
+		})
+		
+		
+		
 		
 		return cell
 	}

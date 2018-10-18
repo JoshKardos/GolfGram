@@ -30,6 +30,8 @@
 		B34E78A021681CA000A79B10 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34E789F21681CA000A79B10 /* Post.swift */; };
 		B34E78A2216829A400A79B10 /* PostCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34E78A1216829A400A79B10 /* PostCellViewController.swift */; };
 		B34E78A42169BABC00A79B10 /* UserCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34E78A32169BABC00A79B10 /* UserCellViewController.swift */; };
+		B3BD05822177F5B500315922 /* CreateNewMessageThreadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BD05812177F5B500315922 /* CreateNewMessageThreadViewController.swift */; };
+		B3BD05842177F6F700315922 /* SearchUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BD05832177F6F700315922 /* SearchUsersViewController.swift */; };
 		EA8BD63C795CB3941B53D9D6 /* Pods_GolfGram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64B9A61353F02E67967D9ED5 /* Pods_GolfGram.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +62,8 @@
 		B34E789F21681CA000A79B10 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		B34E78A1216829A400A79B10 /* PostCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellViewController.swift; sourceTree = "<group>"; };
 		B34E78A32169BABC00A79B10 /* UserCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellViewController.swift; sourceTree = "<group>"; };
+		B3BD05812177F5B500315922 /* CreateNewMessageThreadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewMessageThreadViewController.swift; sourceTree = "<group>"; };
+		B3BD05832177F6F700315922 /* SearchUsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUsersViewController.swift; sourceTree = "<group>"; };
 		E8F724A2EF8FBDD9ABB0F2D5 /* Pods-GolfGram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GolfGram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GolfGram/Pods-GolfGram.debug.xcconfig"; sourceTree = "<group>"; };
 		FAD97F567FDAA698DBD18A0B /* Pods-GolfGram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GolfGram.release.xcconfig"; path = "Pods/Target Support Files/Pods-GolfGram/Pods-GolfGram.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -133,13 +137,15 @@
 				B32F24FA2159B87C00930BAA /* SignInViewController.swift */,
 				B32F24FC2159C4C800930BAA /* SignUpViewController.swift */,
 				B32F2502215AB96700930BAA /* HomeViewController.swift */,
-				B32F2505215AB9AE00930BAA /* DiscoverViewController.swift */,
 				B32F2507215AB9C100930BAA /* CameraViewController.swift */,
 				B32F2509215AB9F000930BAA /* ActivityViewController.swift */,
 				B32F250B215ABA1700930BAA /* ProfileViewController.swift */,
 				B34E78A1216829A400A79B10 /* PostCellViewController.swift */,
 				B34E78A32169BABC00A79B10 /* UserCellViewController.swift */,
 				B3433A9721744C8C00BE44D7 /* MessagesViewController.swift */,
+				B3BD05832177F6F700315922 /* SearchUsersViewController.swift */,
+				B32F2505215AB9AE00930BAA /* DiscoverViewController.swift */,
+				B3BD05812177F5B500315922 /* CreateNewMessageThreadViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -311,11 +317,13 @@
 				B32F2503215AB96700930BAA /* HomeViewController.swift in Sources */,
 				B32F250A215AB9F000930BAA /* ActivityViewController.swift in Sources */,
 				B3433A9821744C8C00BE44D7 /* MessagesViewController.swift in Sources */,
+				B3BD05842177F6F700315922 /* SearchUsersViewController.swift in Sources */,
 				B32F2506215AB9AE00930BAA /* DiscoverViewController.swift in Sources */,
 				B32F250C215ABA1700930BAA /* ProfileViewController.swift in Sources */,
 				B32F2508215AB9C100930BAA /* CameraViewController.swift in Sources */,
 				B34E78A021681CA000A79B10 /* Post.swift in Sources */,
 				B34E78A2216829A400A79B10 /* PostCellViewController.swift in Sources */,
+				B3BD05822177F5B500315922 /* CreateNewMessageThreadViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
