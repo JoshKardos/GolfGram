@@ -12,6 +12,7 @@
         <scene sceneID="WUV-p4-0Iw">
             <objects>
                 <tabBarController id="5ZI-Ae-P5V" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bHn-ZE-hEO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

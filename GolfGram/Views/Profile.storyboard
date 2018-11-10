@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -14,7 +11,7 @@
             <objects>
                 <viewController id="aMB-cz-M2r" customClass="ProfileViewController" customModule="GolfGram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8Kk-2G-HS0">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ve-1l-Jg7">
@@ -60,17 +57,17 @@
         <!--Messages-->
         <scene sceneID="UPL-eT-aqF">
             <objects>
-                <tableViewController title="Messages" id="yxT-1b-9lf" sceneMemberID="viewController">
+                <tableViewController title="Messages" id="yxT-1b-9lf" customClass="MessagesViewController" customModule="GolfGram" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="eoL-Zs-RTq">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="PsY-9P-1TA">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="userMessageCell" id="PsY-9P-1TA" customClass="UserCellViewControllerInDiscover" customModule="GolfGram" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PsY-9P-1TA" id="DHp-Vy-TD3">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -88,9 +85,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <segue destination="1t3-4d-ZHx" kind="show" id="0pE-SD-IxF"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Cx-lR-CSi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -101,20 +95,20 @@
             <objects>
                 <tableViewController id="TYT-Dh-HRx" customClass="CreateNewMessageThreadViewController" customModule="GolfGram" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="zZJ-TZ-Y50">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" id="Uzd-2j-18j">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="userCell" rowHeight="75" id="Nrx-RT-LDl" customClass="UserCellViewController" customModule="GolfGram" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="375" height="75"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="userCell" rowHeight="75" id="Nrx-RT-LDl" customClass="UserCellViewControllerInDiscover" customModule="GolfGram" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="600" height="75"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Nrx-RT-LDl" id="heM-4w-qMC">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="74.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Portrait_Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="vPR-F8-eqP">
@@ -157,64 +151,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t9U-L4-h21" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9990" y="-1406"/>
+            <point key="canvasLocation" x="10031" y="-1145"/>
         </scene>
-        <!--Messages View Controller-->
+        <!--View Controller-->
         <scene sceneID="ay5-9K-7V7">
             <objects>
-                <viewController id="1t3-4d-ZHx" customClass="MessagesViewController" customModule="GolfGram" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="CH3-Dw-a1W">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dPG-cS-bKU" userLabel="Bottom Container">
-                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qpT-8o-Tkd">
-                                        <rect key="frame" x="295" y="0.0" width="80" height="50"/>
-                                        <color key="backgroundColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="80" id="OJ3-e0-ydX"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <connections>
-                                            <action selector="sendPressed:" destination="1t3-4d-ZHx" eventType="touchUpInside" id="gxQ-FU-wua"/>
-                                        </connections>
-                                    </button>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wRS-IC-vri">
-                                        <rect key="frame" x="8" y="0.0" width="287" height="50"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="wRS-IC-vri" firstAttribute="leading" secondItem="dPG-cS-bKU" secondAttribute="leading" constant="8" id="4kw-o4-8MH"/>
-                                    <constraint firstItem="qpT-8o-Tkd" firstAttribute="top" secondItem="dPG-cS-bKU" secondAttribute="top" id="NNm-cv-m0H"/>
-                                    <constraint firstItem="wRS-IC-vri" firstAttribute="top" secondItem="dPG-cS-bKU" secondAttribute="top" id="XM2-fC-9cc"/>
-                                    <constraint firstItem="qpT-8o-Tkd" firstAttribute="leading" secondItem="wRS-IC-vri" secondAttribute="trailing" id="Ybu-kM-8tJ"/>
-                                    <constraint firstAttribute="trailing" secondItem="qpT-8o-Tkd" secondAttribute="trailing" id="d7U-cf-HHM"/>
-                                    <constraint firstItem="wRS-IC-vri" firstAttribute="centerY" secondItem="dPG-cS-bKU" secondAttribute="centerY" id="fNV-ie-o9c"/>
-                                    <constraint firstAttribute="height" constant="50" id="kjq-6L-FND"/>
-                                    <constraint firstAttribute="bottom" secondItem="wRS-IC-vri" secondAttribute="bottom" id="m36-RO-eSr"/>
-                                    <constraint firstItem="qpT-8o-Tkd" firstAttribute="centerY" secondItem="dPG-cS-bKU" secondAttribute="centerY" id="xOt-th-kvi"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="dPG-cS-bKU" firstAttribute="bottom" secondItem="7gM-7C-c5z" secondAttribute="bottom" id="BJb-8d-4Uy"/>
-                            <constraint firstItem="dPG-cS-bKU" firstAttribute="trailing" secondItem="7gM-7C-c5z" secondAttribute="trailing" id="CPv-RH-WAY"/>
-                            <constraint firstItem="dPG-cS-bKU" firstAttribute="leading" secondItem="7gM-7C-c5z" secondAttribute="leading" id="RGt-BJ-mFl"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="7gM-7C-c5z"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="X5x-DH-yVh"/>
-                    <connections>
-                        <outlet property="sendButton" destination="qpT-8o-Tkd" id="mfV-2V-cF2"/>
-                        <outlet property="textField" destination="wRS-IC-vri" id="F1s-qk-aqf"/>
-                    </connections>
-                </viewController>
+                <viewController id="1t3-4d-ZHx" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b0j-TU-epa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="9990" y="-422"/>

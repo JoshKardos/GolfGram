@@ -12,7 +12,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 
-class UserCellViewControllerInDiscover: UITableViewCell {
+class UserCellViewControllerInDiscover: UITableViewCell{
 	
 	
 	@IBOutlet weak var cellImage: UIImageView!

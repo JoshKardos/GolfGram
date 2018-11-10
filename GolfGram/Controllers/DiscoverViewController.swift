@@ -33,7 +33,7 @@ class DiscoverViewController: UITableViewController, UISearchResultsUpdating {
 		
 		//remove in order to mae sure its a fresh search fucntion when signing in
 		DiscoverViewController.usersArray.removeAll()
-		databaseRef.child("users").queryOrdered(byChild: "name").observe(.childAdded) { (snapshot) in
+		databaseRef.child("users").queryOrdered(byChild: "username").observe(.childAdded) { (snapshot) in
 			DiscoverViewController.usersArray.append(snapshot.value as? NSDictionary)
 
 			//self.insert
@@ -54,7 +54,7 @@ class DiscoverViewController: UITableViewController, UISearchResultsUpdating {
 	//text to put in cell
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		
-		let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath) as! UserCellViewController
+		let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath) as! UserCellViewControllerInDiscover
 		
 		let user : NSDictionary?
 		
@@ -75,7 +75,7 @@ class DiscoverViewController: UITableViewController, UISearchResultsUpdating {
 		return cell
 	}
 	
-	//when row is sleected
+	//when row is selected
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		
 		let uid = Auth.auth().currentUser!.uid

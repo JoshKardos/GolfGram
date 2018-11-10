@@ -21,7 +21,7 @@ class CreateNewMessageThreadViewController: UITableViewController, UISearchResul
 	var personToMessage = [NSDictionary?]()
 	
 	var databaseRef = Database.database().reference()
-	
+	var chatLogController: ChatLogViewController?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -41,6 +41,15 @@ class CreateNewMessageThreadViewController: UITableViewController, UISearchResul
 		}
 	}
 	
+	func showChatController(otherUser: User){
+		
+		let chatLogController = ChatLogViewController()
+		chatLogController.otherUser = otherUser
+	
+		navigationController?.pushViewController(chatLogController, animated: true)
+	}
+	
+	
 	//MARK: - Tableview Methods
 	
 	//rows in table
@@ -49,114 +58,50 @@ class CreateNewMessageThreadViewController: UITableViewController, UISearchResul
 			return filteredUsers.count
 		}
 		
-		return CreateNewMessageThreadViewController.usersArray.count
+		return 0
 	}
 	
 	//text to put in cell
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		
-		let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath) as! UserCellViewController
+		let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath) as! UserCellViewControllerInDiscover
 		
 		let user : NSDictionary?
 		
 		if searchController.isActive && searchController.searchBar.text != ""{
 			user = filteredUsers[indexPath.row]
-		} else {
-			user = CreateNewMessageThreadViewController.usersArray[indexPath.row]
+			let url = URL(string: user?["profileImageUrl"] as! String)//NSURL.init(fileURLWithPath: posts[indexPath.row].photoUrl)
+			let imageData = NSData.init(contentsOf: url as! URL)
+			
+			cell.cellImage.image = UIImage(data: imageData as! Data)
+			cell.cellLabel.text = user?["username"] as? String
+			
 		}
-		
-		let url = URL(string: user?["profileImageUrl"] as! String)//NSURL.init(fileURLWithPath: posts[indexPath.row].photoUrl)
-		let imageData = NSData.init(contentsOf: url as! URL)
-		
-		cell.cellImage.image = UIImage(data: imageData as! Data)
-		cell.cellLabel.text = user?["username"] as? String
 		
 		return cell
 	}
 	
-	//when row is sleected
+	//when row is selected
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		
 		let uid = Auth.auth().currentUser!.uid
-		let ref = Database.database().reference().child("users")
+		let refUsers = Database.database().reference().child("users")
+		let refMessages = Database.database().reference().child("messages")
+		if searchController.isActive && searchController.searchBar.text != ""{
+			dismiss(animated: true) {
+
+				let otherUser = self.filteredUsers[indexPath.row]
+				print(otherUser!["username"])
+				var otherUserObject = User(emailString: otherUser!["email"] as! String, followersStrings: otherUser!["followers"] as! NSDictionary, followingStrings: otherUser!["following"] as! NSDictionary, profileImageUrlString: otherUser!["profileImageUrl"] as! String, uidString: otherUser!["uid"]as! String, usernameString: otherUser!["username"]as! String)
+				
+				self.showChatController(otherUser: otherUserObject)
 		
-		let otherUser = CreateNewMessageThreadViewController.usersArray[indexPath.row]
-		let otherUserUid = otherUser!["uid"] as! String
-		if uid != otherUserUid{
-			if searchController.isActive && searchController.searchBar.text != "" {
-				
-				if tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark{
-					
-					tableView.cellForRow(at: indexPath)?.accessoryType = .none
-					
-				}else {
-					
-					tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-					print(filteredUsers.count)
-					print("MESSAGE TO \(filteredUsers[indexPath.row])")
-					
-				}
-			} else {
-				
-				
-				if tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark{
-					tableView.cellForRow(at: indexPath)?.accessoryType = .none
-					
-				}else {
-					tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-					print(CreateNewMessageThreadViewController.usersArray.count)
-					print("MESSAGE TO \(CreateNewMessageThreadViewController.usersArray[indexPath.row])")
-					
-				}
-				
 			}
-		} else {
-			
-			ProgressHUD.showError("Cannot message yourself")
-			
 		}
-		
-		//
-		//		if tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark{
-		//			tableView.cellForRow(at: indexPath)?.accessoryType = .none
-		//
-		//		}else {
-		//			tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-		//			print(filteredUsers.count)
-		//			print("MESSAGE TO \(filteredUsers[indexPath.row])")
-		//
-		//		}
-		
-		
-		
-		ref.removeAllObservers()
-		
+		else{
+			ProgressHUD.showError("Search for someone")
+		}
 	}
-	//	func checkFollowing(indexPath: IndexPath){
-	//		let uid = Auth.auth().currentUser!.uid
-	//		let ref = Database.database().reference()
-	//
-	//		let otherUser = CreateNewMessageThreadViewController.usersArray[indexPath.row]
-	//		let otherUserUid = otherUser!["uid"] as! String
-	//
-	//		ref.child("users").child(uid).child("following").queryOrderedByKey().observeSingleEvent(of: .value) { (snapshot) in
-	//
-	//			if let following = snapshot.value as? [String:AnyObject]{
-	//
-	//				for(ke, value) in following {
-	//					if value as! String == otherUserUid{
-	//
-	//						self.tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-	//
-	//
-	//					}
-	//				}
-	//			}
-	//
-	//		}
-	//		ref.removeAllObservers()
-	//
-	//	}
 	
 }
 
@@ -183,7 +128,6 @@ extension CreateNewMessageThreadViewController: UISearchBarDelegate{
 	}
 	
 	func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-		//todoItems = todoItems?.filter("title CONTAINS[cd] %@",searchBar.text!).sorted(byKeyPath: "dateCreated", ascending: true)
 		tableView.reloadData()
 		
 	}
@@ -191,15 +135,11 @@ extension CreateNewMessageThreadViewController: UISearchBarDelegate{
 	//search bar text changed
 	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 		if searchBar.text?.count == 0 {
-			//loadItems()
 			
 			//Disaptch Queue object assigns projects to different thread
 			DispatchQueue.main.async {
 				searchBar.resignFirstResponder()
 			}
-			
-			
-			
 		}
 	}
 	
