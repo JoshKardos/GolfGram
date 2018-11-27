@@ -20,7 +20,6 @@
 		B32F250A215AB9F000930BAA /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F2509215AB9F000930BAA /* ActivityViewController.swift */; };
 		B32F250C215ABA1700930BAA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F250B215ABA1700930BAA /* ProfileViewController.swift */; };
 		B3431C582196806600401E8D /* UserCellViewControllerInMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3431C572196806600401E8D /* UserCellViewControllerInMessages.swift */; };
-		B3431C5A219680BB00401E8D /* UserCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3431C59219680BB00401E8D /* UserCellView.swift */; };
 		B3433A9821744C8C00BE44D7 /* ChatLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3433A9721744C8C00BE44D7 /* ChatLogViewController.swift */; };
 		B34E788A215B0AA600A79B10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B34E7889215B0AA600A79B10 /* Main.storyboard */; };
 		B34E788C215B354E00A79B10 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B34E788B215B354E00A79B10 /* Home.storyboard */; };
@@ -36,6 +35,7 @@
 		B3BD05822177F5B500315922 /* CreateNewMessageThreadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BD05812177F5B500315922 /* CreateNewMessageThreadViewController.swift */; };
 		B3BD05C4218E639C00315922 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BD05C3218E639C00315922 /* MessagesViewController.swift */; };
 		B3BD05C6218E65A100315922 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BD05C5218E65A100315922 /* User.swift */; };
+		B3CE030621AD042D00BABFD9 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CE030521AD042D00BABFD9 /* MessageCell.swift */; };
 		EA8BD63C795CB3941B53D9D6 /* Pods_GolfGram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64B9A61353F02E67967D9ED5 /* Pods_GolfGram.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,7 +56,6 @@
 		B32F2509215AB9F000930BAA /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		B32F250B215ABA1700930BAA /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		B3431C572196806600401E8D /* UserCellViewControllerInMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellViewControllerInMessages.swift; sourceTree = "<group>"; };
-		B3431C59219680BB00401E8D /* UserCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellView.swift; sourceTree = "<group>"; };
 		B3433A9721744C8C00BE44D7 /* ChatLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogViewController.swift; sourceTree = "<group>"; };
 		B34E7889215B0AA600A79B10 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		B34E788B215B354E00A79B10 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
@@ -72,6 +71,7 @@
 		B3BD05812177F5B500315922 /* CreateNewMessageThreadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewMessageThreadViewController.swift; sourceTree = "<group>"; };
 		B3BD05C3218E639C00315922 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		B3BD05C5218E65A100315922 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		B3CE030521AD042D00BABFD9 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		E8F724A2EF8FBDD9ABB0F2D5 /* Pods-GolfGram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GolfGram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GolfGram/Pods-GolfGram.debug.xcconfig"; sourceTree = "<group>"; };
 		FAD97F567FDAA698DBD18A0B /* Pods-GolfGram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GolfGram.release.xcconfig"; path = "Pods/Target Support Files/Pods-GolfGram/Pods-GolfGram.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,6 +126,7 @@
 		B3082FFC2158961B004D0B1A /* GolfGram */ = {
 			isa = PBXGroup;
 			children = (
+				B3CE030421AD03A500BABFD9 /* Cells */,
 				B3082FFD2158961B004D0B1A /* AppDelegate.swift */,
 				B34E789A2163337700A79B10 /* AuthService.swift */,
 				B34E789E21681C8400A79B10 /* Models */,
@@ -148,13 +149,13 @@
 				B32F2507215AB9C100930BAA /* CameraViewController.swift */,
 				B32F2509215AB9F000930BAA /* ActivityViewController.swift */,
 				B32F250B215ABA1700930BAA /* ProfileViewController.swift */,
+				B32F2505215AB9AE00930BAA /* DiscoverViewController.swift */,
 				B34E78A1216829A400A79B10 /* PostCellViewController.swift */,
-				B3431C59219680BB00401E8D /* UserCellView.swift */,
 				B34E78A32169BABC00A79B10 /* UserCellViewControllerInDiscover.swift */,
 				B3431C572196806600401E8D /* UserCellViewControllerInMessages.swift */,
-				B32F2505215AB9AE00930BAA /* DiscoverViewController.swift */,
 				B3433A9721744C8C00BE44D7 /* ChatLogViewController.swift */,
 				B3BD05812177F5B500315922 /* CreateNewMessageThreadViewController.swift */,
+				B3CE030521AD042D00BABFD9 /* MessageCell.swift */,
 				B3BD05C3218E639C00315922 /* MessagesViewController.swift */,
 			);
 			path = Controllers;
@@ -182,6 +183,13 @@
 				B305646A218FFD5E0022EE7F /* Message.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		B3CE030421AD03A500BABFD9 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -329,9 +337,9 @@
 				B34E789B2163337700A79B10 /* AuthService.swift in Sources */,
 				B32F2503215AB96700930BAA /* HomeViewController.swift in Sources */,
 				B32F250A215AB9F000930BAA /* ActivityViewController.swift in Sources */,
-				B3431C5A219680BB00401E8D /* UserCellView.swift in Sources */,
 				B3BD05C6218E65A100315922 /* User.swift in Sources */,
 				B3433A9821744C8C00BE44D7 /* ChatLogViewController.swift in Sources */,
+				B3CE030621AD042D00BABFD9 /* MessageCell.swift in Sources */,
 				B32F2506215AB9AE00930BAA /* DiscoverViewController.swift in Sources */,
 				B32F250C215ABA1700930BAA /* ProfileViewController.swift in Sources */,
 				B32F2508215AB9C100930BAA /* CameraViewController.swift in Sources */,

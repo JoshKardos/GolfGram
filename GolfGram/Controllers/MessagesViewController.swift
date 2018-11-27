@@ -16,7 +16,7 @@ class MessagesViewController:UITableViewController{
 	var databaseRef = Database.database().reference()
 
 	var messages = [Message]()
-	
+	var messagesDictionary = [String: Message]()
 	
 	override func viewDidLoad() {
 		
@@ -26,14 +26,12 @@ class MessagesViewController:UITableViewController{
 		
 		
 		usersMessaged.removeAll()
-		loadUsersMessaged()
-		
+		//loadMessages()
+		loadUserMessages()
 		
 	}
 	override func viewWillAppear(_ animated: Bool) {
 		
-		usersMessaged.removeAll()
-		loadUsersMessaged()
 	
 	}
 		//rows in table
@@ -44,42 +42,108 @@ class MessagesViewController:UITableViewController{
 	}
 	//text to put in cell
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: "userMessageCell", for: indexPath)
+		
+		let cell = tableView.dequeueReusableCell(withIdentifier: "userMessageCell", for: indexPath) as! MessageCell
 		
 		let message = messages[indexPath.row]
 		
-//		if let toId = message.toId {
-//
-//			let ref = databaseRef.child("users")
-//
-//		}
+		cell.message = message
 		
-		
-		cell.textLabel?.text = message.text
-			
-//		let cell = tableView.dequeueReusableCell(withIdentifier: "userMessageCell", for: indexPath) as! UserCellViewController
-//
-//		let user = usersMessaged[indexPath.row]
-//
-//		let url = URL(string: user.profileImageUrl as! String)//NSURL.init(fileURLWithPath: posts[indexPath.row].photoUrl)
-//		let imageData = NSData.init(contentsOf: url as! URL)
-//
-//		cell.cellImage.image = UIImage(data: imageData as! Data)
-//		cell.cellLabel.text = user.username as? String
-//
-//		//checkFollowing(indexPath: indexPath)
-//
 		return cell
 		
+	}
+	
+	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		return 72
 	}
 
 	//when row is sleected
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		
+		let message = messages[indexPath.row]
+		
+		guard let chatPartnerId = message.chatPartnerId() else {
+			return
+		}
+
+		let ref = Database.database().reference().child("users").child(chatPartnerId)
+		
+		ref.observeSingleEvent(of: .value) { (snapshot) in
+			
+			print(snapshot)
+			
+			guard let dictionary = snapshot.value as? [String: AnyObject] else{ return }
+			
+			let user = self.validUser(dictionary: dictionary)
+			
+			self.showChatController(otherUser: user!)
+			
+		}
+
 	}
 	
+	func validUser(dictionary: [String: AnyObject]) -> User?{
+		
+		if let followers = dictionary["followers"]{
+			if let following =  dictionary["following"]{
+				return User(emailString: dictionary["email"] as! String, followersStrings: dictionary["followers"] as! NSDictionary, followingStrings: dictionary["following"] as! NSDictionary, profileImageUrlString: dictionary["profileImageUrl"] as! String, uidString: dictionary["uid"]as! String, usernameString: dictionary["username"]as! String)
+			}
+			else {
+				return User(emailString: dictionary["email"] as! String, profileImageUrlString: dictionary["profileImageUrl"] as! String, uidString: dictionary["uid"]as! String, usernameString: dictionary["username"]as! String)
+			}
+		} else {
+			return User(emailString: dictionary["email"] as! String, profileImageUrlString: dictionary["profileImageUrl"] as! String, uidString: dictionary["uid"]as! String, usernameString: dictionary["username"]as! String)
+		}
+		
+	}
+	func showChatController(otherUser: User){
+		
+		let chatLogController = ChatLogViewController()
+		
+		chatLogController.otherUser = otherUser
+		
+		navigationController?.pushViewController(chatLogController, animated: true)
+	}
+	
+	
+	
+	func loadUserMessages(){
+		
+		guard let uid = Auth.auth().currentUser?.uid else{
+			return
+		}
+		let ref = Database.database().reference().child("user-messages").child(uid)
+		
+		ref.observe(.childAdded) { (snapshot) in
+			let messageId = snapshot.key
+			let messageRef = Database.database().reference().child("messages").child(messageId)
+			
+			messageRef.observe(.value, with: { (snapshot) in
+				if let dictionary = snapshot.value as? [String: Any]{
+					
+					let message = Message(senderIdString: dictionary["senderID"] as! String, textString: dictionary["text"] as! String, timestampFloat: dictionary["timestamp"] as! NSNumber, toIdString: dictionary["toId"] as! String)
+					
+					//self.messages.append(message)
+					
+					if let toId = message.toId {
+						self.messagesDictionary[toId] = message
+						self.messages = Array(self.messagesDictionary.values)
+						self.messages.sort(by: { (m1, m2) -> Bool in
+							return (m1.timestamp!.intValue > m2.timestamp!.intValue)
+						})
+					}
+					
+					
+					DispatchQueue.main.async {
+						self.tableView.reloadData()
+					}
+					
+				}
+			})
+		}
+	}
 
-	func loadUsersMessaged(){
+	func loadMessages(){
 		
 		let ref = Database.database().reference().child("messages")
 		
@@ -87,46 +151,21 @@ class MessagesViewController:UITableViewController{
 			if let dictionary = snapshot.value as? [String: Any]{
 				
 				let message = Message(senderIdString: dictionary["senderID"] as! String, textString: dictionary["text"] as! String, timestampFloat: dictionary["timestamp"] as! NSNumber, toIdString: dictionary["toId"] as! String)
-				print(message.text!)
-				self.messages.append(message)
+				
+				//self.messages.append(message)
+				
+				if let toId = message.toId {
+					self.messagesDictionary[toId] = message
+					self.messages = Array(self.messagesDictionary.values)
+					self.messages.sort(by: { (m1, m2) -> Bool in
+						return (m1.timestamp!.intValue > m2.timestamp!.intValue)
+					})
+				}
 				
 				DispatchQueue.main.async {
 					self.tableView.reloadData()
 				}
-				
 			}
-		}
-	
-	}
-	
-	private func setupNameAndProfileImage(message: Message){
-		let chatPartnerId: String?
-	
-		let uid = Auth.auth().currentUser!.uid
-		
-		if message.senderId == uid{
-			
-			chatPartnerId = message.toId
-		}else{
-			chatPartnerId = message.senderId
-		}
-		
-		if let id = chatPartnerId {
-			
-			let ref = Database.database().reference().child("users").child(id)
-			ref.observeSingleEvent(of: .value) { (snapshot) in
-				if let dictionary = snapshot.value as? [String: Any]{
-					/*
-					self.textLabel?.text = dictionary["username"] as? String
-					if let profileImageUrl = dictionary["profileImageUrl"] as? String{
-						self.profileImageView.loadImagesUsingCacheWithUrlString(profileImageUrl)
-					}
-			
-
-					*/
-				}
-			}
-			
 		}
 	}
 }

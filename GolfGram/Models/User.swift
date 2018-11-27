@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class User{
+class User: NSObject{
 	var email: String?
 	var followers: NSDictionary?
 	var following: NSDictionary?
@@ -15,6 +15,9 @@ class User{
 	var uid: String?
 	var username: String?
 	
+	override init(){
+		super.init()
+	}
 	init(emailString: String, followersStrings: NSDictionary, followingStrings: NSDictionary, profileImageUrlString: String, uidString: String, usernameString: String){
 		email = emailString
 		followers = followersStrings
@@ -23,5 +26,10 @@ class User{
 		uid = uidString
 		username = usernameString
 	}
-	
+	init(emailString: String, profileImageUrlString: String, uidString: String, usernameString: String){
+		email = emailString
+		profileImageUrl = profileImageUrlString
+		uid = uidString
+		username = usernameString
+	}
 }

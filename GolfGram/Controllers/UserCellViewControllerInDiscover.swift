@@ -17,7 +17,21 @@ class UserCellViewControllerInDiscover: UITableViewCell{
 	
 	@IBOutlet weak var cellImage: UIImageView!
 	@IBOutlet weak var cellLabel: UILabel!
+	let profileButton: UIButton = {
+		let sendButton = UIButton(type: .system)
+		sendButton.setTitle("Profile", for: .normal)
+		sendButton.translatesAutoresizingMaskIntoConstraints = false
+		sendButton.addTarget(self, action: #selector(goPressed), for: .touchUpInside)
+		return sendButton
+	}()
 	
+	
+	
+	@objc func goPressed(){
+		
+		
+		
+	}
 	
 	override func awakeFromNib() {
 	

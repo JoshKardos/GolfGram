@@ -106,8 +106,6 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate {
 			let userMessagesRef = Database.database().reference().child("user-messages").child(uid)
 			let messageId = childRef.key
 			
-			
-			//userMessagesRef.setValue([messageId: 1])
 			userMessagesRef.updateChildValues([messageId!: 1])
 			
 			
@@ -117,13 +115,5 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate {
 	}
 	
 	
-	
-//	@IBAction func sendPressed(_ sender: Any) {
-//		let ref = Database.database().reference().child("messages")
-//		let childRef = ref.childByAutoId()
-//		let values = ["text": textField.text!, "sender": "Josh K"]
-//		childRef.setValue(values)//updateChildValues(values)
-//
-//	}
 	
 }

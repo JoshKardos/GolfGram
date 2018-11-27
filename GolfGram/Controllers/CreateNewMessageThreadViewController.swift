@@ -25,7 +25,7 @@ class CreateNewMessageThreadViewController: UITableViewController, UISearchResul
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		print("loaded")
+		
 		searchController.searchResultsUpdater = self
 		searchController.dimsBackgroundDuringPresentation = false
 		searchController.searchBar.tintColor = UIColor.flatGreenDark
@@ -64,26 +64,29 @@ class CreateNewMessageThreadViewController: UITableViewController, UISearchResul
 	//text to put in cell
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		
-		let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath) as! UserCellViewControllerInDiscover
+		let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath) as! UserCellViewControllerInMessages
 		
 		let user : NSDictionary?
 		
 		if searchController.isActive && searchController.searchBar.text != ""{
 			user = filteredUsers[indexPath.row]
-			let url = URL(string: user?["profileImageUrl"] as! String)//NSURL.init(fileURLWithPath: posts[indexPath.row].photoUrl)
-			let imageData = NSData.init(contentsOf: url as! URL)
+
 			
-			cell.cellImage.image = UIImage(data: imageData as! Data)
-			cell.cellLabel.text = user?["username"] as? String
-			
+		} else {
+			user = DiscoverViewController.usersArray[indexPath.row]
 		}
 		
+		let url = URL(string: user?["profileImageUrl"] as! String)//NSURL.init(fileURLWithPath: posts[indexPath.row].photoUrl)
+		let imageData = NSData.init(contentsOf: url as! URL)
+		
+		cell.cellImage.image = UIImage(data: imageData as! Data)
+		cell.cellLabel.text = user?["username"] as? String
 		return cell
 	}
 	
 	//when row is selected
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		
+		var otherUserObject: User?
 		let uid = Auth.auth().currentUser!.uid
 		let refUsers = Database.database().reference().child("users")
 		let refMessages = Database.database().reference().child("messages")
@@ -91,10 +94,27 @@ class CreateNewMessageThreadViewController: UITableViewController, UISearchResul
 			dismiss(animated: true) {
 
 				let otherUser = self.filteredUsers[indexPath.row]
-				print(otherUser!["username"])
-				var otherUserObject = User(emailString: otherUser!["email"] as! String, followersStrings: otherUser!["followers"] as! NSDictionary, followingStrings: otherUser!["following"] as! NSDictionary, profileImageUrlString: otherUser!["profileImageUrl"] as! String, uidString: otherUser!["uid"]as! String, usernameString: otherUser!["username"]as! String)
-				
-				self.showChatController(otherUser: otherUserObject)
+				if otherUser!["uid"] as! String != uid{
+					print(otherUser!["username"])
+					
+
+					//ugly code because null exception is thrown when trying to message a user with no followers or follwing
+					if let followers = otherUser!["followers"]{
+						if let following =  otherUser!["following"]{
+							otherUserObject = User(emailString: otherUser!["email"] as! String, followersStrings: otherUser!["followers"] as! NSDictionary, followingStrings: otherUser!["following"] as! NSDictionary, profileImageUrlString: otherUser!["profileImageUrl"] as! String, uidString: otherUser!["uid"]as! String, usernameString: otherUser!["username"]as! String)
+						}
+						else {
+							otherUserObject = User(emailString: otherUser!["email"] as! String, profileImageUrlString: otherUser!["profileImageUrl"] as! String, uidString: otherUser!["uid"]as! String, usernameString: otherUser!["username"]as! String)
+						}
+					} else {
+						otherUserObject = User(emailString: otherUser!["email"] as! String, profileImageUrlString: otherUser!["profileImageUrl"] as! String, uidString: otherUser!["uid"]as! String, usernameString: otherUser!["username"]as! String)
+					}
+					
+					
+					self.showChatController(otherUser: otherUserObject!)
+				} else{
+					ProgressHUD.showError("Cannot message yourself")
+				}
 		
 			}
 		}
