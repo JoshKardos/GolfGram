@@ -54,7 +54,7 @@ class DiscoverViewController: UITableViewController, UISearchResultsUpdating {
 	//text to put in cell
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		
-		let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath) as! UserCellViewControllerInDiscover
+		let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath) as! UserCellInDiscover
 		
 		let user : NSDictionary?
 		

@@ -23,7 +23,12 @@ class Message: NSObject{
 		timestamp = timestampFloat
 		toId = toIdString
 	}
-	
+	init(dictionary: [String: AnyObject]){
+		senderId = dictionary["senderID"] as! String
+		text = dictionary["text"] as! String
+		timestamp = dictionary["timestamp"] as! NSNumber
+		toId = dictionary["toId"] as! String
+	}
 	func chatPartnerId() -> String?{
 		
 		let uid = Auth.auth().currentUser!.uid

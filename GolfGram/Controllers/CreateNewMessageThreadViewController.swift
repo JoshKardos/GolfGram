@@ -64,7 +64,7 @@ class CreateNewMessageThreadViewController: UITableViewController, UISearchResul
 	//text to put in cell
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		
-		let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath) as! UserCellViewControllerInMessages
+		let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath) as! UserCellInMessages
 		
 		let user : NSDictionary?
 		

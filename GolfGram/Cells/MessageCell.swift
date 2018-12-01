@@ -84,7 +84,6 @@ class MessageCell: UITableViewCell{
 	override func awakeFromNib() {
 		addSubview(profileImageView)
 		addSubview(timeLabel)
-		print("NOW HERE:")
 		
 		profileImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 8).isActive = true
 		profileImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true

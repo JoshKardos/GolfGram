@@ -37,7 +37,7 @@ class MessagesViewController:UITableViewController{
 		//rows in table
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-		return self.messages.count///self.usersMessaged.count
+		return self.messagesDictionary.count///self.usersMessaged.count
 	
 	}
 	//text to put in cell
@@ -70,11 +70,14 @@ class MessagesViewController:UITableViewController{
 		
 		ref.observeSingleEvent(of: .value) { (snapshot) in
 			
-			print(snapshot)
 			
 			guard let dictionary = snapshot.value as? [String: AnyObject] else{ return }
 			
-			let user = self.validUser(dictionary: dictionary)
+			
+			//some users may not have followers or following, may bring an error later?
+			var user = self.validUser(dictionary: dictionary)
+			
+			user!.uid = chatPartnerId
 			
 			self.showChatController(otherUser: user!)
 			
@@ -82,6 +85,8 @@ class MessagesViewController:UITableViewController{
 
 	}
 	
+	
+	//method allows for a user without any followers or following be created as a valid user
 	func validUser(dictionary: [String: AnyObject]) -> User?{
 		
 		if let followers = dictionary["followers"]{
@@ -112,25 +117,43 @@ class MessagesViewController:UITableViewController{
 		guard let uid = Auth.auth().currentUser?.uid else{
 			return
 		}
+		//ref of users messages keys
 		let ref = Database.database().reference().child("user-messages").child(uid)
 		
+		//iterate through messages keys
 		ref.observe(.childAdded) { (snapshot) in
+			
+			//reference to message by using message key
 			let messageId = snapshot.key
 			let messageRef = Database.database().reference().child("messages").child(messageId)
 			
+			
+			//observe message reference
 			messageRef.observe(.value, with: { (snapshot) in
+				
 				if let dictionary = snapshot.value as? [String: Any]{
 					
 					let message = Message(senderIdString: dictionary["senderID"] as! String, textString: dictionary["text"] as! String, timestampFloat: dictionary["timestamp"] as! NSNumber, toIdString: dictionary["toId"] as! String)
 					
-					//self.messages.append(message)
+					print("* \(dictionary)")
 					
-					if let toId = message.toId {
-						self.messagesDictionary[toId] = message
-						self.messages = Array(self.messagesDictionary.values)
-						self.messages.sort(by: { (m1, m2) -> Bool in
-							return (m1.timestamp!.intValue > m2.timestamp!.intValue)
-						})
+					//in this area verify id is the other user before adding to dictionary
+					//duplicated message threads will be avoided this way
+					var id: String?
+					if uid == message.toId{
+						id = message.senderId
+					} else {
+						id = message.toId
+					}
+
+					//should always work
+					if let toId = id  {
+							print("HERE")
+							self.messagesDictionary[toId] = message
+							self.messages = Array(self.messagesDictionary.values)
+							self.messages.sort(by: { (m1, m2) -> Bool in
+								return (m1.timestamp!.intValue > m2.timestamp!.intValue)
+							})
 					}
 					
 					

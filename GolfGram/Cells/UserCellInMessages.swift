@@ -1,22 +1,23 @@
 //
-//  UserCellViewController.swift
+//  UserCellViewControllerInMessages.swift
 //  GolfGram
 //
-//  Created by Josh Kardos on 10/6/18.
+//  Created by Josh Kardos on 11/9/18.
 //  Copyright © 2018 JoshTaylorKardos. All rights reserved.
 //
 
 import Foundation
+
 import UIKit
 
 import FirebaseAuth
 import FirebaseDatabase
 
-class UserCellViewControllerInDiscover: UITableViewCell{
-	
-	
-	@IBOutlet weak var cellImage: UIImageView!
+class UserCellInMessages: UITableViewCell{
+
 	@IBOutlet weak var cellLabel: UILabel!
+	@IBOutlet weak var cellImage: UIImageView!
+	
 	let profileButton: UIButton = {
 		let sendButton = UIButton(type: .system)
 		sendButton.setTitle("Profile", for: .normal)
@@ -25,25 +26,25 @@ class UserCellViewControllerInDiscover: UITableViewCell{
 		return sendButton
 	}()
 	
-	
-	
-	@objc func goPressed(){
-		
-		
-		
-	}
-	
 	override func awakeFromNib() {
-	
-//		followButton.tintColor = UIColor.flatGreenDark
-//		followButton.layer.cornerRadius = 5
-//		followButton.layer.borderWidth = 1
-//		followButton.layer.borderColor = UIColor.flatGreenDark.cgColor
-		super.awakeFromNib()
+
 		
+		//profileButton.rightAnchor.constraint(equalTo: containerView.rightAnchor).isActive = true
+		//profileButton.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
+		//profileButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
+
+		//profileButton.heightAnchor.constraint(equalTo: containerView.heightAnchor).isActive = true
+		super.awakeFromNib()
+
 	}
-	
+//
+	@objc func goPressed(){
+//
+//		let cell
+//
+	}
 	override func setSelected(_ selected: Bool, animated: Bool) {
 		super.setSelected(selected, animated: animated)
 	}
+
 }
