@@ -50,6 +50,8 @@ class ChatLogViewController: UIViewController, UICollectionViewDataSource, UICol
 		collectionView!.register(DirectMessageBubble.self, forCellWithReuseIdentifier: cellId)
 		
 		collectionView!.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 0, right: 0)
+		collectionView!.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: 58, right: 0)
+		
 		collectionView!.alwaysBounceVertical = true
 		collectionView!.delegate = self
 		collectionView!.dataSource = self

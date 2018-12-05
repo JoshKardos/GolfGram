@@ -134,20 +134,9 @@ class MessagesViewController:UITableViewController{
 				if let dictionary = snapshot.value as? [String: Any]{
 					
 					let message = Message(senderIdString: dictionary["senderID"] as! String, textString: dictionary["text"] as! String, timestampFloat: dictionary["timestamp"] as! NSNumber, toIdString: dictionary["toId"] as! String)
-					
-					print("* \(dictionary)")
-					
-					//in this area verify id is the other user before adding to dictionary
-					//duplicated message threads will be avoided this way
-					var id: String?
-					if uid == message.toId{
-						id = message.senderId
-					} else {
-						id = message.toId
-					}
 
 					//should always work
-					if let toId = id  {
+					if let toId = message.chatPartnerId()  {
 							print("HERE")
 							self.messagesDictionary[toId] = message
 							self.messages = Array(self.messagesDictionary.values)
