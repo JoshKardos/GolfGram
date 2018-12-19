@@ -137,7 +137,7 @@ class MessagesViewController:UITableViewController{
 
 					//should always work
 					if let toId = message.chatPartnerId()  {
-							print("HERE")
+	
 							self.messagesDictionary[toId] = message
 							self.messages = Array(self.messagesDictionary.values)
 							self.messages.sort(by: { (m1, m2) -> Bool in
@@ -145,16 +145,22 @@ class MessagesViewController:UITableViewController{
 							})
 					}
 					
+					self.timer?.invalidate()
+					self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.handleReloadTable), userInfo: nil, repeats: false)
 					
-					DispatchQueue.main.async {
-						self.tableView.reloadData()
-					}
-					
+			
 				}
 			})
 		}
 	}
-
+	
+	var timer: Timer?
+	@objc func handleReloadTable(){
+		DispatchQueue.main.async {
+			print("RELOAD")
+			self.tableView.reloadData()
+		}
+	}
 	func loadMessages(){
 		
 		let ref = Database.database().reference().child("messages")

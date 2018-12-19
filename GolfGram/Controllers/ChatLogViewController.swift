@@ -21,7 +21,6 @@ class ChatLogViewController: UIViewController, UICollectionViewDataSource, UICol
 			observeMessages()
 		}
 	}
-	
 	let cellId = "cellId"
 	
 	lazy var inputTextField: UITextField = {
@@ -85,17 +84,21 @@ class ChatLogViewController: UIViewController, UICollectionViewDataSource, UICol
 				if message.chatPartnerId() == self.otherUser?.uid{
 					self.messages.append(message)
 					
-					DispatchQueue.main.async {
-						self.collectionView!.reloadData()
-					}
-					
-				}
 				
+				}
+				self.timer?.invalidate()
+				self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.handleReloadCollection), userInfo: nil, repeats: false)
 			})
 		}, withCancel: nil)
 	}
 	
-	
+	var timer: Timer?
+	@objc func handleReloadCollection(){
+		DispatchQueue.main.async {
+			print("RELOAD")
+			self.collectionView!.reloadData()
+		}
+	}
 	func numberOfSections(in collectionView: UICollectionView) -> Int {
 		return 1
 	}
@@ -109,12 +112,41 @@ class ChatLogViewController: UIViewController, UICollectionViewDataSource, UICol
 		let message = messages[indexPath.row]
 		cell.textView.text = message.text
 		
+		setUpCell(cell: cell, message: message)
+		
 		
 		cell.bubbleWidthAnchor?.constant = estimatedFrameForText(text: message.text!).width + 32
 		
 		return cell
 	}
+	private func setUpCell(cell: DirectMessageBubble, message: Message){
+
+		if let profileImageUrl = self.otherUser?.profileImageUrl{
+			let url = URL(string: profileImageUrl)
+			let imageData = NSData.init(contentsOf: url as! URL)
+			cell.profileImageView.image = UIImage(data: imageData as! Data)
+		}
 	
+		if message.senderId == Auth.auth().currentUser?.uid {
+			//outgoing blue
+			cell.bubbleView.backgroundColor = DirectMessageBubble.blueColor
+			cell.textView.textColor = UIColor.white
+			cell.bubbleViewRightAnchor?.isActive = true
+			cell.bubbleViewLeftAnchor?.isActive = false
+			cell.profileImageView.isHidden = true
+		} else {
+			//incoming gray
+			cell.bubbleView.backgroundColor = UIColor.lightGray//UIColor(red: 240, green: 240, blue: 240, alpha: 1)
+			cell.textView.textColor = UIColor.black
+			cell.bubbleViewRightAnchor?.isActive = false
+			cell.bubbleViewLeftAnchor?.isActive = true
+			cell.profileImageView.isHidden = false
+		}
+		
+		
+		
+		
+	}
 	private func estimatedFrameForText(text: String) -> CGRect{
 		
 		let size = CGSize(width: 200, height: 1000)
