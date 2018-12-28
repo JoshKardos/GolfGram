@@ -19,6 +19,8 @@
 		B32F2508215AB9C100930BAA /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F2507215AB9C100930BAA /* CameraViewController.swift */; };
 		B32F250A215AB9F000930BAA /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F2509215AB9F000930BAA /* ActivityViewController.swift */; };
 		B32F250C215ABA1700930BAA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F250B215ABA1700930BAA /* ProfileViewController.swift */; };
+		B3308CB121D60B8500A0404D /* SubjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3308CB021D60B8500A0404D /* SubjectCell.swift */; };
+		B3308CB321D60C2F00A0404D /* SubjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3308CB221D60C2F00A0404D /* SubjectsViewController.swift */; };
 		B3431C582196806600401E8D /* UserCellInMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3431C572196806600401E8D /* UserCellInMessages.swift */; };
 		B3433A9821744C8C00BE44D7 /* ChatLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3433A9721744C8C00BE44D7 /* ChatLogViewController.swift */; };
 		B34E788A215B0AA600A79B10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B34E7889215B0AA600A79B10 /* Main.storyboard */; };
@@ -56,6 +58,8 @@
 		B32F2507215AB9C100930BAA /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		B32F2509215AB9F000930BAA /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		B32F250B215ABA1700930BAA /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		B3308CB021D60B8500A0404D /* SubjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectCell.swift; sourceTree = "<group>"; };
+		B3308CB221D60C2F00A0404D /* SubjectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectsViewController.swift; sourceTree = "<group>"; };
 		B3431C572196806600401E8D /* UserCellInMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellInMessages.swift; sourceTree = "<group>"; };
 		B3433A9721744C8C00BE44D7 /* ChatLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogViewController.swift; sourceTree = "<group>"; };
 		B34E7889215B0AA600A79B10 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -155,6 +159,7 @@
 				B3433A9721744C8C00BE44D7 /* ChatLogViewController.swift */,
 				B3BD05812177F5B500315922 /* CreateNewMessageThreadViewController.swift */,
 				B3BD05C3218E639C00315922 /* MessagesViewController.swift */,
+				B3308CB221D60C2F00A0404D /* SubjectsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -191,6 +196,7 @@
 				B3431C572196806600401E8D /* UserCellInMessages.swift */,
 				B3CE030521AD042D00BABFD9 /* MessageCell.swift */,
 				B3CE030921B2035900BABFD9 /* DirectMessageBubble.swift */,
+				B3308CB021D60B8500A0404D /* SubjectCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -335,6 +341,7 @@
 				B32F24FD2159C4C800930BAA /* SignUpViewController.swift in Sources */,
 				B34E78A42169BABC00A79B10 /* UserCellInDiscover.swift in Sources */,
 				B3CE030A21B2035900BABFD9 /* DirectMessageBubble.swift in Sources */,
+				B3308CB121D60B8500A0404D /* SubjectCell.swift in Sources */,
 				B32F24FB2159B87C00930BAA /* SignInViewController.swift in Sources */,
 				B305646B218FFD5E0022EE7F /* Message.swift in Sources */,
 				B3082FFE2158961B004D0B1A /* AppDelegate.swift in Sources */,
@@ -342,6 +349,7 @@
 				B32F2503215AB96700930BAA /* HomeViewController.swift in Sources */,
 				B32F250A215AB9F000930BAA /* ActivityViewController.swift in Sources */,
 				B3BD05C6218E65A100315922 /* User.swift in Sources */,
+				B3308CB321D60C2F00A0404D /* SubjectsViewController.swift in Sources */,
 				B3433A9821744C8C00BE44D7 /* ChatLogViewController.swift in Sources */,
 				B3CE030621AD042D00BABFD9 /* MessageCell.swift in Sources */,
 				B32F2506215AB9AE00930BAA /* DiscoverViewController.swift in Sources */,
