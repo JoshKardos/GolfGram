@@ -101,7 +101,7 @@
         <!--Subjects-->
         <scene sceneID="5CY-yF-Prs">
             <objects>
-                <tableViewController title="Subjects" id="MqU-FB-JvF" customClass="SubjectsViewController" customModule="GolfGram" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Subjects" id="MqU-FB-JvF" customClass="SubjectVCFindTutor" customModule="GolfGram" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="wqJ-Ja-9k6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -147,7 +147,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="euQ-Y0-EAZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6338" y="-838"/>
+            <point key="canvasLocation" x="6260" y="-840"/>
         </scene>
     </scenes>
     <resources>

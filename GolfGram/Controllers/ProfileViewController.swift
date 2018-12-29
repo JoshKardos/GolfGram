@@ -16,7 +16,6 @@ class ProfileViewController: UIViewController {
 	@IBOutlet weak var emailLabel: UILabel!
 	@IBOutlet weak var dmButton: UIBarButtonItem!
 	
-	
     override func viewDidLoad() {
         super.viewDidLoad()
 	
