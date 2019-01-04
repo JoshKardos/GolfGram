@@ -33,14 +33,6 @@ class SubjectsViewController: UITableViewController, UISearchResultsUpdating {
 		searchController.searchBar.tintColor = UIColor.flatGreenDark
 		definesPresentationContext = true
 		tableView.tableHeaderView = searchController.searchBar
-		
-		//remove in order to mae sure its a fresh search fucntion when signing in
-		DiscoverViewController.usersArray.removeAll()
-		databaseRef.child("users").queryOrdered(byChild: "username").observe(.childAdded) { (snapshot) in
-			DiscoverViewController.usersArray.append(snapshot.value as? NSDictionary)
-			
-			//self.insert
-		}
 	}
 	
 	//MARK: - Tableview Methods
@@ -71,12 +63,6 @@ class SubjectsViewController: UITableViewController, UISearchResultsUpdating {
 		cell.cellLabel.text = subject
 		
 		return cell
-	}
-	
-	//when row is selected
-	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		
-		
 	}
 }
 

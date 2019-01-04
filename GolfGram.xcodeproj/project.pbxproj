@@ -36,6 +36,7 @@
 		B34E78A42169BABC00A79B10 /* UserCellInDiscover.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34E78A32169BABC00A79B10 /* UserCellInDiscover.swift */; };
 		B3A3C90321D751BA00E0C05F /* SubjectVCFindTutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A3C90221D751BA00E0C05F /* SubjectVCFindTutor.swift */; };
 		B3A3C90521D7524900E0C05F /* SubjectsVCRegisterAsTutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A3C90421D7524900E0C05F /* SubjectsVCRegisterAsTutor.swift */; };
+		B3A3C90A21DD745300E0C05F /* SubjectCellWithNumTutors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A3C90921DD745300E0C05F /* SubjectCellWithNumTutors.swift */; };
 		B3BD05822177F5B500315922 /* CreateNewMessageThreadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BD05812177F5B500315922 /* CreateNewMessageThreadViewController.swift */; };
 		B3BD05C4218E639C00315922 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BD05C3218E639C00315922 /* MessagesViewController.swift */; };
 		B3BD05C6218E65A100315922 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BD05C5218E65A100315922 /* User.swift */; };
@@ -77,6 +78,7 @@
 		B34E78A32169BABC00A79B10 /* UserCellInDiscover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellInDiscover.swift; sourceTree = "<group>"; };
 		B3A3C90221D751BA00E0C05F /* SubjectVCFindTutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectVCFindTutor.swift; sourceTree = "<group>"; };
 		B3A3C90421D7524900E0C05F /* SubjectsVCRegisterAsTutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectsVCRegisterAsTutor.swift; sourceTree = "<group>"; };
+		B3A3C90921DD745300E0C05F /* SubjectCellWithNumTutors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectCellWithNumTutors.swift; sourceTree = "<group>"; };
 		B3BD05812177F5B500315922 /* CreateNewMessageThreadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewMessageThreadViewController.swift; sourceTree = "<group>"; };
 		B3BD05C3218E639C00315922 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		B3BD05C5218E65A100315922 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -160,7 +162,6 @@
 				B32F2507215AB9C100930BAA /* CameraViewController.swift */,
 				B32F2509215AB9F000930BAA /* ActivityViewController.swift */,
 				B32F250B215ABA1700930BAA /* ProfileViewController.swift */,
-				B32F2505215AB9AE00930BAA /* DiscoverViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -195,6 +196,7 @@
 				B3308CB221D60C2F00A0404D /* SubjectsViewController.swift */,
 				B3A3C90221D751BA00E0C05F /* SubjectVCFindTutor.swift */,
 				B3A3C90421D7524900E0C05F /* SubjectsVCRegisterAsTutor.swift */,
+				B32F2505215AB9AE00930BAA /* DiscoverViewController.swift */,
 			);
 			path = Subjects;
 			sourceTree = "<group>";
@@ -227,6 +229,7 @@
 				B3CE030521AD042D00BABFD9 /* MessageCell.swift */,
 				B3CE030921B2035900BABFD9 /* DirectMessageBubble.swift */,
 				B3308CB021D60B8500A0404D /* SubjectCell.swift */,
+				B3A3C90921DD745300E0C05F /* SubjectCellWithNumTutors.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 			files = (
 				B32F24FD2159C4C800930BAA /* SignUpViewController.swift in Sources */,
 				B34E78A42169BABC00A79B10 /* UserCellInDiscover.swift in Sources */,
+				B3A3C90A21DD745300E0C05F /* SubjectCellWithNumTutors.swift in Sources */,
 				B3CE030A21B2035900BABFD9 /* DirectMessageBubble.swift in Sources */,
 				B3308CB121D60B8500A0404D /* SubjectCell.swift in Sources */,
 				B32F24FB2159B87C00930BAA /* SignInViewController.swift in Sources */,

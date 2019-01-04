@@ -14,13 +14,12 @@ class DiscoverViewController: UITableViewController, UISearchResultsUpdating {
 	
 	let searchController = UISearchController(searchResultsController: nil)
 	@IBOutlet weak var searchBar: UISearchBar!
-	
-	
+	var subject: String?
 	static var usersArray = [NSDictionary?]()
 	var filteredUsers = [NSDictionary?]()
 	
 	var databaseRef = Database.database().reference()
-	
+	let cellId = "tutorCell"
 
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,15 +30,44 @@ class DiscoverViewController: UITableViewController, UISearchResultsUpdating {
 		definesPresentationContext = true
 		tableView.tableHeaderView = searchController.searchBar
 		
-		//remove in order to mae sure its a fresh search fucntion when signing in
+		
+		tableView!.register(UserCellInDiscover.self, forCellReuseIdentifier: cellId)
+		
 		DiscoverViewController.usersArray.removeAll()
-		databaseRef.child("users").queryOrdered(byChild: "username").observe(.childAdded) { (snapshot) in
-			DiscoverViewController.usersArray.append(snapshot.value as? NSDictionary)
-
-			//self.insert
+		
+		
+		databaseRef.child("subject-tutors").child(subject!).child("tutors").observe(.childAdded) { (snapshot1) in
+			print(snapshot1.key)
+			self.databaseRef.child("users").child(snapshot1.key).observe(.value, with: { (snapshot2) in
+				
+				DiscoverViewController.usersArray.append(snapshot2.value as? NSDictionary)
+				
+				
+			})
+			self.timer?.invalidate()
+			self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.handleReloadCollection), userInfo: nil, repeats: false)
 		}
-    }
-	
+		
+		
+		
+//		//remove in order to mae sure its a fresh search fucntion when signing in
+//		DiscoverViewController.usersArray.removeAll()
+//		databaseRef.child("users").queryOrdered(byChild: "username").observe(.childAdded) { (snapshot) in
+//			DiscoverViewController.usersArray.append(snapshot.value as? NSDictionary)
+//
+//			//self.insert
+	}
+
+	var timer: Timer?
+	@objc func handleReloadCollection(){
+		DispatchQueue.main.async {
+			print("RELOAD")
+			self.tableView.reloadData()//.collectionView!.reloadData()
+		}
+	}
+
+
+
 	//MARK: - Tableview Methods
 	
 	//rows in table
@@ -54,7 +82,7 @@ class DiscoverViewController: UITableViewController, UISearchResultsUpdating {
 	//text to put in cell
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		
-		let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath) as! UserCellInDiscover
+		let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
 		
 		let user : NSDictionary?
 		
@@ -64,14 +92,20 @@ class DiscoverViewController: UITableViewController, UISearchResultsUpdating {
 			user = DiscoverViewController.usersArray[indexPath.row]
 		}
 		
+	
+		
 		let url = URL(string: user?["profileImageUrl"] as! String)//NSURL.init(fileURLWithPath: posts[indexPath.row].photoUrl)
+//		print("URL \(url)")
+//
 		let imageData = NSData.init(contentsOf: url as! URL)
-		
-		cell.cellImage.image = UIImage(data: imageData as! Data)
-		cell.cellLabel.text = user?["username"] as? String
-		
-		checkFollowing(indexPath: indexPath)
-		
+//		print("Data \(imageData)")
+//		print("Data unwrapped \(UIImage(data: imageData as! Data))")
+//		cell.cellImage.image = UIImage(data: imageData as! Data)
+//		cell.cellLabel.text = user?["username"] as? String
+		print("HERE")
+		//checkFollowing(indexPath: indexPath)
+		cell.textLabel?.text = user?["username"] as? String
+		cell.imageView?.image = UIImage(data: imageData as! Data)
 		return cell
 	}
 	
