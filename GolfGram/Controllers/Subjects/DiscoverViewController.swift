@@ -10,6 +10,7 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 import ProgressHUD
+
 class DiscoverViewController: UITableViewController, UISearchResultsUpdating {
 	
 	let searchController = UISearchController(searchResultsController: nil)
@@ -48,14 +49,6 @@ class DiscoverViewController: UITableViewController, UISearchResultsUpdating {
 			self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.handleReloadCollection), userInfo: nil, repeats: false)
 		}
 		
-		
-		
-//		//remove in order to mae sure its a fresh search fucntion when signing in
-//		DiscoverViewController.usersArray.removeAll()
-//		databaseRef.child("users").queryOrdered(byChild: "username").observe(.childAdded) { (snapshot) in
-//			DiscoverViewController.usersArray.append(snapshot.value as? NSDictionary)
-//
-//			//self.insert
 	}
 
 	var timer: Timer?
@@ -112,50 +105,69 @@ class DiscoverViewController: UITableViewController, UISearchResultsUpdating {
 	//when row is selected
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		
-		let uid = Auth.auth().currentUser!.uid
-		let ref = Database.database().reference()
-		let key = ref.child("users").childByAutoId().key!
+//		let uid = Auth.auth().currentUser!.uid
+//		let ref = Database.database().reference()
+//		let key = ref.child("users").childByAutoId().key!
+//
+//		var isFollower = false
+		
+		let otherUser: NSDictionary!
+		
+		
+		if searchController.isActive && searchController.searchBar.text != ""{
+			otherUser = filteredUsers[indexPath.row]
+		} else {
+			otherUser = DiscoverViewController.usersArray[indexPath.row]
+		}
 
-		var isFollower = false
-
-		let otherUser = DiscoverViewController.usersArray[indexPath.row]
 		let otherUserUid = otherUser!["uid"] as! String
 		
-		ref.child("users").child(uid).child("following").queryOrderedByKey().observeSingleEvent(of: .value) { (snapshot) in
-
-			if let following = snapshot.value as? [String:AnyObject]{
-			
-				for(ke, value) in following {
-					
-					if value as! String == otherUserUid{
-	
-							isFollower = true
-
-							ref.child("users").child(uid).child("following/\(ke)").removeValue()
-							ref.child("users").child(otherUserUid).child("followers/\(ke)").removeValue()
-
-							tableView.cellForRow(at: indexPath)?.accessoryType = .none
-						
-					}
-					
-				}
-			}
+		let otherUserProfile = ProfileViewController()
 		
-			if !isFollower && uid != otherUserUid{
-				let following = ["following/\(key)" : otherUserUid ]
-				let followers = ["followers/\(key)" : uid ]
-				
-				ref.child("users").child(uid).updateChildValues(following)
-				ref.child("users").child(otherUserUid).updateChildValues(followers)
-				
-				tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-			} else if uid == otherUserUid{
-				ProgressHUD.showError("Cannot follow yourself")
-			}
-			
-			
-		}
-		ref.removeAllObservers()
+		otherUserProfile.isStoryboard = false
+		otherUserProfile.uid = otherUserUid
+		//otherUserProfile.fillUserInfo(uid: otherUserUid, notStoryboard: true)
+
+		navigationController?.pushViewController(otherUserProfile, animated: true)
+
+		
+		
+		
+//		ref.child("users").child(uid).child("following").queryOrderedByKey().observeSingleEvent(of: .value) { (snapshot) in
+//
+//			if let following = snapshot.value as? [String:AnyObject]{
+//
+//				for(ke, value) in following {
+//
+//					if value as! String == otherUserUid{
+//
+//							isFollower = true
+//
+//							ref.child("users").child(uid).child("following/\(ke)").removeValue()
+//							ref.child("users").child(otherUserUid).child("followers/\(ke)").removeValue()
+//
+//							tableView.cellForRow(at: indexPath)?.accessoryType = .none
+//
+//					}
+//
+//				}
+//			}
+//
+//			if !isFollower && uid != otherUserUid{
+//				let following = ["following/\(key)" : otherUserUid ]
+//				let followers = ["followers/\(key)" : uid ]
+//
+//				ref.child("users").child(uid).updateChildValues(following)
+//				ref.child("users").child(otherUserUid).updateChildValues(followers)
+//
+//				tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+//			} else if uid == otherUserUid{
+//				ProgressHUD.showError("Cannot follow yourself")
+//			}
+//
+//
+//		}
+		//ref.removeAllObservers()
 	
 	}
 	func checkFollowing(indexPath: IndexPath){
