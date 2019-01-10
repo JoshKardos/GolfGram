@@ -12,7 +12,7 @@
         <!--Profile-->
         <scene sceneID="Rbo-Uj-9re">
             <objects>
-                <viewController id="aMB-cz-M2r" customClass="ProfileViewController" customModule="GolfGram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Profile" id="aMB-cz-M2r" customClass="ProfileViewController" customModule="GolfGram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8Kk-2G-HS0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -69,6 +69,7 @@
                         <outlet property="dmButton" destination="KHT-wW-UvG" id="7M1-mN-966"/>
                         <outlet property="emailLabel" destination="ss3-O1-2jd" id="UqE-FS-usO"/>
                         <outlet property="profileImage" destination="y0F-AU-i0E" id="20X-yQ-rD6"/>
+                        <outlet property="registerAsTutorButton" destination="bfY-hw-gQe" id="KA9-OG-YPT"/>
                         <outlet property="usernameLabel" destination="3Ve-1l-Jg7" id="5Qh-g3-8J6"/>
                     </connections>
                 </viewController>

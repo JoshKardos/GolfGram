@@ -15,6 +15,7 @@ class ProfileViewController: UIViewController {
 	@IBOutlet weak var usernameLabel: UILabel!
 	@IBOutlet weak var emailLabel: UILabel!
 	@IBOutlet weak var dmButton: UIBarButtonItem!
+	@IBOutlet weak var registerAsTutorButton: UIButton!
 	
 	
 	var uid: String?
@@ -24,7 +25,7 @@ class ProfileViewController: UIViewController {
 	var usernameText: String?
 	var profilePic: UIImageView?
 	
-	var isStoryboard = true//must change to false if vc is pushed programatically!!
+	var isOtherUser = false//must change to false if vc is pushed programatically!!
 	
 	var usernameTextField: UILabel {
 	
@@ -39,24 +40,32 @@ class ProfileViewController: UIViewController {
 	}
 ////////////////////////////////////////////////////////////////////////////////////
 	
-	func setupComponents(){
-		let containerView = UIView()
-		containerView.backgroundColor = UIColor.white
-		containerView.translatesAutoresizingMaskIntoConstraints = false
-		view.addSubview(containerView)
-		view.backgroundColor = UIColor.white
-		
-		//constrain top
-		containerView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-		containerView.topAnchor.constraint(equalTo: navigationController!.navigationBar.bottomAnchor).isActive = true
-		containerView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-		containerView.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
-		
-		usernameTextField.text = usernameText
+//	func setupComponents(){
+//		let containerView = UIView()
+//		containerView.backgroundColor = UIColor.white
+//		containerView.translatesAutoresizingMaskIntoConstraints = false
+//		view.addSubview(containerView)
+//		view.backgroundColor = UIColor.white
+//
+//		//constrain top
+//		containerView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+//		containerView.topAnchor.constraint(equalTo: navigationController!.navigationBar.bottomAnchor).isActive = true
+//		containerView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+//		containerView.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
+//
+//		usernameTextField.text = usernameText
+//
+//		containerView.addSubview(usernameTextField)
+//		//usernameTextField.widthAnchor.constraint(equalToConstant: 25)
+//		usernameTextField.heightAnchor.constraint(equalToConstant: 25)
+//
+//	}
 	
-		containerView.addSubview(usernameTextField)
-		//usernameTextField.widthAnchor.constraint(equalToConstant: 25)
-		usernameTextField.heightAnchor.constraint(equalToConstant: 25)
+	func disableComponents(){
+		dmButton.isEnabled = false
+		dmButton.image = nil
+		dmButton.title = nil
+
 		
 	}
 	
@@ -80,9 +89,11 @@ class ProfileViewController: UIViewController {
 			let emailString = (snapshot.value as! NSDictionary)["email"] as! String
 			self.emailLabel?.text = emailString
 			
-			if self.isStoryboard == false{
-				self.setupComponents()
-			}
+//			if self.isOtherUser == true{
+//				
+//				self.disableComponents()
+//			
+//			}
 		})
 		
 	}
@@ -91,15 +102,19 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
 		
 		dmButton?.tintColor = UIColor.flatGreenDark
+		registerAsTutorButton?.backgroundColor = UIColor.white
 		print("HERE*")
 		
-		let userID : String = (Auth.auth().currentUser?.uid)!
+		if let otherUser_ID = self.uid {
+			self.isOtherUser = true
+			fillUserInfo(uid: otherUser_ID)
+			registerAsTutorButton.removeFromSuperview()
+
+		} else {
 		
-		if isStoryboard == true{
+			let userID : String = (Auth.auth().currentUser?.uid)!
 			fillUserInfo(uid: userID)
-		}else {
-			fillUserInfo(uid: uid!)
-			
+		
 		}
 	}
 }

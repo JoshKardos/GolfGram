@@ -122,13 +122,17 @@ class DiscoverViewController: UITableViewController, UISearchResultsUpdating {
 
 		let otherUserUid = otherUser!["uid"] as! String
 		
-		let otherUserProfile = ProfileViewController()
+		let storyboard: UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
 		
-		otherUserProfile.isStoryboard = false
-		otherUserProfile.uid = otherUserUid
+		//otherUserProfile.isStoryboard = false
+		//otherUserProfile.uid = otherUserUid
 		//otherUserProfile.fillUserInfo(uid: otherUserUid, notStoryboard: true)
-
+		let otherUserProfile = storyboard.instantiateViewController(withIdentifier: "Profile") as! ProfileViewController
+		//otherUserProfile.isStoryboard = false
+		otherUserProfile.uid = otherUserUid
+		otherUserProfile.disableComponents()
 		navigationController?.pushViewController(otherUserProfile, animated: true)
+	
 
 		
 		
