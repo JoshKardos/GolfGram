@@ -44,7 +44,7 @@
                                     <color key="titleColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="p9g-bn-YGS" kind="push" id="E2m-Ai-58Q"/>
+                                    <action selector="tutorButton:" destination="aMB-cz-M2r" eventType="touchUpInside" id="r7a-wh-wid"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r4n-l9-ZT8">
@@ -216,7 +216,8 @@
         <!--Subjects-->
         <scene sceneID="iWs-wc-YTt">
             <objects>
-                <tableViewController title="Subjects" id="p9g-bn-YGS" customClass="SubjectVCRegisterAsTutor" customModule="GolfGram" customModuleProvider="target" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2iR-CA-wgH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController storyboardIdentifier="Subjects" title="Subjects" id="p9g-bn-YGS" customClass="SubjectVCRegisterAsTutor" customModule="GolfGram" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="LfO-vf-V6p">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -260,7 +261,6 @@
                         <outlet property="tableView" destination="LfO-vf-V6p" id="KNO-ul-nkE"/>
                     </connections>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2iR-CA-wgH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="8241" y="-9"/>
         </scene>

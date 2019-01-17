@@ -78,7 +78,7 @@ class ChatLogViewController: UIViewController, UICollectionViewDataSource, UICol
 				
 				
 				guard let dictionary = snapshot.value as? [String: AnyObject] else { return }
-				print("** \(dictionary)")
+		
 				let message = Message(dictionary: dictionary)
 				
 				if message.chatPartnerId() == self.otherUser?.uid{
@@ -95,7 +95,6 @@ class ChatLogViewController: UIViewController, UICollectionViewDataSource, UICol
 	var timer: Timer?
 	@objc func handleReloadCollection(){
 		DispatchQueue.main.async {
-			print("RELOAD")
 			self.collectionView!.reloadData()
 		}
 	}

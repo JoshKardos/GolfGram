@@ -95,9 +95,7 @@ class CreateNewMessageThreadViewController: UITableViewController, UISearchResul
 
 				let otherUser = self.filteredUsers[indexPath.row]
 				if otherUser!["uid"] as! String != uid{
-					print(otherUser!["username"])
 					
-
 					//ugly code because null exception is thrown when trying to message a user with no followers or follwing
 					if let followers = otherUser!["followers"]{
 						if let following =  otherUser!["following"]{

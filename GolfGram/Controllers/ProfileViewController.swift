@@ -17,28 +17,10 @@ class ProfileViewController: UIViewController {
 	@IBOutlet weak var dmButton: UIBarButtonItem!
 	@IBOutlet weak var registerAsTutorButton: UIButton!
 	
-	
-	var uid: String?
-	
-///////////////////////////////////////////////////////////////////////////////////////////
-	//use these variables when view is called programatically
-	var usernameText: String?
-	var profilePic: UIImageView?
-	
 	var isOtherUser = false//must change to false if vc is pushed programatically!!
 	
-	var usernameTextField: UILabel {
-	
-		let textField = UILabel()
-		textField.backgroundColor = UIColor.lightGray
-		textField.text = usernameText!
-		textField.translatesAutoresizingMaskIntoConstraints = false
-//		textField.delegate = self
-		textField.textColor = UIColor.white
-		return textField
+	var uid: String?
 
-	}
-////////////////////////////////////////////////////////////////////////////////////
 	
 //	func setupComponents(){
 //		let containerView = UIView()
@@ -61,7 +43,23 @@ class ProfileViewController: UIViewController {
 //
 //	}
 	
+
+	@IBAction func tutorButton(_ sender: Any) {
+	
+				if isOtherUser == false{
+		
+					let storyboard: UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
+					let subjectsVC = storyboard.instantiateViewController(withIdentifier: "Subjects") as! SubjectsViewController
+		
+					navigationController?.pushViewController(subjectsVC, animated: true)
+					print("HERE" )
+				} else{
+					print("ELSE")
+				}
+	}
+	
 	func disableComponents(){
+		
 		dmButton.isEnabled = false
 		dmButton.image = nil
 		dmButton.title = nil
@@ -75,25 +73,18 @@ class ProfileViewController: UIViewController {
 		Database.database().reference().child("users").child(uid).observeSingleEvent(of: .value, with: {(snapshot) in
 
 			let username = (snapshot.value as! NSDictionary)["username"] as! String
-			self.usernameText = username
-			
 			self.usernameLabel?.text = username
+			
 			
 			let profileImageString = (snapshot.value as! NSDictionary)["profileImageUrl"] as! String
 			let url = URL(string: profileImageString)
 			let imageData = NSData.init(contentsOf: url as! URL)
-			self.profilePic?.image = UIImage(data: imageData as! Data)
-			
 			self.profileImage?.image = UIImage(data: imageData as! Data)
+			
 			
 			let emailString = (snapshot.value as! NSDictionary)["email"] as! String
 			self.emailLabel?.text = emailString
 			
-//			if self.isOtherUser == true{
-//				
-//				self.disableComponents()
-//			
-//			}
 		})
 		
 	}
@@ -103,17 +94,21 @@ class ProfileViewController: UIViewController {
 		
 		dmButton?.tintColor = UIColor.flatGreenDark
 		registerAsTutorButton?.backgroundColor = UIColor.white
-		print("HERE*")
 		
 		if let otherUser_ID = self.uid {
+			
 			self.isOtherUser = true
+			print("OTHER USR")
 			fillUserInfo(uid: otherUser_ID)
-			registerAsTutorButton.removeFromSuperview()
+			registerAsTutorButton.backgroundColor = UIColor.yellow
+			registerAsTutorButton.setTitle("Tutor Request", for: .normal)
 
 		} else {
 		
 			let userID : String = (Auth.auth().currentUser?.uid)!
 			fillUserInfo(uid: userID)
+			isOtherUser = false
+			registerAsTutorButton.reloadInputViews()
 		
 		}
 	}

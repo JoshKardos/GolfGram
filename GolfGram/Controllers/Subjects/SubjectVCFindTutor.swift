@@ -67,8 +67,6 @@ class SubjectVCFindTutor: SubjectsViewController{
 				
 				//TUTORS in this subject
 		
-				
-				print("THIS HAS TUTORS")
 				tutorInSubject = true
 				break
 			}
@@ -83,7 +81,6 @@ class SubjectVCFindTutor: SubjectsViewController{
 		}
 		else{
 			//no tutors in this subject
-			print("MUST BE MORE THAN O TUTORS")
 		}
 	}
 	

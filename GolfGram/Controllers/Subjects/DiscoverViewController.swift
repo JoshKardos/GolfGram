@@ -38,7 +38,6 @@ class DiscoverViewController: UITableViewController, UISearchResultsUpdating {
 		
 		
 		databaseRef.child("subject-tutors").child(subject!).child("tutors").observe(.childAdded) { (snapshot1) in
-			print(snapshot1.key)
 			self.databaseRef.child("users").child(snapshot1.key).observe(.value, with: { (snapshot2) in
 				
 				DiscoverViewController.usersArray.append(snapshot2.value as? NSDictionary)
@@ -54,7 +53,6 @@ class DiscoverViewController: UITableViewController, UISearchResultsUpdating {
 	var timer: Timer?
 	@objc func handleReloadCollection(){
 		DispatchQueue.main.async {
-			print("RELOAD")
 			self.tableView.reloadData()//.collectionView!.reloadData()
 		}
 	}
@@ -95,7 +93,6 @@ class DiscoverViewController: UITableViewController, UISearchResultsUpdating {
 //		print("Data unwrapped \(UIImage(data: imageData as! Data))")
 //		cell.cellImage.image = UIImage(data: imageData as! Data)
 //		cell.cellLabel.text = user?["username"] as? String
-		print("HERE")
 		//checkFollowing(indexPath: indexPath)
 		cell.textLabel?.text = user?["username"] as? String
 		cell.imageView?.image = UIImage(data: imageData as! Data)
@@ -122,18 +119,17 @@ class DiscoverViewController: UITableViewController, UISearchResultsUpdating {
 
 		let otherUserUid = otherUser!["uid"] as! String
 		
-		let storyboard: UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
-		
-		//otherUserProfile.isStoryboard = false
-		//otherUserProfile.uid = otherUserUid
-		//otherUserProfile.fillUserInfo(uid: otherUserUid, notStoryboard: true)
-		let otherUserProfile = storyboard.instantiateViewController(withIdentifier: "Profile") as! ProfileViewController
-		//otherUserProfile.isStoryboard = false
-		otherUserProfile.uid = otherUserUid
-		otherUserProfile.disableComponents()
-		navigationController?.pushViewController(otherUserProfile, animated: true)
-	
+//		let storyboard: UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
+//		let otherUserProfile = storyboard.instantiateViewController(withIdentifier: "Profile") as! ProfileViewController
+//
+//		otherUserProfile.uid = otherUserUid
+//		otherUserProfile.disableComponents()
+//		navigationController?.pushViewController(otherUserProfile, animated: true)
+//
 
+		let mapbox = MapboxViewController()
+		
+		navigationController?.pushViewController(mapbox, animated: true)
 		
 		
 		
