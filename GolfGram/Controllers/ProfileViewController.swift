@@ -21,6 +21,7 @@ class ProfileViewController: UIViewController {
 	
 	var uid: String?
 
+	var meeting: MeetingRequest?
 	
 //	func setupComponents(){
 //		let containerView = UIView()
@@ -46,16 +47,30 @@ class ProfileViewController: UIViewController {
 
 	@IBAction func tutorButton(_ sender: Any) {
 	
-				if isOtherUser == false{
+		if isOtherUser == false{//is current users profile
 		
-					let storyboard: UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
-					let subjectsVC = storyboard.instantiateViewController(withIdentifier: "Subjects") as! SubjectsViewController
+			let storyboard: UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
+			let subjectsVC = storyboard.instantiateViewController(withIdentifier: "Subjects") as! SubjectsViewController
 		
-					navigationController?.pushViewController(subjectsVC, animated: true)
-					print("HERE" )
-				} else{
-					print("ELSE")
-				}
+			navigationController?.pushViewController(subjectsVC, animated: true)
+			print("HERE" )
+		
+		} else{//is other users profile
+			selectMeetingOptions()
+			print("ELSE")
+		
+		}
+	}
+	
+	func selectMeetingOptions(){
+		
+		let storyboard: UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
+		let timeOptionsVC = storyboard.instantiateViewController(withIdentifier: "TimeOptions") as! DatePickerViewController
+		
+		timeOptionsVC.meeting = meeting
+		navigationController?.pushViewController(timeOptionsVC, animated: true)
+	
+		
 	}
 	
 	func disableComponents(){
@@ -95,15 +110,14 @@ class ProfileViewController: UIViewController {
 		dmButton?.tintColor = UIColor.flatGreenDark
 		registerAsTutorButton?.backgroundColor = UIColor.white
 		
-		if let otherUser_ID = self.uid {
+		if let otherUser_ID = self.uid {//other users pprofile
 			
 			self.isOtherUser = true
-			print("OTHER USR")
 			fillUserInfo(uid: otherUser_ID)
 			registerAsTutorButton.backgroundColor = UIColor.yellow
 			registerAsTutorButton.setTitle("Tutor Request", for: .normal)
 
-		} else {
+		} else {//current users profile
 		
 			let userID : String = (Auth.auth().currentUser?.uid)!
 			fillUserInfo(uid: userID)

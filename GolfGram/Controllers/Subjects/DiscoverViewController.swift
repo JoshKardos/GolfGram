@@ -86,14 +86,8 @@ class DiscoverViewController: UITableViewController, UISearchResultsUpdating {
 	
 		
 		let url = URL(string: user?["profileImageUrl"] as! String)//NSURL.init(fileURLWithPath: posts[indexPath.row].photoUrl)
-//		print("URL \(url)")
-//
 		let imageData = NSData.init(contentsOf: url as! URL)
-//		print("Data \(imageData)")
-//		print("Data unwrapped \(UIImage(data: imageData as! Data))")
-//		cell.cellImage.image = UIImage(data: imageData as! Data)
-//		cell.cellLabel.text = user?["username"] as? String
-		//checkFollowing(indexPath: indexPath)
+
 		cell.textLabel?.text = user?["username"] as? String
 		cell.imageView?.image = UIImage(data: imageData as! Data)
 		return cell
@@ -101,12 +95,6 @@ class DiscoverViewController: UITableViewController, UISearchResultsUpdating {
 	
 	//when row is selected
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		
-//		let uid = Auth.auth().currentUser!.uid
-//		let ref = Database.database().reference()
-//		let key = ref.child("users").childByAutoId().key!
-//
-//		var isFollower = false
 		
 		let otherUser: NSDictionary!
 		
@@ -119,55 +107,18 @@ class DiscoverViewController: UITableViewController, UISearchResultsUpdating {
 
 		let otherUserUid = otherUser!["uid"] as! String
 		
-//		let storyboard: UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
-//		let otherUserProfile = storyboard.instantiateViewController(withIdentifier: "Profile") as! ProfileViewController
-//
-//		otherUserProfile.uid = otherUserUid
-//		otherUserProfile.disableComponents()
-//		navigationController?.pushViewController(otherUserProfile, animated: true)
-//
+		let storyboard: UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
+		let otherUserProfile = storyboard.instantiateViewController(withIdentifier: "Profile") as! ProfileViewController
 
-		let mapbox = MapboxViewController()
+		otherUserProfile.uid = otherUserUid
+		otherUserProfile.disableComponents()
+	
+		var meeting = MeetingRequest(tutor: otherUserUid, tutoree:(Auth.auth().currentUser?.uid)!, subject: subject!)
 		
-		navigationController?.pushViewController(mapbox, animated: true)
+		otherUserProfile.meeting = meeting
+		navigationController?.pushViewController(otherUserProfile, animated: true)
 		
-		
-		
-//		ref.child("users").child(uid).child("following").queryOrderedByKey().observeSingleEvent(of: .value) { (snapshot) in
-//
-//			if let following = snapshot.value as? [String:AnyObject]{
-//
-//				for(ke, value) in following {
-//
-//					if value as! String == otherUserUid{
-//
-//							isFollower = true
-//
-//							ref.child("users").child(uid).child("following/\(ke)").removeValue()
-//							ref.child("users").child(otherUserUid).child("followers/\(ke)").removeValue()
-//
-//							tableView.cellForRow(at: indexPath)?.accessoryType = .none
-//
-//					}
-//
-//				}
-//			}
-//
-//			if !isFollower && uid != otherUserUid{
-//				let following = ["following/\(key)" : otherUserUid ]
-//				let followers = ["followers/\(key)" : uid ]
-//
-//				ref.child("users").child(uid).updateChildValues(following)
-//				ref.child("users").child(otherUserUid).updateChildValues(followers)
-//
-//				tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-//			} else if uid == otherUserUid{
-//				ProgressHUD.showError("Cannot follow yourself")
-//			}
-//
-//
-//		}
-		//ref.removeAllObservers()
+
 	
 	}
 	func checkFollowing(indexPath: IndexPath){
