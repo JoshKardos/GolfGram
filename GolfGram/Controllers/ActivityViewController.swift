@@ -14,7 +14,9 @@ class ActivityViewController: UITableViewController {
 
 	var tutorsClasses: Bool?
 	var meetingRequests = [MeetingRequest]()
+	var meetingRequestsDictionary = [String: MeetingRequest]()
 	
+	var meetingRequestCell = "meetingRequestCell"
 	
     override func viewDidLoad() {
 		
@@ -23,6 +25,8 @@ class ActivityViewController: UITableViewController {
         // Do any additional setup after loading the view.
 		
 		tableView.dataSource = self
+		
+		tableView.register(MeetingRequestCell.self, forCellReuseIdentifier: meetingRequestCell)
 		
 		loadUserMeetingRequests()
     }
@@ -49,9 +53,34 @@ class ActivityViewController: UITableViewController {
 					
 					meetingRequest.setDate(date: Date(timeIntervalSince1970: dictionary["date"] as! TimeInterval))
 					meetingRequest.setLocation(location: dictionary["location"] as! String)
+					print(meetingRequest.date?.description)
+					
+					
+					
+					
+					if let tutorId = meetingRequest.meetingPartnerId(){
+						self.meetingRequestsDictionary[tutorId] = meetingRequest
+						self.meetingRequests = Array(self.meetingRequestsDictionary.values)
+						self.meetingRequests.sort(by: { (m1, m2) -> Bool in
+							return (m1.date! > m2.date!)
+						})
+						
+						
+					}
+					
+					self.timer?.invalidate()
+					self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.handleReloadTable), userInfo: nil, repeats: false)
 				}
 			})
 			
+		}
+	}
+	
+	var timer: Timer?
+	@objc func handleReloadTable(){
+		DispatchQueue.main.async {
+			print("RELOAD")
+			self.tableView.reloadData()
 		}
 	}
     
@@ -63,13 +92,25 @@ class ActivityViewController: UITableViewController {
 	}
 	
 //	//text in cell
-//	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//		
-//	}
+	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		
+		let cell = tableView.dequeueReusableCell(withIdentifier: meetingRequestCell) as! MeetingRequestCell
+		
+		
+		let meetingRequest = meetingRequests[indexPath.row]
+		
+	
+		
+		cell.meetingRequest = meetingRequest
+		
+		return cell
+		
+	}
 	
 	//number of rows
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 0
+		print("HERE \(self.meetingRequestsDictionary.count)")
+		return self.meetingRequestsDictionary.count
 	}
 	
 	

@@ -7,6 +7,9 @@
 //
 
 import Foundation
+import FirebaseDatabase
+import FirebaseAuth
+
 class MeetingRequest{
 	
 	var date: Date?
@@ -27,5 +30,16 @@ class MeetingRequest{
 		self.tutorUid = tutor
 		self.tutoreeUid = tutoree
 		self.subject = subject
+	}
+	
+	func meetingPartnerId() -> String?{
+		
+		let uid = Auth.auth().currentUser!.uid
+		
+		if tutorUid == uid{
+			return tutoreeUid
+		}else{
+			return tutorUid
+		}
 	}
 }

@@ -38,6 +38,7 @@
 		B358F45821F431CA00E53F08 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B358F45721F431CA00E53F08 /* DatePickerViewController.swift */; };
 		B358F45B21F4FE0A00E53F08 /* LocationPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B358F45A21F4FE0A00E53F08 /* LocationPickerViewController.swift */; };
 		B358F45D21F546D500E53F08 /* MeetingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B358F45C21F546D500E53F08 /* MeetingRequest.swift */; };
+		B358F46121F94CEB00E53F08 /* MeetingRequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B358F46021F94CEB00E53F08 /* MeetingRequestCell.swift */; };
 		B3A3C90321D751BA00E0C05F /* SubjectVCFindTutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A3C90221D751BA00E0C05F /* SubjectVCFindTutor.swift */; };
 		B3A3C90521D7524900E0C05F /* SubjectsVCRegisterAsTutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A3C90421D7524900E0C05F /* SubjectsVCRegisterAsTutor.swift */; };
 		B3A3C90A21DD745300E0C05F /* SubjectCellWithNumTutors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A3C90921DD745300E0C05F /* SubjectCellWithNumTutors.swift */; };
@@ -83,6 +84,7 @@
 		B358F45721F431CA00E53F08 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		B358F45A21F4FE0A00E53F08 /* LocationPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerViewController.swift; sourceTree = "<group>"; };
 		B358F45C21F546D500E53F08 /* MeetingRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingRequest.swift; sourceTree = "<group>"; };
+		B358F46021F94CEB00E53F08 /* MeetingRequestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingRequestCell.swift; sourceTree = "<group>"; };
 		B3A3C90221D751BA00E0C05F /* SubjectVCFindTutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectVCFindTutor.swift; sourceTree = "<group>"; };
 		B3A3C90421D7524900E0C05F /* SubjectsVCRegisterAsTutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectsVCRegisterAsTutor.swift; sourceTree = "<group>"; };
 		B3A3C90921DD745300E0C05F /* SubjectCellWithNumTutors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectCellWithNumTutors.swift; sourceTree = "<group>"; };
@@ -231,13 +233,14 @@
 		B3CE030421AD03A500BABFD9 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				B34E78A1216829A400A79B10 /* PostCellViewController.swift */,
 				B34E78A32169BABC00A79B10 /* UserCellInDiscover.swift */,
 				B3431C572196806600401E8D /* UserCellInMessages.swift */,
 				B3CE030521AD042D00BABFD9 /* MessageCell.swift */,
 				B3CE030921B2035900BABFD9 /* DirectMessageBubble.swift */,
 				B3308CB021D60B8500A0404D /* SubjectCell.swift */,
 				B3A3C90921DD745300E0C05F /* SubjectCellWithNumTutors.swift */,
+				B358F46021F94CEB00E53F08 /* MeetingRequestCell.swift */,
+				B34E78A1216829A400A79B10 /* PostCellViewController.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				B305646B218FFD5E0022EE7F /* Message.swift in Sources */,
 				B3082FFE2158961B004D0B1A /* AppDelegate.swift in Sources */,
 				B34E789B2163337700A79B10 /* AuthService.swift in Sources */,
+				B358F46121F94CEB00E53F08 /* MeetingRequestCell.swift in Sources */,
 				B32F2503215AB96700930BAA /* HomeViewController.swift in Sources */,
 				B32F250A215AB9F000930BAA /* ActivityViewController.swift in Sources */,
 				B3BD05C6218E65A100315922 /* User.swift in Sources */,

@@ -32,6 +32,11 @@ class LocationPickerViewController: UIViewController, UIPickerViewDelegate, UIPi
 		locationPicker.dataSource = self
 		locationPicker.delegate = self
 	}
+	
+	override func viewDidAppear(_ animated: Bool) {
+		viewDidLoad()
+	}
+	
 	@IBAction func submitPressed(_ sender: Any) {
 		
 		createMeetingRequest()
@@ -73,8 +78,9 @@ class LocationPickerViewController: UIViewController, UIPickerViewDelegate, UIPi
 				let tutorRef = userToMeetingRequestRef.child(tutorUid!)
 				let tutoreeRef = userToMeetingRequestRef.child(tutoreeUid!)
 				
-				tutorRef.setValue([newMeetingRequestId: 1])
-				tutoreeRef.setValue([newMeetingRequestId:1])
+				
+				tutorRef.updateChildValues([newMeetingRequestId: 1])
+				tutoreeRef.updateChildValues([newMeetingRequestId:1])
 				
 				ProgressHUD.showSuccess("Success, Meeting Request sent")
 

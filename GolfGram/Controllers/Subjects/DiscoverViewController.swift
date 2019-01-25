@@ -90,6 +90,9 @@ class DiscoverViewController: UITableViewController, UISearchResultsUpdating {
 
 		cell.textLabel?.text = user?["username"] as? String
 		cell.imageView?.image = UIImage(data: imageData as! Data)
+		if user!["uid"] as! String == Auth.auth().currentUser?.uid{
+			cell.backgroundColor = UIColor.lightGray
+		}
 		return cell
 	}
 	
@@ -105,7 +108,14 @@ class DiscoverViewController: UITableViewController, UISearchResultsUpdating {
 			otherUser = DiscoverViewController.usersArray[indexPath.row]
 		}
 
+	
+		
 		let otherUserUid = otherUser!["uid"] as! String
+		
+		if otherUserUid == Auth.auth().currentUser?.uid{
+			ProgressHUD.showError("Cannot tutor yourself")
+			return
+		}
 		
 		let storyboard: UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
 		let otherUserProfile = storyboard.instantiateViewController(withIdentifier: "Profile") as! ProfileViewController
