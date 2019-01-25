@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1BDE53B0880494F90CC55604 /* Pods_GolfGram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 414CEC3F662EB81846B968EB /* Pods_GolfGram.framework */; };
+		0B45D9026E4F7B11C516484B /* Pods_TuTour.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FABFCB1540A14F77E90BE2EA /* Pods_TuTour.framework */; };
 		B305646B218FFD5E0022EE7F /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = B305646A218FFD5E0022EE7F /* Message.swift */; };
 		B3082FFE2158961B004D0B1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3082FFD2158961B004D0B1A /* AppDelegate.swift */; };
 		B30830082158961C004D0B1A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B30830062158961C004D0B1A /* LaunchScreen.storyboard */; };
@@ -50,8 +50,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		414CEC3F662EB81846B968EB /* Pods_GolfGram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GolfGram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8FA3861AE728C737260CA2B6 /* Pods-GolfGram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GolfGram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GolfGram/Pods-GolfGram.debug.xcconfig"; sourceTree = "<group>"; };
+		85561150EBBC681E8263A1F5 /* Pods-TuTour.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TuTour.release.xcconfig"; path = "Pods/Target Support Files/Pods-TuTour/Pods-TuTour.release.xcconfig"; sourceTree = "<group>"; };
+		902A4077071442423A48C8FA /* Pods-TuTour.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TuTour.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TuTour/Pods-TuTour.debug.xcconfig"; sourceTree = "<group>"; };
 		B305646A218FFD5E0022EE7F /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		B3082FFA2158961B004D0B1A /* TuTour.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TuTour.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3082FFD2158961B004D0B1A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -93,7 +93,7 @@
 		B3BD05C5218E65A100315922 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B3CE030521AD042D00BABFD9 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		B3CE030921B2035900BABFD9 /* DirectMessageBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectMessageBubble.swift; sourceTree = "<group>"; };
-		D673B99D70A9C3891176AE24 /* Pods-GolfGram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GolfGram.release.xcconfig"; path = "Pods/Target Support Files/Pods-GolfGram/Pods-GolfGram.release.xcconfig"; sourceTree = "<group>"; };
+		FABFCB1540A14F77E90BE2EA /* Pods_TuTour.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TuTour.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BDE53B0880494F90CC55604 /* Pods_GolfGram.framework in Frameworks */,
+				0B45D9026E4F7B11C516484B /* Pods_TuTour.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,7 +111,7 @@
 		9F33963AA030F70C5B4A62E2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				414CEC3F662EB81846B968EB /* Pods_GolfGram.framework */,
+				FABFCB1540A14F77E90BE2EA /* Pods_TuTour.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -248,8 +248,8 @@
 		E21E1B553B1464165E8A7708 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				8FA3861AE728C737260CA2B6 /* Pods-GolfGram.debug.xcconfig */,
-				D673B99D70A9C3891176AE24 /* Pods-GolfGram.release.xcconfig */,
+				902A4077071442423A48C8FA /* Pods-TuTour.debug.xcconfig */,
+				85561150EBBC681E8263A1F5 /* Pods-TuTour.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -338,12 +338,10 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-GolfGram/Pods-GolfGram-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-TuTour/Pods-TuTour-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
-				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
 				"${BUILT_PRODUCTS_DIR}/ProgressHUD/ProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -355,15 +353,13 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
-				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GolfGram/Pods-GolfGram-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TuTour/Pods-TuTour-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C8F1766BCE519E9FBE46B21D /* [CP] Check Pods Manifest.lock */ = {
@@ -381,7 +377,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-GolfGram-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-TuTour-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -559,7 +555,7 @@
 		};
 		B308300D2158961C004D0B1A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8FA3861AE728C737260CA2B6 /* Pods-GolfGram.debug.xcconfig */;
+			baseConfigurationReference = 902A4077071442423A48C8FA /* Pods-TuTour.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -578,7 +574,7 @@
 		};
 		B308300E2158961C004D0B1A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D673B99D70A9C3891176AE24 /* Pods-GolfGram.release.xcconfig */;
+			baseConfigurationReference = 85561150EBBC681E8263A1F5 /* Pods-TuTour.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

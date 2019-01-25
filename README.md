@@ -1,16 +1,10 @@
-# GolfGram
-Golfer's virtual paradise. Post awesome golf pictures and videos.
+To install pods
+-Navigate to project folder
 
+	pod init
+	open -a Xcode Podfile
 
-PODSFILE
-# Uncomment the next line to define a global platform for your project
-platform :ios, '9.0'
-
-target 'GolfGram' do
-# Comment the next line if you're not using Swift and don't want to use dynamic frameworks
-use_frameworks!
-
-# Pods for GolfGram
+//Add these pods to the podfile
 
 pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
 pod 'Firebase/Core'
@@ -18,6 +12,8 @@ pod 'Firebase/Auth'
 pod 'Firebase/Database'
 pod 'Firebase/Storage'
 pod 'ProgressHUD'
+////////////////////////////////////////////////////////////////////////////
 
+	pod install
+	
 
-end
