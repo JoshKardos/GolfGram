@@ -1,6 +1,11 @@
 # TuTour
 
-TuTour is an iOS application for studetns to find peer tutroing quickly.
+TuTour is an iOS application for studetns to find peer tutoring quickly.
+
+Alan Boo
+Josh Kardos
+Philip Nguyen
+Gideon Ubaldo
 
 ## Cocoapods
 Navigate to project folder
