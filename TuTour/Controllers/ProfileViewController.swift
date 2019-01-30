@@ -1,6 +1,6 @@
 //
 //  ProfileViewController.swift
-//  GolfGram
+//  TuTour
 //
 //  Created by Josh Kardos on 9/25/18.
 //  Copyright © 2018 JoshTaylorKardos. All rights reserved.
@@ -23,28 +23,6 @@ class ProfileViewController: UIViewController {
 
 	var meeting: MeetingRequest?
 	
-//	func setupComponents(){
-//		let containerView = UIView()
-//		containerView.backgroundColor = UIColor.white
-//		containerView.translatesAutoresizingMaskIntoConstraints = false
-//		view.addSubview(containerView)
-//		view.backgroundColor = UIColor.white
-//
-//		//constrain top
-//		containerView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-//		containerView.topAnchor.constraint(equalTo: navigationController!.navigationBar.bottomAnchor).isActive = true
-//		containerView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-//		containerView.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
-//
-//		usernameTextField.text = usernameText
-//
-//		containerView.addSubview(usernameTextField)
-//		//usernameTextField.widthAnchor.constraint(equalToConstant: 25)
-//		usernameTextField.heightAnchor.constraint(equalToConstant: 25)
-//
-//	}
-	
-
 	@IBAction func tutorButton(_ sender: Any) {
 	
 		if isOtherUser == false{//is current users profile
@@ -74,12 +52,9 @@ class ProfileViewController: UIViewController {
 	}
 	
 	func disableComponents(){
-		
 		dmButton.isEnabled = false
 		dmButton.image = nil
 		dmButton.title = nil
-
-		
 	}
 	
 	func fillUserInfo(uid: String){

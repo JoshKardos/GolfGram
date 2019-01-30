@@ -1,6 +1,6 @@
 //
 //  DiscoverViewController.swift
-//  GolfGram
+//  TuTour
 //
 //  Created by Josh Kardos on 9/25/18.
 //  Copyright © 2018 JoshTaylorKardos. All rights reserved.
@@ -190,7 +190,6 @@ extension DiscoverViewController: UISearchBarDelegate{
 	//search bar text changed
 	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 		if searchBar.text?.count == 0 {
-			//loadItems()
 			
 			//Disaptch Queue object assigns projects to different thread
 			DispatchQueue.main.async {

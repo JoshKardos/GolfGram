@@ -1,6 +1,6 @@
 //
 //  SubjectVCFindTutor.swift
-//  GolfGram
+//  TuTour
 //
 //  Created by Josh Kardos on 12/28/18.
 //  Copyright © 2018 JoshTaylorKardos. All rights reserved.

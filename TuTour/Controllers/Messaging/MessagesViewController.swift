@@ -1,6 +1,6 @@
 //
 //  MessagesViewController.swift
-//  GolfGram
+//  TuTour
 //
 //  Created by Josh Kardos on 11/3/18.
 //  Copyright © 2018 JoshTaylorKardos. All rights reserved.
@@ -26,7 +26,6 @@ class MessagesViewController:UITableViewController{
 		
 		
 		usersMessaged.removeAll()
-		//loadMessages()
 		loadUserMessages()
 		
 	}
@@ -157,33 +156,7 @@ class MessagesViewController:UITableViewController{
 	var timer: Timer?
 	@objc func handleReloadTable(){
 		DispatchQueue.main.async {
-			print("RELOAD")
 			self.tableView.reloadData()
-		}
-	}
-	func loadMessages(){
-		
-		let ref = Database.database().reference().child("messages")
-		
-		ref.observe(.childAdded) { (snapshot) in
-			if let dictionary = snapshot.value as? [String: Any]{
-				
-				let message = Message(senderIdString: dictionary["senderID"] as! String, textString: dictionary["text"] as! String, timestampFloat: dictionary["timestamp"] as! NSNumber, toIdString: dictionary["toId"] as! String)
-				
-				//self.messages.append(message)
-				
-				if let toId = message.toId {
-					self.messagesDictionary[toId] = message
-					self.messages = Array(self.messagesDictionary.values)
-					self.messages.sort(by: { (m1, m2) -> Bool in
-						return (m1.timestamp!.intValue > m2.timestamp!.intValue)
-					})
-				}
-				
-				DispatchQueue.main.async {
-					self.tableView.reloadData()
-				}
-			}
 		}
 	}
 }

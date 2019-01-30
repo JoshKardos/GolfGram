@@ -1,6 +1,6 @@
 //
 //  MessageCell.swift
-//  GolfGram
+//  TuTour
 //
 //  Created by Josh Kardos on 11/26/18.
 //  Copyright © 2018 JoshTaylorKardos. All rights reserved.
@@ -50,7 +50,7 @@ class MessageCell: UITableViewCell{
 
 	
 	//name and image in cell
-	private func setupNameAndProfileImage(){
+	func setupNameAndProfileImage(){
 
 		if let id = message?.chatPartnerId() {
 			
