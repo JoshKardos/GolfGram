@@ -1,6 +1,6 @@
 //
 //  User.swift
-//  GolfGram
+//  TuTour
 //
 //  Created by Josh Kardos on 11/3/18.
 //  Copyright © 2018 JoshTaylorKardos. All rights reserved.

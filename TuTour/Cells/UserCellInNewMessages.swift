@@ -1,19 +1,18 @@
 //
 //  UserCellViewControllerInMessages.swift
-//  GolfGram
+//  TuTour
 //
 //  Created by Josh Kardos on 11/9/18.
 //  Copyright © 2018 JoshTaylorKardos. All rights reserved.
 //
 
 import Foundation
-
 import UIKit
 
 import FirebaseAuth
 import FirebaseDatabase
 
-class UserCellInMessages: UITableViewCell{
+class UserCellInNewMessages: UITableViewCell{
 
 	@IBOutlet weak var cellLabel: UILabel!
 	@IBOutlet weak var cellImage: UIImageView!

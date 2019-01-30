@@ -1,6 +1,6 @@
 //
 //  SignUpViewController.swift
-//  GolfGram
+//  TuTour
 //
 //  Created by Josh Kardos on 9/24/18.
 //  Copyright © 2018 JoshTaylorKardos. All rights reserved.

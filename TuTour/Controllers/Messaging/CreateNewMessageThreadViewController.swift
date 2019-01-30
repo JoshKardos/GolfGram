@@ -1,6 +1,6 @@
 //
 //  CreateNewMessageThreadViewController.swift
-//  GolfGram
+//  TuTour
 //
 //  Created by Josh Kardos on 9/25/18.
 //  Copyright © 2018 JoshTaylorKardos. All rights reserved.
@@ -64,7 +64,7 @@ class CreateNewMessageThreadViewController: UITableViewController, UISearchResul
 	//text to put in cell
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		
-		let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath) as! UserCellInMessages
+		let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath) as! UserCellInNewMessages
 		
 		let user : NSDictionary?
 		
