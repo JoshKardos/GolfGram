@@ -42,4 +42,12 @@ class MeetingRequest{
 			return tutorUid
 		}
 	}
+	
+	func getOtherUser() -> User?{
+		let ref = Database.database().reference().child(self.meetingPartnerId()!)
+		ref.observe(.value) { (snapshot) in
+			print("FSFSFSF \(snapshot)")
+		}
+		return nil
+	}
 }

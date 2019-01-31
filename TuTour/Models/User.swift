@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FirebaseDatabase
 class User: NSObject{
 	var email: String?
 	var followers: NSDictionary?
@@ -32,4 +33,18 @@ class User: NSObject{
 		uid = uidString
 		username = usernameString
 	}
+//	init(uid: String){
+//		Database.database().reference().child("users").child(uid).observe(.value) { (snapshot) in
+//			print(snapshot)
+//			let user = snapshot.value as! NSDictionary
+//			
+//			print(user["email"] as! String)
+//			
+//			
+//			self.email = user["email"] as! String
+//			self.profileImageUrl = user["profileImageUrl"] as! String
+//			self.uid = user["uid"] as! String
+//			self.username = user["username"] as! String
+//		}
+//	}
 }
