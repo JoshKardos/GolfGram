@@ -84,6 +84,14 @@ class ProfileViewController: UIViewController {
 		dmButton?.tintColor = UIColor.flatGreenDark
 		registerAsTutorButton?.backgroundColor = UIColor.white
 		
+        
+        // Converts the profile image to circular
+        profileImage.layer.borderWidth = 1
+        profileImage.layer.masksToBounds = false
+        profileImage.layer.borderColor = UIColor.gray.cgColor
+        profileImage.layer.cornerRadius = profileImage.frame.height/2
+        profileImage.clipsToBounds = true
+        
 		if let otherUser_ID = self.uid {//other users pprofile
 			
 			self.isOtherUser = true
