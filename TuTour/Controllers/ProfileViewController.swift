@@ -5,7 +5,6 @@
 //  Created by Josh Kardos on 9/25/18.
 //  Copyright © 2018 JoshTaylorKardos. All rights reserved.
 //
-
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
@@ -20,23 +19,23 @@ class ProfileViewController: UIViewController {
 	var isOtherUser = false//must change to false if vc is pushed programatically!!
 	
 	var uid: String?
-
+	
 	var meeting: MeetingRequest?
 	
 	@IBAction func tutorButton(_ sender: Any) {
-	
-		if isOtherUser == false{//is current users profile
 		
+		if isOtherUser == false{//is current users profile
+			
 			let storyboard: UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
 			let subjectsVC = storyboard.instantiateViewController(withIdentifier: "Subjects") as! SubjectsViewController
-		
+			
 			navigationController?.pushViewController(subjectsVC, animated: true)
 			print("HERE" )
-		
+			
 		} else{//is other users profile
 			selectMeetingOptions()
 			print("ELSE")
-		
+			
 		}
 	}
 	
@@ -47,7 +46,7 @@ class ProfileViewController: UIViewController {
 		
 		timeOptionsVC.meeting = meeting
 		navigationController?.pushViewController(timeOptionsVC, animated: true)
-	
+		
 		
 	}
 	
@@ -61,7 +60,7 @@ class ProfileViewController: UIViewController {
 		
 		
 		Database.database().reference().child("users").child(uid).observeSingleEvent(of: .value, with: {(snapshot) in
-
+			
 			let username = (snapshot.value as! NSDictionary)["username"] as! String
 			self.usernameLabel?.text = username
 			
@@ -79,8 +78,8 @@ class ProfileViewController: UIViewController {
 		
 	}
 	
-    override func viewDidLoad() {
-        super.viewDidLoad()
+	override func viewDidLoad() {
+		super.viewDidLoad()
 		
 		dmButton?.tintColor = UIColor.flatGreenDark
 		registerAsTutorButton?.backgroundColor = UIColor.white
@@ -91,14 +90,14 @@ class ProfileViewController: UIViewController {
 			fillUserInfo(uid: otherUser_ID)
 			registerAsTutorButton.backgroundColor = UIColor.yellow
 			registerAsTutorButton.setTitle("Tutor Request", for: .normal)
-
+			
 		} else {//current users profile
-		
+			
 			let userID : String = (Auth.auth().currentUser?.uid)!
 			fillUserInfo(uid: userID)
 			isOtherUser = false
 			registerAsTutorButton.reloadInputViews()
-		
+			
 		}
 	}
 }
