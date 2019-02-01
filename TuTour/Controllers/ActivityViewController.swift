@@ -64,11 +64,11 @@ class ActivityViewController: UITableViewController {
 						
 							self.meetingRequestsUsers.append(newUser)
 							self.meetingRequests.append(meetingRequest)
-							self.meetingRequests.sort(by: { (m1, m2) -> Bool in
-							
-								return (m1.date! > m2.date!)
-								
-							})
+//							self.meetingRequests.sort(by: { (m1, m2) -> Bool in
+//							//must sort the user also
+//								return (m1.date! > m2.date!)
+//								
+//							})
 							
 						}
 					}
@@ -94,6 +94,15 @@ class ActivityViewController: UITableViewController {
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		
 		//present display that shows detail of meeting and give the tutor options
+		
+		let storyboard: UIStoryboard = UIStoryboard(name: "Activity", bundle: nil)
+		let meetingRequestVC = storyboard.instantiateViewController(withIdentifier: "MeetingRequestVC") as! MeetingRequestViewController
+		
+		meetingRequestVC.setUser(user: meetingRequestsUsers[indexPath.row])
+		
+		meetingRequestVC.setMeetingRequest(meetingRequest: meetingRequests[indexPath.row])
+		
+		navigationController?.pushViewController(meetingRequestVC, animated: true)
 		
 	}
 	
