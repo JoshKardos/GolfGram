@@ -49,7 +49,10 @@ class ActivityViewController: UITableViewController {
 				if let dictionary = snapshot.value as? [String: Any]{
 					
 				
-					let meetingRequest = MeetingRequest(tutor: dictionary["tutorUid"] as! String, tutoree: dictionary["tutoreeUid"] as! String, subject: dictionary["subject"] as! String)
+                    
+                    
+// MARK: - Meeting Request created
+					let meetingRequest = MeetingRequest(tutor: dictionary["tutorUid"] as! String, tutoree: dictionary["tutoreeUid"] as! String, subject: dictionary["subject"] as! String, meetingId: dictionary["meetingId"] as! String)
 					
 					meetingRequest.setDate(date: Date(timeIntervalSince1970: dictionary["date"] as! TimeInterval))
 					meetingRequest.setLocation(location: dictionary["location"] as! String)
@@ -64,11 +67,7 @@ class ActivityViewController: UITableViewController {
 						
 							self.meetingRequestsUsers.append(newUser)
 							self.meetingRequests.append(meetingRequest)
-//							self.meetingRequests.sort(by: { (m1, m2) -> Bool in
-//							//must sort the user also
-//								return (m1.date! > m2.date!)
-//								
-//							})
+
 							
 						}
 					}

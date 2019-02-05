@@ -25,9 +25,52 @@ class MeetingRequestViewController: UIViewController{
 	var meetingRequest: MeetingRequest?
 	
 	@IBAction func denyPressed(_ sender: UIButton) {
+        
+        //ask to edit or kindly decline meeting
+        let alert = UIAlertController(title: "Confirm", message: "Would you like to edit this request or deny and end talks?", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Edit", comment: "Default action"), style: .default, handler: { _ in
+            self.editMeetingRequest()}))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Deny", comment: "Default action"), style: .default, handler: { _ in
+            self.deleteMeetingRequest()}))
+        
+        self.present(alert, animated: true, completion: nil)
+        
+        
 	}
+    
+    func editMeetingRequest(){
+        //present edit meeting request view
+        
+    }
+    func deleteMeetingRequest(){
+        //delete all nodes
+        
+        //pop to root view controller
+        
+    }
 	@IBAction func acceptPressed(_ sender: UIButton) {
+        
+        //Add to users' array of scheduled meetings
+        //store id
+        print(meetingRequest!.meetingId)
+        let alert = UIAlertController(title: "Confirm", message: "Would you like to confirm to plan this meeting?", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: "Default action"), style: .default, handler: { _ in
+            self.acceptMeeting()}))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("No", comment: "Default action"), style: .default, handler: { _ in
+            NSLog("The \"OK\" alert occured.")}))
+        
+        self.present(alert, animated: true, completion: nil)
+        //delete meeting requests
+        
+        
 	}
+    func acceptMeeting(){
+        print("MEETING STORED")
+        //store in array of scheduled meetings for both users
+        
+    }
 	func setUser(user: User){
 		self.user = user
 	}
