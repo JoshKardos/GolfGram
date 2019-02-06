@@ -18,6 +18,7 @@ class ActivityViewController: UITableViewController {
 	var meetingRequestsUsers = [User]()//meeting partners
 	var ref = Database.database().reference()
 
+
     override func viewDidLoad() {
 		
         super.viewDidLoad()
@@ -28,28 +29,39 @@ class ActivityViewController: UITableViewController {
 
 		loadUserMeetingRequests()
     }
-	
+
 	func loadUserMeetingRequests(){
+        
+        var meetingRequestId = ""
 		guard let uid = Auth.auth().currentUser?.uid else{
 			return
 		}
 		
 		let currentUserRef = Database.database().reference().child("user-meetingRequests").child(uid)
 		
-		
+		////
+        ///
+        ///
+        
+        /////
 		
 		currentUserRef.observe(.childAdded) { (snapshot) in
 			
 		
-			let meetingRequestId = snapshot.key
+            meetingRequestId = snapshot.key
 			let meetingRequestRef = Database.database().reference().child("MeetingRequests").child(meetingRequestId)
 			
-			meetingRequestRef.observe(.value, with: { (snapshot) in
-				
+            meetingRequestRef.observeSingleEvent(of: .value, with: { (snapshot) in
+                
+                
+    
 				if let dictionary = snapshot.value as? [String: Any]{
 					
 				
-					let meetingRequest = MeetingRequest(tutor: dictionary["tutorUid"] as! String, tutoree: dictionary["tutoreeUid"] as! String, subject: dictionary["subject"] as! String)
+                    
+                    
+// MARK: - Meeting Request created
+					let meetingRequest = MeetingRequest(tutor: dictionary["tutorUid"] as! String, tutoree: dictionary["tutoreeUid"] as! String, subject: dictionary["subject"] as! String, meetingId: dictionary["meetingId"] as! String)
 					
 					meetingRequest.setDate(date: Date(timeIntervalSince1970: dictionary["date"] as! TimeInterval))
 					meetingRequest.setLocation(location: dictionary["location"] as! String)
@@ -64,11 +76,7 @@ class ActivityViewController: UITableViewController {
 						
 							self.meetingRequestsUsers.append(newUser)
 							self.meetingRequests.append(meetingRequest)
-//							self.meetingRequests.sort(by: { (m1, m2) -> Bool in
-//							//must sort the user also
-//								return (m1.date! > m2.date!)
-//								
-//							})
+
 							
 						}
 					}
@@ -79,8 +87,62 @@ class ActivityViewController: UITableViewController {
 					self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.handleReloadTable), userInfo: nil, repeats: false)
 				}
 			})
-			
+            
+            
+            
+            
 		}
+        
+        
+//        // Listen for deleted comments in the Firebase database
+        currentUserRef.observe(.childRemoved, with: { (snapshot) -> Void in
+//
+            
+            print("HERE \(snapshot)")
+    
+            self.meetingRequests.removeAll()
+            self.meetingRequestsUsers.removeAll()
+            
+            self.tableView.reloadData()
+            Database.database().reference().child("MeetingRequests").child(meetingRequestId).observeSingleEvent(of: .value, with: { (snapshot) in
+                
+                
+                
+                
+                if let dictionary = snapshot.value as? [String: Any]{
+                    
+                    
+                    
+                    
+                    // MARK: - Meeting Request created
+                    let meetingRequest = MeetingRequest(tutor: dictionary["tutorUid"] as! String, tutoree: dictionary["tutoreeUid"] as! String, subject: dictionary["subject"] as! String, meetingId: dictionary["meetingId"] as! String)
+                    
+                    meetingRequest.setDate(date: Date(timeIntervalSince1970: dictionary["date"] as! TimeInterval))
+                    meetingRequest.setLocation(location: dictionary["location"] as! String)
+                    
+                    
+                    if let otherUserId = meetingRequest.meetingPartnerId(){
+                        
+                        Database.database().reference().child("users").child(otherUserId).observe(.value) { (snapshot) in
+                            
+                            let user = snapshot.value as? [String: Any]
+                            let newUser = User(emailString: user!["email"] as! String, profileImageUrlString: user!["profileImageUrl"] as! String, uidString: user!["uid"] as! String, usernameString: user!["username"] as! String)
+                            
+                            self.meetingRequestsUsers.append(newUser)
+                            self.meetingRequests.append(meetingRequest)
+                            
+                            
+                        }
+                    }
+                    
+                    
+                    
+                    self.timer?.invalidate()
+                    self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.handleReloadTable), userInfo: nil, repeats: false)
+                }
+            })
+            
+        })
 	}
 	
 	var timer: Timer?

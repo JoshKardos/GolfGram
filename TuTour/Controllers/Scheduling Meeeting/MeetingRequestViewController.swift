@@ -8,7 +8,9 @@
 
 import Foundation
 import UIKit
-
+import FirebaseDatabase
+import FirebaseAuth
+import ProgressHUD
 class MeetingRequestViewController: UIViewController{
 	
 	@IBOutlet weak var titleLabel: UILabel!
@@ -25,9 +27,79 @@ class MeetingRequestViewController: UIViewController{
 	var meetingRequest: MeetingRequest?
 	
 	@IBAction func denyPressed(_ sender: UIButton) {
+        
+        //ask to edit or kindly decline meeting
+        let alert = UIAlertController(title: "Confirm", message: "Would you like to edit this request or deny and end talks?", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Edit", comment: "Default action"), style: .default, handler: { _ in
+            self.editMeetingRequest()}))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Deny", comment: "Default action"), style: .default, handler: { _ in
+            self.deleteMeetingRequest()}))
+        
+        self.present(alert, animated: true, completion: nil)
+        
+        
 	}
+    
+    func editMeetingRequest(){
+        //present edit meeting request view
+        
+    }
+    func deleteMeetingRequest(){
+        //delete all nodes
+        
+        //pop to root view controller
+        
+    }
 	@IBAction func acceptPressed(_ sender: UIButton) {
+        
+        //Add to users' array of scheduled meetings
+        //store id
+        print(meetingRequest!.meetingId)
+        let alert = UIAlertController(title: "Confirm", message: "Would you like to confirm to plan this meeting?", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: "Default action"), style: .default, handler: { _ in
+            self.acceptMeeting()}))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("No", comment: "Default action"), style: .default, handler: { _ in
+            NSLog("The \"OK\" alert occured.")}))
+        
+        self.present(alert, animated: true, completion: nil)
+        //delete meeting requests
+        
+        
 	}
+    func acceptMeeting(){
+        print("MEETING STORED")
+        
+        let uid = (Auth.auth().currentUser?.uid)!
+        let otherUid = (meetingRequest?.meetingPartnerId())!
+        
+        //add to scheduledMeeting nodes
+        
+        Database.database().reference().child("ScheduledMeetings").child((meetingRequest?.meetingId!)!).setValue(["date": meetingRequest?.date!.timeIntervalSince1970, "location": meetingRequest?.location!, "tutorUid": meetingRequest?.tutorUid, "tutoreeUid": meetingRequest?.tutoreeUid, "subject": meetingRequest?.subject!, "meetingId": meetingRequest?.meetingId!]){ (error, ref) in
+            if error != nil {
+                ProgressHUD.showError(error!.localizedDescription)
+                return
+            }
+        
+        }
+        
+        //add to user-shceduledMeeting nodes
+        Database.database().reference().child("users-scheduledMeetings/\(uid)").child((meetingRequest?.meetingId!)!).setValue(1)
+        Database.database().reference().child("users-scheduledMeetings/\(otherUid)").child((meetingRequest?.meetingId!)!).setValue(1)
+        
+        //delete from MeetingRequests
+        Database.database().reference().child("MeetingRequests").child((meetingRequest?.meetingId!)!).removeValue()
+        
+        //delete from user-meetingrequests
+        
+        Database.database().reference().child("user-meetingRequests").child(uid).child((meetingRequest?.meetingId)!).removeValue()
+    
+        
+        navigationController?.popToRootViewController(animated: true)
+        
+        
+    }
 	func setUser(user: User){
 		self.user = user
 	}
@@ -68,14 +140,9 @@ class MeetingRequestViewController: UIViewController{
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		for i in 0..<meetingRequestLabels.count{
-			print(meetingRequestLabels[i].text!)
-		}
+	
 		fillMeetingRequestLabels()
-		
-		for i in 0..<meetingRequestLabels.count{
-			print(meetingRequestLabels[i].text!)
-		}
+	
 		
 	}
 }

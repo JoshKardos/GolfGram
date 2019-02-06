@@ -27,8 +27,7 @@ class SignUpViewController: UIViewController {
 	override func viewDidLoad() {
         super.viewDidLoad()
 
-		profileImage.layer.cornerRadius = 10
-		
+		profileImage.layer.cornerRadius = 40
 		profileImage.clipsToBounds = true
 		
 		let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SignUpViewController.handleSelectProfileImageView))

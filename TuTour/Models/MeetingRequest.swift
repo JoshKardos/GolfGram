@@ -17,7 +17,7 @@ class MeetingRequest{
 	var tutorUid: String?
 	var tutoreeUid: String?
 	var subject: String?
-	
+    var meetingId: String?
 	
 	func setLocation(location: String){
 		self.location = location
@@ -25,7 +25,12 @@ class MeetingRequest{
 	func setDate(date: Date){
 		self.date = date
 	}
-	
+    init(tutor: String, tutoree: String, subject: String, meetingId: String) {
+        self.tutorUid = tutor
+        self.tutoreeUid = tutoree
+        self.subject = subject
+        self.meetingId = meetingId
+    }
 	init(tutor: String, tutoree: String, subject: String) {
 		self.tutorUid = tutor
 		self.tutoreeUid = tutoree

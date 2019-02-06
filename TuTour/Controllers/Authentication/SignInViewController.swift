@@ -18,6 +18,8 @@ class SignInViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+        
+        
 		//DEACTIVATE BUTTON ON LOAD
 		signInButton.setTitleColor(UIColor.lightText, for: UIControl.State.normal)
 		signInButton.isEnabled = false
