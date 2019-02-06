@@ -94,7 +94,7 @@ class MeetingRequestViewController: UIViewController{
         //delete from user-meetingrequests
         
         Database.database().reference().child("user-meetingRequests").child(uid).child((meetingRequest?.meetingId)!).removeValue()
-    
+        Database.database().reference().child("user-meetingRequests").child(otherUid).child((meetingRequest?.meetingId)!).removeValue()
         
         navigationController?.popToRootViewController(animated: true)
         

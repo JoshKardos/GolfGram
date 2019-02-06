@@ -11,6 +11,11 @@ import FirebaseAuth
 import FirebaseDatabase
 import ProgressHUD
 
+//set up int:last clicked
+//soemthng removed? delete row at last clciked?
+
+
+
 class ActivityViewController: UITableViewController {
 
 	var tutorsClasses: Bool?
@@ -18,6 +23,7 @@ class ActivityViewController: UITableViewController {
 	var meetingRequestsUsers = [User]()//meeting partners
 	var ref = Database.database().reference()
 
+    var rowIndexSelected: IndexPath?
 
     override func viewDidLoad() {
 		
@@ -32,23 +38,17 @@ class ActivityViewController: UITableViewController {
 
 	func loadUserMeetingRequests(){
         
-        var meetingRequestId = ""
+        
 		guard let uid = Auth.auth().currentUser?.uid else{
 			return
 		}
 		
 		let currentUserRef = Database.database().reference().child("user-meetingRequests").child(uid)
 		
-		////
-        ///
-        ///
-        
-        /////
-		
 		currentUserRef.observe(.childAdded) { (snapshot) in
 			
 		
-            meetingRequestId = snapshot.key
+            var meetingRequestId = snapshot.key
 			let meetingRequestRef = Database.database().reference().child("MeetingRequests").child(meetingRequestId)
 			
             meetingRequestRef.observeSingleEvent(of: .value, with: { (snapshot) in
@@ -56,11 +56,7 @@ class ActivityViewController: UITableViewController {
                 
     
 				if let dictionary = snapshot.value as? [String: Any]{
-					
-				
-                    
-                    
-// MARK: - Meeting Request created
+                
 					let meetingRequest = MeetingRequest(tutor: dictionary["tutorUid"] as! String, tutoree: dictionary["tutoreeUid"] as! String, subject: dictionary["subject"] as! String, meetingId: dictionary["meetingId"] as! String)
 					
 					meetingRequest.setDate(date: Date(timeIntervalSince1970: dictionary["date"] as! TimeInterval))
@@ -98,50 +94,10 @@ class ActivityViewController: UITableViewController {
         currentUserRef.observe(.childRemoved, with: { (snapshot) -> Void in
 //
             
-            print("HERE \(snapshot)")
-    
-            self.meetingRequests.removeAll()
-            self.meetingRequestsUsers.removeAll()
+            self.meetingRequestsUsers.remove(at: self.rowIndexSelected!.row)
+            self.meetingRequests.remove(at: self.rowIndexSelected!.row)
             
-            self.tableView.reloadData()
-            Database.database().reference().child("MeetingRequests").child(meetingRequestId).observeSingleEvent(of: .value, with: { (snapshot) in
-                
-                
-                
-                
-                if let dictionary = snapshot.value as? [String: Any]{
-                    
-                    
-                    
-                    
-                    // MARK: - Meeting Request created
-                    let meetingRequest = MeetingRequest(tutor: dictionary["tutorUid"] as! String, tutoree: dictionary["tutoreeUid"] as! String, subject: dictionary["subject"] as! String, meetingId: dictionary["meetingId"] as! String)
-                    
-                    meetingRequest.setDate(date: Date(timeIntervalSince1970: dictionary["date"] as! TimeInterval))
-                    meetingRequest.setLocation(location: dictionary["location"] as! String)
-                    
-                    
-                    if let otherUserId = meetingRequest.meetingPartnerId(){
-                        
-                        Database.database().reference().child("users").child(otherUserId).observe(.value) { (snapshot) in
-                            
-                            let user = snapshot.value as? [String: Any]
-                            let newUser = User(emailString: user!["email"] as! String, profileImageUrlString: user!["profileImageUrl"] as! String, uidString: user!["uid"] as! String, usernameString: user!["username"] as! String)
-                            
-                            self.meetingRequestsUsers.append(newUser)
-                            self.meetingRequests.append(meetingRequest)
-                            
-                            
-                        }
-                    }
-                    
-                    
-                    
-                    self.timer?.invalidate()
-                    self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.handleReloadTable), userInfo: nil, repeats: false)
-                }
-            })
-            
+            self.tableView.deleteRows(at: [self.rowIndexSelected!], with: UITableView.RowAnimation.automatic)
         })
 	}
 	
@@ -164,6 +120,8 @@ class ActivityViewController: UITableViewController {
 		
 		meetingRequestVC.setMeetingRequest(meetingRequest: meetingRequests[indexPath.row])
 		
+        rowIndexSelected = indexPath
+        
 		navigationController?.pushViewController(meetingRequestVC, animated: true)
 		
 	}
