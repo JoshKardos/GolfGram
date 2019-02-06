@@ -96,7 +96,7 @@ class LocationPickerViewController: UIViewController, UIPickerViewDelegate, UIPi
 			
 			
 		}else{
-			print("no location selected")
+			ProgressHUD.showError("ERROR, most likely the location was not set.")
 		}
 		
 		//HERE
