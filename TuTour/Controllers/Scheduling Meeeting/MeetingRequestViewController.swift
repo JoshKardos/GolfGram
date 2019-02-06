@@ -140,14 +140,9 @@ class MeetingRequestViewController: UIViewController{
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		for i in 0..<meetingRequestLabels.count{
-			print(meetingRequestLabels[i].text!)
-		}
+	
 		fillMeetingRequestLabels()
-		
-		for i in 0..<meetingRequestLabels.count{
-			print(meetingRequestLabels[i].text!)
-		}
+	
 		
 	}
 }
