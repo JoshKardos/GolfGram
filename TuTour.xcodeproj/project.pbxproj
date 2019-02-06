@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		0B45D9026E4F7B11C516484B /* Pods_TuTour.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FABFCB1540A14F77E90BE2EA /* Pods_TuTour.framework */; };
+		945821C7220A59B60024BF5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 945821C6220A59B60024BF5C /* Assets.xcassets */; };
 		B305646B218FFD5E0022EE7F /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = B305646A218FFD5E0022EE7F /* Message.swift */; };
 		B3082FFE2158961B004D0B1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3082FFD2158961B004D0B1A /* AppDelegate.swift */; };
 		B30830082158961C004D0B1A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B30830062158961C004D0B1A /* LaunchScreen.storyboard */; };
 		B308301021589A82004D0B1A /* Start.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B308300F21589A82004D0B1A /* Start.storyboard */; };
 		B32F24FB2159B87C00930BAA /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F24FA2159B87C00930BAA /* SignInViewController.swift */; };
 		B32F24FD2159C4C800930BAA /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F24FC2159C4C800930BAA /* SignUpViewController.swift */; };
-		B32F2501215AA8B500930BAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B32F2500215AA8B500930BAA /* Assets.xcassets */; };
 		B32F2503215AB96700930BAA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F2502215AB96700930BAA /* HomeViewController.swift */; };
 		B32F2506215AB9AE00930BAA /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F2505215AB9AE00930BAA /* DiscoverViewController.swift */; };
 		B32F2508215AB9C100930BAA /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F2507215AB9C100930BAA /* CameraViewController.swift */; };
@@ -54,6 +54,7 @@
 /* Begin PBXFileReference section */
 		85561150EBBC681E8263A1F5 /* Pods-TuTour.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TuTour.release.xcconfig"; path = "Pods/Target Support Files/Pods-TuTour/Pods-TuTour.release.xcconfig"; sourceTree = "<group>"; };
 		902A4077071442423A48C8FA /* Pods-TuTour.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TuTour.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TuTour/Pods-TuTour.debug.xcconfig"; sourceTree = "<group>"; };
+		945821C6220A59B60024BF5C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B305646A218FFD5E0022EE7F /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		B3082FFA2158961B004D0B1A /* TuTour.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TuTour.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3082FFD2158961B004D0B1A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -62,7 +63,6 @@
 		B308300F21589A82004D0B1A /* Start.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Start.storyboard; sourceTree = "<group>"; };
 		B32F24FA2159B87C00930BAA /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		B32F24FC2159C4C800930BAA /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		B32F2500215AA8B500930BAA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B32F2502215AB96700930BAA /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B32F2505215AB9AE00930BAA /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		B32F2507215AB9C100930BAA /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				B3082FFC2158961B004D0B1A /* TuTour */,
+				945821C6220A59B60024BF5C /* Assets.xcassets */,
 				B3082FFB2158961B004D0B1A /* Products */,
 				E21E1B553B1464165E8A7708 /* Pods */,
 				9F33963AA030F70C5B4A62E2 /* Frameworks */,
@@ -147,7 +148,6 @@
 				B34E7895215B447400A79B10 /* Views */,
 				B3CE030421AD03A500BABFD9 /* Cells */,
 				B32F2504215AB98200930BAA /* Controllers */,
-				B32F2500215AA8B500930BAA /* Assets.xcassets */,
 				B30830062158961C004D0B1A /* LaunchScreen.storyboard */,
 				B30830092158961C004D0B1A /* Info.plist */,
 				B34E7898215B5B6400A79B10 /* GoogleService-Info.plist */,
@@ -324,7 +324,7 @@
 				B30830082158961C004D0B1A /* LaunchScreen.storyboard in Resources */,
 				B34E7890215B438A00A79B10 /* Camera.storyboard in Resources */,
 				B34E788C215B354E00A79B10 /* Home.storyboard in Resources */,
-				B32F2501215AA8B500930BAA /* Assets.xcassets in Resources */,
+				945821C7220A59B60024BF5C /* Assets.xcassets in Resources */,
 				B308301021589A82004D0B1A /* Start.storyboard in Resources */,
 				B34E788A215B0AA600A79B10 /* Main.storyboard in Resources */,
 				B34E7894215B43E500A79B10 /* Profile.storyboard in Resources */,
