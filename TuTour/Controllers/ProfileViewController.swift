@@ -28,11 +28,19 @@ class ProfileViewController: UIViewController {
         
     }
     
+
     var isOtherUser = false//must change to false if vc is pushed programatically!!
     
     var uid: String?
     
     var meeting: MeetingRequest?
+    
+    @IBAction func updateButton(_ sender: Any) {
+        // Go to Profile Settings
+        let storyboard: UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
+        let profileSettingsVC = storyboard.instantiateViewController(withIdentifier: "Settings") as! ProfileSettingsController
+        navigationController?.pushViewController(profileSettingsVC, animated: true)
+    }
     
     @IBAction func tutorButton(_ sender: Any) {
         
