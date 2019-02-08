@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
-class ScheduledMeetings{
-    
-}
+class ScheduledMeetingsTableViewController: UITableViewController{
+    override func viewDidLoad() {
+        print("ScheduledMeeeeeeeetings")
+    }}
