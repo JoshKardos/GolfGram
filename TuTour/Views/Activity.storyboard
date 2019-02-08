@@ -225,8 +225,8 @@
                             <rect key="frame" x="17" y="7" width="380" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
-                                <segment title="First"/>
-                                <segment title="Second"/>
+                                <segment title="Requests"/>
+                                <segment title="Scheduled"/>
                             </segments>
                         </segmentedControl>
                     </navigationItem>

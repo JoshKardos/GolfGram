@@ -69,7 +69,6 @@ class MeetingRequestViewController: UIViewController{
         
 	}
     func acceptMeeting(){
-        print("MEETING STORED")
         
         let uid = (Auth.auth().currentUser?.uid)!
         let otherUid = (meetingRequest?.meetingPartnerId())!
