@@ -11,12 +11,10 @@ import FirebaseAuth
 import FirebaseDatabase
 import ProgressHUD
 
-//set up int:last clicked
-//soemthng removed? delete row at last clciked?
+//Schedules meetings view controller, tab bar in actiivty view contorller
 
 
-
-class ActivityViewController: UITableViewController {
+class ActivityViewController: UITableViewController{
 
 	var tutorsClasses: Bool?
 	var meetingRequests = [MeetingRequest]()
@@ -25,6 +23,7 @@ class ActivityViewController: UITableViewController {
 
     var rowIndexSelected: IndexPath?
 
+   
     override func viewDidLoad() {
 		
         super.viewDidLoad()
@@ -32,9 +31,11 @@ class ActivityViewController: UITableViewController {
         // Do any additional setup after loading the view.
 		
 		tableView.dataSource = self
-
 		loadUserMeetingRequests()
+        
     }
+    
+    //TODO: LOAD USER SCHEDULEDMEETINGS
 
 	func loadUserMeetingRequests(){
         
@@ -108,6 +109,10 @@ class ActivityViewController: UITableViewController {
 		}
 	}
     
+    
+    
+    
+     //MARK: Collection View
 	//row selected
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		
@@ -153,5 +158,4 @@ class ActivityViewController: UITableViewController {
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return self.meetingRequests.count
 	}
-
 }

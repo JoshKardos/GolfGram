@@ -39,6 +39,8 @@
 		B358F45B21F4FE0A00E53F08 /* LocationPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B358F45A21F4FE0A00E53F08 /* LocationPickerViewController.swift */; };
 		B358F45D21F546D500E53F08 /* MeetingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B358F45C21F546D500E53F08 /* MeetingRequest.swift */; };
 		B358F46121F94CEB00E53F08 /* MeetingRequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B358F46021F94CEB00E53F08 /* MeetingRequestCell.swift */; };
+		B36EA7EE220C0EC100551E8C /* ScheduledMeetingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36EA7ED220C0EC100551E8C /* ScheduledMeetingsViewController.swift */; };
+		B36EA7F0220CA6C300551E8C /* TopTabBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36EA7EF220CA6C300551E8C /* TopTabBarCell.swift */; };
 		B39EE9EA22039DF9005550A9 /* MeetingRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39EE9E922039DF9005550A9 /* MeetingRequestViewController.swift */; };
 		B3A3C90321D751BA00E0C05F /* SubjectVCFindTutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A3C90221D751BA00E0C05F /* SubjectVCFindTutor.swift */; };
 		B3A3C90521D7524900E0C05F /* SubjectsVCRegisterAsTutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A3C90421D7524900E0C05F /* SubjectsVCRegisterAsTutor.swift */; };
@@ -87,6 +89,8 @@
 		B358F45A21F4FE0A00E53F08 /* LocationPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerViewController.swift; sourceTree = "<group>"; };
 		B358F45C21F546D500E53F08 /* MeetingRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingRequest.swift; sourceTree = "<group>"; };
 		B358F46021F94CEB00E53F08 /* MeetingRequestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingRequestCell.swift; sourceTree = "<group>"; };
+		B36EA7ED220C0EC100551E8C /* ScheduledMeetingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledMeetingsViewController.swift; sourceTree = "<group>"; };
+		B36EA7EF220CA6C300551E8C /* TopTabBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTabBarCell.swift; sourceTree = "<group>"; };
 		B39EE9E922039DF9005550A9 /* MeetingRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingRequestViewController.swift; sourceTree = "<group>"; };
 		B3A3C90221D751BA00E0C05F /* SubjectVCFindTutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectVCFindTutor.swift; sourceTree = "<group>"; };
 		B3A3C90421D7524900E0C05F /* SubjectsVCRegisterAsTutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectsVCRegisterAsTutor.swift; sourceTree = "<group>"; };
@@ -201,6 +205,7 @@
 				B39EE9E922039DF9005550A9 /* MeetingRequestViewController.swift */,
 				B358F45721F431CA00E53F08 /* DatePickerViewController.swift */,
 				B358F45A21F4FE0A00E53F08 /* LocationPickerViewController.swift */,
+				B36EA7ED220C0EC100551E8C /* ScheduledMeetingsViewController.swift */,
 			);
 			path = "Scheduling Meeeting";
 			sourceTree = "<group>";
@@ -247,6 +252,7 @@
 				B3A3C90921DD745300E0C05F /* SubjectCellWithNumTutors.swift */,
 				B358F46021F94CEB00E53F08 /* MeetingRequestCell.swift */,
 				B34E78A1216829A400A79B10 /* PostCellViewController.swift */,
+				B36EA7EF220CA6C300551E8C /* TopTabBarCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -409,6 +415,7 @@
 				B3CE617B21FFDF1A00AB4DF7 /* UserCell.swift in Sources */,
 				B305646B218FFD5E0022EE7F /* Message.swift in Sources */,
 				B3082FFE2158961B004D0B1A /* AppDelegate.swift in Sources */,
+				B36EA7EE220C0EC100551E8C /* ScheduledMeetingsViewController.swift in Sources */,
 				B34E789B2163337700A79B10 /* AuthService.swift in Sources */,
 				B358F46121F94CEB00E53F08 /* MeetingRequestCell.swift in Sources */,
 				B32F2503215AB96700930BAA /* HomeViewController.swift in Sources */,
@@ -423,6 +430,7 @@
 				B32F250C215ABA1700930BAA /* ProfileViewController.swift in Sources */,
 				B32F2508215AB9C100930BAA /* CameraViewController.swift in Sources */,
 				B34E78A021681CA000A79B10 /* Post.swift in Sources */,
+				B36EA7F0220CA6C300551E8C /* TopTabBarCell.swift in Sources */,
 				B3431C582196806600401E8D /* UserCellInNewMessages.swift in Sources */,
 				B34E78A2216829A400A79B10 /* PostCellViewController.swift in Sources */,
 				B3A3C90321D751BA00E0C05F /* SubjectVCFindTutor.swift in Sources */,
