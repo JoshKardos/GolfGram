@@ -114,6 +114,7 @@ class ProfileViewController: UIViewController {
             
             self.isOtherUser = true
             fillUserInfo(uid: otherUser_ID)
+            updateButton.isHidden = true
             registerAsTutorButton.backgroundColor = UIColor.yellow
             registerAsTutorButton.setTitle("Tutor Request", for: .normal)
             
@@ -123,6 +124,7 @@ class ProfileViewController: UIViewController {
             fillUserInfo(uid: userID)
             isOtherUser = false
             registerAsTutorButton.reloadInputViews()
+            updateButton.isHidden = false
             
         }
     }
