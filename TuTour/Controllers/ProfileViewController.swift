@@ -13,6 +13,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var emailTextbox: UITextField!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var updateButton: UIButton!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var dmButton: UIBarButtonItem!
     @IBOutlet weak var registerAsTutorButton: UIButton!
