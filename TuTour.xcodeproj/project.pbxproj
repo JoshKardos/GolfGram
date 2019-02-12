@@ -151,7 +151,6 @@
 			isa = PBXGroup;
 			children = (
 				B3082FFD2158961B004D0B1A /* AppDelegate.swift */,
-				B34E789A2163337700A79B10 /* AuthService.swift */,
 				B34E789E21681C8400A79B10 /* Models */,
 				B34E7895215B447400A79B10 /* Views */,
 				B3CE030421AD03A500BABFD9 /* Cells */,
@@ -241,6 +240,7 @@
 		B3A3C90821D752BC00E0C05F /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				B34E789A2163337700A79B10 /* AuthService.swift */,
 				B32F24FA2159B87C00930BAA /* SignInViewController.swift */,
 				B32F24FC2159C4C800930BAA /* SignUpViewController.swift */,
 			);
