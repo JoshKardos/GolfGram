@@ -45,6 +45,7 @@ class MeetingRequestsTableViewController: UITableViewController{
                     let meetingRequest = MeetingRequest(tutor: dictionary["tutorUid"] as! String, tutoree: dictionary["tutoreeUid"] as! String, subject: dictionary["subject"] as! String, meetingId: dictionary["meetingId"] as! String)
                     meetingRequest.setDate(date: Date(timeIntervalSince1970: dictionary["date"] as! TimeInterval))
                     meetingRequest.setLocation(location: dictionary["location"] as! String)
+                    meetingRequest.setLastPersonToSendId(uid: dictionary["lastPersonToSendUid"] as! String)
                     if let otherUserId = meetingRequest.meetingPartnerId(){
                         
                         Database.database().reference().child("users").child(otherUserId).observe(.value) { (snapshot) in
@@ -60,13 +61,15 @@ class MeetingRequestsTableViewController: UITableViewController{
                 }
             })
         }
-        //        // Listen for deleted meetings in the Firebase database
+        // Listen for deleted meetings in the Firebase database
         currentUserRef.observe(.childRemoved, with: { (snapshot) -> Void in
             
             if let index = self.indexOfRequest(snapshot: snapshot){
+                
                 self.meetingRequestsUsers.remove(at: index)
                 self.meetingRequests.remove(at: index)
                 self.tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: UITableView.RowAnimation.automatic)
+                
             }
         })
     }
@@ -110,6 +113,9 @@ class MeetingRequestsTableViewController: UITableViewController{
         let meetingRequest = meetingRequests[indexPath.row]
         cell.otherUser = otherUser
         cell.meetingRequest = meetingRequest
+        if meetingRequest.lastUserToSendId! != (Auth.auth().currentUser?.uid)!{
+            cell.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
+        }
         Database.database().reference().child("users").child(meetingRequest.meetingPartnerId()!).observeSingleEvent(of: .value, with: {(snapshot) in
             
             let url = URL(string: ((snapshot.value as! NSDictionary)["profileImageUrl"] as? String)!)//NSURL.init(fileURLWithPath: posts[indexPath.row].photoUrl)

@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import FirebaseDatabase
+import FirebaseAuth
 import ProgressHUD
 
 class LocationPickerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
@@ -50,7 +51,7 @@ class LocationPickerViewController: UIViewController, UIPickerViewDelegate, UIPi
 		
 		
 		if let meetingLocation = location{
-			
+            
 			meeting?.setLocation(location: meetingLocation)
 			print(meetingLocation)
 			
@@ -66,7 +67,9 @@ class LocationPickerViewController: UIViewController, UIPickerViewDelegate, UIPi
 			let tutorUid = meeting?.tutorUid!
 			let tutoreeUid = meeting?.tutoreeUid!
 			
-			meetingRequestRef.child(newMeetingRequestId).setValue(["date": meeting?.date!.timeIntervalSince1970, "location": meeting?.location!, "tutorUid": tutorUid, "tutoreeUid": tutoreeUid, "subject": meeting?.subject!, "meetingId": newMeetingRequestId]){ (error, ref) in
+            
+            meeting?.setLastPersonToSendId(uid: (Auth.auth().currentUser?.uid)!)
+			meetingRequestRef.child(newMeetingRequestId).setValue(["date": meeting?.date!.timeIntervalSince1970, "location": meeting?.location!, "tutorUid": tutorUid, "tutoreeUid": tutoreeUid, "subject": meeting?.subject!, "meetingId": newMeetingRequestId, "lastPersonToSendUid": meeting?.lastUserToSendId]){ (error, ref) in
 				if error != nil {
 					ProgressHUD.showError(error!.localizedDescription)
 					return

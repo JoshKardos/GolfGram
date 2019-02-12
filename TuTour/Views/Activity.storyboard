@@ -166,6 +166,7 @@
                         <viewLayoutGuide key="safeArea" id="wWu-VM-aXp"/>
                     </view>
                     <connections>
+                        <outlet property="acceptButton" destination="XHi-dF-9ra" id="fXx-lp-e1f"/>
                         <outlet property="denyButton" destination="TQl-It-wbM" id="5oA-jU-saU"/>
                         <outlet property="titleLabel" destination="gxZ-3y-IVe" id="ytp-bX-SH5"/>
                         <outletCollection property="meetingRequestLabels" destination="adU-lB-5hh" collectionClass="NSMutableArray" id="W4N-9A-iC2"/>

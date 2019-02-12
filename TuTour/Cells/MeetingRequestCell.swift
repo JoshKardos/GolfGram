@@ -8,6 +8,7 @@
 
 import Foundation
 import FirebaseDatabase
+import FirebaseAuth
 import UIKit
 
 class MeetingRequestCell: MessageCell{
@@ -17,7 +18,7 @@ class MeetingRequestCell: MessageCell{
 	override func awakeFromNib() {
 
 		super.awakeFromNib()
-		
+       
 	}
 	
 	var meetingRequest: MeetingRequest?{
