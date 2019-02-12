@@ -267,7 +267,7 @@
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="userCell" rowHeight="75" id="Nrx-RT-LDl" customClass="UserCellInMessages" customModule="TuTour" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="userCell" rowHeight="75" id="Nrx-RT-LDl" customClass="UserCellInNewMessages" customModule="TuTour" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="72" width="414" height="75"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Nrx-RT-LDl" id="heM-4w-qMC">
@@ -301,8 +301,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="cellImage" destination="vPR-F8-eqP" id="kmN-eJ-suJ"/>
-                                    <outlet property="cellLabel" destination="a8z-0C-upn" id="qF5-SU-WVV"/>
+                                    <outlet property="cellImage" destination="vPR-F8-eqP" id="UsL-ps-hPj"/>
+                                    <outlet property="cellLabel" destination="a8z-0C-upn" id="7Qq-bs-uFv"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -314,7 +314,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t9U-L4-h21" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9926" y="-834"/>
+            <point key="canvasLocation" x="9924.6376811594218" y="-834.375"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tK8-p4-AQ5">
