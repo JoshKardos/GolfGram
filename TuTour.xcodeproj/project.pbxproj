@@ -18,7 +18,7 @@
 		B32F2503215AB96700930BAA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F2502215AB96700930BAA /* HomeViewController.swift */; };
 		B32F2506215AB9AE00930BAA /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F2505215AB9AE00930BAA /* DiscoverViewController.swift */; };
 		B32F2508215AB9C100930BAA /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F2507215AB9C100930BAA /* CameraViewController.swift */; };
-		B32F250A215AB9F000930BAA /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F2509215AB9F000930BAA /* ActivityViewController.swift */; };
+		B32F250A215AB9F000930BAA /* MeetingRequestsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F2509215AB9F000930BAA /* MeetingRequestsTableViewController.swift */; };
 		B32F250C215ABA1700930BAA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F250B215ABA1700930BAA /* ProfileViewController.swift */; };
 		B3308CB121D60B8500A0404D /* SubjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3308CB021D60B8500A0404D /* SubjectCell.swift */; };
 		B3308CB321D60C2F00A0404D /* SubjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3308CB221D60C2F00A0404D /* SubjectsViewController.swift */; };
@@ -39,6 +39,9 @@
 		B358F45B21F4FE0A00E53F08 /* LocationPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B358F45A21F4FE0A00E53F08 /* LocationPickerViewController.swift */; };
 		B358F45D21F546D500E53F08 /* MeetingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B358F45C21F546D500E53F08 /* MeetingRequest.swift */; };
 		B358F46121F94CEB00E53F08 /* MeetingRequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B358F46021F94CEB00E53F08 /* MeetingRequestCell.swift */; };
+		B36EA7EE220C0EC100551E8C /* ScheduledMeetingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36EA7ED220C0EC100551E8C /* ScheduledMeetingsTableViewController.swift */; };
+		B36F4E6D220D2DBB001380EE /* MasterActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36F4E6C220D2DBB001380EE /* MasterActivityViewController.swift */; };
+		B3728ED9220E0407003FA560 /* ScheduledMeeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3728ED8220E0407003FA560 /* ScheduledMeeting.swift */; };
 		B39EE9EA22039DF9005550A9 /* MeetingRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39EE9E922039DF9005550A9 /* MeetingRequestViewController.swift */; };
 		B3A3C90321D751BA00E0C05F /* SubjectVCFindTutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A3C90221D751BA00E0C05F /* SubjectVCFindTutor.swift */; };
 		B3A3C90521D7524900E0C05F /* SubjectsVCRegisterAsTutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A3C90421D7524900E0C05F /* SubjectsVCRegisterAsTutor.swift */; };
@@ -66,7 +69,7 @@
 		B32F2502215AB96700930BAA /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B32F2505215AB9AE00930BAA /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		B32F2507215AB9C100930BAA /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
-		B32F2509215AB9F000930BAA /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
+		B32F2509215AB9F000930BAA /* MeetingRequestsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingRequestsTableViewController.swift; sourceTree = "<group>"; };
 		B32F250B215ABA1700930BAA /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		B3308CB021D60B8500A0404D /* SubjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectCell.swift; sourceTree = "<group>"; };
 		B3308CB221D60C2F00A0404D /* SubjectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectsViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +90,9 @@
 		B358F45A21F4FE0A00E53F08 /* LocationPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerViewController.swift; sourceTree = "<group>"; };
 		B358F45C21F546D500E53F08 /* MeetingRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingRequest.swift; sourceTree = "<group>"; };
 		B358F46021F94CEB00E53F08 /* MeetingRequestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingRequestCell.swift; sourceTree = "<group>"; };
+		B36EA7ED220C0EC100551E8C /* ScheduledMeetingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledMeetingsTableViewController.swift; sourceTree = "<group>"; };
+		B36F4E6C220D2DBB001380EE /* MasterActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterActivityViewController.swift; sourceTree = "<group>"; };
+		B3728ED8220E0407003FA560 /* ScheduledMeeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledMeeting.swift; sourceTree = "<group>"; };
 		B39EE9E922039DF9005550A9 /* MeetingRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingRequestViewController.swift; sourceTree = "<group>"; };
 		B3A3C90221D751BA00E0C05F /* SubjectVCFindTutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectVCFindTutor.swift; sourceTree = "<group>"; };
 		B3A3C90421D7524900E0C05F /* SubjectsVCRegisterAsTutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectsVCRegisterAsTutor.swift; sourceTree = "<group>"; };
@@ -164,7 +170,9 @@
 				B358F45921F4FDCE00E53F08 /* Scheduling Meeeting */,
 				B32F2502215AB96700930BAA /* HomeViewController.swift */,
 				B32F2507215AB9C100930BAA /* CameraViewController.swift */,
-				B32F2509215AB9F000930BAA /* ActivityViewController.swift */,
+				B36F4E6C220D2DBB001380EE /* MasterActivityViewController.swift */,
+				B32F2509215AB9F000930BAA /* MeetingRequestsTableViewController.swift */,
+				B36EA7ED220C0EC100551E8C /* ScheduledMeetingsTableViewController.swift */,
 				B32F250B215ABA1700930BAA /* ProfileViewController.swift */,
 			);
 			path = Controllers;
@@ -191,6 +199,7 @@
 				B3BD05C5218E65A100315922 /* User.swift */,
 				B305646A218FFD5E0022EE7F /* Message.swift */,
 				B358F45C21F546D500E53F08 /* MeetingRequest.swift */,
+				B3728ED8220E0407003FA560 /* ScheduledMeeting.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -408,13 +417,16 @@
 				B3A3C90521D7524900E0C05F /* SubjectsVCRegisterAsTutor.swift in Sources */,
 				B3CE617B21FFDF1A00AB4DF7 /* UserCell.swift in Sources */,
 				B305646B218FFD5E0022EE7F /* Message.swift in Sources */,
+				B36F4E6D220D2DBB001380EE /* MasterActivityViewController.swift in Sources */,
 				B3082FFE2158961B004D0B1A /* AppDelegate.swift in Sources */,
+				B36EA7EE220C0EC100551E8C /* ScheduledMeetingsTableViewController.swift in Sources */,
 				B34E789B2163337700A79B10 /* AuthService.swift in Sources */,
 				B358F46121F94CEB00E53F08 /* MeetingRequestCell.swift in Sources */,
 				B32F2503215AB96700930BAA /* HomeViewController.swift in Sources */,
-				B32F250A215AB9F000930BAA /* ActivityViewController.swift in Sources */,
+				B32F250A215AB9F000930BAA /* MeetingRequestsTableViewController.swift in Sources */,
 				B3BD05C6218E65A100315922 /* User.swift in Sources */,
 				B3308CB321D60C2F00A0404D /* SubjectsViewController.swift in Sources */,
+				B3728ED9220E0407003FA560 /* ScheduledMeeting.swift in Sources */,
 				B358F45B21F4FE0A00E53F08 /* LocationPickerViewController.swift in Sources */,
 				B3433A9821744C8C00BE44D7 /* ChatLogViewController.swift in Sources */,
 				B358F45D21F546D500E53F08 /* MeetingRequest.swift in Sources */,
