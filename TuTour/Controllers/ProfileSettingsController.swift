@@ -22,7 +22,13 @@ class ProfileSettingsController: UIViewController {
     @IBOutlet weak var yearField: UITextField!
     @IBOutlet weak var descriptionField: UITextField!
     
-    func getPhoto(uid: String) {
+    @IBAction func confirmAction(_ sender: Any) {
+        
+        
+        
+        
+    }
+    func getData(uid: String) {
         
         Database.database().reference().child("users").child(uid).observeSingleEvent(of: .value, with: {(snapshot) in
             
@@ -50,26 +56,26 @@ class ProfileSettingsController: UIViewController {
         
         let userID = Auth.auth().currentUser!.uid
         
-        getPhoto(uid: userID)
+        getData(uid: userID)
         
         
-        let nameFieldHoshi = styleFields(field: nameField)
-        nameFieldHoshi.placeholder = "Name"
-        let schoolFieldHoshi = styleFields(field: schoolField)
-        schoolFieldHoshi.placeholder = "School"
-        let majorFieldHoshi = styleFields(field: majorField)
-        majorFieldHoshi.placeholder = "Major"
-        let yearFieldHoshi = styleFields(field: yearField)
-        yearFieldHoshi.placeholder = "Year"
-        let descriptionFieldHoshi = styleFields(field: descriptionField)
-        descriptionFieldHoshi.placeholder = "Description"
+        let nameFieldIsao = styleFields(field: nameField)
+        nameFieldIsao.placeholder = "Name"
+        let schoolFieldIsao = styleFields(field: schoolField)
+        schoolFieldIsao.placeholder = "School"
+        let majorFieldIsao = styleFields(field: majorField)
+        majorFieldIsao.placeholder = "Major"
+        let yearFieldIsao = styleFields(field: yearField)
+        yearFieldIsao.placeholder = "Year"
+        let descriptionFieldIsao = styleFields(field: descriptionField)
+        descriptionFieldIsao.placeholder = "Description"
 
         
-        self.view.addSubview(nameFieldHoshi)
-        self.view.addSubview(schoolFieldHoshi)
-        self.view.addSubview(majorFieldHoshi)
-        self.view.addSubview(yearFieldHoshi)
-        self.view.addSubview(descriptionFieldHoshi)
+        self.view.addSubview(nameFieldIsao)
+        self.view.addSubview(schoolFieldIsao)
+        self.view.addSubview(majorFieldIsao)
+        self.view.addSubview(yearFieldIsao)
+        self.view.addSubview(descriptionFieldIsao)
     }
     
 
