@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="7aw-12-j29">
+                            <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sign_in_bg" translatesAutoresizingMaskIntoConstraints="NO" id="7aw-12-j29">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="HKD-wd-PQw">
@@ -125,7 +125,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="up_bg" translatesAutoresizingMaskIntoConstraints="NO" id="6If-Dp-PLQ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sign_up_bg" translatesAutoresizingMaskIntoConstraints="NO" id="6If-Dp-PLQ">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dzr-e0-sQT">
@@ -282,9 +282,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Portrait_Placeholder" width="600" height="600"/>
-        <image name="bg" width="1965" height="2947"/>
-        <image name="up_bg" width="2723" height="3600"/>
+        <image name="Portrait_Placeholder" width="200" height="200"/>
+        <image name="sign_in_bg" width="655" height="982"/>
+        <image name="sign_up_bg" width="907.5" height="1200"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ME5-NS-tIA"/>

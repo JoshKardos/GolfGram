@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		0B45D9026E4F7B11C516484B /* Pods_TuTour.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FABFCB1540A14F77E90BE2EA /* Pods_TuTour.framework */; };
 		5BF43D7A220AB02C00B83085 /* ProfileSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF43D79220AB02C00B83085 /* ProfileSettingsController.swift */; };
-		945821C7220A59B60024BF5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 945821C6220A59B60024BF5C /* Assets.xcassets */; };
+		949A9ABA221384D600E865AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 949A9AB9221384D600E865AC /* Assets.xcassets */; };
 		B305646B218FFD5E0022EE7F /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = B305646A218FFD5E0022EE7F /* Message.swift */; };
 		B3082FFE2158961B004D0B1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3082FFD2158961B004D0B1A /* AppDelegate.swift */; };
 		B30830082158961C004D0B1A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B30830062158961C004D0B1A /* LaunchScreen.storyboard */; };
@@ -59,7 +59,7 @@
 		5BF43D79220AB02C00B83085 /* ProfileSettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsController.swift; sourceTree = "<group>"; };
 		85561150EBBC681E8263A1F5 /* Pods-TuTour.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TuTour.release.xcconfig"; path = "Pods/Target Support Files/Pods-TuTour/Pods-TuTour.release.xcconfig"; sourceTree = "<group>"; };
 		902A4077071442423A48C8FA /* Pods-TuTour.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TuTour.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TuTour/Pods-TuTour.debug.xcconfig"; sourceTree = "<group>"; };
-		945821C6220A59B60024BF5C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		949A9AB9221384D600E865AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B305646A218FFD5E0022EE7F /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		B3082FFA2158961B004D0B1A /* TuTour.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TuTour.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3082FFD2158961B004D0B1A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -132,7 +132,6 @@
 			isa = PBXGroup;
 			children = (
 				B3082FFC2158961B004D0B1A /* TuTour */,
-				945821C6220A59B60024BF5C /* Assets.xcassets */,
 				B3082FFB2158961B004D0B1A /* Products */,
 				E21E1B553B1464165E8A7708 /* Pods */,
 				9F33963AA030F70C5B4A62E2 /* Frameworks */,
@@ -151,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				B3082FFD2158961B004D0B1A /* AppDelegate.swift */,
+				949A9AB9221384D600E865AC /* Assets.xcassets */,
 				B34E789A2163337700A79B10 /* AuthService.swift */,
 				B34E789E21681C8400A79B10 /* Models */,
 				B34E7895215B447400A79B10 /* Views */,
@@ -336,7 +336,7 @@
 				B30830082158961C004D0B1A /* LaunchScreen.storyboard in Resources */,
 				B34E7890215B438A00A79B10 /* Camera.storyboard in Resources */,
 				B34E788C215B354E00A79B10 /* Home.storyboard in Resources */,
-				945821C7220A59B60024BF5C /* Assets.xcassets in Resources */,
+				949A9ABA221384D600E865AC /* Assets.xcassets in Resources */,
 				B308301021589A82004D0B1A /* Start.storyboard in Resources */,
 				B34E788A215B0AA600A79B10 /* Main.storyboard in Resources */,
 				B34E7894215B43E500A79B10 /* Profile.storyboard in Resources */,

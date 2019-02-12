@@ -95,7 +95,7 @@
         <scene sceneID="hbm-UB-fgi">
             <objects>
                 <navigationController storyboardIdentifier="NavigationCamera" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Zb8-Dv-J4k" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="camera" id="LSz-KH-9ml">
+                    <tabBarItem key="tabBarItem" title="" image="screenshot" selectedImage="screenshot-filled" id="LSz-KH-9ml">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -114,7 +114,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="camera" width="30" height="30"/>
         <image name="imagePlaceholder" width="30" height="30"/>
+        <image name="screenshot" width="33" height="33"/>
+        <image name="screenshot-filled" width="33" height="33"/>
     </resources>
 </document>

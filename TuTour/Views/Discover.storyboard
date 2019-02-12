@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Discover-->
         <scene sceneID="rjN-pT-fFO">
             <objects>
-                <tableViewController title="Discover" id="3ee-iw-f9h" customClass="DiscoverViewController" customModule="GolfGram" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Discover" id="3ee-iw-f9h" customClass="DiscoverViewController" customModule="TuTour" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="cMW-HS-0PG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,7 +23,7 @@
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="userCell" rowHeight="75" id="e40-aj-Q4L" customClass="UserCellInDiscover" customModule="GolfGram" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="userCell" rowHeight="75" id="e40-aj-Q4L" customClass="UserCellInDiscover" customModule="TuTour" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="72" width="375" height="75"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="e40-aj-Q4L" id="0oP-pZ-BKj">
@@ -81,7 +81,7 @@
         <scene sceneID="GJf-Et-2hI">
             <objects>
                 <navigationController storyboardIdentifier="NavigationDiscover" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Tba-Ft-p3n" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="search" selectedImage="search selected" id="VMN-22-eBE">
+                    <tabBarItem key="tabBarItem" title="" image="search" selectedImage="search-filled" id="VMN-22-eBE">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -101,7 +101,7 @@
         <!--Subjects-->
         <scene sceneID="5CY-yF-Prs">
             <objects>
-                <tableViewController title="Subjects" id="MqU-FB-JvF" customClass="SubjectVCFindTutor" customModule="GolfGram" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Subjects" id="MqU-FB-JvF" customClass="SubjectVCFindTutor" customModule="TuTour" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="wqJ-Ja-9k6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -113,7 +113,7 @@
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="subjectCell" rowHeight="75" id="Dm6-zK-JMS" customClass="SubjectCellWithNumTutors" customModule="GolfGram" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="subjectCell" rowHeight="75" id="Dm6-zK-JMS" customClass="SubjectCellWithNumTutors" customModule="TuTour" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="72" width="375" height="75"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Dm6-zK-JMS" id="3ms-Wt-Yhw">
@@ -159,8 +159,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Portrait_Placeholder" width="600" height="600"/>
-        <image name="search" width="30" height="30"/>
-        <image name="search selected" width="30" height="30"/>
+        <image name="Portrait_Placeholder" width="200" height="200"/>
+        <image name="search" width="33" height="33"/>
+        <image name="search-filled" width="33" height="33"/>
     </resources>
 </document>

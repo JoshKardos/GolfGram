@@ -184,7 +184,7 @@
         <scene sceneID="uE7-mZ-k7e">
             <objects>
                 <navigationController storyboardIdentifier="NavigationActivity" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="e6h-ur-N6G" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="activity" selectedImage="activity selected" id="UW7-Wr-pej">
+                    <tabBarItem key="tabBarItem" title="" image="calendar" selectedImage="calendar-filled" id="UW7-Wr-pej">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -286,7 +286,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="activity" width="30" height="30"/>
-        <image name="activity selected" width="30" height="30"/>
+        <image name="calendar" width="33" height="33"/>
+        <image name="calendar-filled" width="33" height="33"/>
     </resources>
 </document>
