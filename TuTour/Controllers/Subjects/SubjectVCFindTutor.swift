@@ -8,14 +8,18 @@
 
 import UIKit
 import Firebase
-
+import ProgressHUD
 class SubjectVCFindTutor: SubjectsViewController{
 	
 	
 	static var subjectToTutorCount = [[Any]]()
 	let ref = Database.database().reference()
 	
+    
+
 	override func viewDidLoad() {
+        
+        ProgressHUD.show("Loading..")
 		super.viewDidLoad()
 		tableView.dataSource = self
 		SubjectVCFindTutor.subjectToTutorCount.removeAll()
@@ -39,6 +43,7 @@ class SubjectVCFindTutor: SubjectsViewController{
 		DispatchQueue.main.async {
 			print("RELOAD")
 			self.tableView.reloadData()//.collectionView!.reloadData()
+            ProgressHUD.dismiss()
 		}
 	}
 	
