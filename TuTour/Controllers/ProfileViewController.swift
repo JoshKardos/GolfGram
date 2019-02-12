@@ -8,26 +8,21 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import ProgressHUD
 class ProfileViewController: UIViewController {
     
     @IBOutlet weak var emailTextbox: UITextField!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
-    @IBOutlet weak var updateButton: UIButton!
+    @IBOutlet weak var schoolLabel: UILabel!
+    @IBOutlet weak var majorLabel: UILabel!
+    @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var ratingLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var updateButton: UIButton!
     @IBOutlet weak var dmButton: UIBarButtonItem!
     @IBOutlet weak var registerAsTutorButton: UIButton!
-    @IBAction func touch_email(_ sender: UIButton) {
-    }
-    @IBAction func touch_year(_ sender: UIButton) {
-        
-    }
-    @IBAction func touch_rating(_ sender: UIButton) {
-        
-    }
-    @IBAction func touch_moreinfo(_ sender: UIButton) {
-        
-    }
     
 
     var isOtherUser = false//must change to false if vc is pushed programatically!!
@@ -93,14 +88,24 @@ class ProfileViewController: UIViewController {
             
             
             let emailString = (snapshot.value as! NSDictionary)["email"] as! String
-            self.emailTextbox.text = emailString
+            self.emailLabel?.text = emailString
+            
+            let schoolString = (snapshot.value as! NSDictionary)["school"] as! String
+            self.schoolLabel?.text = schoolString
+            
+            let majorString = (snapshot.value as! NSDictionary)["major"] as! String
+            self.majorLabel?.text = majorString
+            
+            let yearString = (snapshot.value as! NSDictionary)["year"] as! String
+            self.yearLabel.text = yearString
+            ProgressHUD.dismiss()
         })
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        ProgressHUD.show("Loading...")
         dmButton?.tintColor = UIColor.flatGreenDark
         
         // Converts the profile image to circular
@@ -116,6 +121,7 @@ class ProfileViewController: UIViewController {
             fillUserInfo(uid: otherUser_ID)
             updateButton.isHidden = true
             registerAsTutorButton.backgroundColor = UIColor.yellow
+            registerAsTutorButton.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
             registerAsTutorButton.setTitle("Tutor Request", for: .normal)
             
         } else {//current users profile
