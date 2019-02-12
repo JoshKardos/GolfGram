@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0B45D9026E4F7B11C516484B /* Pods_TuTour.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FABFCB1540A14F77E90BE2EA /* Pods_TuTour.framework */; };
+		5BF43D7A220AB02C00B83085 /* ProfileSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF43D79220AB02C00B83085 /* ProfileSettingsController.swift */; };
 		945821C7220A59B60024BF5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 945821C6220A59B60024BF5C /* Assets.xcassets */; };
 		B305646B218FFD5E0022EE7F /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = B305646A218FFD5E0022EE7F /* Message.swift */; };
 		B3082FFE2158961B004D0B1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3082FFD2158961B004D0B1A /* AppDelegate.swift */; };
@@ -52,6 +53,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5BF43D79220AB02C00B83085 /* ProfileSettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsController.swift; sourceTree = "<group>"; };
 		85561150EBBC681E8263A1F5 /* Pods-TuTour.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TuTour.release.xcconfig"; path = "Pods/Target Support Files/Pods-TuTour/Pods-TuTour.release.xcconfig"; sourceTree = "<group>"; };
 		902A4077071442423A48C8FA /* Pods-TuTour.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TuTour.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TuTour/Pods-TuTour.debug.xcconfig"; sourceTree = "<group>"; };
 		945821C6220A59B60024BF5C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				B32F2507215AB9C100930BAA /* CameraViewController.swift */,
 				B32F2509215AB9F000930BAA /* ActivityViewController.swift */,
 				B32F250B215ABA1700930BAA /* ProfileViewController.swift */,
+				5BF43D79220AB02C00B83085 /* ProfileSettingsController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/ProgressHUD/ProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -360,6 +364,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -397,6 +402,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BF43D7A220AB02C00B83085 /* ProfileSettingsController.swift in Sources */,
 				B32F24FD2159C4C800930BAA /* SignUpViewController.swift in Sources */,
 				B34E78A42169BABC00A79B10 /* UserCellInDiscover.swift in Sources */,
 				B358F45821F431CA00E53F08 /* DatePickerViewController.swift in Sources */,

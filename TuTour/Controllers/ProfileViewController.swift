@@ -13,6 +13,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var emailTextbox: UITextField!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var updateButton: UIButton!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var dmButton: UIBarButtonItem!
     @IBOutlet weak var registerAsTutorButton: UIButton!
@@ -28,11 +29,19 @@ class ProfileViewController: UIViewController {
         
     }
     
+
     var isOtherUser = false//must change to false if vc is pushed programatically!!
     
     var uid: String?
     
     var meeting: MeetingRequest?
+    
+    @IBAction func updateButton(_ sender: Any) {
+        // Go to Profile Settings
+        let storyboard: UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
+        let profileSettingsVC = storyboard.instantiateViewController(withIdentifier: "Settings") as! ProfileSettingsController
+        navigationController?.pushViewController(profileSettingsVC, animated: true)
+    }
     
     @IBAction func tutorButton(_ sender: Any) {
         
@@ -105,6 +114,7 @@ class ProfileViewController: UIViewController {
             
             self.isOtherUser = true
             fillUserInfo(uid: otherUser_ID)
+            updateButton.isHidden = true
             registerAsTutorButton.backgroundColor = UIColor.yellow
             registerAsTutorButton.setTitle("Tutor Request", for: .normal)
             
@@ -114,6 +124,7 @@ class ProfileViewController: UIViewController {
             fillUserInfo(uid: userID)
             isOtherUser = false
             registerAsTutorButton.reloadInputViews()
+            updateButton.isHidden = false
             
         }
     }
