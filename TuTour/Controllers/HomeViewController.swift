@@ -36,17 +36,6 @@ class HomeViewController: UIViewController {
 	
 
 		let ref = Database.database().reference()
-//
-//		for i in 0..<subjectsArray.count{
-//			let newRef = ref.child("subject-users")
-//			let subjectId = newRef.childByAutoId().key
-//			let newSubjectRef = newRef.child(subjectsArray[i])
-//
-//			newSubjectRef.setValue(["subjectName": subjectsArray[i], "id": subjectId!])
-//
-//
-//		}
-//
 		
 		posts.removeAll()
 		following.removeAll()

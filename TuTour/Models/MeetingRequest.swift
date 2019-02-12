@@ -18,6 +18,8 @@ class MeetingRequest{
 	var tutoreeUid: String?
 	var subject: String?
     var meetingId: String?
+
+    var lastUserToSendId: String?
 	
 	func setLocation(location: String){
 		self.location = location
@@ -25,6 +27,10 @@ class MeetingRequest{
 	func setDate(date: Date){
 		self.date = date
 	}
+    func setLastPersonToSendId(uid: String){
+        self.lastUserToSendId = uid
+    }
+    
     init(tutor: String, tutoree: String, subject: String, meetingId: String) {
         self.tutorUid = tutor
         self.tutoreeUid = tutoree

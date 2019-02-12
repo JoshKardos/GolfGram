@@ -15,7 +15,8 @@ class MeetingRequestViewController: UIViewController{
 	
 	@IBOutlet weak var titleLabel: UILabel!
 	
-	@IBOutlet weak var denyButton: UIButton!
+    @IBOutlet weak var acceptButton: UIButton!
+    @IBOutlet weak var denyButton: UIButton!
 	@IBOutlet var meetingRequestLabels: [UILabel]!
 	//Subject
 	//Student username
@@ -25,7 +26,19 @@ class MeetingRequestViewController: UIViewController{
 	
 	var user: User?
 	var meetingRequest: MeetingRequest?
-	
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        fillMeetingRequestLabels()
+        
+        if (meetingRequest?.lastUserToSendId)! == (Auth.auth().currentUser?.uid)!{
+            denyButton.isEnabled = false
+            acceptButton.isEnabled = false
+            denyButton.isHidden = true
+            acceptButton.isHidden = true
+        }
+        
+    }
 	@IBAction func denyPressed(_ sender: UIButton) {
         
         //ask to edit or kindly decline meeting
@@ -69,7 +82,6 @@ class MeetingRequestViewController: UIViewController{
         
 	}
     func acceptMeeting(){
-        print("MEETING STORED")
         
         let uid = (Auth.auth().currentUser?.uid)!
         let otherUid = (meetingRequest?.meetingPartnerId())!
@@ -94,7 +106,7 @@ class MeetingRequestViewController: UIViewController{
         //delete from user-meetingrequests
         
         Database.database().reference().child("user-meetingRequests").child(uid).child((meetingRequest?.meetingId)!).removeValue()
-    
+        Database.database().reference().child("user-meetingRequests").child(otherUid).child((meetingRequest?.meetingId)!).removeValue()
         
         navigationController?.popToRootViewController(animated: true)
         
@@ -117,8 +129,15 @@ class MeetingRequestViewController: UIViewController{
 		//subject
 		meetingRequestLabels[0].text = meetingRequest!.subject
 		
-		//username
-		meetingRequestLabels[1].text = user!.username
+        
+        Database.database().reference().child("users").child((meetingRequest?.tutorUid!)!).observe(.value) { (snapshot) in
+            let user = snapshot.value as! [String: AnyObject]
+            print("HERE \(user["username"])")
+            
+            //username
+            self.meetingRequestLabels[1].text = user["username"] as! String
+        }
+		
 		
 		//building
 		meetingRequestLabels[2].text = meetingRequest!.location
@@ -138,11 +157,5 @@ class MeetingRequestViewController: UIViewController{
 		
 	}
 	
-	override func viewDidLoad() {
-		super.viewDidLoad()
 	
-		fillMeetingRequestLabels()
-	
-		
-	}
 }

@@ -10,51 +10,16 @@
     </dependencies>
     <scenes>
         <!--Activity-->
-        <scene sceneID="ddP-uG-8z5">
-            <objects>
-                <viewController id="kWH-2X-9ad" customClass="ActivityViewController" customModule="TuTour" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="oYr-wO-FC0">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="gFc-WJ-Mvf"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Activity" id="Isa-Gk-UMc"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YAh-U0-LYA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="7017" y="-850"/>
-        </scene>
-        <!--Activity-->
         <scene sceneID="zUM-Mk-1b4">
             <objects>
-                <tableViewController title="Activity" id="we9-M0-mCc" customClass="ActivityViewController" customModule="TuTour" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="MeetingRequestsVC" title="Activity" useStoryboardIdentifierAsRestorationIdentifier="YES" id="we9-M0-mCc" customClass="MeetingRequestsTableViewController" customModule="TuTour" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="TJy-Tv-k2g">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="4nI-5D-T0B">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b0W-dT-mjj">
-                                    <rect key="frame" x="0.0" y="41" width="414" height="3"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </view>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Meeting Requests" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ono-hL-S1l">
-                                    <rect key="frame" x="138" y="12" width="138" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                            </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="meetingRequestCell" textLabel="Mte-br-GsM" detailTextLabel="8wo-r5-Apt" style="IBUITableViewCellStyleSubtitle" id="OrG-3v-zxv" customClass="MeetingRequestCell" customModule="TuTour" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OrG-3v-zxv" id="o4Q-Ru-4fS">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -87,7 +52,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4ZZ-k7-uSr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7815.9420289855079" y="-851.78571428571422"/>
+            <point key="canvasLocation" x="9465" y="-1763"/>
         </scene>
         <!--MeetingRequestVC-->
         <scene sceneID="b4L-Aj-WeH">
@@ -201,6 +166,7 @@
                         <viewLayoutGuide key="safeArea" id="wWu-VM-aXp"/>
                     </view>
                     <connections>
+                        <outlet property="acceptButton" destination="XHi-dF-9ra" id="fXx-lp-e1f"/>
                         <outlet property="denyButton" destination="TQl-It-wbM" id="5oA-jU-saU"/>
                         <outlet property="titleLabel" destination="gxZ-3y-IVe" id="ytp-bX-SH5"/>
                         <outletCollection property="meetingRequestLabels" destination="adU-lB-5hh" collectionClass="NSMutableArray" id="W4N-9A-iC2"/>
@@ -212,7 +178,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Wv-AK-hts" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8531.8840579710159" y="-852.45535714285711"/>
+            <point key="canvasLocation" x="10307" y="-1804"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uE7-mZ-k7e">
@@ -228,12 +194,95 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="we9-M0-mCc" kind="relationship" relationship="rootViewController" id="iwX-eS-NUZ"/>
+                        <segue destination="IGD-i1-itY" kind="relationship" relationship="rootViewController" id="vvL-Vs-sIg"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wsT-JV-rg9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7447" y="-1611"/>
+            <point key="canvasLocation" x="7526" y="-1592"/>
+        </scene>
+        <!--Master Activity View Controller-->
+        <scene sceneID="QHn-ld-QZ1">
+            <objects>
+                <viewController id="IGD-i1-itY" customClass="MasterActivityViewController" customModule="TuTour" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vaf-am-rOa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fnS-4K-bkS">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <segue destination="we9-M0-mCc" kind="embed" id="7Dg-ch-bWM"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="pF5-tT-ezu"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="YNK-yz-C2z">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="KIB-Yf-LVY">
+                            <rect key="frame" x="17" y="7" width="380" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Requests"/>
+                                <segment title="Scheduled"/>
+                            </segments>
+                        </segmentedControl>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="segmentedControl" destination="KIB-Yf-LVY" id="Eux-vA-9yI"/>
+                        <outlet property="tablesView" destination="fnS-4K-bkS" id="pkx-cQ-9C7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z6R-se-mc3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8550.7246376811599" y="-1552.9017857142856"/>
+        </scene>
+        <!--Activity-->
+        <scene sceneID="sFq-9W-T2v">
+            <objects>
+                <tableViewController storyboardIdentifier="ScheduledMeetingsVC" title="Activity" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9r3-x0-o8a" customClass="ScheduledMeetingsTableViewController" customModule="TuTour" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="jdz-mo-ZgL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="meetingRequestCell" textLabel="ZSm-md-SRJ" detailTextLabel="OHC-uv-Osy" style="IBUITableViewCellStyleSubtitle" id="v0T-2S-IUg" customClass="MeetingRequestCell" customModule="TuTour" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="v0T-2S-IUg" id="BLB-1P-W3c">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZSm-md-SRJ">
+                                            <rect key="frame" x="20" y="5" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OHC-uv-Osy">
+                                            <rect key="frame" x="20" y="25.5" width="44" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="delegate" destination="9r3-x0-o8a" id="efi-5F-mkg"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="bgI-qL-od1"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T3w-B9-kZh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="9464" y="-1077"/>
         </scene>
     </scenes>
     <resources>
