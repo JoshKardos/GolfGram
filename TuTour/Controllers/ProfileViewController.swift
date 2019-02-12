@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import ProgressHUD
 class ProfileViewController: UIViewController {
     
     @IBOutlet weak var emailTextbox: UITextField!
@@ -97,14 +98,14 @@ class ProfileViewController: UIViewController {
             
             let yearString = (snapshot.value as! NSDictionary)["year"] as! String
             self.yearLabel.text = yearString
-           
+            ProgressHUD.dismiss()
         })
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        ProgressHUD.show("Loading...")
         dmButton?.tintColor = UIColor.flatGreenDark
         
         // Converts the profile image to circular
@@ -120,6 +121,7 @@ class ProfileViewController: UIViewController {
             fillUserInfo(uid: otherUser_ID)
             updateButton.isHidden = true
             registerAsTutorButton.backgroundColor = UIColor.yellow
+            registerAsTutorButton.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
             registerAsTutorButton.setTitle("Tutor Request", for: .normal)
             
         } else {//current users profile
