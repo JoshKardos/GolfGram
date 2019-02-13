@@ -22,7 +22,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
-        logOutButton.tintColor = UIColor.flatGreenDark
+        logOutButton.tintColor = AppDelegate.theme_Color
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
