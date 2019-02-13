@@ -150,16 +150,14 @@
 			isa = PBXGroup;
 			children = (
 				B3082FFD2158961B004D0B1A /* AppDelegate.swift */,
-
-				949A9AB9221384D600E865AC /* Assets.xcassets */,
 				B34E789A2163337700A79B10 /* AuthService.swift */,
-
 				B34E789E21681C8400A79B10 /* Models */,
 				B34E7895215B447400A79B10 /* Views */,
 				B3CE030421AD03A500BABFD9 /* Cells */,
 				B32F2504215AB98200930BAA /* Controllers */,
 				B30830062158961C004D0B1A /* LaunchScreen.storyboard */,
 				B30830092158961C004D0B1A /* Info.plist */,
+				949A9AB9221384D600E865AC /* Assets.xcassets */,
 				B34E7898215B5B6400A79B10 /* GoogleService-Info.plist */,
 			);
 			path = TuTour;
@@ -243,7 +241,6 @@
 		B3A3C90821D752BC00E0C05F /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				B34E789A2163337700A79B10 /* AuthService.swift */,
 				B32F24FA2159B87C00930BAA /* SignInViewController.swift */,
 				B32F24FC2159C4C800930BAA /* SignUpViewController.swift */,
 			);

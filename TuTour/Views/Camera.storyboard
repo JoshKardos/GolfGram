@@ -29,7 +29,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="CNr-bE-zpl">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Portrait_Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="CNr-bE-zpl">
                                         <rect key="frame" x="8" y="10" width="80" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="ide-GA-Yax"/>
@@ -114,7 +114,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="imagePlaceholder" width="30" height="30"/>
+        <image name="Portrait_Placeholder" width="200" height="200"/>
         <image name="screenshot" width="33" height="33"/>
         <image name="screenshot-filled" width="33" height="33"/>
     </resources>
