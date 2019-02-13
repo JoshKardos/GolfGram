@@ -241,6 +241,7 @@
 		B3A3C90821D752BC00E0C05F /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				B34E789A2163337700A79B10 /* AuthService.swift */,
 				B32F24FA2159B87C00930BAA /* SignInViewController.swift */,
 				B32F24FC2159C4C800930BAA /* SignUpViewController.swift */,
 			);

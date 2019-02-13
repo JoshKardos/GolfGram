@@ -59,7 +59,27 @@ class MeetingRequestViewController: UIViewController{
         
     }
     func deleteMeetingRequest(){
-        //delete all nodes
+        
+        let alert = UIAlertController(title: "Are you sure?", message: "Confirm to deny this meeting?", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: "Default action"), style: .default, handler: { _ in
+            //delete all nodes
+           print("HER")
+            Database.database().reference().child("MeetingRequests").child((self.meetingRequest?.meetingId)!).removeValue()
+            Database.database().reference().child("user-meetingRequests").child((Auth.auth().currentUser?.uid)!).child((self.meetingRequest?.meetingId)!).removeValue()
+            Database.database().reference().child("user-meetingRequests").child((self.meetingRequest?.meetingPartnerId())!).child((self.meetingRequest?.meetingId)!).removeValue()
+            self.navigationController?.popToRootViewController(animated: true)
+        }))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("No", comment: "Default action"), style: .default, handler: { _ in
+            NSLog("The \"OK\" alert occured.")
+            self.navigationController?.popToRootViewController(animated: true)
+            
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+        
+        
+        
         
         //pop to root view controller
         
