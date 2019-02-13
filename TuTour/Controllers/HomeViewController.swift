@@ -59,26 +59,26 @@ class HomeViewController: UIViewController {
         })
     }
     
-@IBAction func logoutPressed(_ sender: Any) {
-    
-    do {
-        try Auth.auth().signOut()
+    @IBAction func logoutPressed(_ sender: Any) {
         
-        let storyboard = UIStoryboard(name: "Start", bundle: nil)
-        
-        let signInVC = storyboard.instantiateViewController(withIdentifier: "SignInViewController")
-        
-        self.present(signInVC, animated: true, completion: nil)
-        
-    } catch let logoutError{
-        
-        print(logoutError)
+        do {
+            try Auth.auth().signOut()
+            
+            let storyboard = UIStoryboard(name: "Start", bundle: nil)
+            
+            let signInVC = storyboard.instantiateViewController(withIdentifier: "SignInViewController")
+            
+            self.present(signInVC, animated: true, completion: nil)
+            
+        } catch let logoutError{
+            
+            print(logoutError)
+            
+        }
         
     }
     
-}
-
-
+    
 }
 
 //provide info to table view
@@ -101,10 +101,13 @@ extension HomeViewController: UITableViewDataSource{
         
         Database.database().reference().child("users").child(posts[indexPath.row].senderId!).observeSingleEvent(of: .value, with: {(snapshot) in
             
-            let username = (snapshot.value as! NSDictionary)["username"] as! String
-            
-            cell.usernameLabel.text = username
-            
+            print("snapshot \(snapshot.value)")
+            if let snapshotValue = (snapshot.value as? NSDictionary){
+                if let username = snapshotValue["username"] as? String{
+                    cell.usernameLabel.text = username
+                }
+                
+            }
         })
         
         

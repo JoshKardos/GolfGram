@@ -73,7 +73,6 @@ class AuthService {
         
         //save user(username, email, major, school profileImage)
         usersRef.child(uid).setValue(["fullname": fullname, "username": username, "email" : email, "major": major, "school": school, "year": year, "profileImageUrl": profileImageUrl, "uid": uid])
-        print("new user: \( usersRef.child(uid))")
         
         onSuccess()
     }

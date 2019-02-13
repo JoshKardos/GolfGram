@@ -162,15 +162,15 @@ class SignUpViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         //Must have selected an image, image turned to jpeg
         if let profileImg = self.selectedImage{
             if let imageData = profileImg.jpegData(compressionQuality: 0.1) {
-                
+
                 AuthService.signUp(fullname: fullNameTextField.text!, username: usernameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, school: school, major: major, year: year, imageData: imageData, onSuccess:{
-                    
-                    
+
+
                     ProgressHUD.showSuccess("Success")
-                    self.performSegue(withIdentifier: "signUpToTabbarVC", sender: nil)
-                    
+                    self.performSegue(withIdentifier: "signUpToDaySelect", sender: nil)
+
                 }, onError: {errorString in
-                    
+
                     ProgressHUD.showError(errorString!)
                 })
             }
