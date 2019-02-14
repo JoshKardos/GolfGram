@@ -95,7 +95,7 @@ extension HomeViewController: UITableViewDataSource{
         
         let url = URL(string: posts[indexPath.row].photoUrl!)//NSURL.init(fileURLWithPath: posts[indexPath.row].photoUrl)
         let imageData = NSData.init(contentsOf: url as! URL)
-        cell.backgroundColor = UIColor.flatLime
+        cell.backgroundColor = AppDelegate.theme_Color
         cell.cellImage.image = UIImage(data: imageData as! Data)
         cell.cellLabel.text = self.posts[indexPath.row].caption
         

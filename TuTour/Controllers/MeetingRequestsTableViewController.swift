@@ -114,7 +114,7 @@ class MeetingRequestsTableViewController: UITableViewController{
         cell.otherUser = otherUser
         cell.meetingRequest = meetingRequest
         if meetingRequest.lastUserToSendId! != (Auth.auth().currentUser?.uid)!{
-            cell.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
+            cell.backgroundColor = AppDelegate.theme_Color
         }
         Database.database().reference().child("users").child(meetingRequest.meetingPartnerId()!).observeSingleEvent(of: .value, with: {(snapshot) in
             
