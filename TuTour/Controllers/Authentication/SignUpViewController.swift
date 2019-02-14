@@ -27,7 +27,10 @@ class SignUpViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     @IBOutlet weak var signUpButton: UIButton!
     var selectedImage : UIImage?
     //var imageURL:URL?
-    
+    @IBOutlet weak var tagsTextField: UITextField!
+    @IBOutlet weak var addTagButton: UIButton!
+    @IBOutlet weak var tagsLabel: UILabel!
+    var tagsArray = [String]()
     
     let schoolArray = ["SJSU", "UCSD", "UCLA"]
     let majorArray = ["Engineering", "English", "Media"]
@@ -48,6 +51,8 @@ class SignUpViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         
         majorAndSchoolSelector.delegate = self
         majorAndSchoolSelector.dataSource = self
+        //tagsTextField.delegate = self
+        
         
         profileImage.layer.cornerRadius = 40
         profileImage.clipsToBounds = true
@@ -63,10 +68,26 @@ class SignUpViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         
         handleTextField()
         
-        
+        addTagButton.isEnabled = false
+        handleTags()//disable addTagButton if textfield is empty
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func addTagButtonPressed(_ sender: UIButton) {
+        
+        print("ADD")
+        if tagsTextField.text != nil && tagsTextField.text != ""{
+            
+            tagsArray.append(tagsTextField.text!)
+            tagsLabel.text?.append(" #\(tagsTextField.text!)")
+            tagsTextField.text = nil
+            addTagButton.isEnabled = false
+        }
+        
+        
+        
+        
+    }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 3
@@ -132,6 +153,22 @@ class SignUpViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         
     }
     
+    func handleTags(){
+        tagsTextField.addTarget(self, action: #selector(self.tagsDidChange), for: UIControl.Event.editingChanged)
+        
+    }
+    
+    @objc func tagsDidChange(){
+        
+        if (tagsTextField.text?.trimmingCharacters(in: .whitespaces).isEmpty)!{
+            addTagButton.isEnabled = false
+        } else {
+            addTagButton.isEnabled = true
+        }
+        
+        
+    }
+    
     @objc func textFieldDidChange(){
         guard let username = usernameTextField.text, !username.isEmpty, let email = emailTextField.text, !email.isEmpty, let password = passwordTextField.text, !password.isEmpty else {
             
@@ -162,15 +199,15 @@ class SignUpViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         //Must have selected an image, image turned to jpeg
         if let profileImg = self.selectedImage{
             if let imageData = profileImg.jpegData(compressionQuality: 0.1) {
-
+                
                 AuthService.signUp(fullname: fullNameTextField.text!, username: usernameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, school: school, major: major, year: year, imageData: imageData, onSuccess:{
-
-
+                    
+                    
                     ProgressHUD.showSuccess("Success")
                     self.performSegue(withIdentifier: "signUpToDaySelect", sender: nil)
-
+                    
                 }, onError: {errorString in
-
+                    
                     ProgressHUD.showError(errorString!)
                 })
             }
@@ -181,7 +218,25 @@ class SignUpViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
 }
 
 
-extension SignUpViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+extension SignUpViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{//}, UITextFieldDelegate{
+    
+    //    func textFieldDidBeginEditing(_ textField: UITextField) {
+    //        if (textField.text?.isEmpty)!{
+    //            addTagButton.isEnabled = false
+    //        } else {
+    //            addTagButton.isEnabled = true
+    //        }
+    //    }
+    //
+    //
+    //    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
+    //        if (textField.text?.isEmpty)!{
+    //            addTagButton.isEnabled = false
+    //        } else {
+    //            addTagButton.isEnabled = true
+    //        }
+    //    }
+    //
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         
@@ -191,8 +246,6 @@ extension SignUpViewController: UIImagePickerControllerDelegate, UINavigationCon
             profileImage.image  = image
             
         }
-        //print("** \(info) **")
-        //profileImage.image = infoPhoto
         dismiss(animated: true, completion: nil)
     }
     
