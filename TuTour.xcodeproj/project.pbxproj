@@ -186,8 +186,8 @@
 		B34E7895215B447400A79B10 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B34E7889215B0AA600A79B10 /* Main.storyboard */,
 				B308300F21589A82004D0B1A /* Start.storyboard */,
+				B34E7889215B0AA600A79B10 /* Main.storyboard */,
 				B34E788B215B354E00A79B10 /* Home.storyboard */,
 				B34E788D215B361500A79B10 /* Discover.storyboard */,
 				B34E788F215B438A00A79B10 /* Camera.storyboard */,
