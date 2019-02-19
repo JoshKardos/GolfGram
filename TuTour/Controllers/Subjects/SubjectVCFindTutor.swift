@@ -19,12 +19,15 @@ class SubjectVCFindTutor: SubjectsViewController{
 
 	override func viewDidLoad() {
         
-        ProgressHUD.show("Loading..")
+        
 		super.viewDidLoad()
 		tableView.dataSource = self
 		SubjectVCFindTutor.subjectToTutorCount.removeAll()
+        
+        
+        
 		ref.child("subject-tutors").observe(.childAdded) { (snapshot) in
-			
+			ProgressHUD.show("Loading..")
 			//store in hashmap(K,V) --> subject, children Count
 			let value: Int = Int(snapshot.childSnapshot(forPath: "tutors").childrenCount)
 			SubjectVCFindTutor.subjectToTutorCount.append([snapshot.key, value])//subject, children count
@@ -35,7 +38,7 @@ class SubjectVCFindTutor: SubjectsViewController{
 			self.timer?.invalidate()
 			self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.handleReloadCollection), userInfo: nil, repeats: false)
 	
-		}
+        }
 	}
 	
 	var timer: Timer?

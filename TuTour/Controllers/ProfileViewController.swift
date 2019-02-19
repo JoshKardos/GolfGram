@@ -106,7 +106,7 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         ProgressHUD.show("Loading...")
-        dmButton?.tintColor = UIColor.flatGreenDark
+        dmButton?.tintColor = AppDelegate.theme_Color
         
         // Converts the profile image to circular
         //        profileImage.layer.borderWidth = 1

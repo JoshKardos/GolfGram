@@ -30,7 +30,7 @@ class SubjectsViewController: UITableViewController, UISearchResultsUpdating {
 		
 		searchController.searchResultsUpdater = self
 		searchController.dimsBackgroundDuringPresentation = false
-		searchController.searchBar.tintColor = UIColor.flatGreenDark
+		searchController.searchBar.tintColor = AppDelegate.theme_Color
 		definesPresentationContext = true
 		tableView.tableHeaderView = searchController.searchBar
 	}
