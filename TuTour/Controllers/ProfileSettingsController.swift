@@ -11,7 +11,10 @@ import FirebaseAuth
 import FirebaseDatabase
 import TextFieldEffects
 
-class ProfileSettingsController: UIViewController {
+class ProfileSettingsController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+    
+    
+    
   
     
     @IBOutlet weak var updateButton: UIButton!
@@ -21,7 +24,8 @@ class ProfileSettingsController: UIViewController {
     @IBOutlet weak var majorField: UITextField!
     @IBOutlet weak var yearField: UITextField!
     @IBOutlet weak var descriptionField: UITextField!
-    
+    // for profile picture choosing
+    var selectedPhoto : UIImage?
     @IBAction func confirmAction(_ sender: Any) {
         
         
@@ -58,6 +62,11 @@ class ProfileSettingsController: UIViewController {
         
         getData(uid: userID)
         
+        //update photo
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ProfileSettingsController.handleSelectProfileImageView))
+        // adds interaction to photo
+        profilePhoto.isUserInteractionEnabled = true
+        profilePhoto.addGestureRecognizer(tapGesture)
         
         let nameFieldIsao = styleFields(field: nameField)
         nameFieldIsao.placeholder = "Name"
@@ -78,6 +87,40 @@ class ProfileSettingsController: UIViewController {
         self.view.addSubview(descriptionFieldIsao)
     }
     
+    //UIPicker protocol stubs!
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        <#code#>
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        <#code#>
+    }
+    
+    @objc func handleSelectProfileImageView() {
+        let pickerController = UIImagePickerController()
+        //access to extension
+        pickerController.delegate = (self as UIImagePickerControllerDelegate & UINavigationControllerDelegate)
+        present(pickerController, animated: true, completion: nil)
+        
+    }
 
+    
+}
+
+extension ProfileSettingsController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        
+        
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
+            self.selectedPhoto = image
+            profilePhoto.image  = image
+            
+        }
+        //print("** \(info) **")
+        //profileImage.image = infoPhoto
+        dismiss(animated: true, completion: nil)
+    }
+    
     
 }
