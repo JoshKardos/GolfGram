@@ -9,11 +9,13 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import FirebaseStorage
 import TextFieldEffects
 
 
 class ProfileSettingsController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
   
+    
     
     @IBOutlet weak var updateButton: UIButton!
     @IBOutlet weak var profilePhoto: UIImageView!
@@ -22,10 +24,13 @@ class ProfileSettingsController: UIViewController, UITextFieldDelegate, UIPicker
     @IBOutlet weak var majorField: UITextField!
     @IBOutlet weak var yearField: UITextField!
     @IBOutlet weak var descriptionField: UITextField!
-    var selectedPhoto : UIImage?
+    
+    let userID = Auth.auth().currentUser!.uid
+    var selectedPhoto: UIImage?
     
     var currentTextField = UITextField()
     var pickerView = UIPickerView()
+    
     
 //    var nameFieldIsao: IsaoTextField!
 //    var schoolFieldIsao: IsaoTextField!
@@ -37,8 +42,35 @@ class ProfileSettingsController: UIViewController, UITextFieldDelegate, UIPicker
     let majorArray = ["Engineering", "English", "Media"]
     let yearArray = ["19", "20", "21", "22"]
     
-    
+    // pressed confirm button to update all data
     @IBAction func confirmAction(_ sender: Any) {
+        
+        let usersRef = Database.database().reference().child("users")
+        
+        //Get reference to the profile images//
+        ///////////////////////////////////////
+        let storageRef = Storage.storage().reference(forURL: "gs://golfgram-68599.appspot.com").child("profile_image").child(userID)
+        let updatedValueList : [String : Any]
+        
+        print(userID)
+        print("wassup")
+        
+        //insert jpeg data into database with the url
+        if let profileImage = self.selectedPhoto{
+            print("profileImage = self.selectedPhoto")
+            if let imageData = profileImage.jpegData(compressionQuality: 0.1) {
+                
+                updatedValueList = ["fullname": nameField.text!, "major": majorField.text!, "school": schoolField.text!, "year": yearField.text!, "profileImageUrl": imageData, "description": descriptionField.text!]
+                
+                usersRef.child(userID).updateChildValues(updatedValueList)
+                // pending spot
+                }
+            
+        };
+        
+        
+    
+        
         
         
     }
@@ -134,7 +166,16 @@ class ProfileSettingsController: UIViewController, UITextFieldDelegate, UIPicker
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let userID = Auth.auth().currentUser!.uid
+        
+        
+        //Photo update functionality
+        profilePhoto.layer.cornerRadius = 40
+        profilePhoto.clipsToBounds = true
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SignUpViewController.handleSelectProfileImageView))
+        profilePhoto.isUserInteractionEnabled = true
+        
+        profilePhoto.addGestureRecognizer(tapGesture)
         
 //        self.nameFieldIsao = styleFields(field: nameField)
 //        nameFieldIsao.placeholder = "Name"
