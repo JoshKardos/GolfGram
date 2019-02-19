@@ -115,7 +115,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KBE-K0-09D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1267" y="-771"/>
+            <point key="canvasLocation" x="1207" y="-607"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="083-FT-6W6">
@@ -158,7 +158,7 @@
                                 </state>
                                 <connections>
                                     <action selector="signUpPressed:" destination="J62-SA-9Ff" eventType="touchUpInside" id="YoD-pJ-1e8"/>
-                                    <segue destination="Xty-ko-lfh" kind="presentation" identifier="signUpToDaySelect" id="Atx-Kc-Ad2"/>
+                                    <segue destination="Xty-ko-lfh" kind="presentation" id="hB8-ql-BXZ"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4XA-Gj-O4A">
@@ -269,6 +269,25 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6yH-t2-MXZ">
+                                <rect key="frame" x="72" y="673" width="91" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gT3-0Z-ruN">
+                                        <rect key="frame" x="0.0" y="1" width="69" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FuG-Rt-mLl">
+                                        <rect key="frame" x="69" y="1" width="22" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="X"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <constraints>
                             <constraint firstItem="iUa-7j-QLu" firstAttribute="trailing" secondItem="tMy-Lt-vT4" secondAttribute="trailing" constant="16" id="4fX-8Z-Jwx"/>
@@ -304,7 +323,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ixm-ro-5pw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2139.130434782609" y="-771.42857142857144"/>
+            <point key="canvasLocation" x="2080" y="-607"/>
         </scene>
         <!--Free Time-->
         <scene sceneID="M6u-UX-uv1">
@@ -495,6 +514,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kiM-VK-lnZ"/>
                     </view>
+                    <navigationItem key="navigationItem" id="NSF-6Q-nnn"/>
                     <connections>
                         <outletCollection property="daySwitches" destination="kvB-om-Jgb" collectionClass="NSMutableArray" id="xSb-e7-Tjh"/>
                         <outletCollection property="daySwitches" destination="y21-nm-TJT" collectionClass="NSMutableArray" id="qJv-A8-vz6"/>
@@ -514,7 +534,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ohq-s3-9s9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3026" y="-772"/>
+            <point key="canvasLocation" x="2906" y="-607"/>
         </scene>
         <!--Main-->
         <scene sceneID="JDx-y5-tiE">

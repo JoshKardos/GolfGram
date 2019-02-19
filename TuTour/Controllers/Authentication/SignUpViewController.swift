@@ -220,23 +220,6 @@ class SignUpViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
 
 extension SignUpViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{//}, UITextFieldDelegate{
     
-    //    func textFieldDidBeginEditing(_ textField: UITextField) {
-    //        if (textField.text?.isEmpty)!{
-    //            addTagButton.isEnabled = false
-    //        } else {
-    //            addTagButton.isEnabled = true
-    //        }
-    //    }
-    //
-    //
-    //    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
-    //        if (textField.text?.isEmpty)!{
-    //            addTagButton.isEnabled = false
-    //        } else {
-    //            addTagButton.isEnabled = true
-    //        }
-    //    }
-    //
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         
