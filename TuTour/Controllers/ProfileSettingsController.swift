@@ -27,16 +27,10 @@ class ProfileSettingsController: UIViewController, UITextFieldDelegate, UIPicker
     
     let userID = Auth.auth().currentUser!.uid
     var selectedPhoto: UIImage?
+    var photoURLString: String?
     
     var currentTextField = UITextField()
     var pickerView = UIPickerView()
-    
-    
-//    var nameFieldIsao: IsaoTextField!
-//    var schoolFieldIsao: IsaoTextField!
-//    var majorFieldIsao: IsaoTextField!
-//    var yearFieldIsao: IsaoTextField!
-//    var descFieldIsao: IsaoTextField!
     
     let schoolArray = ["SJSU", "UCSD", "UCLA"]
     let majorArray = ["Engineering", "English", "Media"]
@@ -50,29 +44,43 @@ class ProfileSettingsController: UIViewController, UITextFieldDelegate, UIPicker
         //Get reference to the profile images//
         ///////////////////////////////////////
         let storageRef = Storage.storage().reference(forURL: "gs://golfgram-68599.appspot.com").child("profile_image").child(userID)
-        let updatedValueList : [String : Any]
         
         print(userID)
         print("wassup")
         
-        //insert jpeg data into database with the url
-        if let profileImage = self.selectedPhoto{
+        if let profileImage = self.selectedPhoto {
             print("profileImage = self.selectedPhoto")
             if let imageData = profileImage.jpegData(compressionQuality: 0.1) {
                 
-                updatedValueList = ["fullname": nameField.text!, "major": majorField.text!, "school": schoolField.text!, "year": yearField.text!, "profileImageUrl": imageData, "description": descriptionField.text!]
-                
-                usersRef.child(userID).updateChildValues(updatedValueList)
-                // pending spot
-                }
+                storageRef.putData(imageData, metadata: nil, completion: { (metadata, error) in
+                    if error != nil{
+                        print("Error \(String(describing: error?.localizedDescription))")
+                        return
+                    }
+                    
+                    storageRef.downloadURL { (url, error) in
+                        if error != nil{
+                            print("Error \(String(describing: error?.localizedDescription))")
+                            return
+                        }
+                        //get url of image
+                        guard let profileImageUrl = url?.absoluteString else {return}
+                        print(profileImageUrl)
+                        //self.photoURLString = profileImageUrl
+                        let updatedValueList = ["fullname": self.nameField.text!, "major": self.majorField.text!, "school": self.schoolField.text!, "year": self.yearField.text!, "profileImageUrl": profileImageUrl, "description": self.descriptionField.text!]
+                        
+                        usersRef.child(self.userID).updateChildValues(updatedValueList)
+                        
+                    }
+                })
+            }
             
-        };
+        } else {
+            let updatedValueList = ["fullname": self.nameField.text!, "major": self.majorField.text!, "school": self.schoolField.text!, "year": self.yearField.text!, "profileImageUrl": self.photoURLString!, "description": self.descriptionField.text!]
+            usersRef.child(self.userID).updateChildValues(updatedValueList)
+        }
         
-        
-    
-        
-        
-        
+
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -138,6 +146,8 @@ class ProfileSettingsController: UIViewController, UITextFieldDelegate, UIPicker
             
                 let profileImageString = (snapshot.value as! NSDictionary)["profileImageUrl"] as! String
                 let url = URL(string: profileImageString)
+                self.photoURLString = profileImageString
+            
                 let imageData = NSData.init(contentsOf: url as! URL!)
                 self.profilePhoto?.image = UIImage(data: imageData as! Data!)
             
@@ -149,19 +159,12 @@ class ProfileSettingsController: UIViewController, UITextFieldDelegate, UIPicker
                 self.majorField.text = majorString
                 let yearString = ((snapshot.value as! NSDictionary)["year"] as! String)
                 self.yearField.text = yearString
+                //let descString = ((snapshot.value as! NSDictionary)["description"] as! String)
+                //self.descriptionField.text = descString
+            
             })
         
     }
-    
-    // Convert UITextFields to Isao
-//    func styleFields(field: UITextField) -> IsaoTextField {
-//
-//        let styledField = IsaoTextField(frame: field.frame)
-//        styledField.activeColor = UIColor(red: 0/255, green: 106/255, blue: 255/255, alpha: 1.0)
-//        styledField.inactiveColor = .lightGray
-//
-//        return styledField
-//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -176,31 +179,9 @@ class ProfileSettingsController: UIViewController, UITextFieldDelegate, UIPicker
         profilePhoto.isUserInteractionEnabled = true
         
         profilePhoto.addGestureRecognizer(tapGesture)
-        
-//        self.nameFieldIsao = styleFields(field: nameField)
-//        nameFieldIsao.placeholder = "Name"
-//
-//        self.schoolFieldIsao = styleFields(field: schoolField)
-//        schoolFieldIsao.placeholder = "School"
-//
-//        self.majorFieldIsao = styleFields(field: majorField)
-//        majorFieldIsao.placeholder = "Major"
-//
-//        self.yearFieldIsao = styleFields(field: yearField)
-//        yearFieldIsao.placeholder = "Year"
-//
-//        self.descFieldIsao = styleFields(field: descriptionField)
-//        descFieldIsao.placeholder = "Description"
 
-        
         getData(uid: userID)
         
-        //self.view.addSubview(nameFieldIsao)
-        //self.view.addSubview(schoolFieldIsao)
-        //self.view.addSubview(majorFieldIsao)
-        //self.view.addSubview(yearFieldIsao)
-        //self.view.addSubview(descFieldIsao)
-        //self.view.addSubview(pickerView)
     }
     
     
