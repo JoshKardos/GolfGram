@@ -6,6 +6,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -262,32 +263,190 @@
                                     <action selector="addTagButtonPressed:" destination="J62-SA-9Ff" eventType="touchUpInside" id="Dru-5o-hUz"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7En-j9-JQd">
-                                <rect key="frame" x="54" y="662" width="307" height="110"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6yH-t2-MXZ">
-                                <rect key="frame" x="72" y="673" width="91" height="23"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="xLa-uj-T3F">
+                                <rect key="frame" x="49" y="664" width="316" height="108"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gT3-0Z-ruN">
-                                        <rect key="frame" x="0.0" y="1" width="69" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FuG-Rt-mLl">
-                                        <rect key="frame" x="69" y="1" width="22" height="22"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="X"/>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="6Bm-hu-xSY">
+                                        <rect key="frame" x="0.0" y="0.0" width="316" height="50"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pxQ-RW-6ys" customClass="AddedTagsLabelViewInSignUp" customModule="TuTour" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="50"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jI7-Xt-aVp">
+                                                        <rect key="frame" x="8" y="10" width="42" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wkt-ay-6gq">
+                                                        <rect key="frame" x="62" y="10" width="30" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <state key="normal" title="X"/>
+                                                        <connections>
+                                                            <action selector="deletePressed:" destination="pxQ-RW-6ys" eventType="touchUpInside" id="cSc-zj-D8o"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="G0i-Mg-hSD"/>
+                                                    <constraint firstAttribute="height" constant="50" id="npn-Y0-w3b"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="label" destination="jI7-Xt-aVp" id="wUa-fN-rNr"/>
+                                                </connections>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Brm-In-2Ad" customClass="AddedTagsLabelViewInSignUp" customModule="TuTour" customModuleProvider="target">
+                                                <rect key="frame" x="108" y="0.0" width="100" height="50"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cG4-gt-Vdf">
+                                                        <rect key="frame" x="8" y="10" width="42" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4q4-ta-Fgu">
+                                                        <rect key="frame" x="62" y="10" width="30" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <state key="normal" title="X"/>
+                                                        <connections>
+                                                            <action selector="deletePressed:" destination="Brm-In-2Ad" eventType="touchUpInside" id="ixa-T1-oZq"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="EqB-z0-ywG"/>
+                                                    <constraint firstAttribute="width" constant="100" id="ytn-x7-gAm"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="label" destination="cG4-gt-Vdf" id="RaP-E1-of3"/>
+                                                </connections>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xgr-LQ-yjA" customClass="AddedTagsLabelViewInSignUp" customModule="TuTour" customModuleProvider="target">
+                                                <rect key="frame" x="216" y="0.0" width="100" height="50"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="seU-wr-SCi">
+                                                        <rect key="frame" x="8" y="10" width="42" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehs-Ak-5a0">
+                                                        <rect key="frame" x="62" y="10" width="30" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <state key="normal" title="X"/>
+                                                        <connections>
+                                                            <action selector="deletePressed:" destination="xgr-LQ-yjA" eventType="touchUpInside" id="J0Z-8S-G6l"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="8Wz-WW-LAD"/>
+                                                    <constraint firstAttribute="height" constant="50" id="9Vd-6m-JXp"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="label" destination="seU-wr-SCi" id="3ie-Fp-haF"/>
+                                                </connections>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="pQg-fZ-u0g">
+                                        <rect key="frame" x="0.0" y="58" width="316" height="50"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DZh-7e-fif" customClass="AddedTagsLabelViewInSignUp" customModule="TuTour" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="50"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9dZ-VX-fVD">
+                                                        <rect key="frame" x="8" y="10" width="42" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PJ2-kE-bSc">
+                                                        <rect key="frame" x="62" y="10" width="30" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <state key="normal" title="X"/>
+                                                        <connections>
+                                                            <action selector="deletePressed:" destination="DZh-7e-fif" eventType="touchUpInside" id="7pN-X6-JNz"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="Rur-XI-kZ1"/>
+                                                    <constraint firstAttribute="height" constant="50" id="W06-3x-GJm"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="label" destination="9dZ-VX-fVD" id="ZFc-yQ-RMa"/>
+                                                </connections>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zMP-Zt-8PL" customClass="AddedTagsLabelViewInSignUp" customModule="TuTour" customModuleProvider="target">
+                                                <rect key="frame" x="108" y="0.0" width="100" height="50"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5tZ-Eg-wey">
+                                                        <rect key="frame" x="8" y="10" width="42" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3qE-w5-4Od">
+                                                        <rect key="frame" x="62" y="10" width="30" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <state key="normal" title="X"/>
+                                                        <connections>
+                                                            <action selector="deletePressed:" destination="zMP-Zt-8PL" eventType="touchUpInside" id="g8t-kp-Yhp"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="dct-8L-MGX"/>
+                                                    <constraint firstAttribute="height" constant="50" id="ecb-dG-vDy"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="label" destination="5tZ-Eg-wey" id="oju-HA-unK"/>
+                                                </connections>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GcX-PM-Iha" customClass="AddedTagsLabelViewInSignUp" customModule="TuTour" customModuleProvider="target">
+                                                <rect key="frame" x="216" y="0.0" width="100" height="50"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgI-Y2-VnX">
+                                                        <rect key="frame" x="8" y="10" width="42" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zJC-Qt-vVJ">
+                                                        <rect key="frame" x="62" y="10" width="30" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <state key="normal" title="X"/>
+                                                        <connections>
+                                                            <action selector="deletePressed:" destination="GcX-PM-Iha" eventType="touchUpInside" id="RY3-Cp-P7C"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="HoD-MJ-e1W"/>
+                                                    <constraint firstAttribute="width" constant="100" id="LDY-nX-L96"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="label" destination="mgI-Y2-VnX" id="q8j-lK-efH"/>
+                                                </connections>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
+                            </stackView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="iUa-7j-QLu" firstAttribute="trailing" secondItem="tMy-Lt-vT4" secondAttribute="trailing" constant="16" id="4fX-8Z-Jwx"/>
@@ -316,9 +475,14 @@
                         <outlet property="passwordTextField" destination="aMt-dx-EbG" id="tap-2N-jaO"/>
                         <outlet property="profileImage" destination="hkf-WR-hm3" id="e7y-xu-Ouw"/>
                         <outlet property="signUpButton" destination="tMy-Lt-vT4" id="7jh-LR-th6"/>
-                        <outlet property="tagsLabel" destination="7En-j9-JQd" id="Ccr-we-JKs"/>
                         <outlet property="tagsTextField" destination="bjV-ro-4iv" id="ALd-yQ-6Nh"/>
                         <outlet property="usernameTextField" destination="aas-Kw-tKK" id="bUL-pk-0k2"/>
+                        <outletCollection property="addedTagsLabels" destination="pxQ-RW-6ys" collectionClass="NSMutableArray" id="a1l-76-CMh"/>
+                        <outletCollection property="addedTagsLabels" destination="Brm-In-2Ad" collectionClass="NSMutableArray" id="xOP-Tf-YJu"/>
+                        <outletCollection property="addedTagsLabels" destination="xgr-LQ-yjA" collectionClass="NSMutableArray" id="VSy-Nb-Q52"/>
+                        <outletCollection property="addedTagsLabels" destination="DZh-7e-fif" collectionClass="NSMutableArray" id="OCw-Ci-NJl"/>
+                        <outletCollection property="addedTagsLabels" destination="zMP-Zt-8PL" collectionClass="NSMutableArray" id="6jY-9i-VGF"/>
+                        <outletCollection property="addedTagsLabels" destination="GcX-PM-Iha" collectionClass="NSMutableArray" id="sJd-UQ-try"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ixm-ro-5pw" userLabel="First Responder" sceneMemberID="firstResponder"/>

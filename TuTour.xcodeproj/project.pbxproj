@@ -54,6 +54,7 @@
 		B3CE030621AD042D00BABFD9 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CE030521AD042D00BABFD9 /* MessageCell.swift */; };
 		B3CE030A21B2035900BABFD9 /* DirectMessageBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CE030921B2035900BABFD9 /* DirectMessageBubble.swift */; };
 		B3CE617B21FFDF1A00AB4DF7 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CE617A21FFDF1A00AB4DF7 /* UserCell.swift */; };
+		B3FB451E22262203006AE2AB /* AddedTagsLabelViewInSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FB451D22262203006AE2AB /* AddedTagsLabelViewInSignUp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +108,7 @@
 		B3CE030521AD042D00BABFD9 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		B3CE030921B2035900BABFD9 /* DirectMessageBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectMessageBubble.swift; sourceTree = "<group>"; };
 		B3CE617A21FFDF1A00AB4DF7 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		B3FB451D22262203006AE2AB /* AddedTagsLabelViewInSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddedTagsLabelViewInSignUp.swift; sourceTree = "<group>"; };
 		FABFCB1540A14F77E90BE2EA /* Pods_TuTour.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TuTour.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -246,6 +248,7 @@
 				B32F24FA2159B87C00930BAA /* SignInViewController.swift */,
 				B38A14CC2213D97500CFEAA5 /* DaySelectInSignUpViewController.swift */,
 				B32F24FC2159C4C800930BAA /* SignUpViewController.swift */,
+				B3FB451D22262203006AE2AB /* AddedTagsLabelViewInSignUp.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -433,6 +436,7 @@
 				B34E789B2163337700A79B10 /* AuthService.swift in Sources */,
 				B358F46121F94CEB00E53F08 /* MeetingRequestCell.swift in Sources */,
 				B32F2503215AB96700930BAA /* HomeViewController.swift in Sources */,
+				B3FB451E22262203006AE2AB /* AddedTagsLabelViewInSignUp.swift in Sources */,
 				B32F250A215AB9F000930BAA /* MeetingRequestsTableViewController.swift in Sources */,
 				B3BD05C6218E65A100315922 /* User.swift in Sources */,
 				B3308CB321D60C2F00A0404D /* SubjectsViewController.swift in Sources */,
