@@ -20,10 +20,22 @@ class HomeViewController: UIViewController {
     var posts = [Post]()
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+       
         tableView.dataSource = self
         logOutButton.tintColor = AppDelegate.theme_Color
         // Do any additional setup after loading the view.
+        
+        Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).observeSingleEvent(of: .value, with: {(snapshot) in
+            
+            if !snapshot.exists(){
+                self.logout()
+            }
+            
+        })
+            
+            
     }
     override func viewWillAppear(_ animated: Bool) {
         
@@ -59,8 +71,9 @@ class HomeViewController: UIViewController {
         })
     }
     
-    @IBAction func logoutPressed(_ sender: Any) {
-        
+    
+    
+    func logout(){
         do {
             try Auth.auth().signOut()
             
@@ -68,13 +81,19 @@ class HomeViewController: UIViewController {
             
             let signInVC = storyboard.instantiateViewController(withIdentifier: "SignInViewController")
             
-            self.present(signInVC, animated: true, completion: nil)
+            present(signInVC, animated: true, completion: nil)
             
         } catch let logoutError{
             
             print(logoutError)
             
         }
+    }
+    
+    
+    @IBAction func logoutPressed(_ sender: Any) {
+        
+        logout()
         
     }
     

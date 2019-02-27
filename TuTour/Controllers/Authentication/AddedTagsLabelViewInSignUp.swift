@@ -18,8 +18,12 @@ class AddedTagsLabelViewInSignUp: UIView{
         self.isHidden = true
         if let signupVC = signUpViewController{
             signupVC.tagsArray.remove(at: signupVC.tagsArray.firstIndex(of: label.text!)!)
+            
+            label.text = nil
+            
+            signupVC.updateTagsFromArray()
         }
-        label.text = nil
+        
     }
 
 

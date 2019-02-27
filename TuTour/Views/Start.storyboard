@@ -159,7 +159,7 @@
                                 </state>
                                 <connections>
                                     <action selector="signUpPressed:" destination="J62-SA-9Ff" eventType="touchUpInside" id="YoD-pJ-1e8"/>
-                                    <segue destination="Xty-ko-lfh" kind="presentation" id="hB8-ql-BXZ"/>
+                                    <segue destination="Xty-ko-lfh" kind="presentation" identifier="signUpToDaySelect" id="hB8-ql-BXZ"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4XA-Gj-O4A">

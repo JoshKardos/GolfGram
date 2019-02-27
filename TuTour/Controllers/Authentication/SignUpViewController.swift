@@ -151,7 +151,7 @@ class SignUpViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         }
         
         let holder = "\(major) in \(school) graduating \(year)"
-        
+         
         print(holder)
     }
     
@@ -215,7 +215,7 @@ class SignUpViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         if let profileImg = self.selectedImage{
             if let imageData = profileImg.jpegData(compressionQuality: 0.1) {
                 
-                AuthService.signUp(fullname: fullNameTextField.text!, username: usernameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, school: school, major: major, year: year, imageData: imageData, onSuccess:{
+                AuthService.signUp(fullname: fullNameTextField.text!, username: usernameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, school: school, major: major, year: year, imageData: imageData, skills: tagsArray, onSuccess:{
                     
                     
                     ProgressHUD.showSuccess("Success")
