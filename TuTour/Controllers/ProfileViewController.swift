@@ -77,6 +77,8 @@ class ProfileViewController: UIViewController {
         
         Database.database().reference().child("users").child(uid).observeSingleEvent(of: .value, with: {(snapshot) in
             
+            
+            
             let username = (snapshot.value as! NSDictionary)["username"] as! String
             self.usernameLabel?.text = username
             
@@ -125,7 +127,8 @@ class ProfileViewController: UIViewController {
             registerAsTutorButton.setTitle("Tutor Request", for: .normal)
             
         } else {//current users profile
-            guard let userID : String = (Auth.auth().currentUser?.uid)! else { fatalError() }
+            print(Auth.auth().currentUser?.uid)
+            guard let userID = Auth.auth().currentUser?.uid else { fatalError() }
             fillUserInfo(uid: userID)
             isOtherUser = false
             registerAsTutorButton.reloadInputViews()
