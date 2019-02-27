@@ -24,7 +24,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var dmButton: UIBarButtonItem!
     @IBOutlet weak var registerAsTutorButton: UIButton!
     
-
+    
     var isOtherUser = false//must change to false if vc is pushed programatically!!
     
     var uid: String?
@@ -125,8 +125,7 @@ class ProfileViewController: UIViewController {
             registerAsTutorButton.setTitle("Tutor Request", for: .normal)
             
         } else {//current users profile
-            
-            let userID : String = (Auth.auth().currentUser?.uid)!
+            guard let userID : String = (Auth.auth().currentUser?.uid)! else { fatalError() }
             fillUserInfo(uid: userID)
             isOtherUser = false
             registerAsTutorButton.reloadInputViews()

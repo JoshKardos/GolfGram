@@ -29,8 +29,9 @@ class SignUpViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     //var imageURL:URL?
     @IBOutlet weak var tagsTextField: UITextField!
     @IBOutlet weak var addTagButton: UIButton!
-    @IBOutlet weak var tagsLabel: UILabel!
     var tagsArray = [String]()
+    
+    @IBOutlet var addedTagsLabels: [AddedTagsLabelViewInSignUp]!
     
     let schoolArray = ["SJSU", "UCSD", "UCLA"]
     let majorArray = ["Engineering", "English", "Media"]
@@ -71,6 +72,14 @@ class SignUpViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         addTagButton.isEnabled = false
         handleTags()//disable addTagButton if textfield is empty
         // Do any additional setup after loading the view.
+        
+        //initiliaze each tag label's signup vc as self
+        //needed for when user deletes an added tag
+        for i in 0..<addedTagsLabels.count{
+            addedTagsLabels[i].signUpViewController = self
+        }
+        
+        updateTagsFromArray()
     }
     
     @IBAction func addTagButtonPressed(_ sender: UIButton) {
@@ -79,16 +88,22 @@ class SignUpViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         if tagsTextField.text != nil && tagsTextField.text != ""{
             
             tagsArray.append(tagsTextField.text!)
-            tagsLabel.text?.append(" #\(tagsTextField.text!)")
             tagsTextField.text = nil
             addTagButton.isEnabled = false
         }
-        
-        
-        
+        updateTagsFromArray()
         
     }
-    
+    func updateTagsFromArray(){
+        for i in 0..<addedTagsLabels.count{
+            if i < tagsArray.count{
+                addedTagsLabels[i].isHidden = false
+                addedTagsLabels[i].label.text = tagsArray[i]
+            } else {
+                addedTagsLabels[i].isHidden = true
+            }
+        }
+    }
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 3
     }
