@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="722"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="323" id="d3x-XR-UuT" customClass="PostCellViewController" customModule="TuTour" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="323" id="d3x-XR-UuT" customClass="PostCellViewController" customModule="TuTour" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="323"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d3x-XR-UuT" id="XJq-im-ya1">
@@ -29,7 +29,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="agp-6j-gyr">
-                                                    <rect key="frame" x="71" y="274.5" width="233" height="20"/>
+                                                    <rect key="frame" x="71" y="278" width="194" height="16.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="agp-6j-gyr" secondAttribute="height" multiplier="233:20" id="Kov-93-tnO"/>
                                                     </constraints>
@@ -38,7 +38,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tsk-af-fjc">
-                                                    <rect key="frame" x="15" y="25" width="239.5" height="21.5"/>
+                                                    <rect key="frame" x="15" y="25" width="703" height="63"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="Tsk-af-fjc" secondAttribute="height" multiplier="78:7" id="aas-50-1cc"/>
                                                     </constraints>
@@ -47,7 +47,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1kj-R1-roF">
-                                                    <rect key="frame" x="85" y="65.5" width="205" height="201"/>
+                                                    <rect key="frame" x="85" y="107" width="166" height="163"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="1kj-R1-roF" secondAttribute="height" multiplier="205:201" id="6F3-aX-1zW"/>
                                                     </constraints>
@@ -101,10 +101,10 @@
             </objects>
             <point key="canvasLocation" x="5164" y="-744"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="uor-XT-9Me">
             <objects>
-                <tableViewController id="wxX-jd-Po7" sceneMemberID="viewController">
+                <tableViewController id="wxX-jd-Po7" customClass="HomeViewController" customModule="TuTour" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="hLf-v8-bcy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -251,7 +251,16 @@
                             <outlet property="delegate" destination="wxX-jd-Po7" id="aZr-9G-PLO"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="7HX-41-kZL"/>
+                    <navigationItem key="navigationItem" id="7HX-41-kZL">
+                        <barButtonItem key="leftBarButtonItem" title="Log Out" id="aXo-L3-HsM">
+                            <connections>
+                                <action selector="logoutPressed:" destination="wxX-jd-Po7" id="qrt-Jk-YJ9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="logOutButton" destination="aXo-L3-HsM" id="Fij-aN-z6c"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UR9-ib-m81" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

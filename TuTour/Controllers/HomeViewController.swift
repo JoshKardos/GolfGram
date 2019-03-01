@@ -11,19 +11,17 @@ import FirebaseAuth
 import FirebaseDatabase
 import ChameleonFramework
 
-class HomeViewController: UIViewController {
+class HomeViewController: UITableViewController {
     
     @IBOutlet weak var logOutButton: UIBarButtonItem!
-    @IBOutlet weak var tableView: UITableView!
-    
     
     var posts = [Post]()
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
-       
-        tableView.dataSource = self
+       tableView.dataSource = self
+        tableView.delegate = self
         logOutButton.tintColor = AppDelegate.theme_Color
         // Do any additional setup after loading the view.
         
@@ -97,47 +95,18 @@ class HomeViewController: UIViewController {
         
     }
     
-    
-}
-
-//provide info to table view
-
-extension HomeViewController: UITableViewDataSource{
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostCellViewController
         
-        let url = URL(string: posts[indexPath.row].photoUrl!)//NSURL.init(fileURLWithPath: posts[indexPath.row].photoUrl)
-        let imageData = NSData.init(contentsOf: url as! URL)
-        cell.backgroundColor = AppDelegate.theme_Color
-        cell.cellImage.image = UIImage(data: imageData as! Data)
-        cell.cellLabel.text = self.posts[indexPath.row].caption
-        
-        Database.database().reference().child("users").child(posts[indexPath.row].senderId!).observeSingleEvent(of: .value, with: {(snapshot) in
-            
-            print("snapshot \(snapshot.value)")
-            if let snapshotValue = (snapshot.value as? NSDictionary){
-                if let username = snapshotValue["username"] as? String{
-                    cell.usernameLabel.text = username
-                }
-                
-            }
-        })
-        
-        
-        
+        cell.post = posts[indexPath.row]
         
         return cell
     }
-    
-    
-    
-    
     
     
 }

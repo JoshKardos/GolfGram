@@ -7,9 +7,9 @@
 //
 
 import UIKit
-
+import Firebase
 class PostCellViewController: UITableViewCell {
-	
+    
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var timeAgoLabel: UILabel!
@@ -28,20 +28,41 @@ class PostCellViewController: UITableViewCell {
     }
     
     func updateUI(){
-        //profileImage.image = post
+         Database.database().reference().child("users").child(post.senderId!).observeSingleEvent(of: .value, with: {(snapshot) in
+            if let snapshotValue = (snapshot.value as? NSDictionary){
+                if let username = snapshotValue["username"] as? String{
+                    self.usernameLabel.text = username
+                }
+                if let profileImageURL = snapshotValue["profileImageUrl"] as? String{
+                    let url = URL(string: profileImageURL)
+                    let imageData = NSData.init(contentsOf: url as! URL)
+                    self.profileImage.image = UIImage(data: imageData as! Data)
+                }
+            }
+        })
+        //timeAgoLabel.text = post.timestamp
+        universalIcon.isHidden = false
+        captionLabel.text = post.caption
+        let url = URL(string: post.photoUrl!)
+        let imageData = NSData.init(contentsOf: url as! URL)
+        postImage.image = UIImage(data: imageData as! Data)
+        
+        //postStatsLabel.text =
+        
+        
     }
     
     
     //    @IBOutlet weak var cellImage: UIImageView!
-//    @IBOutlet weak var usernameLabel: UILabel!
-//    @IBOutlet weak var cellLabel: UILabel!
-//    
-//    override func awakeFromNib() {
-//        super.awakeFromNib()
-//    }
-//    
-//    override func setSelected(_ selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
-//    }
-	
+    //    @IBOutlet weak var usernameLabel: UILabel!
+    //    @IBOutlet weak var cellLabel: UILabel!
+    //
+    //    override func awakeFromNib() {
+    //        super.awakeFromNib()
+    //    }
+    //
+    //    override func setSelected(_ selected: Bool, animated: Bool) {
+    //        super.setSelected(selected, animated: animated)
+    //    }
+    
 }
