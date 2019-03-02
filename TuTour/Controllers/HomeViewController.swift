@@ -32,7 +32,7 @@ class HomeViewController: UITableViewController {
             }
             
         })
-            
+        
             
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -46,6 +46,7 @@ class HomeViewController: UITableViewController {
         let ref = Database.database().reference()
         
         posts.removeAll()
+        
         //access posts
         ref.child("posts").queryOrderedByKey().observeSingleEvent(of: .value, with: { (snap) in//get all posts
             
@@ -104,7 +105,7 @@ class HomeViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostCellViewController
         
         cell.post = posts[indexPath.row]
-        
+        cell.isUserInteractionEnabled = true
         return cell
     }
     
