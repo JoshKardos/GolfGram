@@ -8,8 +8,9 @@
 
 import UIKit
 import Firebase
-class PostCellViewController: UITableViewCell {
+class PostCellViewController: UITableViewCell,UITableViewDataSource {
     
+    var delegate = HomeViewController()
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var timeAgoLabel: UILabel!
@@ -25,8 +26,31 @@ class PostCellViewController: UITableViewCell {
     
     var post: Post!{
         didSet {
+            
             self.updateUI()
+        
         }
+    }
+    
+    var likesCount = Int(){
+        didSet{
+            setUpStatsLabel()
+        }
+    }
+    var commentsCount = Int(){
+        didSet{
+            setUpStatsLabel()
+        }
+    }
+    var sharesCount = Int(){
+        didSet{
+            
+            setUpStatsLabel()
+            
+        }
+    }
+    func setUpStatsLabel(){
+        postStatsLabel.text = "\(likesCount) Likes     \(commentsCount) Comments     \(sharesCount) Shares"
     }
     
     func updateUI(){
@@ -54,15 +78,14 @@ class PostCellViewController: UITableViewCell {
         ///////////////////////////////////////////////
         //Check if currentUser has liked this post/////
         ///////////////////////////////////////////////
-        var userFound = false
         Database.database().reference().child("PostLikes").child(post.postId!).observe(.value) { (snapshot) in
             
+            self.likesCount = Int(snapshot.childrenCount)
+            self.commentsCount = 0//delete this!!!
             if let postDictionary = snapshot.value as? NSDictionary{
                 
                 for (key, value) in postDictionary{
                     if (key as! String)  == Auth.auth().currentUser?.uid{
-                        print(true)
-                        userFound = true
                         self.likesButtonActive = false
                         return
                     }
@@ -71,6 +94,17 @@ class PostCellViewController: UITableViewCell {
             }
             self.likesButtonActive = true
         }
+        
+        
+        
+        //////////////////////////////////////////
+        //Check amount of comments on this post///
+        //////////////////////////////////////////
+        Database.database().reference().child("PostComments").child(post.postId!).observe(.value) { (snapshot) in
+            self.commentsCount = Int(snapshot.childrenCount)
+            
+        }
+        
         
         
     }
@@ -85,23 +119,48 @@ class PostCellViewController: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+
+    
+    @IBAction func commentPressed(_ sender: UIButton) {
+        
+        
+        print("Comment Pressed")
+        
+        delegate.cellCommentPressed(post: post)
+        
+    }
+    
     @IBAction func likePressed(_ sender: UIButton) {
         
         let postLikesRef = Database.database().reference().child("PostLikes")
         let thisPostLikes = postLikesRef.child(post.postId!)
         
         if likesButtonActive == true{
-            print("ADD")
+            
             let newLikeRef = thisPostLikes.child((Auth.auth().currentUser?.uid)!)
             newLikeRef.setValue(1)
             
             
         } else {
-            print("Remove")
             //remove like
             thisPostLikes.child((Auth.auth().currentUser?.uid)!).removeValue()
             
         }
+        
         updateUI()
     }
+}
+extension PostCellViewController{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as! CommentCell
+        
+        cell.commentsLabel.text = "Hello"
+        return cell
+    }
+    
 }

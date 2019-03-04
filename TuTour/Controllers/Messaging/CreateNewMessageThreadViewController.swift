@@ -45,8 +45,7 @@ class CreateNewMessageThreadViewController: UITableViewController, UISearchResul
 		
 		let chatLogController = ChatLogViewController()
 		chatLogController.otherUser = otherUser
-	
-		navigationController?.pushViewController(chatLogController, animated: true)
+			navigationController?.pushViewController(chatLogController, animated: true)
 	}
 	
 	
