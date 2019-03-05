@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class AddedTagsLabelViewInSignUp: UIView{
-    var signUpViewController: SignUpViewController?
+    var signUpViewController: SelectAvailableDaysViewController?
     @IBOutlet weak var label: UILabel!
      @IBAction func deletePressed(_ sender: UIButton) {
         

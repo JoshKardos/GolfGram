@@ -212,6 +212,7 @@ class ChatLogViewController: UIViewController, UICollectionViewDataSource, UICol
 	
 	
 	@objc func sendPressed(){
+        
 		let uid = Auth.auth().currentUser!.uid
 		let ref = Database.database().reference().child("messages")
 		let childRef = ref.childByAutoId()

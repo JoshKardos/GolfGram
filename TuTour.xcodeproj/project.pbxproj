@@ -14,6 +14,7 @@
 		B3082FFE2158961B004D0B1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3082FFD2158961B004D0B1A /* AppDelegate.swift */; };
 		B30830082158961C004D0B1A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B30830062158961C004D0B1A /* LaunchScreen.storyboard */; };
 		B308301021589A82004D0B1A /* Start.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B308300F21589A82004D0B1A /* Start.storyboard */; };
+		B31A4DA1222CE72D00EAEF77 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31A4DA0222CE72D00EAEF77 /* Comment.swift */; };
 		B32F24FB2159B87C00930BAA /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F24FA2159B87C00930BAA /* SignInViewController.swift */; };
 		B32F24FD2159C4C800930BAA /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F24FC2159C4C800930BAA /* SignUpViewController.swift */; };
 		B32F2503215AB96700930BAA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F2502215AB96700930BAA /* HomeViewController.swift */; };
@@ -43,7 +44,8 @@
 		B36EA7EE220C0EC100551E8C /* ScheduledMeetingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36EA7ED220C0EC100551E8C /* ScheduledMeetingsTableViewController.swift */; };
 		B36F4E6D220D2DBB001380EE /* MasterActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36F4E6C220D2DBB001380EE /* MasterActivityViewController.swift */; };
 		B3728ED9220E0407003FA560 /* ScheduledMeeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3728ED8220E0407003FA560 /* ScheduledMeeting.swift */; };
-		B38A14CD2213D97500CFEAA5 /* DaySelectInSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38A14CC2213D97500CFEAA5 /* DaySelectInSignUpViewController.swift */; };
+		B37A32B8222AFB98008B7F56 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37A32B7222AFB98008B7F56 /* CommentCell.swift */; };
+		B38A14CD2213D97500CFEAA5 /* SelectAvailableDaysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38A14CC2213D97500CFEAA5 /* SelectAvailableDaysViewController.swift */; };
 		B39EE9EA22039DF9005550A9 /* MeetingRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39EE9E922039DF9005550A9 /* MeetingRequestViewController.swift */; };
 		B3A3C90321D751BA00E0C05F /* SubjectVCFindTutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A3C90221D751BA00E0C05F /* SubjectVCFindTutor.swift */; };
 		B3A3C90521D7524900E0C05F /* SubjectsVCRegisterAsTutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A3C90421D7524900E0C05F /* SubjectsVCRegisterAsTutor.swift */; };
@@ -54,6 +56,7 @@
 		B3CE030621AD042D00BABFD9 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CE030521AD042D00BABFD9 /* MessageCell.swift */; };
 		B3CE030A21B2035900BABFD9 /* DirectMessageBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CE030921B2035900BABFD9 /* DirectMessageBubble.swift */; };
 		B3CE617B21FFDF1A00AB4DF7 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CE617A21FFDF1A00AB4DF7 /* UserCell.swift */; };
+		B3F1A3A7222C1056001C8DC3 /* CommentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F1A3A6222C1056001C8DC3 /* CommentsTableViewController.swift */; };
 		B3FB451E22262203006AE2AB /* AddedTagsLabelViewInSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FB451D22262203006AE2AB /* AddedTagsLabelViewInSignUp.swift */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +71,7 @@
 		B30830072158961C004D0B1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B30830092158961C004D0B1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B308300F21589A82004D0B1A /* Start.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Start.storyboard; sourceTree = "<group>"; };
+		B31A4DA0222CE72D00EAEF77 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		B32F24FA2159B87C00930BAA /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		B32F24FC2159C4C800930BAA /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		B32F2502215AB96700930BAA /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -97,7 +101,8 @@
 		B36EA7ED220C0EC100551E8C /* ScheduledMeetingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledMeetingsTableViewController.swift; sourceTree = "<group>"; };
 		B36F4E6C220D2DBB001380EE /* MasterActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterActivityViewController.swift; sourceTree = "<group>"; };
 		B3728ED8220E0407003FA560 /* ScheduledMeeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledMeeting.swift; sourceTree = "<group>"; };
-		B38A14CC2213D97500CFEAA5 /* DaySelectInSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaySelectInSignUpViewController.swift; sourceTree = "<group>"; };
+		B37A32B7222AFB98008B7F56 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
+		B38A14CC2213D97500CFEAA5 /* SelectAvailableDaysViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAvailableDaysViewController.swift; sourceTree = "<group>"; };
 		B39EE9E922039DF9005550A9 /* MeetingRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingRequestViewController.swift; sourceTree = "<group>"; };
 		B3A3C90221D751BA00E0C05F /* SubjectVCFindTutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectVCFindTutor.swift; sourceTree = "<group>"; };
 		B3A3C90421D7524900E0C05F /* SubjectsVCRegisterAsTutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectsVCRegisterAsTutor.swift; sourceTree = "<group>"; };
@@ -108,6 +113,7 @@
 		B3CE030521AD042D00BABFD9 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		B3CE030921B2035900BABFD9 /* DirectMessageBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectMessageBubble.swift; sourceTree = "<group>"; };
 		B3CE617A21FFDF1A00AB4DF7 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		B3F1A3A6222C1056001C8DC3 /* CommentsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTableViewController.swift; sourceTree = "<group>"; };
 		B3FB451D22262203006AE2AB /* AddedTagsLabelViewInSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddedTagsLabelViewInSignUp.swift; sourceTree = "<group>"; };
 		FABFCB1540A14F77E90BE2EA /* Pods_TuTour.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TuTour.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -155,8 +161,8 @@
 			children = (
 				B3082FFD2158961B004D0B1A /* AppDelegate.swift */,
 				B34E789A2163337700A79B10 /* AuthService.swift */,
-				B34E789E21681C8400A79B10 /* Models */,
 				B34E7895215B447400A79B10 /* Views */,
+				B34E789E21681C8400A79B10 /* Models */,
 				B3CE030421AD03A500BABFD9 /* Cells */,
 				B32F2504215AB98200930BAA /* Controllers */,
 				B30830062158961C004D0B1A /* LaunchScreen.storyboard */,
@@ -175,6 +181,7 @@
 				B3A3C90621D7528700E0C05F /* Subjects */,
 				B358F45921F4FDCE00E53F08 /* Scheduling Meeeting */,
 				B32F2502215AB96700930BAA /* HomeViewController.swift */,
+				B3F1A3A6222C1056001C8DC3 /* CommentsTableViewController.swift */,
 				B32F2507215AB9C100930BAA /* CameraViewController.swift */,
 				B36F4E6C220D2DBB001380EE /* MasterActivityViewController.swift */,
 				B32F2509215AB9F000930BAA /* MeetingRequestsTableViewController.swift */,
@@ -207,6 +214,7 @@
 				B305646A218FFD5E0022EE7F /* Message.swift */,
 				B358F45C21F546D500E53F08 /* MeetingRequest.swift */,
 				B3728ED8220E0407003FA560 /* ScheduledMeeting.swift */,
+				B31A4DA0222CE72D00EAEF77 /* Comment.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -235,9 +243,9 @@
 		B3A3C90721D752A700E0C05F /* Messaging */ = {
 			isa = PBXGroup;
 			children = (
+				B3BD05C3218E639C00315922 /* MessagesViewController.swift */,
 				B3433A9721744C8C00BE44D7 /* ChatLogViewController.swift */,
 				B3BD05812177F5B500315922 /* CreateNewMessageThreadViewController.swift */,
-				B3BD05C3218E639C00315922 /* MessagesViewController.swift */,
 			);
 			path = Messaging;
 			sourceTree = "<group>";
@@ -246,8 +254,8 @@
 			isa = PBXGroup;
 			children = (
 				B32F24FA2159B87C00930BAA /* SignInViewController.swift */,
-				B38A14CC2213D97500CFEAA5 /* DaySelectInSignUpViewController.swift */,
 				B32F24FC2159C4C800930BAA /* SignUpViewController.swift */,
+				B38A14CC2213D97500CFEAA5 /* SelectAvailableDaysViewController.swift */,
 				B3FB451D22262203006AE2AB /* AddedTagsLabelViewInSignUp.swift */,
 			);
 			path = Authentication;
@@ -265,6 +273,7 @@
 				B3A3C90921DD745300E0C05F /* SubjectCellWithNumTutors.swift */,
 				B358F46021F94CEB00E53F08 /* MeetingRequestCell.swift */,
 				B34E78A1216829A400A79B10 /* PostCellViewController.swift */,
+				B37A32B7222AFB98008B7F56 /* CommentCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -419,6 +428,7 @@
 			files = (
 				5BF43D7A220AB02C00B83085 /* ProfileSettingsController.swift in Sources */,
 				B32F24FD2159C4C800930BAA /* SignUpViewController.swift in Sources */,
+				B3F1A3A7222C1056001C8DC3 /* CommentsTableViewController.swift in Sources */,
 				B34E78A42169BABC00A79B10 /* UserCellInDiscover.swift in Sources */,
 				B358F45821F431CA00E53F08 /* DatePickerViewController.swift in Sources */,
 				B39EE9EA22039DF9005550A9 /* MeetingRequestViewController.swift in Sources */,
@@ -427,7 +437,7 @@
 				B3308CB121D60B8500A0404D /* SubjectCell.swift in Sources */,
 				B32F24FB2159B87C00930BAA /* SignInViewController.swift in Sources */,
 				B3A3C90521D7524900E0C05F /* SubjectsVCRegisterAsTutor.swift in Sources */,
-				B38A14CD2213D97500CFEAA5 /* DaySelectInSignUpViewController.swift in Sources */,
+				B38A14CD2213D97500CFEAA5 /* SelectAvailableDaysViewController.swift in Sources */,
 				B3CE617B21FFDF1A00AB4DF7 /* UserCell.swift in Sources */,
 				B305646B218FFD5E0022EE7F /* Message.swift in Sources */,
 				B36F4E6D220D2DBB001380EE /* MasterActivityViewController.swift in Sources */,
@@ -451,7 +461,9 @@
 				B34E78A021681CA000A79B10 /* Post.swift in Sources */,
 				B3431C582196806600401E8D /* UserCellInNewMessages.swift in Sources */,
 				B34E78A2216829A400A79B10 /* PostCellViewController.swift in Sources */,
+				B31A4DA1222CE72D00EAEF77 /* Comment.swift in Sources */,
 				B3A3C90321D751BA00E0C05F /* SubjectVCFindTutor.swift in Sources */,
+				B37A32B8222AFB98008B7F56 /* CommentCell.swift in Sources */,
 				B3BD05C4218E639C00315922 /* MessagesViewController.swift in Sources */,
 				B3BD05822177F5B500315922 /* CreateNewMessageThreadViewController.swift in Sources */,
 			);

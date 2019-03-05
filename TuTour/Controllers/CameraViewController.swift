@@ -147,17 +147,22 @@ class CameraViewController: UIViewController , UITextViewDelegate{
         //Referenece to posts
         let postsRef = Database.database().reference().child("posts")
         
-        //Generate new post id
-        let newPostId = postsRef.childByAutoId().key
         
+        //OLD
+        //Generate new post id
+        //let newPostId = postsRef.childByAutoId().key
         //Reference to new post
-        let newPostRef = postsRef.child(newPostId!)
+        //let newPostRef = postsRef.child(newPostId!)
+        //////////////////////////////////////////////
+        
+        let newPostRef = postsRef.childByAutoId()
+        let newPostId = newPostRef.key!
         
         //set current user id
         let userId = Auth.auth().currentUser!.uid
         
         //set the value of the new post reference
-        newPostRef.setValue(["photoUrl": photoUrl, "caption": captionTextView.text!, "photoId": newPostId, "senderId":userId]) { (error, ref) in
+        newPostRef.setValue(["photoUrl": photoUrl, "caption": captionTextView.text!, "postId": newPostId, "senderId":userId]) { (error, ref) in
             if error != nil {
                 ProgressHUD.showError(error!.localizedDescription)
                 return
