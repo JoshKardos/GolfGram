@@ -81,7 +81,6 @@ class PostCellViewController: UITableViewCell,UITableViewDataSource {
         Database.database().reference().child("PostLikes").child(post.postId!).observe(.value) { (snapshot) in
             
             self.likesCount = Int(snapshot.childrenCount)
-            self.commentsCount = 0//delete this!!!
             if let postDictionary = snapshot.value as? NSDictionary{
                 
                 for (key, value) in postDictionary{
@@ -100,7 +99,7 @@ class PostCellViewController: UITableViewCell,UITableViewDataSource {
         //////////////////////////////////////////
         //Check amount of comments on this post///
         //////////////////////////////////////////
-        Database.database().reference().child("PostComments").child(post.postId!).observe(.value) { (snapshot) in
+        Database.database().reference().child("post-comments").child(post.postId!).observe(.value) { (snapshot) in
             self.commentsCount = Int(snapshot.childrenCount)
             
         }
