@@ -10,7 +10,8 @@
 #endif
 #endif
 
+#import "PagingKit.h"
 
-FOUNDATION_EXPORT double DropDownVersionNumber;
-FOUNDATION_EXPORT const unsigned char DropDownVersionString[];
+FOUNDATION_EXPORT double PagingKitVersionNumber;
+FOUNDATION_EXPORT const unsigned char PagingKitVersionString[];
 

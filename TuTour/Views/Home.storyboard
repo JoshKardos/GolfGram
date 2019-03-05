@@ -204,16 +204,15 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="blo-Sf-ivZ">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Portrait_Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="blo-Sf-ivZ">
                                                     <rect key="frame" x="20" y="5" width="32" height="32"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="32" id="bCV-Sa-Fho"/>
                                                         <constraint firstAttribute="width" constant="32" id="zTg-54-ZJY"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YkU-wn-uHR">
-                                                    <rect key="frame" x="60" y="12" width="334" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YkU-wn-uHR">
+                                                    <rect key="frame" x="60" y="6" width="342" height="31.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -221,8 +220,12 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="blo-Sf-ivZ" firstAttribute="top" secondItem="Tmd-a1-aiW" secondAttribute="top" constant="5" id="62w-4E-azr"/>
+                                                <constraint firstItem="YkU-wn-uHR" firstAttribute="top" secondItem="Tmd-a1-aiW" secondAttribute="top" constant="6" id="FkD-so-wXO"/>
                                                 <constraint firstAttribute="bottom" secondItem="blo-Sf-ivZ" secondAttribute="bottom" constant="6.5" id="Mvx-Hk-jdk"/>
+                                                <constraint firstAttribute="bottom" secondItem="YkU-wn-uHR" secondAttribute="bottom" constant="6" id="eAZ-Rt-FDv"/>
                                                 <constraint firstItem="blo-Sf-ivZ" firstAttribute="leading" secondItem="Tmd-a1-aiW" secondAttribute="leading" constant="20" id="eYb-lD-IWc"/>
+                                                <constraint firstAttribute="trailing" secondItem="YkU-wn-uHR" secondAttribute="trailing" constant="12" id="jjL-GE-bCP"/>
+                                                <constraint firstItem="YkU-wn-uHR" firstAttribute="leading" secondItem="blo-Sf-ivZ" secondAttribute="trailing" constant="8" id="ndZ-qi-Ifn"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

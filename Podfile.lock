@@ -76,6 +76,7 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
+  - PagingKit (1.9.0)
   - ProgressHUD (2.60)
   - TextFieldEffects (1.5.1)
 
@@ -85,6 +86,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
+  - PagingKit
   - ProgressHUD
   - TextFieldEffects
 
@@ -103,6 +105,7 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - nanopb
+    - PagingKit
     - ProgressHUD
     - TextFieldEffects
 
@@ -130,9 +133,10 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  PagingKit: a65ffc616296d617ac89897a986263fdae766db4
   ProgressHUD: 4e4efbaf4f5de8bd32e0c4c3b6644a90ea1a8c3e
   TextFieldEffects: 7d372f58aeaf9acd9626bbf962680aef926b085d
 
-PODFILE CHECKSUM: ed679538a39745ac64bd7a04efb3bbab1a7d6080
+PODFILE CHECKSUM: ca3b3c3cedc3f597d7eecba963b1e7f72cd7958e
 
 COCOAPODS: 1.5.3
