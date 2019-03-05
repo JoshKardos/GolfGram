@@ -26,7 +26,7 @@ class AuthService {
     }
     
     
-    static func signUp(fullname: String, username: String, email: String, password: String, school: String, major: String, year: String,  imageData: Data, skills: [String], onSuccess: @escaping() -> Void, onError: @escaping(_ errorMessage: String?) -> Void){
+    static func signUp(fullname: String, username: String, email: String, password: String, school: String, major: String, year: String,  imageData: Data, onSuccess: @escaping() -> Void, onError: @escaping(_ errorMessage: String?) -> Void){
         
         
         /////////////////////
@@ -60,24 +60,21 @@ class AuthService {
                     guard let profileImageUrl = url?.absoluteString else {return}
                     let uid = Auth.auth().currentUser!.uid
 
-                    self.signUpUser(profileImageUrl: profileImageUrl, fullname: fullname, username: username, email: email, uid: uid, school: school, major: major, year: year, skills: skills ,onSuccess: onSuccess)
+                    self.signUpUser(profileImageUrl: profileImageUrl, fullname: fullname, username: username, email: email, uid: uid, school: school, major: major, year: year, onSuccess: onSuccess)
                 }
             })
         }
         
     }
-    static func signUpUser(profileImageUrl: String,fullname: String, username: String, email: String, uid: String,  school: String, major: String, year: String ,skills: [String], onSuccess: @escaping () -> Void){
+    static func signUpUser(profileImageUrl: String,fullname: String, username: String, email: String, uid: String,  school: String, major: String, year: String, onSuccess: @escaping () -> Void){
         
         //get referenece to users in the database
         let usersRef = Database.database().reference().child("users")
         
-        var skillsMap = [String: Int]()
-        for i in 0..<skills.count{
-            skillsMap[skills[i]] = 1
-        }
+       
         
         //save into database user(username, email, major, school profileImage,...)
-        usersRef.child(uid).setValue(["fullname": fullname, "username": username, "email" : email, "major": major, "school": school, "year": year, "profileImageUrl": profileImageUrl, "uid": uid, "skills": skillsMap])
+        usersRef.child(uid).setValue(["fullname": fullname, "username": username, "email" : email, "major": major, "school": school, "year": year, "profileImageUrl": profileImageUrl, "uid": uid])
         
         onSuccess()
     }

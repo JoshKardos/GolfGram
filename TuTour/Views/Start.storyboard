@@ -239,214 +239,6 @@
                                     <constraint firstItem="aas-Kw-tKK" firstAttribute="top" secondItem="4XA-Gj-O4A" secondAttribute="top" constant="50" id="ry9-jl-owq"/>
                                 </constraints>
                             </stackView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bjV-ro-4iv">
-                                <rect key="frame" x="54" y="625" width="307" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add Skills/Tags" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vs6-zX-CTh">
-                                <rect key="frame" x="20" y="589" width="117" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hii-74-vIs">
-                                <rect key="frame" x="369" y="625" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="addTagButtonPressed:" destination="J62-SA-9Ff" eventType="touchUpInside" id="Dru-5o-hUz"/>
-                                </connections>
-                            </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="xLa-uj-T3F">
-                                <rect key="frame" x="49" y="664" width="316" height="108"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="6Bm-hu-xSY">
-                                        <rect key="frame" x="0.0" y="0.0" width="316" height="50"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pxQ-RW-6ys" customClass="AddedTagsLabelViewInSignUp" customModule="TuTour" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="100" height="50"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jI7-Xt-aVp">
-                                                        <rect key="frame" x="8" y="10" width="42" height="30"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wkt-ay-6gq">
-                                                        <rect key="frame" x="62" y="10" width="30" height="30"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <state key="normal" title="X"/>
-                                                        <connections>
-                                                            <action selector="deletePressed:" destination="pxQ-RW-6ys" eventType="touchUpInside" id="cSc-zj-D8o"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="100" id="G0i-Mg-hSD"/>
-                                                    <constraint firstAttribute="height" constant="50" id="npn-Y0-w3b"/>
-                                                </constraints>
-                                                <connections>
-                                                    <outlet property="label" destination="jI7-Xt-aVp" id="wUa-fN-rNr"/>
-                                                </connections>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Brm-In-2Ad" customClass="AddedTagsLabelViewInSignUp" customModule="TuTour" customModuleProvider="target">
-                                                <rect key="frame" x="108" y="0.0" width="100" height="50"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cG4-gt-Vdf">
-                                                        <rect key="frame" x="8" y="10" width="42" height="30"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4q4-ta-Fgu">
-                                                        <rect key="frame" x="62" y="10" width="30" height="30"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <state key="normal" title="X"/>
-                                                        <connections>
-                                                            <action selector="deletePressed:" destination="Brm-In-2Ad" eventType="touchUpInside" id="ixa-T1-oZq"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="EqB-z0-ywG"/>
-                                                    <constraint firstAttribute="width" constant="100" id="ytn-x7-gAm"/>
-                                                </constraints>
-                                                <connections>
-                                                    <outlet property="label" destination="cG4-gt-Vdf" id="RaP-E1-of3"/>
-                                                </connections>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xgr-LQ-yjA" customClass="AddedTagsLabelViewInSignUp" customModule="TuTour" customModuleProvider="target">
-                                                <rect key="frame" x="216" y="0.0" width="100" height="50"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="seU-wr-SCi">
-                                                        <rect key="frame" x="8" y="10" width="42" height="30"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehs-Ak-5a0">
-                                                        <rect key="frame" x="62" y="10" width="30" height="30"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <state key="normal" title="X"/>
-                                                        <connections>
-                                                            <action selector="deletePressed:" destination="xgr-LQ-yjA" eventType="touchUpInside" id="J0Z-8S-G6l"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="100" id="8Wz-WW-LAD"/>
-                                                    <constraint firstAttribute="height" constant="50" id="9Vd-6m-JXp"/>
-                                                </constraints>
-                                                <connections>
-                                                    <outlet property="label" destination="seU-wr-SCi" id="3ie-Fp-haF"/>
-                                                </connections>
-                                            </view>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="pQg-fZ-u0g">
-                                        <rect key="frame" x="0.0" y="58" width="316" height="50"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DZh-7e-fif" customClass="AddedTagsLabelViewInSignUp" customModule="TuTour" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="100" height="50"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9dZ-VX-fVD">
-                                                        <rect key="frame" x="8" y="10" width="42" height="30"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PJ2-kE-bSc">
-                                                        <rect key="frame" x="62" y="10" width="30" height="30"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <state key="normal" title="X"/>
-                                                        <connections>
-                                                            <action selector="deletePressed:" destination="DZh-7e-fif" eventType="touchUpInside" id="7pN-X6-JNz"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="100" id="Rur-XI-kZ1"/>
-                                                    <constraint firstAttribute="height" constant="50" id="W06-3x-GJm"/>
-                                                </constraints>
-                                                <connections>
-                                                    <outlet property="label" destination="9dZ-VX-fVD" id="ZFc-yQ-RMa"/>
-                                                </connections>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zMP-Zt-8PL" customClass="AddedTagsLabelViewInSignUp" customModule="TuTour" customModuleProvider="target">
-                                                <rect key="frame" x="108" y="0.0" width="100" height="50"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5tZ-Eg-wey">
-                                                        <rect key="frame" x="8" y="10" width="42" height="30"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3qE-w5-4Od">
-                                                        <rect key="frame" x="62" y="10" width="30" height="30"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <state key="normal" title="X"/>
-                                                        <connections>
-                                                            <action selector="deletePressed:" destination="zMP-Zt-8PL" eventType="touchUpInside" id="g8t-kp-Yhp"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="100" id="dct-8L-MGX"/>
-                                                    <constraint firstAttribute="height" constant="50" id="ecb-dG-vDy"/>
-                                                </constraints>
-                                                <connections>
-                                                    <outlet property="label" destination="5tZ-Eg-wey" id="oju-HA-unK"/>
-                                                </connections>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GcX-PM-Iha" customClass="AddedTagsLabelViewInSignUp" customModule="TuTour" customModuleProvider="target">
-                                                <rect key="frame" x="216" y="0.0" width="100" height="50"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgI-Y2-VnX">
-                                                        <rect key="frame" x="8" y="10" width="42" height="30"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zJC-Qt-vVJ">
-                                                        <rect key="frame" x="62" y="10" width="30" height="30"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <state key="normal" title="X"/>
-                                                        <connections>
-                                                            <action selector="deletePressed:" destination="GcX-PM-Iha" eventType="touchUpInside" id="RY3-Cp-P7C"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="HoD-MJ-e1W"/>
-                                                    <constraint firstAttribute="width" constant="100" id="LDY-nX-L96"/>
-                                                </constraints>
-                                                <connections>
-                                                    <outlet property="label" destination="mgI-Y2-VnX" id="q8j-lK-efH"/>
-                                                </connections>
-                                            </view>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="iUa-7j-QLu" firstAttribute="trailing" secondItem="tMy-Lt-vT4" secondAttribute="trailing" constant="16" id="4fX-8Z-Jwx"/>
@@ -468,21 +260,13 @@
                         <viewLayoutGuide key="safeArea" id="iUa-7j-QLu"/>
                     </view>
                     <connections>
-                        <outlet property="addTagButton" destination="hii-74-vIs" id="EIt-BC-vkm"/>
                         <outlet property="emailTextField" destination="RLr-6L-8Ma" id="vif-q4-rpp"/>
                         <outlet property="fullNameTextField" destination="GWC-oY-f5h" id="tN2-ed-pge"/>
                         <outlet property="majorAndSchoolSelector" destination="iLD-6p-5JI" id="8gC-Kz-4KS"/>
                         <outlet property="passwordTextField" destination="aMt-dx-EbG" id="tap-2N-jaO"/>
                         <outlet property="profileImage" destination="hkf-WR-hm3" id="e7y-xu-Ouw"/>
                         <outlet property="signUpButton" destination="tMy-Lt-vT4" id="7jh-LR-th6"/>
-                        <outlet property="tagsTextField" destination="bjV-ro-4iv" id="ALd-yQ-6Nh"/>
                         <outlet property="usernameTextField" destination="aas-Kw-tKK" id="bUL-pk-0k2"/>
-                        <outletCollection property="addedTagsLabels" destination="pxQ-RW-6ys" collectionClass="NSMutableArray" id="a1l-76-CMh"/>
-                        <outletCollection property="addedTagsLabels" destination="Brm-In-2Ad" collectionClass="NSMutableArray" id="xOP-Tf-YJu"/>
-                        <outletCollection property="addedTagsLabels" destination="xgr-LQ-yjA" collectionClass="NSMutableArray" id="VSy-Nb-Q52"/>
-                        <outletCollection property="addedTagsLabels" destination="DZh-7e-fif" collectionClass="NSMutableArray" id="OCw-Ci-NJl"/>
-                        <outletCollection property="addedTagsLabels" destination="zMP-Zt-8PL" collectionClass="NSMutableArray" id="6jY-9i-VGF"/>
-                        <outletCollection property="addedTagsLabels" destination="GcX-PM-Iha" collectionClass="NSMutableArray" id="sJd-UQ-try"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ixm-ro-5pw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -497,20 +281,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sign_up_bg" translatesAutoresizingMaskIntoConstraints="NO" id="vis-N9-ElS">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sign_up_bg" translatesAutoresizingMaskIntoConstraints="NO" id="vis-N9-ElS">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available Days" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1VJ-di-exW">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QNJ-Rj-bJK">
+                                <rect key="frame" x="364" y="515" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="addTagButtonPressed:" destination="Xty-ko-lfh" eventType="touchUpInside" id="mhB-dY-SCz"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vNG-bh-Or3">
+                                <rect key="frame" x="54" y="515" width="307" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Available Days" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1VJ-di-exW">
                                 <rect key="frame" x="16" y="68" width="382" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="jRb-Ky-bz2"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="awI-5K-9pv">
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="awI-5K-9pv">
                                 <rect key="frame" x="35" y="139" width="159" height="307"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="nVi-X5-ghE">
                                         <rect key="frame" x="0.0" y="0.0" width="159" height="31"/>
@@ -611,18 +412,11 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="159" id="1SM-JS-MME"/>
-                                    <constraint firstAttribute="height" constant="307" id="Apl-cJ-uaE"/>
-                                </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DP9-cP-xUs">
-                                <rect key="frame" x="164" y="494" width="86" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DP9-cP-xUs">
+                                <rect key="frame" x="164" y="729" width="86" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="0.46999999999999997" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="ezO-5w-e64"/>
-                                    <constraint firstAttribute="width" constant="86" id="sg7-ab-Odq"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                 <state key="normal" title="Add Days">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -632,23 +426,17 @@
                                     <segue destination="u0f-wI-JQP" kind="presentation" id="TjC-J5-m29"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NtB-fI-Oc3">
-                                <rect key="frame" x="197.5" y="532" width="19" height="28"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="28" id="c9f-eV-zOl"/>
-                                    <constraint firstAttribute="width" constant="19" id="lXK-3w-LNL"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="or" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NtB-fI-Oc3">
+                                <rect key="frame" x="198" y="767" width="19" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qHc-kP-han">
-                                <rect key="frame" x="72" y="568" width="270" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qHc-kP-han">
+                                <rect key="frame" x="72" y="803" width="270" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="0.46999999999999997" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="270" id="DDP-6D-mwD"/>
-                                    <constraint firstAttribute="height" constant="30" id="bhB-ke-SQS"/>
-                                </constraints>
                                 <state key="normal" title="Do it later">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -657,29 +445,205 @@
                                     <segue destination="u0f-wI-JQP" kind="presentation" id="gxp-88-Su2"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add Skills/Tags" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lz-9H-KF1">
+                                <rect key="frame" x="16" y="467" width="382" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="DkT-6d-Bm4">
+                                <rect key="frame" x="49" y="569" width="316" height="108"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="aEs-Q3-1pw">
+                                        <rect key="frame" x="0.0" y="0.0" width="316" height="50"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z1h-aS-xeR" customClass="AddedTagsLabelViewInSignUp" customModule="TuTour" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="50"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nlx-bw-cNz">
+                                                        <rect key="frame" x="8" y="10" width="42" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A1h-f1-CU7">
+                                                        <rect key="frame" x="62" y="10" width="30" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <state key="normal" title="X"/>
+                                                        <connections>
+                                                            <action selector="deletePressed:" destination="z1h-aS-xeR" eventType="touchUpInside" id="2fm-mK-ibw"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="edH-IY-9fn"/>
+                                                    <constraint firstAttribute="height" constant="50" id="tUc-Zi-0uk"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="label" destination="Nlx-bw-cNz" id="tP1-Ii-xBH"/>
+                                                </connections>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UHw-6m-fPB" customClass="AddedTagsLabelViewInSignUp" customModule="TuTour" customModuleProvider="target">
+                                                <rect key="frame" x="108" y="0.0" width="100" height="50"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g1j-uM-pfP">
+                                                        <rect key="frame" x="8" y="10" width="42" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cxp-b7-c4W">
+                                                        <rect key="frame" x="62" y="10" width="30" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <state key="normal" title="X"/>
+                                                        <connections>
+                                                            <action selector="deletePressed:" destination="UHw-6m-fPB" eventType="touchUpInside" id="lb2-JZ-trI"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="0oy-Mn-k5K"/>
+                                                    <constraint firstAttribute="height" constant="50" id="FoV-Ey-4wa"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="label" destination="g1j-uM-pfP" id="WFw-Rv-gIg"/>
+                                                </connections>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="upb-kt-7OM" customClass="AddedTagsLabelViewInSignUp" customModule="TuTour" customModuleProvider="target">
+                                                <rect key="frame" x="216" y="0.0" width="100" height="50"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Utc-7J-cp3">
+                                                        <rect key="frame" x="8" y="10" width="42" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VOy-75-XGz">
+                                                        <rect key="frame" x="62" y="10" width="30" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <state key="normal" title="X"/>
+                                                        <connections>
+                                                            <action selector="deletePressed:" destination="upb-kt-7OM" eventType="touchUpInside" id="zaR-bB-e8q"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="bfx-da-PIN"/>
+                                                    <constraint firstAttribute="height" constant="50" id="fte-48-itW"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="label" destination="Utc-7J-cp3" id="UT8-dF-1yw"/>
+                                                </connections>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Yds-XR-xaf">
+                                        <rect key="frame" x="0.0" y="58" width="316" height="50"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H8O-xA-mlb" customClass="AddedTagsLabelViewInSignUp" customModule="TuTour" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="50"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z15-Iy-1Jc">
+                                                        <rect key="frame" x="8" y="10" width="42" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WAJ-n8-vCO">
+                                                        <rect key="frame" x="62" y="10" width="30" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <state key="normal" title="X"/>
+                                                        <connections>
+                                                            <action selector="deletePressed:" destination="H8O-xA-mlb" eventType="touchUpInside" id="qK0-Lc-XYz"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="H5S-uq-WCB"/>
+                                                    <constraint firstAttribute="height" constant="50" id="j6y-jp-h0t"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="label" destination="z15-Iy-1Jc" id="8ss-RY-Zea"/>
+                                                </connections>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jgd-5i-IoL" customClass="AddedTagsLabelViewInSignUp" customModule="TuTour" customModuleProvider="target">
+                                                <rect key="frame" x="108" y="0.0" width="100" height="50"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nv0-nm-5fc">
+                                                        <rect key="frame" x="8" y="10" width="42" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YH3-p2-2TT">
+                                                        <rect key="frame" x="62" y="10" width="30" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <state key="normal" title="X"/>
+                                                        <connections>
+                                                            <action selector="deletePressed:" destination="jgd-5i-IoL" eventType="touchUpInside" id="lw0-oQ-w35"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="nHc-G9-IqG"/>
+                                                    <constraint firstAttribute="height" constant="50" id="tS8-F1-Yr2"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="label" destination="nv0-nm-5fc" id="jDV-9Z-Iwa"/>
+                                                </connections>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="59r-8f-vhU" customClass="AddedTagsLabelViewInSignUp" customModule="TuTour" customModuleProvider="target">
+                                                <rect key="frame" x="216" y="0.0" width="100" height="50"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xcd-uC-Wjz">
+                                                        <rect key="frame" x="8" y="10" width="42" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TpI-EA-Qlf">
+                                                        <rect key="frame" x="62" y="10" width="30" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <state key="normal" title="X"/>
+                                                        <connections>
+                                                            <action selector="deletePressed:" destination="59r-8f-vhU" eventType="touchUpInside" id="cyD-Tc-c0w"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="JLm-R0-qeE"/>
+                                                    <constraint firstAttribute="height" constant="50" id="MJv-up-ekP"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="label" destination="Xcd-uC-Wjz" id="kt1-g2-Me8"/>
+                                                </connections>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <constraints>
-                            <constraint firstItem="vis-N9-ElS" firstAttribute="leading" secondItem="kiM-VK-lnZ" secondAttribute="leading" id="A64-Nn-C07"/>
-                            <constraint firstItem="1VJ-di-exW" firstAttribute="leading" secondItem="kiM-VK-lnZ" secondAttribute="leading" constant="16" id="Dl6-dK-pbx"/>
-                            <constraint firstItem="NtB-fI-Oc3" firstAttribute="top" secondItem="DP9-cP-xUs" secondAttribute="bottom" constant="8" id="FSQ-M2-oEo"/>
-                            <constraint firstItem="NtB-fI-Oc3" firstAttribute="centerX" secondItem="cfN-t9-Wwq" secondAttribute="centerX" id="Iog-Ae-zCf"/>
-                            <constraint firstItem="awI-5K-9pv" firstAttribute="leading" secondItem="kiM-VK-lnZ" secondAttribute="leading" constant="35" id="MET-YB-hFl"/>
-                            <constraint firstItem="kiM-VK-lnZ" firstAttribute="trailing" secondItem="vis-N9-ElS" secondAttribute="trailing" id="QbL-cx-TpL"/>
-                            <constraint firstItem="DP9-cP-xUs" firstAttribute="top" secondItem="awI-5K-9pv" secondAttribute="bottom" constant="48" id="VnD-Ym-Rzl"/>
-                            <constraint firstItem="awI-5K-9pv" firstAttribute="top" secondItem="1VJ-di-exW" secondAttribute="bottom" constant="31" id="W8L-4j-a4g"/>
-                            <constraint firstItem="kiM-VK-lnZ" firstAttribute="bottom" secondItem="vis-N9-ElS" secondAttribute="bottom" id="ZaN-sb-ODO"/>
-                            <constraint firstItem="DP9-cP-xUs" firstAttribute="centerX" secondItem="cfN-t9-Wwq" secondAttribute="centerX" id="aDR-oT-zwK"/>
-                            <constraint firstItem="1VJ-di-exW" firstAttribute="top" secondItem="kiM-VK-lnZ" secondAttribute="top" constant="24" id="adU-UR-wiA"/>
-                            <constraint firstItem="vis-N9-ElS" firstAttribute="top" secondItem="cfN-t9-Wwq" secondAttribute="top" id="aho-Dz-ICY"/>
-                            <constraint firstItem="kiM-VK-lnZ" firstAttribute="trailing" secondItem="1VJ-di-exW" secondAttribute="trailing" constant="16" id="dWj-wt-hbl"/>
-                            <constraint firstItem="qHc-kP-han" firstAttribute="top" secondItem="NtB-fI-Oc3" secondAttribute="bottom" constant="8" id="uIa-lj-0Rz"/>
-                            <constraint firstItem="qHc-kP-han" firstAttribute="centerX" secondItem="cfN-t9-Wwq" secondAttribute="centerX" id="y3A-kk-kAL"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="kiM-VK-lnZ"/>
                     </view>
                     <navigationItem key="navigationItem" id="NSF-6Q-nnn"/>
                     <connections>
+                        <outlet property="addTagButton" destination="QNJ-Rj-bJK" id="RQU-5F-5VT"/>
+                        <outlet property="tagsTextField" destination="vNG-bh-Or3" id="Wne-qg-ngJ"/>
                         <outletCollection property="daySwitches" destination="kvB-om-Jgb" collectionClass="NSMutableArray" id="xSb-e7-Tjh"/>
                         <outletCollection property="daySwitches" destination="y21-nm-TJT" collectionClass="NSMutableArray" id="qJv-A8-vz6"/>
                         <outletCollection property="daySwitches" destination="aiN-Nj-TkX" collectionClass="NSMutableArray" id="ZWC-Xj-an7"/>
@@ -694,11 +658,17 @@
                         <outletCollection property="dayLabels" destination="YKi-HI-dNm" collectionClass="NSMutableArray" id="dIM-jP-tg5"/>
                         <outletCollection property="dayLabels" destination="SAq-t9-zf0" collectionClass="NSMutableArray" id="Amt-ix-Gwa"/>
                         <outletCollection property="dayLabels" destination="PGF-fZ-uvs" collectionClass="NSMutableArray" id="e8y-Kj-po8"/>
+                        <outletCollection property="addedTagsLabels" destination="z1h-aS-xeR" collectionClass="NSMutableArray" id="Cgv-Gw-3JN"/>
+                        <outletCollection property="addedTagsLabels" destination="UHw-6m-fPB" collectionClass="NSMutableArray" id="Hyu-Dc-nam"/>
+                        <outletCollection property="addedTagsLabels" destination="upb-kt-7OM" collectionClass="NSMutableArray" id="hSz-Xe-MQZ"/>
+                        <outletCollection property="addedTagsLabels" destination="H8O-xA-mlb" collectionClass="NSMutableArray" id="m9k-rF-bWh"/>
+                        <outletCollection property="addedTagsLabels" destination="jgd-5i-IoL" collectionClass="NSMutableArray" id="FZo-4x-oFM"/>
+                        <outletCollection property="addedTagsLabels" destination="59r-8f-vhU" collectionClass="NSMutableArray" id="eGp-lX-Yh0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ohq-s3-9s9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2906" y="-607"/>
+            <point key="canvasLocation" x="2905.7971014492755" y="-607.36607142857144"/>
         </scene>
         <!--Main-->
         <scene sceneID="JDx-y5-tiE">

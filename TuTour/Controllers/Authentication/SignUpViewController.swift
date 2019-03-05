@@ -20,18 +20,13 @@ class SignUpViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var majorTextField: UITextField!
-    @IBOutlet weak var schoolTextField: UITextField!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var majorAndSchoolSelector: UIPickerView!
     @IBOutlet weak var signUpButton: UIButton!
     var selectedImage : UIImage?
     //var imageURL:URL?
-    @IBOutlet weak var tagsTextField: UITextField!
-    @IBOutlet weak var addTagButton: UIButton!
-    var tagsArray = [String]()
+  
     
-    @IBOutlet var addedTagsLabels: [AddedTagsLabelViewInSignUp]!
     
     let schoolArray = ["SJSU", "UCSD", "UCLA"]
     let majorArray = ["Engineering", "English", "Media"]
@@ -67,43 +62,10 @@ class SignUpViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         signUpButton.setTitleColor(UIColor.lightText, for: UIControl.State.normal)
         signUpButton.isEnabled = false
         
-        handleTextField()
-        
-        addTagButton.isEnabled = false
-        handleTags()//disable addTagButton if textfield is empty
-        // Do any additional setup after loading the view.
-        
-        //initiliaze each tag label's signup vc as self
-        //needed for when user deletes an added tag
-        for i in 0..<addedTagsLabels.count{
-            addedTagsLabels[i].signUpViewController = self
-        }
-        
-        updateTagsFromArray()
-    }
-    
-    @IBAction func addTagButtonPressed(_ sender: UIButton) {
-        
-        print("ADD")
-        if tagsTextField.text != nil && tagsTextField.text != ""{
-            
-            tagsArray.append(tagsTextField.text!)
-            tagsTextField.text = nil
-            addTagButton.isEnabled = false
-        }
-        updateTagsFromArray()
+       handleTextField()
         
     }
-    func updateTagsFromArray(){
-        for i in 0..<addedTagsLabels.count{
-            if i < tagsArray.count{
-                addedTagsLabels[i].isHidden = false
-                addedTagsLabels[i].label.text = tagsArray[i]
-            } else {
-                addedTagsLabels[i].isHidden = true
-            }
-        }
-    }
+
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 3
     }
@@ -168,29 +130,18 @@ class SignUpViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         
     }
     
-    func handleTags(){
-        tagsTextField.addTarget(self, action: #selector(self.tagsDidChange), for: UIControl.Event.editingChanged)
-        
-    }
     
-    @objc func tagsDidChange(){
-        
-        if (tagsTextField.text?.trimmingCharacters(in: .whitespaces).isEmpty)!{
-            addTagButton.isEnabled = false
-        } else {
-            addTagButton.isEnabled = true
-        }
-        
-        
-    }
     
     @objc func textFieldDidChange(){
+        print("TEXT FIELD CHANGED")
         guard let username = usernameTextField.text, !username.isEmpty, let email = emailTextField.text, !email.isEmpty, let password = passwordTextField.text, !password.isEmpty else {
             
             signUpButton.setTitleColor(UIColor.lightText, for: UIControl.State.normal)
             signUpButton.isEnabled = false
+            print("SIGN UP BUTTON NOT ENABLED")
             return
         }
+        print("SIGN UP BUTTON ENABLED")
         signUpButton.setTitleColor(UIColor.white, for: UIControl.State.normal)
         signUpButton.isEnabled = true
     }
@@ -215,7 +166,7 @@ class SignUpViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         if let profileImg = self.selectedImage{
             if let imageData = profileImg.jpegData(compressionQuality: 0.1) {
                 
-                AuthService.signUp(fullname: fullNameTextField.text!, username: usernameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, school: school, major: major, year: year, imageData: imageData, skills: tagsArray, onSuccess:{
+                AuthService.signUp(fullname: fullNameTextField.text!, username: usernameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, school: school, major: major, year: year, imageData: imageData, onSuccess:{
                     
                     
                     ProgressHUD.showSuccess("Success")

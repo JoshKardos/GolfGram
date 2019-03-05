@@ -194,7 +194,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UbT-7D-NCI">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="839"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="831"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentCell" id="p8d-Xi-sLo" customClass="CommentCell" customModule="TuTour" customModuleProvider="target">
@@ -233,7 +233,7 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6nM-Ti-52m">
-                                <rect key="frame" x="0.0" y="838" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="830" width="414" height="50"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vd0-72-eN1" userLabel="Separator Line View">
                                         <rect key="frame" x="0.0" y="-1" width="414" height="1"/>
@@ -242,7 +242,7 @@
                                             <constraint firstAttribute="height" constant="1" id="WgN-Wz-YF2"/>
                                         </constraints>
                                     </view>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4sH-Po-kkb">
+                                    <textField opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4sH-Po-kkb">
                                         <rect key="frame" x="7" y="0.0" width="327" height="50"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -282,7 +282,7 @@
                             <constraint firstItem="UbT-7D-NCI" firstAttribute="trailing" secondItem="6nM-Ti-52m" secondAttribute="trailing" id="Ypt-h8-T6q"/>
                             <constraint firstItem="UbT-7D-NCI" firstAttribute="top" secondItem="XxE-8S-p6U" secondAttribute="top" id="ZkO-Ho-7ap"/>
                             <constraint firstItem="6nM-Ti-52m" firstAttribute="leading" secondItem="E6B-kx-WCY" secondAttribute="leading" id="ibm-rf-JIV"/>
-                            <constraint firstAttribute="bottom" secondItem="6nM-Ti-52m" secondAttribute="bottom" constant="8" id="ijF-6Q-nsb"/>
+                            <constraint firstAttribute="bottom" secondItem="6nM-Ti-52m" secondAttribute="bottom" constant="16" id="ijF-6Q-nsb"/>
                             <constraint firstItem="UbT-7D-NCI" firstAttribute="leading" secondItem="6nM-Ti-52m" secondAttribute="leading" id="kgS-1o-JBu"/>
                             <constraint firstItem="6nM-Ti-52m" firstAttribute="trailing" secondItem="E6B-kx-WCY" secondAttribute="trailing" id="sxt-O7-TnV"/>
                             <constraint firstItem="6nM-Ti-52m" firstAttribute="top" secondItem="UbT-7D-NCI" secondAttribute="bottom" constant="-1" id="xOH-cp-XzN"/>

@@ -45,7 +45,7 @@
 		B36F4E6D220D2DBB001380EE /* MasterActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36F4E6C220D2DBB001380EE /* MasterActivityViewController.swift */; };
 		B3728ED9220E0407003FA560 /* ScheduledMeeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3728ED8220E0407003FA560 /* ScheduledMeeting.swift */; };
 		B37A32B8222AFB98008B7F56 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37A32B7222AFB98008B7F56 /* CommentCell.swift */; };
-		B38A14CD2213D97500CFEAA5 /* DaySelectInSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38A14CC2213D97500CFEAA5 /* DaySelectInSignUpViewController.swift */; };
+		B38A14CD2213D97500CFEAA5 /* SelectAvailableDaysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38A14CC2213D97500CFEAA5 /* SelectAvailableDaysViewController.swift */; };
 		B39EE9EA22039DF9005550A9 /* MeetingRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39EE9E922039DF9005550A9 /* MeetingRequestViewController.swift */; };
 		B3A3C90321D751BA00E0C05F /* SubjectVCFindTutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A3C90221D751BA00E0C05F /* SubjectVCFindTutor.swift */; };
 		B3A3C90521D7524900E0C05F /* SubjectsVCRegisterAsTutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A3C90421D7524900E0C05F /* SubjectsVCRegisterAsTutor.swift */; };
@@ -102,7 +102,7 @@
 		B36F4E6C220D2DBB001380EE /* MasterActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterActivityViewController.swift; sourceTree = "<group>"; };
 		B3728ED8220E0407003FA560 /* ScheduledMeeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledMeeting.swift; sourceTree = "<group>"; };
 		B37A32B7222AFB98008B7F56 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
-		B38A14CC2213D97500CFEAA5 /* DaySelectInSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaySelectInSignUpViewController.swift; sourceTree = "<group>"; };
+		B38A14CC2213D97500CFEAA5 /* SelectAvailableDaysViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAvailableDaysViewController.swift; sourceTree = "<group>"; };
 		B39EE9E922039DF9005550A9 /* MeetingRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingRequestViewController.swift; sourceTree = "<group>"; };
 		B3A3C90221D751BA00E0C05F /* SubjectVCFindTutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectVCFindTutor.swift; sourceTree = "<group>"; };
 		B3A3C90421D7524900E0C05F /* SubjectsVCRegisterAsTutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectsVCRegisterAsTutor.swift; sourceTree = "<group>"; };
@@ -161,8 +161,8 @@
 			children = (
 				B3082FFD2158961B004D0B1A /* AppDelegate.swift */,
 				B34E789A2163337700A79B10 /* AuthService.swift */,
-				B34E789E21681C8400A79B10 /* Models */,
 				B34E7895215B447400A79B10 /* Views */,
+				B34E789E21681C8400A79B10 /* Models */,
 				B3CE030421AD03A500BABFD9 /* Cells */,
 				B32F2504215AB98200930BAA /* Controllers */,
 				B30830062158961C004D0B1A /* LaunchScreen.storyboard */,
@@ -254,8 +254,8 @@
 			isa = PBXGroup;
 			children = (
 				B32F24FA2159B87C00930BAA /* SignInViewController.swift */,
-				B38A14CC2213D97500CFEAA5 /* DaySelectInSignUpViewController.swift */,
 				B32F24FC2159C4C800930BAA /* SignUpViewController.swift */,
+				B38A14CC2213D97500CFEAA5 /* SelectAvailableDaysViewController.swift */,
 				B3FB451D22262203006AE2AB /* AddedTagsLabelViewInSignUp.swift */,
 			);
 			path = Authentication;
@@ -437,7 +437,7 @@
 				B3308CB121D60B8500A0404D /* SubjectCell.swift in Sources */,
 				B32F24FB2159B87C00930BAA /* SignInViewController.swift in Sources */,
 				B3A3C90521D7524900E0C05F /* SubjectsVCRegisterAsTutor.swift in Sources */,
-				B38A14CD2213D97500CFEAA5 /* DaySelectInSignUpViewController.swift in Sources */,
+				B38A14CD2213D97500CFEAA5 /* SelectAvailableDaysViewController.swift in Sources */,
 				B3CE617B21FFDF1A00AB4DF7 /* UserCell.swift in Sources */,
 				B305646B218FFD5E0022EE7F /* Message.swift in Sources */,
 				B36F4E6D220D2DBB001380EE /* MasterActivityViewController.swift in Sources */,
