@@ -44,6 +44,7 @@ class SelectAvailableDaysViewController: UIViewController{
         for i in 0..<addedTagsLabels.count{
             addedTagsLabels[i].signUpViewController = self
         }
+        self.hideKeyboard()
         
     }
     
@@ -124,4 +125,22 @@ class SelectAvailableDaysViewController: UIViewController{
     }
     
     
+}
+
+extension UIViewController
+{
+    func hideKeyboard()
+    {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(UIViewController.dismissKeyboard))
+        
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard()
+    {
+        view.endEditing(true)
+    }
 }

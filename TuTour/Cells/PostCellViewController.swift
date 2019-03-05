@@ -78,7 +78,7 @@ class PostCellViewController: UITableViewCell,UITableViewDataSource {
         ///////////////////////////////////////////////
         //Check if currentUser has liked this post/////
         ///////////////////////////////////////////////
-        Database.database().reference().child("PostLikes").child(post.postId!).observe(.value) { (snapshot) in
+        Database.database().reference().child("post-likes").child(post.postId!).observe(.value) { (snapshot) in
             
             self.likesCount = Int(snapshot.childrenCount)
             if let postDictionary = snapshot.value as? NSDictionary{
@@ -131,7 +131,7 @@ class PostCellViewController: UITableViewCell,UITableViewDataSource {
     
     @IBAction func likePressed(_ sender: UIButton) {
         
-        let postLikesRef = Database.database().reference().child("PostLikes")
+        let postLikesRef = Database.database().reference().child("post-likes")
         let thisPostLikes = postLikesRef.child(post.postId!)
         
         if likesButtonActive == true{
