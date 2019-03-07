@@ -118,11 +118,7 @@ class SelectAvailableDaysViewController: UIViewController{
         
     }
     
-    @IBAction func addLater(_ sender: UIButton) {
-        
-        print("Doing Later")
-        
-    }
+
     
     
 }
