@@ -13,6 +13,7 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var emailTextbox: UITextField!
     @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var fullnameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var schoolLabel: UILabel!
     @IBOutlet weak var majorLabel: UILabel!
@@ -88,6 +89,8 @@ class ProfileViewController: UIViewController {
             let imageData = NSData.init(contentsOf: url as! URL)
             self.profileImage?.image = UIImage(data: imageData as! Data)
             
+            let fullnameString = (snapshot.value as! NSDictionary)["fullname"] as! String
+            self.fullnameLabel?.text = fullnameString
             
             let emailString = (snapshot.value as! NSDictionary)["email"] as! String
             self.emailLabel?.text = emailString
@@ -100,23 +103,16 @@ class ProfileViewController: UIViewController {
             
             let yearString = (snapshot.value as! NSDictionary)["year"] as! String
             self.yearLabel.text = yearString
+            
+            //let descString = (snapshot.value as! NSDictionary)["description"] as! String
+            //self.descriptionLabel.text = descString
+            
             ProgressHUD.dismiss()
         })
         
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        ProgressHUD.show("Loading...")
-        dmButton?.tintColor = AppDelegate.theme_Color
-        
-        // Converts the profile image to circular
-        //        profileImage.layer.borderWidth = 1
-        //        profileImage.layer.masksToBounds = false
-        //        profileImage.layer.borderColor = UIColor.gray.cgColor
-        //        profileImage.layer.cornerRadius = profileImage.frame.height/2
-        //        profileImage.clipsToBounds = true
-        
+    override func viewWillAppear(_ animated: Bool) {
         if let otherUser_ID = self.uid {//other users pprofile
             
             self.isOtherUser = true
@@ -135,5 +131,13 @@ class ProfileViewController: UIViewController {
             updateButton.isHidden = false
             
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        super.loadView()
+        ProgressHUD.show("Loading...")
+        dmButton?.tintColor = UIColor.flatGreenDark
+        
     }
 }
