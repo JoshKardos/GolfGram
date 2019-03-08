@@ -8,7 +8,7 @@
 
 import UIKit
 import Firebase
-class PostCellViewController: UITableViewCell,UITableViewDataSource {
+class PostCell: UITableViewCell,UITableViewDataSource {
     
     var delegate = HomeViewController()
     @IBOutlet weak var profileImage: UIImageView!
@@ -28,7 +28,7 @@ class PostCellViewController: UITableViewCell,UITableViewDataSource {
         didSet {
             
             self.updateUI()
-        
+            
         }
     }
     
@@ -60,9 +60,17 @@ class PostCellViewController: UITableViewCell,UITableViewDataSource {
                     self.usernameLabel.text = username
                 }
                 if let profileImageURL = snapshotValue["profileImageUrl"] as? String{
-                    let url = URL(string: profileImageURL)
-                    let imageData = NSData.init(contentsOf: url as! URL)
-                    self.profileImage.image = UIImage(data: imageData as! Data)
+                    DispatchQueue.global(qos: .userInteractive).async {
+                        
+                        
+                        let url = URL(string: profileImageURL)
+                        let imageData = NSData.init(contentsOf: url as! URL)
+                        let image = UIImage(data: imageData as! Data)
+                        
+                        DispatchQueue.main.async {
+                            self.profileImage.image = image
+                        }
+                    }
                 }
             }
         })
@@ -118,7 +126,7 @@ class PostCellViewController: UITableViewCell,UITableViewDataSource {
         super.setSelected(selected, animated: animated)
     }
     
-
+    
     
     @IBAction func commentPressed(_ sender: UIButton) {
         
@@ -149,7 +157,7 @@ class PostCellViewController: UITableViewCell,UITableViewDataSource {
         updateUI()
     }
 }
-extension PostCellViewController{
+extension PostCell{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return 5
