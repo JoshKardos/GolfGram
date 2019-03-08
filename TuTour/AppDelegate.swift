@@ -14,13 +14,13 @@ import Firebase
  class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
-
+    static var theme_Color = #colorLiteral(red: 0.1019607857, green: 0.2784313858, blue: 0.400000006, alpha: 1)
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
 		
 		//change color of tab bar items
-		UITabBar.appearance().tintColor = UIColor.flatGreenDark
+        UITabBar.appearance().tintColor = AppDelegate.theme_Color
 		FirebaseApp.configure()
 
 		return true

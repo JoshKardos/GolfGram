@@ -28,11 +28,13 @@ class MasterActivityViewController:UIViewController{
     }()
     
     override func viewDidLoad() {
+        
         setupView()
     }
     
     
     private func setupSegmentedControl(){
+        segmentedControl.tintColor = AppDelegate.theme_Color
 //        segmentedControl.removeAllSegments()
 //        segmentedControl.insertSegment(withTitle: "Requests", at: 0, animated: false)
 //        segmentedControl.insertSegment(withTitle: "Scheduled", at: 1, animated: false)

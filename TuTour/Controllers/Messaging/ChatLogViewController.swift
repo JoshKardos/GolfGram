@@ -128,7 +128,7 @@ class ChatLogViewController: UIViewController, UICollectionViewDataSource, UICol
 	
 		if message.senderId == Auth.auth().currentUser?.uid {
 			//outgoing blue
-			cell.bubbleView.backgroundColor = DirectMessageBubble.blueColor
+			cell.bubbleView.backgroundColor = AppDelegate.theme_Color
 			cell.textView.textColor = UIColor.white
 			cell.bubbleViewRightAnchor?.isActive = true
 			cell.bubbleViewLeftAnchor?.isActive = false
@@ -212,6 +212,7 @@ class ChatLogViewController: UIViewController, UICollectionViewDataSource, UICol
 	
 	
 	@objc func sendPressed(){
+        
 		let uid = Auth.auth().currentUser!.uid
 		let ref = Database.database().reference().child("messages")
 		let childRef = ref.childByAutoId()

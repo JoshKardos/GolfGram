@@ -29,7 +29,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="CNr-bE-zpl">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Portrait_Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="CNr-bE-zpl">
                                         <rect key="frame" x="8" y="10" width="80" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="ide-GA-Yax"/>
@@ -95,7 +95,7 @@
         <scene sceneID="hbm-UB-fgi">
             <objects>
                 <navigationController storyboardIdentifier="NavigationCamera" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Zb8-Dv-J4k" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="camera" id="LSz-KH-9ml">
+                    <tabBarItem key="tabBarItem" title="" image="screenshot" selectedImage="screenshot-filled" id="LSz-KH-9ml">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -114,7 +114,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="camera" width="30" height="30"/>
-        <image name="imagePlaceholder" width="30" height="30"/>
+        <image name="Portrait_Placeholder" width="200" height="200"/>
+        <image name="screenshot" width="33" height="33"/>
+        <image name="screenshot-filled" width="33" height="33"/>
     </resources>
 </document>

@@ -20,13 +20,12 @@ class SignUpViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var majorTextField: UITextField!
-    @IBOutlet weak var schoolTextField: UITextField!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var majorAndSchoolSelector: UIPickerView!
     @IBOutlet weak var signUpButton: UIButton!
     var selectedImage : UIImage?
     //var imageURL:URL?
+  
     
     
     let schoolArray = ["SJSU", "UCSD", "UCLA"]
@@ -48,6 +47,8 @@ class SignUpViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         
         majorAndSchoolSelector.delegate = self
         majorAndSchoolSelector.dataSource = self
+        //tagsTextField.delegate = self
+        
         
         profileImage.layer.cornerRadius = 40
         profileImage.clipsToBounds = true
@@ -61,13 +62,10 @@ class SignUpViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         signUpButton.setTitleColor(UIColor.lightText, for: UIControl.State.normal)
         signUpButton.isEnabled = false
         
-        handleTextField()
+       handleTextField()
         
-        
-        // Do any additional setup after loading the view.
     }
-    
-    
+
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 3
     }
@@ -115,7 +113,7 @@ class SignUpViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         }
         
         let holder = "\(major) in \(school) graduating \(year)"
-        
+         
         print(holder)
     }
     
@@ -132,13 +130,18 @@ class SignUpViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         
     }
     
+    
+    
     @objc func textFieldDidChange(){
+        print("TEXT FIELD CHANGED")
         guard let username = usernameTextField.text, !username.isEmpty, let email = emailTextField.text, !email.isEmpty, let password = passwordTextField.text, !password.isEmpty else {
             
             signUpButton.setTitleColor(UIColor.lightText, for: UIControl.State.normal)
             signUpButton.isEnabled = false
+            print("SIGN UP BUTTON NOT ENABLED")
             return
         }
+        print("SIGN UP BUTTON ENABLED")
         signUpButton.setTitleColor(UIColor.white, for: UIControl.State.normal)
         signUpButton.isEnabled = true
     }
@@ -169,7 +172,7 @@ class SignUpViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
                     
                     
                     ProgressHUD.showSuccess("Success")
-                    self.performSegue(withIdentifier: "signUpToTabbarVC", sender: nil)
+                    self.performSegue(withIdentifier: "signUpToDaySelect", sender: nil)
                     
                 }, onError: {errorString in
                     
@@ -183,7 +186,8 @@ class SignUpViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
 }
 
 
-extension SignUpViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+extension SignUpViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{//}, UITextFieldDelegate{
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         
@@ -193,8 +197,6 @@ extension SignUpViewController: UIImagePickerControllerDelegate, UINavigationCon
             profileImage.image  = image
             
         }
-        //print("** \(info) **")
-        //profileImage.image = infoPhoto
         dismiss(animated: true, completion: nil)
     }
     

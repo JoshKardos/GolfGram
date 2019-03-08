@@ -28,7 +28,7 @@ class CreateNewMessageThreadViewController: UITableViewController, UISearchResul
 		
 		searchController.searchResultsUpdater = self
 		searchController.dimsBackgroundDuringPresentation = false
-		searchController.searchBar.tintColor = UIColor.flatGreenDark
+		searchController.searchBar.tintColor = AppDelegate.theme_Color
 		definesPresentationContext = true
 		tableView.tableHeaderView = searchController.searchBar
 		
@@ -45,8 +45,7 @@ class CreateNewMessageThreadViewController: UITableViewController, UISearchResul
 		
 		let chatLogController = ChatLogViewController()
 		chatLogController.otherUser = otherUser
-	
-		navigationController?.pushViewController(chatLogController, animated: true)
+			navigationController?.pushViewController(chatLogController, animated: true)
 	}
 	
 	

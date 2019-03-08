@@ -162,7 +162,7 @@
                         <viewLayoutGuide key="safeArea" id="8Z5-Kf-OuU"/>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="Q8v-v5-6kW">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="direct messages" id="KHT-wW-UvG">
+                        <barButtonItem key="rightBarButtonItem" image="new-post" id="KHT-wW-UvG">
                             <connections>
                                 <segue destination="yxT-1b-9lf" kind="show" id="VDK-ZK-bc4"/>
                             </connections>
@@ -306,7 +306,7 @@
         <scene sceneID="tK8-p4-AQ5">
             <objects>
                 <navigationController storyboardIdentifier="NavigationProfile" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RnV-rB-vmC" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="profile" selectedImage="profile selected" id="Fdf-pE-9ct">
+                    <tabBarItem key="tabBarItem" title="" image="user-male-circle" selectedImage="user-male-circle-filled" id="Fdf-pE-9ct">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -658,11 +658,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Portrait_Placeholder" width="600" height="600"/>
-        <image name="direct messages" width="30" height="30"/>
-        <image name="profile" width="30" height="30"/>
-        <image name="profile selected" width="30" height="30"/>
-        <image name="sjsu_map" width="713" height="730"/>
+        <image name="Portrait_Placeholder" width="200" height="200"/>
+        <image name="new-post" width="33" height="33"/>
+        <image name="sjsu_map" width="237.5" height="243"/>
+        <image name="user-male-circle" width="33" height="33"/>
+        <image name="user-male-circle-filled" width="33" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="oOo-x5-JWE"/>
