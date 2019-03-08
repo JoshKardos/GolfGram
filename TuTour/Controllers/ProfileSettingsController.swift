@@ -16,6 +16,7 @@ import TextFieldEffects
 class ProfileSettingsController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
   
     
+
     
     @IBOutlet weak var updateButton: UIButton!
     @IBOutlet weak var profilePhoto: UIImageView!
