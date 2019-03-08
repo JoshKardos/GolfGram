@@ -39,6 +39,17 @@ class ProfileViewController: UIViewController {
         navigationController?.pushViewController(profileSettingsVC, animated: true)
     }
     
+    @IBAction func daysAndSKillsPressed(_ sender: Any) {
+    
+            //view add days and skills vc
+            let storyboard: UIStoryboard = UIStoryboard(name: "Start", bundle: nil)
+            let view = storyboard.instantiateViewController(withIdentifier: "addSkills_addDaysView") as! SelectAvailableDaysViewController
+        //    meeting?.setDate(date: date)
+        //    locationPicker.meeting = meeting!
+            navigationController?.pushViewController(view, animated: true)
+    
+    
+    }
     @IBAction func tutorButton(_ sender: Any) {
         
         if isOtherUser == false{//is current users profile

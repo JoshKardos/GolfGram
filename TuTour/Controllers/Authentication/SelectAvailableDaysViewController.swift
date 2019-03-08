@@ -104,14 +104,14 @@ class SelectAvailableDaysViewController: UIViewController{
         for index in daysOpen.indices{
             daysOpenMap[daysOpen[index]] = 1
         }
-        if daysOpenMap.count > 0{ Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).child("availableDays").setValue(daysOpenMap)
+        if daysOpenMap.count > 0{ Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).child("availableDays").updateChildValues(daysOpenMap)
         }
         
         var skillsMap = [String: Int]()
         for index in tagsArray.indices{
             skillsMap[tagsArray[index]] = 1
         }
-        if daysOpenMap.count > 0{ Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).child("skills").setValue(skillsMap)
+        if daysOpenMap.count > 0{ Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).child("skills").updateChildValues(skillsMap)
         }
         
         
