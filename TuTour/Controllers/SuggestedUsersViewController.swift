@@ -114,9 +114,7 @@ class SuggestedUsersViewController: UIViewController, UITableViewDataSource{
         Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).child("availableDays").observe(.value) { (snapshot) in
             let daysDictionary = snapshot.value as! [String: Any]
             
-            var i = 0
             for (day, _) in daysDictionary{
-                i += 1
                 Database.database().reference().child("availableDay-users").child(day).observe(.value) { (snapshot) in
                     let dictionary = snapshot.value as! [String: Any]
                     
@@ -136,13 +134,11 @@ class SuggestedUsersViewController: UIViewController, UITableViewDataSource{
                     
                     
                     DispatchQueue.main.async {
-                        print("\(i) \(daysDictionary.count)")
                         //only call when day count has ended
-                        if i == daysDictionary.count{
                         print("HERE")
                         self.compareBySkills()
                         
-                        }
+                        
                         
                     }
                 }
