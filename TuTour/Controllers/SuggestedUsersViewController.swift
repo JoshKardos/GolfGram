@@ -11,9 +11,8 @@ import UIKit
 import FirebaseDatabase
 import FirebaseStorage
 import FirebaseAuth
-
 class SuggestedUsersViewController: UIViewController, UITableViewDataSource{
-    
+
     var usersWithSameFreeDays = [String: Int]()
     var usersWithSameSkills = [String: Int]()
     var suggestedUsers = [String]()
@@ -22,10 +21,6 @@ class SuggestedUsersViewController: UIViewController, UITableViewDataSource{
         super.viewDidLoad()
         tableView.dataSource = self
         self.compareByDays()
-        
-        
-        
-        
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
@@ -38,15 +33,25 @@ class SuggestedUsersViewController: UIViewController, UITableViewDataSource{
         
         updateCell(cell)
         
-        
-        
+
+
         return cell
+    }
+    func updateCell(_ cell: SuggestedUserCell){
+        
+        cell.daysFreeLabel.text = "Days Free: \n"
+        cell.skillsLabel.text = "nothing"
+        
+        
     }
     func fetchThreeSuggestedUsers()->[NSDictionary]{
         
+        var users = [NSDictionary]()
         
+        //compare by available days
         return [NSDictionary]()
     }
+
     func combineAndSortSuggestedUsers(){
         var topSimilarUsersMap = [Int: [String]]()
         
@@ -66,7 +71,6 @@ class SuggestedUsersViewController: UIViewController, UITableViewDataSource{
             }
         }
     }
-    
     //gets called after free days
     func compareBySkills(){
         //skill-users
@@ -107,14 +111,15 @@ class SuggestedUsersViewController: UIViewController, UITableViewDataSource{
             
         }//end of query
         
+        //compare by skills
     }
-    
     func compareByDays(){//->[NSDictionary: Int]{
         print("COMP")
         Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).child("availableDays").observe(.value) { (snapshot) in
             let daysDictionary = snapshot.value as! [String: Any]
             
             for (day, _) in daysDictionary{
+                
                 Database.database().reference().child("availableDay-users").child(day).observe(.value) { (snapshot) in
                     let dictionary = snapshot.value as! [String: Any]
                     
@@ -134,10 +139,10 @@ class SuggestedUsersViewController: UIViewController, UITableViewDataSource{
                     
                     
                     DispatchQueue.main.async {
-                        //only call when day count has ended
-                        print("HERE")
-                        self.compareBySkills()
-                        
+                       
+                            print("HERE")
+                            self.compareBySkills()
+                            
                         
                         
                     }
@@ -147,13 +152,6 @@ class SuggestedUsersViewController: UIViewController, UITableViewDataSource{
             }
             
         }//end of query
-        
-    }
-    func updateCell(_ cell: SuggestedUserCell){
-        
-        cell.daysFreeLabel.text = "Days Free: \n"
-        cell.skillsLabel.text = "nothing"
-        
         
     }
     
