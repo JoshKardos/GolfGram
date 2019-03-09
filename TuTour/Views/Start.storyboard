@@ -276,7 +276,7 @@
         <!--Free Time-->
         <scene sceneID="M6u-UX-uv1">
             <objects>
-                <viewController title="Free Time" id="Xty-ko-lfh" customClass="SelectAvailableDaysViewController" customModule="TuTour" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="addSkills_addDaysView" title="Free Time" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Xty-ko-lfh" customClass="SelectAvailableDaysViewController" customModule="TuTour" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cfN-t9-Wwq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

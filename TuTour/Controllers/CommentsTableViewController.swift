@@ -69,12 +69,12 @@ class CommentsTableViewController: UIViewController, UITableViewDataSource{
                 
                 self.comments.append(comment)
                 print("COmment count \(self.comments.count)")
-                if let tableView = self.tableView{
-                    print("RELOAD")
-                    tableView.reloadData()
-                }
+
+                    if let tableView = self.tableView{
+                        print("RELOAD")
+                        tableView.reloadData()
+                    }
             })
-            
             
         })
         
@@ -117,16 +117,27 @@ class CommentsTableViewController: UIViewController, UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as! CommentCell
         
         //set profile image to sender profile image
-    
+        
         Database.database().reference().child("users").child(post.senderId!).observeSingleEvent(of: .value) { (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject]{
                 if let profileImageUrl = dictionary["profileImageUrl"]{
                     
-                    let url = URL(string: profileImageUrl as! String)
-                    let imageData = NSData.init(contentsOf: url as! URL)
-                    cell.senderProfileImage.image = UIImage(data: imageData as! Data)
+                    DispatchQueue.global(qos: .userInteractive).async {
+                        
+                        
+                        let url = URL(string: profileImageUrl as! String)
+                        let imageData = NSData.init(contentsOf: url as! URL)
+                        let image = UIImage(data: imageData as! Data)
+                        
+                        
+                        DispatchQueue.main.async {
+                            cell.senderProfileImage.image = image
+                        }
+                    }
                     
                 }
+                
+                
             }
             
         }

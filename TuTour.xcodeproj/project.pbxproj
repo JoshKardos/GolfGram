@@ -14,6 +14,8 @@
 		B3082FFE2158961B004D0B1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3082FFD2158961B004D0B1A /* AppDelegate.swift */; };
 		B30830082158961C004D0B1A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B30830062158961C004D0B1A /* LaunchScreen.storyboard */; };
 		B308301021589A82004D0B1A /* Start.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B308300F21589A82004D0B1A /* Start.storyboard */; };
+		B31A20D82232DC600040AED6 /* SuggestedUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31A20D72232DC600040AED6 /* SuggestedUsersViewController.swift */; };
+		B31A20DA2232EBE50040AED6 /* SuggestedUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31A20D92232EBE50040AED6 /* SuggestedUserCell.swift */; };
 		B31A4DA1222CE72D00EAEF77 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31A4DA0222CE72D00EAEF77 /* Comment.swift */; };
 		B32F24FB2159B87C00930BAA /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F24FA2159B87C00930BAA /* SignInViewController.swift */; };
 		B32F24FD2159C4C800930BAA /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F24FC2159C4C800930BAA /* SignUpViewController.swift */; };
@@ -35,7 +37,7 @@
 		B34E7899215B5B6400A79B10 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B34E7898215B5B6400A79B10 /* GoogleService-Info.plist */; };
 		B34E789B2163337700A79B10 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34E789A2163337700A79B10 /* AuthService.swift */; };
 		B34E78A021681CA000A79B10 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34E789F21681CA000A79B10 /* Post.swift */; };
-		B34E78A2216829A400A79B10 /* PostCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34E78A1216829A400A79B10 /* PostCellViewController.swift */; };
+		B34E78A2216829A400A79B10 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34E78A1216829A400A79B10 /* PostCell.swift */; };
 		B34E78A42169BABC00A79B10 /* UserCellInDiscover.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34E78A32169BABC00A79B10 /* UserCellInDiscover.swift */; };
 		B358F45821F431CA00E53F08 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B358F45721F431CA00E53F08 /* DatePickerViewController.swift */; };
 		B358F45B21F4FE0A00E53F08 /* LocationPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B358F45A21F4FE0A00E53F08 /* LocationPickerViewController.swift */; };
@@ -71,6 +73,8 @@
 		B30830072158961C004D0B1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B30830092158961C004D0B1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B308300F21589A82004D0B1A /* Start.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Start.storyboard; sourceTree = "<group>"; };
+		B31A20D72232DC600040AED6 /* SuggestedUsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedUsersViewController.swift; sourceTree = "<group>"; };
+		B31A20D92232EBE50040AED6 /* SuggestedUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedUserCell.swift; sourceTree = "<group>"; };
 		B31A4DA0222CE72D00EAEF77 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		B32F24FA2159B87C00930BAA /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		B32F24FC2159C4C800930BAA /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -92,7 +96,7 @@
 		B34E7898215B5B6400A79B10 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B34E789A2163337700A79B10 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		B34E789F21681CA000A79B10 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
-		B34E78A1216829A400A79B10 /* PostCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellViewController.swift; sourceTree = "<group>"; };
+		B34E78A1216829A400A79B10 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		B34E78A32169BABC00A79B10 /* UserCellInDiscover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellInDiscover.swift; sourceTree = "<group>"; };
 		B358F45721F431CA00E53F08 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		B358F45A21F4FE0A00E53F08 /* LocationPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerViewController.swift; sourceTree = "<group>"; };
@@ -188,6 +192,7 @@
 				B36EA7ED220C0EC100551E8C /* ScheduledMeetingsTableViewController.swift */,
 				B32F250B215ABA1700930BAA /* ProfileViewController.swift */,
 				5BF43D79220AB02C00B83085 /* ProfileSettingsController.swift */,
+				B31A20D72232DC600040AED6 /* SuggestedUsersViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -272,8 +277,9 @@
 				B3308CB021D60B8500A0404D /* SubjectCell.swift */,
 				B3A3C90921DD745300E0C05F /* SubjectCellWithNumTutors.swift */,
 				B358F46021F94CEB00E53F08 /* MeetingRequestCell.swift */,
-				B34E78A1216829A400A79B10 /* PostCellViewController.swift */,
+				B34E78A1216829A400A79B10 /* PostCell.swift */,
 				B37A32B7222AFB98008B7F56 /* CommentCell.swift */,
+				B31A20D92232EBE50040AED6 /* SuggestedUserCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -454,6 +460,7 @@
 				B3308CB321D60C2F00A0404D /* SubjectsViewController.swift in Sources */,
 				B3728ED9220E0407003FA560 /* ScheduledMeeting.swift in Sources */,
 				B358F45B21F4FE0A00E53F08 /* LocationPickerViewController.swift in Sources */,
+				B31A20DA2232EBE50040AED6 /* SuggestedUserCell.swift in Sources */,
 				B3433A9821744C8C00BE44D7 /* ChatLogViewController.swift in Sources */,
 				B358F45D21F546D500E53F08 /* MeetingRequest.swift in Sources */,
 				B3CE030621AD042D00BABFD9 /* MessageCell.swift in Sources */,
@@ -462,12 +469,13 @@
 				B32F2508215AB9C100930BAA /* CameraViewController.swift in Sources */,
 				B34E78A021681CA000A79B10 /* Post.swift in Sources */,
 				B3431C582196806600401E8D /* UserCellInNewMessages.swift in Sources */,
-				B34E78A2216829A400A79B10 /* PostCellViewController.swift in Sources */,
+				B34E78A2216829A400A79B10 /* PostCell.swift in Sources */,
 				B31A4DA1222CE72D00EAEF77 /* Comment.swift in Sources */,
 				B3A3C90321D751BA00E0C05F /* SubjectVCFindTutor.swift in Sources */,
 				B37A32B8222AFB98008B7F56 /* CommentCell.swift in Sources */,
 				B3BD05C4218E639C00315922 /* MessagesViewController.swift in Sources */,
 				B3BD05822177F5B500315922 /* CreateNewMessageThreadViewController.swift in Sources */,
+				B31A20D82232DC600040AED6 /* SuggestedUsersViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

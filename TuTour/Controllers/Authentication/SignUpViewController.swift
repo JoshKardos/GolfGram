@@ -145,6 +145,8 @@ class SignUpViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         signUpButton.setTitleColor(UIColor.white, for: UIControl.State.normal)
         signUpButton.isEnabled = true
     }
+    
+    // handles the selecting of a photo from the library
     @objc func handleSelectProfileImageView(){
         
         let pickerController = UIImagePickerController()
