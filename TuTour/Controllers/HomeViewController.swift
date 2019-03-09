@@ -25,13 +25,13 @@ class HomeViewController: UITableViewController {
         tableView.delegate = self
         logOutButton.tintColor = AppDelegate.theme_Color
         // Do any additional setup after loading the view.
-        Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).observeSingleEvent(of: .value, with: {(snapshot) in
-            
-            if !snapshot.exists(){
-                self.logout()
-            }
-            
-        })
+//        Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).observeSingleEvent(of: .value, with: {(snapshot) in
+//            
+//            if !snapshot.exists(){
+//                self.logout()
+//            }
+//            
+//        })
         
     }
     

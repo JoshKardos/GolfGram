@@ -9,7 +9,7 @@ import Foundation
 import FirebaseAuth
 import FirebaseStorage
 import FirebaseDatabase
-
+import ProgressHUD
 class AuthService {
     
     
@@ -28,7 +28,6 @@ class AuthService {
     
     static func signUp(fullname: String, username: String, email: String, password: String, school: String, major: String, year: String,  imageData: Data, onSuccess: @escaping() -> Void, onError: @escaping(_ errorMessage: String?) -> Void){
         
-        
         /////////////////////
         ////Create User//////
         /////////////////////
@@ -42,8 +41,6 @@ class AuthService {
             ///////////////////////////////////////
             let storageRef = Storage.storage().reference(forURL: "gs://golfgram-68599.appspot.com").child("profile_image").child((user?.user.uid)!)
             
-            
-            
             //insert jpeg data into database with the url
             storageRef.putData(imageData, metadata: nil, completion: { (metadata, error) in
                 if error != nil{
@@ -53,25 +50,28 @@ class AuthService {
                 
                 storageRef.downloadURL { (url, error) in
                     if error != nil{
-                        print("Error \(error?.localizedDescription)")
+                        print("Error downloading URL: \(error?.localizedDescription)")
                         return
                     }
+                    
                     //get url of image
                     guard let profileImageUrl = url?.absoluteString else {return}
-                    let uid = Auth.auth().currentUser!.uid
-
-                    self.signUpUser(profileImageUrl: profileImageUrl, fullname: fullname, username: username, email: email, uid: uid, school: school, major: major, year: year, onSuccess: onSuccess)
+                    
+                    if let uid = Auth.auth().currentUser?.uid{
+                        
+                        self.signUpUser(profileImageUrl: profileImageUrl, fullname: fullname, username: username, email: email, uid: uid, school: school, major: major, year: year, onSuccess: onSuccess)
+                    }
                 }
             })
+            
         }
-        
     }
     static func signUpUser(profileImageUrl: String,fullname: String, username: String, email: String, uid: String,  school: String, major: String, year: String, onSuccess: @escaping () -> Void){
         
         //get referenece to users in the database
         let usersRef = Database.database().reference().child("users")
         
-       
+        
         
         //save into database user(username, email, major, school profileImage,...)
         usersRef.child(uid).setValue(["fullname": fullname, "username": username, "email" : email, "major": major, "school": school, "year": year, "profileImageUrl": profileImageUrl, "uid": uid])

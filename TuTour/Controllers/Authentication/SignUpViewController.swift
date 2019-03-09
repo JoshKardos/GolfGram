@@ -174,6 +174,8 @@ class SignUpViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
                     ProgressHUD.showSuccess("Success")
                     self.performSegue(withIdentifier: "signUpToDaySelect", sender: nil)
                     
+                    
+                    
                 }, onError: {errorString in
                     
                     ProgressHUD.showError(errorString!)

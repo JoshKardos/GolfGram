@@ -78,6 +78,8 @@ class SuggestedUsersViewController: UIViewController, UITableViewDataSource{
         //gather current users available days
         
         Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).child("skills").observe(.value) { (snapshot) in
+            
+            print("CALL")
             if let dictionary = snapshot.value as? [String: Any] {
                 
                 for (skill, _) in dictionary{
@@ -101,8 +103,10 @@ class SuggestedUsersViewController: UIViewController, UITableViewDataSource{
                                         
                                     }
                                 }
+                                
                             }
                             DispatchQueue.main.async {
+                                
                                 print("IN THIS THREAD")
                                 print(self.usersWithSameFreeDays)
                                 print(self.usersWithSameSkills)
@@ -117,7 +121,6 @@ class SuggestedUsersViewController: UIViewController, UITableViewDataSource{
             
         }//end of query
         
-        //compare by skills
     }
     func compareByDays(){//->[NSDictionary: Int]{
         print("COMP")
@@ -127,7 +130,7 @@ class SuggestedUsersViewController: UIViewController, UITableViewDataSource{
                 for (day, _) in daysDictionary{
                     
                     Database.database().reference().child("availableDay-users").child(day).observe(.value) { (snapshot) in
-                        let dictionary = snapshot.value as! [String: Any]
+                        if let dictionary = snapshot.value as? [String: Any]{
                         print(dictionary)
                         for (key, _) in dictionary{
                             
@@ -141,10 +144,11 @@ class SuggestedUsersViewController: UIViewController, UITableViewDataSource{
                                 }
                             }
                         }
-                        
+                    }
                         
                         
                         DispatchQueue.main.async {
+                            
                             print(self.usersWithSameFreeDays)
                             self.compareBySkills()
                         }
