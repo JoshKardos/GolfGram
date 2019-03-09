@@ -12,7 +12,7 @@ import FirebaseDatabase
 import FirebaseStorage
 import FirebaseAuth
 class SuggestedUsersViewController: UIViewController, UITableViewDataSource{
-
+    
     var usersWithSameFreeDays = [String: Int]()
     var usersWithSameSkills = [String: Int]()
     var suggestedUsers = [String]()
@@ -33,8 +33,8 @@ class SuggestedUsersViewController: UIViewController, UITableViewDataSource{
         
         updateCell(cell)
         
-
-
+        
+        
         return cell
     }
     func updateCell(_ cell: SuggestedUserCell){
@@ -51,7 +51,7 @@ class SuggestedUsersViewController: UIViewController, UITableViewDataSource{
         //compare by available days
         return [NSDictionary]()
     }
-
+    
     func combineAndSortSuggestedUsers(){
         var topSimilarUsersMap = [Int: [String]]()
         
@@ -78,36 +78,42 @@ class SuggestedUsersViewController: UIViewController, UITableViewDataSource{
         //gather current users available days
         
         Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).child("skills").observe(.value) { (snapshot) in
-            let dictionary = snapshot.value as! [String: Any]
-            
-            for (skill, _) in dictionary{
+            if let dictionary = snapshot.value as? [String: Any] {
                 
-                
-                Database.database().reference().child("skill-users").child(skill).observe(.value) { (snapshot) in
+                for (skill, _) in dictionary{
                     
-                    let dictionary = snapshot.value as! [String: Any]
-                    for (key, _) in dictionary{
+                    
+                    Database.database().reference().child("skill-users").child(skill).observe(.value) { (snapshot) in
                         
-                        if key != (Auth.auth().currentUser?.uid)!{//not current user
-                            
-                            //if not added
-                            if self.usersWithSameSkills[key] == nil{
-                                self.usersWithSameSkills[key] = 1
-                            } else {
-                                self.usersWithSameSkills[key] = self.usersWithSameSkills[key]!+1
+                        if let dictionary = snapshot.value as? [String: Any]{
+                            for (key, _) in dictionary{
+                                
+                                if key != (Auth.auth().currentUser?.uid)!{//not current user
+                                    
+                                    //if not added
+                                    if self.usersWithSameSkills[key] == nil{
+                                        
+                                        self.usersWithSameSkills[key] = 1
+                                        
+                                    } else {
+                                        
+                                        self.usersWithSameSkills[key] = self.usersWithSameSkills[key]!+1
+                                        
+                                    }
+                                }
+                            }
+                            DispatchQueue.main.async {
+                                print("IN THIS THREAD")
+                                print(self.usersWithSameFreeDays)
+                                print(self.usersWithSameSkills)
+                                self.combineAndSortSuggestedUsers()
+                                
                             }
                         }
                     }
-                    DispatchQueue.main.async {
-                        print(self.usersWithSameFreeDays)
-                        print(self.usersWithSameSkills)
-                        self.combineAndSortSuggestedUsers()
-                        
-                    }
+                    
                 }
-                
             }
-            
             
         }//end of query
         
@@ -116,41 +122,37 @@ class SuggestedUsersViewController: UIViewController, UITableViewDataSource{
     func compareByDays(){//->[NSDictionary: Int]{
         print("COMP")
         Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).child("availableDays").observe(.value) { (snapshot) in
-            let daysDictionary = snapshot.value as! [String: Any]
-            
-            for (day, _) in daysDictionary{
-                
-                Database.database().reference().child("availableDay-users").child(day).observe(.value) { (snapshot) in
-                    let dictionary = snapshot.value as! [String: Any]
+            if let daysDictionary = snapshot.value as? [String: Any] {
+                print(daysDictionary)
+                for (day, _) in daysDictionary{
                     
-                    for (key, _) in dictionary{
-                        
-                        if key != (Auth.auth().currentUser?.uid)!{//not current user
+                    Database.database().reference().child("availableDay-users").child(day).observe(.value) { (snapshot) in
+                        let dictionary = snapshot.value as! [String: Any]
+                        print(dictionary)
+                        for (key, _) in dictionary{
                             
-                            //if not added
-                            if self.usersWithSameFreeDays[key] == nil{
-                                self.usersWithSameFreeDays[key] = 1
-                            } else {
-                                self.usersWithSameFreeDays[key] = self.usersWithSameFreeDays[key]!+1
+                            if key != (Auth.auth().currentUser?.uid)!{//not current user
+                                print(key)
+                                //if not added
+                                if self.usersWithSameFreeDays[key] == nil{
+                                    self.usersWithSameFreeDays[key] = 1
+                                } else {
+                                    self.usersWithSameFreeDays[key] = self.usersWithSameFreeDays[key]!+1
+                                }
                             }
+                        }
+                        
+                        
+                        
+                        DispatchQueue.main.async {
+                            print(self.usersWithSameFreeDays)
+                            self.compareBySkills()
                         }
                     }
                     
                     
-                    
-                    DispatchQueue.main.async {
-                       
-                            print("HERE")
-                            self.compareBySkills()
-                            
-                        
-                        
-                    }
                 }
-                
-                
             }
-            
         }//end of query
         
     }
