@@ -210,7 +210,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YkU-wn-uHR">
-                                                    <rect key="frame" x="60" y="6" width="248" height="31.5"/>
+                                                    <rect key="frame" x="60" y="6" width="303" height="31.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -326,6 +326,7 @@
         <!--Home View Controller-->
         <scene sceneID="6E4-D5-aHe">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1O5-da-kRk" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="POO-HX-ZHK" customClass="HomeViewController" customModule="TuTour" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZPP-x0-UkA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -436,7 +437,7 @@
                                             <rect key="frame" x="0.0" y="546.5" width="375" height="195.5"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <prototypes>
-                                                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentCell" id="maZ-Ef-DHH" customClass="CommentCell" customModule="TuTour" customModuleProvider="target">
+                                                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentCell" id="maZ-Ef-DHH" customClass="CommentCell" customModule="TuTour" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="maZ-Ef-DHH" id="YcW-dr-9qp">
@@ -523,9 +524,8 @@
                         <outlet property="logOutButton" destination="S2T-zZ-RPT" id="3eL-aI-FJw"/>
                     </connections>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1O5-da-kRk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5162.3188405797109" y="-805.58035714285711"/>
+            <point key="canvasLocation" x="4110" y="-590"/>
         </scene>
     </scenes>
     <resources>
