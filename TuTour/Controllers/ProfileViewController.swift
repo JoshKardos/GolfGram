@@ -148,7 +148,7 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         super.loadView()
         ProgressHUD.show("Loading...")
-        dmButton?.tintColor = UIColor.flatGreenDark
+        dmButton?.tintColor = AppDelegate.theme_Color
         
     }
 }

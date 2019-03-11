@@ -35,8 +35,6 @@ class SelectAvailableDaysViewController: UIViewController{
         
         addTagButton.isEnabled = false
         handleTags()//disable addTagButton if textfield is empty
-        // Do any additional setup after loading the view.
-        
         updateTagsFromArray()
         
         //initiliaze each tag label's signup vc as self
@@ -90,6 +88,8 @@ class SelectAvailableDaysViewController: UIViewController{
     
     @IBAction func addDays(_ sender: UIButton) {
         
+        
+        
         var daysOpen = [String]()
         
         for i in 0..<daySwitches.count{
@@ -100,27 +100,57 @@ class SelectAvailableDaysViewController: UIViewController{
             }
         }
         
+        
         var daysOpenMap = [String: Int]()
         for index in daysOpen.indices{
             daysOpenMap[daysOpen[index]] = 1
         }
-        if daysOpenMap.count > 0{ Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).child("availableDays").updateChildValues(daysOpenMap)
+        if daysOpen.count > 0 || tagsArray.count>0{
+            Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).child("availableDays").setValue(daysOpenMap)
+            
+            //need to delete from "availableDay-users" node if not a key in days open map
+            
+            var daysInDatabase = [String]()
+            for i in 0..<dayLabels.count{
+                daysInDatabase.append(dayLabels[i].text!)
+            }//Monday,Tuesday,Wednesday, Thursday, Friday, Saturday, Sunday
+            
+            //create array of days not added as free day
+            var daysToDeleteUserFrom = [String]()
+            for index in daysInDatabase.indices{
+                if daysOpenMap[daysInDatabase[index]] == nil{
+                    daysToDeleteUserFrom.append(daysInDatabase[index])
+                }
+            }
+            
+            //delete users from days they havent chosen
+            for index in daysToDeleteUserFrom.indices{
+                print("Delete \(daysToDeleteUserFrom[index])")
+                Database.database().reference().child("availableDay-users").child(daysToDeleteUserFrom[index]).child((Auth.auth().currentUser?.uid)!).removeValue()
+            }
+            
+            //add user id to chosen available days
+            //key is the day of the week, value = 1
+            for (key, value) in daysOpenMap{
+                
+                Database.database().reference().child("availableDay-users").child(key).updateChildValues([(Auth.auth().currentUser?.uid)! : 1])
+            }
+            
+            var skillsMap = [String: Int]()
+            for index in tagsArray.indices{
+                skillsMap[tagsArray[index]] = 1
+            }
+            if daysOpenMap.count > 0{
+                Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).child("skills").updateChildValues(skillsMap)
+                
+                //key is the skill/tag
+                for (key, value) in skillsMap{
+                    
+                    Database.database().reference().child("skill-users").child(key).updateChildValues([(Auth.auth().currentUser?.uid)! : 1])
+                }
+            }
         }
-        
-        var skillsMap = [String: Int]()
-        for index in tagsArray.indices{
-            skillsMap[tagsArray[index]] = 1
-        }
-        if daysOpenMap.count > 0{ Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).child("skills").updateChildValues(skillsMap)
-        }
-        
-        
-        
     }
-    
-
-    
-    
 }
 
 extension UIViewController

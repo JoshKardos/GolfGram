@@ -25,13 +25,13 @@ class HomeViewController: UITableViewController {
         tableView.delegate = self
         logOutButton.tintColor = AppDelegate.theme_Color
         // Do any additional setup after loading the view.
-        Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).observeSingleEvent(of: .value, with: {(snapshot) in
-            
-            if !snapshot.exists(){
-                self.logout()
-            }
-            
-        })
+//        Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).observeSingleEvent(of: .value, with: {(snapshot) in
+//            
+//            if !snapshot.exists(){
+//                self.logout()
+//            }
+//            
+//        })
         
     }
     
@@ -99,7 +99,7 @@ class HomeViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostCellViewController
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostCell
         
         cell.post = posts[indexPath.row]
         cell.isUserInteractionEnabled = true
