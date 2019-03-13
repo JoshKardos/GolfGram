@@ -579,10 +579,12 @@
                             </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="submitButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jhK-ma-M3x">
                                 <rect key="frame" x="16" y="466.5" width="343" height="44"/>
-                                <color key="backgroundColor" white="1" alpha="0.46540560787671231" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.27371908420000002" green="0.6388793586" blue="0.7114133883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="9GR-0f-VA4"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
+                                <color key="tintColor" red="0.27371908420000002" green="0.6388793586" blue="0.7114133883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Submit">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -595,7 +597,7 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What time and date would you like to meet?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4pY-nO-ukf">
                                 <rect key="frame" x="0.0" y="158.5" width="375" height="35"/>
-                                <color key="backgroundColor" red="0.56953918147208116" green="0.56953918147208116" blue="0.56953918147208116" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="v2E-qE-hsg"/>
                                 </constraints>
@@ -642,7 +644,7 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where would you like to meet?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yzn-Jv-XL9">
                                 <rect key="frame" x="0.0" y="64" width="375" height="35"/>
-                                <color key="backgroundColor" red="0.50668944680732453" green="0.51123309905768888" blue="0.51937262055837563" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="qrd-3d-fpe"/>
                                 </constraints>
@@ -651,24 +653,28 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sjsu_map" translatesAutoresizingMaskIntoConstraints="NO" id="reN-s0-yUC">
-                                <rect key="frame" x="16" y="167" width="343" height="333.5"/>
+                                <rect key="frame" x="16" y="114" width="343" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="Ibn-MP-7Ch"/>
+                                    <constraint firstAttribute="width" constant="343" id="LJH-c7-zno"/>
+                                </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banner" translatesAutoresizingMaskIntoConstraints="NO" id="GUH-bW-zDS">
                                 <rect key="frame" x="0.0" y="20" width="375" height="39"/>
                             </imageView>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rmx-KT-gwe">
-                                <rect key="frame" x="16" y="515.5" width="343" height="110"/>
+                                <rect key="frame" x="16" y="414" width="343" height="110"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="110" id="nh5-vJ-nmV"/>
                                 </constraints>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N0P-OZ-woY">
-                                <rect key="frame" x="16" y="625.5" width="343" height="35"/>
-                                <color key="backgroundColor" red="0.52000713832487311" green="0.52000713832487311" blue="0.52000713832487311" alpha="0.46556613869863012" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="16" y="524" width="343" height="44"/>
+                                <color key="backgroundColor" red="0.27371908420000002" green="0.6388793586" blue="0.7114133883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="jGb-g8-x42"/>
+                                    <constraint firstAttribute="height" constant="44" id="jGb-g8-x42"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="25"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
                                 <state key="normal" title="Submit">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -681,16 +687,15 @@
                         <constraints>
                             <constraint firstItem="Yzn-Jv-XL9" firstAttribute="top" secondItem="GUH-bW-zDS" secondAttribute="bottom" constant="5" id="7Jn-P7-de6"/>
                             <constraint firstItem="GUH-bW-zDS" firstAttribute="top" secondItem="8jO-Lk-RyZ" secondAttribute="top" id="8h1-wh-jpb"/>
-                            <constraint firstItem="reN-s0-yUC" firstAttribute="centerY" secondItem="3FE-pz-306" secondAttribute="centerY" id="Fo9-NB-g0N"/>
                             <constraint firstItem="8jO-Lk-RyZ" firstAttribute="trailing" secondItem="rmx-KT-gwe" secondAttribute="trailing" constant="16" id="Ibt-UR-JQV"/>
-                            <constraint firstItem="reN-s0-yUC" firstAttribute="height" secondItem="3FE-pz-306" secondAttribute="height" multiplier="2/4" id="JZm-hr-AR2"/>
                             <constraint firstItem="rmx-KT-gwe" firstAttribute="leading" secondItem="8jO-Lk-RyZ" secondAttribute="leading" constant="16" id="KK2-S8-lZA"/>
                             <constraint firstItem="N0P-OZ-woY" firstAttribute="top" secondItem="rmx-KT-gwe" secondAttribute="bottom" id="KNj-nS-I9V"/>
                             <constraint firstItem="N0P-OZ-woY" firstAttribute="leading" secondItem="8jO-Lk-RyZ" secondAttribute="leading" constant="16" id="LAq-Is-hiH"/>
                             <constraint firstItem="8jO-Lk-RyZ" firstAttribute="trailing" secondItem="reN-s0-yUC" secondAttribute="trailing" constant="16" id="M0k-pH-dqL"/>
                             <constraint firstItem="8jO-Lk-RyZ" firstAttribute="trailing" secondItem="N0P-OZ-woY" secondAttribute="trailing" constant="16" id="MF1-vD-Ce8"/>
                             <constraint firstItem="8jO-Lk-RyZ" firstAttribute="trailing" secondItem="Yzn-Jv-XL9" secondAttribute="trailing" id="PcP-cs-fCH"/>
-                            <constraint firstItem="rmx-KT-gwe" firstAttribute="top" secondItem="reN-s0-yUC" secondAttribute="bottom" constant="15" id="R0D-ha-yU1"/>
+                            <constraint firstItem="rmx-KT-gwe" firstAttribute="top" secondItem="reN-s0-yUC" secondAttribute="bottom" id="R0D-ha-yU1"/>
+                            <constraint firstItem="reN-s0-yUC" firstAttribute="top" secondItem="Yzn-Jv-XL9" secondAttribute="bottom" constant="15" id="SNJ-SG-KWB"/>
                             <constraint firstItem="Yzn-Jv-XL9" firstAttribute="leading" secondItem="8jO-Lk-RyZ" secondAttribute="leading" id="Wpg-Ej-FdI"/>
                             <constraint firstItem="GUH-bW-zDS" firstAttribute="height" secondItem="3FE-pz-306" secondAttribute="height" multiplier="1/17" id="dLn-Ag-vdx"/>
                             <constraint firstItem="reN-s0-yUC" firstAttribute="leading" secondItem="8jO-Lk-RyZ" secondAttribute="leading" constant="16" id="fUo-Dz-FgP"/>
@@ -715,7 +720,7 @@
         <image name="apt" width="2448" height="1165"/>
         <image name="banner" width="576" height="88.5"/>
         <image name="new-post" width="33" height="33"/>
-        <image name="sjsu_map" width="1440" height="1505"/>
+        <image name="sjsu_map" width="329" height="276"/>
         <image name="user-male-circle" width="33" height="33"/>
         <image name="user-male-circle-filled" width="33" height="33"/>
     </resources>
