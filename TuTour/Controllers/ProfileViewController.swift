@@ -131,8 +131,8 @@ class ProfileViewController: UIViewController {
             fillUserInfo(uid: otherUser_ID)
             updateButton.isHidden = true
             availAndSkillsButton.isHidden = true
-            registerAsTutorButton.backgroundColor = UIColor.yellow
-            registerAsTutorButton.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
+            registerAsTutorButton.backgroundColor = UIColor(red: 70.0/255.0, green: 163.0/255.0, blue: 181.0/255.0, alpha: 1.0)
+            registerAsTutorButton.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
             registerAsTutorButton.setTitle("Tutor Request", for: .normal)
             
         } else {//current users profile
