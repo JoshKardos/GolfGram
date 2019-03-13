@@ -24,6 +24,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var updateButton: UIButton!
     @IBOutlet weak var dmButton: UIBarButtonItem!
     @IBOutlet weak var registerAsTutorButton: UIButton!
+    @IBOutlet weak var availAndSkillsButton: UIButton!
     
     
     var isOtherUser = false//must change to false if vc is pushed programatically!!
@@ -129,8 +130,9 @@ class ProfileViewController: UIViewController {
             self.isOtherUser = true
             fillUserInfo(uid: otherUser_ID)
             updateButton.isHidden = true
-            registerAsTutorButton.backgroundColor = UIColor.yellow
-            registerAsTutorButton.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
+            availAndSkillsButton.isHidden = true
+            registerAsTutorButton.backgroundColor = UIColor(red: 70.0/255.0, green: 163.0/255.0, blue: 181.0/255.0, alpha: 1.0)
+            registerAsTutorButton.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
             registerAsTutorButton.setTitle("Tutor Request", for: .normal)
             
         } else {//current users profile
@@ -139,6 +141,7 @@ class ProfileViewController: UIViewController {
             fillUserInfo(uid: userID)
             isOtherUser = false
             registerAsTutorButton.reloadInputViews()
+            availAndSkillsButton.isHidden = false
             updateButton.isHidden = false
             
         }

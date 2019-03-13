@@ -22,7 +22,7 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfY-hw-gQe">
                                 <rect key="frame" x="16" y="627" width="343" height="20"/>
-                                <color key="backgroundColor" red="0.19867570886270247" green="0.53510255559456144" blue="0.89683790585583756" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.27450980392156865" green="0.63921568627450975" blue="0.70980392156862748" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="M86-Lw-TCL"/>
                                 </constraints>
@@ -36,12 +36,12 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3tL-iO-RJc">
                                 <rect key="frame" x="16" y="599" width="343" height="20"/>
-                                <color key="backgroundColor" red="0.1986757089" green="0.53510255559999997" blue="0.89683790590000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.27450980392156865" green="0.63921568627450975" blue="0.70980392156862748" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="qFl-LW-hhW"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="15"/>
-                                <state key="normal" title="Update Profile">
+                                <state key="normal" title="Edit Profile">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -123,12 +123,12 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IyA-d8-w63" userLabel="Update free days and skills">
                                 <rect key="frame" x="16" y="571" width="343" height="20"/>
-                                <color key="backgroundColor" red="0.1986757089" green="0.53510255559999997" blue="0.89683790590000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.27450980392156865" green="0.63921568627450975" blue="0.70980392156862748" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="beP-oj-ZJT"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="15"/>
-                                <state key="normal" title="Update Free Days and Skills">
+                                <state key="normal" title="Edit Availability and Skills">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -186,6 +186,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="availAndSkillsButton" destination="IyA-d8-w63" id="i5p-Ss-h5J"/>
                         <outlet property="descriptionLabel" destination="ZGY-Sh-GQ3" id="jW2-3W-qmE"/>
                         <outlet property="dmButton" destination="KHT-wW-UvG" id="7M1-mN-966"/>
                         <outlet property="emailLabel" destination="20d-7l-0Op" id="eIH-4f-4Ge"/>
