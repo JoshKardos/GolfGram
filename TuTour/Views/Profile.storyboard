@@ -186,6 +186,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="availAndSkillsButton" destination="IyA-d8-w63" id="i5p-Ss-h5J"/>
                         <outlet property="descriptionLabel" destination="ZGY-Sh-GQ3" id="jW2-3W-qmE"/>
                         <outlet property="dmButton" destination="KHT-wW-UvG" id="7M1-mN-966"/>
                         <outlet property="emailLabel" destination="20d-7l-0Op" id="eIH-4f-4Ge"/>
