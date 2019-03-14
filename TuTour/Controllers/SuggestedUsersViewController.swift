@@ -58,7 +58,7 @@ class SuggestedUsersViewController: UIViewController, UITableViewDataSource{
         for (similarUserByDay, frequencyOfSameDays) in usersWithSameFreeDays{
             for(similarUserBySkill,  frequencyOfSameSkills) in usersWithSameSkills{
                 
-                if(similarUserByDay == similarUserBySkill){
+                if similarUserByDay == similarUserBySkill {
                     
                     if topSimilarUsersMap[frequencyOfSameDays+frequencyOfSameSkills] == nil{
                         
