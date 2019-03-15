@@ -32,6 +32,7 @@ class LocationPickerViewController: UIViewController, UIPickerViewDelegate, UIPi
 		super.viewDidLoad()
 		locationPicker.dataSource = self
 		locationPicker.delegate = self
+        submitButton.backgroundColor = AppDelegate.theme_Color
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {

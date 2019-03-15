@@ -68,7 +68,7 @@ class CameraViewController: UIViewController , UITextViewDelegate{
         if selectedImage != nil {
             
             self.shareButton.isEnabled = true
-            self.shareButton.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+            self.shareButton.backgroundColor = AppDelegate.theme_Color
             
             self.removeButton.isEnabled = true
             

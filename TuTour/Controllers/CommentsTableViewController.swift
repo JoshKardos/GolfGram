@@ -33,6 +33,7 @@ class CommentsTableViewController: UIViewController, UITableViewDataSource{
         tableView.dataSource = self
         tableView.separatorStyle = .none
         
+        sendButton.setTitleColor(AppDelegate.theme_Color, for: .normal)
         
         
         self.tabBarController?.tabBar.isHidden = true

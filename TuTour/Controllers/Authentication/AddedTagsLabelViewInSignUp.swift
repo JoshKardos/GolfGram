@@ -12,7 +12,10 @@ import UIKit
 class AddedTagsLabelViewInSignUp: UIView{
     var signUpViewController: SelectAvailableDaysViewController?
     @IBOutlet weak var label: UILabel!
-     @IBAction func deletePressed(_ sender: UIButton) {
+     @
+    
+    IBAction func deletePressed(_ sender: UIButton) {
+        
         
         
         self.isHidden = true

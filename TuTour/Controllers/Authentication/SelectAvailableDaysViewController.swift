@@ -21,6 +21,7 @@ class SelectAvailableDaysViewController: UIViewController{
     //Saturday
     //Sunday
     @IBOutlet var dayLabels: [UILabel]!
+    @IBOutlet var xLabels: [UIButton]!
     
     
     //ADD tag elements
@@ -32,6 +33,16 @@ class SelectAvailableDaysViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tagsTextField.tintColor = AppDelegate.theme_Color
+        
+        for dayS in daySwitches {
+            dayS.onTintColor = AppDelegate.theme_Color
+        }
+        
+        for xL in xLabels {
+            xL.setTitleColor(AppDelegate.theme_Color, for: .normal)
+        }
         
         addTagButton.isEnabled = false
         handleTags()//disable addTagButton if textfield is empty

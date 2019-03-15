@@ -13,15 +13,24 @@ import FirebaseStorage
 import FirebaseAuth
 class SuggestedUsersViewController: UIViewController, UITableViewDataSource{
     
+    @IBOutlet weak var lookForATutor: UIButton!
     var usersWithSameFreeDays = [String: Int]()
     var usersWithSameSkills = [String: Int]()
     var suggestedUsers = [String]()
     @IBOutlet weak var tableView: UITableView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        lookForATutor.backgroundColor = AppDelegate.theme_Color
+        
         tableView.dataSource = self
         self.compareByDays()
     }
+    
+    
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }

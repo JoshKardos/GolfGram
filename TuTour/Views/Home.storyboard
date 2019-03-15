@@ -258,7 +258,10 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="kSk-eB-dC3"/>
                                         </constraints>
-                                        <state key="normal" title="Post"/>
+                                        <color key="tintColor" red="0.27371908420000002" green="0.6388793586" blue="0.7114133883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Post">
+                                            <color key="titleColor" red="0.1019607857" green="0.27843138579999999" blue="0.40000000600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="sendPressed:" destination="VyA-cb-5tB" eventType="touchUpInside" id="TGJ-4v-EsY"/>
                                         </connections>

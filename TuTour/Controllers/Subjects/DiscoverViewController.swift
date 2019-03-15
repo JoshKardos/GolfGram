@@ -24,6 +24,7 @@ class DiscoverViewController: UITableViewController, UISearchResultsUpdating {
 
 	override func viewDidLoad() {
         super.viewDidLoad()
+        
 
 		searchController.searchResultsUpdater = self
 		searchController.dimsBackgroundDuringPresentation = false
