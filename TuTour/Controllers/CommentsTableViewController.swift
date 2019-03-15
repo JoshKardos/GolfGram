@@ -107,6 +107,8 @@ class CommentsTableViewController: UIViewController, UITableViewDataSource{
             ref.updateChildValues(["text": commentText, "senderId": (Auth.auth().currentUser?.uid)!, "commentId": postToCommentsRef.key! , "timestamp": NSDate().timeIntervalSince1970, "postId": post.postId!])
         }
         
+        self.textField.text = nil
+        
         
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -118,7 +120,7 @@ class CommentsTableViewController: UIViewController, UITableViewDataSource{
         
         //set profile image to sender profile image
         
-        Database.database().reference().child("users").child(post.senderId!).observeSingleEvent(of: .value) { (snapshot) in
+        Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).observeSingleEvent(of: .value) { (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject]{
                 if let profileImageUrl = dictionary["profileImageUrl"]{
                     

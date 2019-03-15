@@ -258,7 +258,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="kSk-eB-dC3"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="Post"/>
                                         <connections>
                                             <action selector="sendPressed:" destination="VyA-cb-5tB" eventType="touchUpInside" id="TGJ-4v-EsY"/>
                                         </connections>

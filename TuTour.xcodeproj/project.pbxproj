@@ -36,7 +36,6 @@
 		B34E7894215B43E500A79B10 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B34E7893215B43E500A79B10 /* Profile.storyboard */; };
 		B34E7899215B5B6400A79B10 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B34E7898215B5B6400A79B10 /* GoogleService-Info.plist */; };
 		B34E789B2163337700A79B10 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34E789A2163337700A79B10 /* AuthService.swift */; };
-		B34E78A021681CA000A79B10 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34E789F21681CA000A79B10 /* Post.swift */; };
 		B34E78A2216829A400A79B10 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34E78A1216829A400A79B10 /* PostCell.swift */; };
 		B34E78A42169BABC00A79B10 /* UserCellInDiscover.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34E78A32169BABC00A79B10 /* UserCellInDiscover.swift */; };
 		B358F45821F431CA00E53F08 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B358F45721F431CA00E53F08 /* DatePickerViewController.swift */; };
@@ -95,7 +94,6 @@
 		B34E7893215B43E500A79B10 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		B34E7898215B5B6400A79B10 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B34E789A2163337700A79B10 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
-		B34E789F21681CA000A79B10 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		B34E78A1216829A400A79B10 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		B34E78A32169BABC00A79B10 /* UserCellInDiscover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellInDiscover.swift; sourceTree = "<group>"; };
 		B358F45721F431CA00E53F08 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
@@ -214,7 +212,6 @@
 		B34E789E21681C8400A79B10 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B34E789F21681CA000A79B10 /* Post.swift */,
 				B3BD05C5218E65A100315922 /* User.swift */,
 				B305646A218FFD5E0022EE7F /* Message.swift */,
 				B358F45C21F546D500E53F08 /* MeetingRequest.swift */,
@@ -467,7 +464,6 @@
 				B32F2506215AB9AE00930BAA /* DiscoverViewController.swift in Sources */,
 				B32F250C215ABA1700930BAA /* ProfileViewController.swift in Sources */,
 				B32F2508215AB9C100930BAA /* CameraViewController.swift in Sources */,
-				B34E78A021681CA000A79B10 /* Post.swift in Sources */,
 				B3431C582196806600401E8D /* UserCellInNewMessages.swift in Sources */,
 				B34E78A2216829A400A79B10 /* PostCell.swift in Sources */,
 				B31A4DA1222CE72D00EAEF77 /* Comment.swift in Sources */,
