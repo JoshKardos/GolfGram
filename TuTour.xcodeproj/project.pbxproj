@@ -274,9 +274,9 @@
 				B3308CB021D60B8500A0404D /* SubjectCell.swift */,
 				B3A3C90921DD745300E0C05F /* SubjectCellWithNumTutors.swift */,
 				B358F46021F94CEB00E53F08 /* MeetingRequestCell.swift */,
-				B34E78A1216829A400A79B10 /* PostCell.swift */,
 				B37A32B7222AFB98008B7F56 /* CommentCell.swift */,
 				B31A20D92232EBE50040AED6 /* SuggestedUserCell.swift */,
+				B34E78A1216829A400A79B10 /* PostCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
