@@ -22,7 +22,10 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var commentButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
     
+    var postId = String()
+    
     func configure(_ viewModel: PostViewModel) {
+        postId = viewModel.postId!
         setOpaqueBackground()
         profileImage.downloadImageFromUrl(viewModel.photoUrl!)
         usernameLabel.text = viewModel.senderUsername
@@ -60,7 +63,16 @@ class PostCell: UITableViewCell {
             self.likesButtonActive = true
         }
         
-        
+        Database.database().reference().child("post-likes").child(viewModel.postId!).observe(.childAdded) { (snapshot) in
+            
+            self.likesCount = Int(snapshot.childrenCount)
+            
+        }
+        Database.database().reference().child("post-likes").child(viewModel.postId!).observe(.childRemoved) { (snapshot) in
+            
+            self.likesCount = Int(snapshot.childrenCount)
+            
+        }
         
         //////////////////////////////////////////
         //Check amount of comments on this post///
@@ -72,91 +84,21 @@ class PostCell: UITableViewCell {
         
         
     }
-//    func updateUI(){
-//        Database.database().reference().child("users").child(post.senderId!).observeSingleEvent(of: .value, with: {(snapshot) in
-//            if let snapshotValue = (snapshot.value as? NSDictionary){
-//                if let username = snapshotValue["username"] as? String{
-//                    self.usernameLabel.text = username
-//                }
-//                if let profileImageURL = snapshotValue["profileImageUrl"] as? String{
-//                    DispatchQueue.global(qos: .userInteractive).async {
-//
-//
-//                        let url = URL(string: profileImageURL)
-//                        let imageData = NSData.init(contentsOf: url as! URL)
-//                        let image = UIImage(data: imageData as! Data)
-//
-//                        DispatchQueue.main.async {
-//                            self.profileImage.image = image
-//                        }
-//                    }
-//                }
-//            }
-//        })
-//        //timeAgoLabel.text = post.timestamp
-//        universalIcon.isHidden = false
-//        captionLabel.text = post.caption
-//        let url = URL(string: post.photoUrl!)
-//        let imageData = NSData.init(contentsOf: url as! URL)
-//        postImage.image = UIImage(data: imageData as! Data)
-//
-//
-//
-//        ///////////////////////////////////////////////
-//        //Check if currentUser has liked this post/////
-//        ///////////////////////////////////////////////
-//        Database.database().reference().child("post-likes").child(post.postId!).observe(.value) { (snapshot) in
-//
-//            self.likesCount = Int(snapshot.childrenCount)
-//            if let postDictionary = snapshot.value as? NSDictionary{
-//
-//                for (key, value) in postDictionary{
-//                    if (key as! String)  == Auth.auth().currentUser?.uid{
-//                        self.likesButtonActive = false
-//                        return
-//                    }
-//                }
-//
-//            }
-//            self.likesButtonActive = true
-//        }
-//
-//
-//
-//        //////////////////////////////////////////
-//        //Check amount of comments on this post///
-//        //////////////////////////////////////////
-//        Database.database().reference().child("post-comments").child(post.postId!).observe(.value) { (snapshot) in
-//            self.commentsCount = Int(snapshot.childrenCount)
-//
-//        }
-//
-//
-//
-//    }
-//
-    ////    var post: Post!{
-    //        didSet {
-    //
-    //            self.updateUI()
-    //
-    //        }
-    //    }
 
     var likesButtonActive = Bool()//didset
     
 
-    var likesCount = 0{
+    var likesCount = Int(){
         didSet{
             setUpStatsLabel()
         }
     }
-    var commentsCount = 0{
+    var commentsCount = Int(){
         didSet{
             setUpStatsLabel()
         }
     }
-    var sharesCount = 0{
+    var sharesCount = Int(){
         didSet{
             
             setUpStatsLabel()
@@ -190,22 +132,22 @@ class PostCell: UITableViewCell {
     
     //Mark: - FIX
     @IBAction func likePressed(_ sender: UIButton) {
-//
-//        let postLikesRef = Database.database().reference().child("post-likes")
-//        let thisPostLikes = postLikesRef.child(post.postId!)
-//
-//        if likesButtonActive == true{
-//
-//            let newLikeRef = thisPostLikes.child((Auth.auth().currentUser?.uid)!)
-//            newLikeRef.setValue(1)
-//
-//
-//        } else {
-//            //remove like
-//            thisPostLikes.child((Auth.auth().currentUser?.uid)!).removeValue()
-//
-//        }
-//
+
+        let postLikesRef = Database.database().reference().child("post-likes")
+        let thisPostLikes = postLikesRef.child(postId)
+
+        if likesButtonActive == true{
+
+            let newLikeRef = thisPostLikes.child((Auth.auth().currentUser?.uid)!)
+            newLikeRef.setValue(1)
+
+
+        } else {
+            //remove like
+            thisPostLikes.child((Auth.auth().currentUser?.uid)!).removeValue()
+
+        }
+
 //        updateUI()
     }
 }

@@ -111,6 +111,7 @@ class HomeViewController: UITableViewController {
     func cellCommentPressed(post: Post){
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
         var commentVC = storyboard.instantiateViewController(withIdentifier: "CommentsViewController") as! CommentsTableViewController
+        
         commentVC.post = post
         navigationController?.pushViewController(commentVC, animated: true)
     }
