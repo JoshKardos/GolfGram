@@ -18,6 +18,8 @@ class SignInViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+        emailTextField.tintColor = AppDelegate.theme_Color
+        passwordTextField.tintColor = AppDelegate.theme_Color
         
         
 		//DEACTIVATE BUTTON ON LOAD

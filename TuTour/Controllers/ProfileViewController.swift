@@ -150,6 +150,11 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         super.loadView()
+        
+        availAndSkillsButton.backgroundColor = AppDelegate.theme_Color
+        updateButton.backgroundColor = AppDelegate.theme_Color
+        registerAsTutorButton.backgroundColor = AppDelegate.theme_Color
+        
         ProgressHUD.show("Loading...")
         dmButton?.tintColor = AppDelegate.theme_Color
         

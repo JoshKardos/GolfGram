@@ -18,6 +18,7 @@ class ProfileSettingsController: UIViewController, UITextFieldDelegate, UIPicker
     
 
     
+    @IBOutlet weak var confirm: UIButton!
     @IBOutlet weak var updateButton: UIButton!
     @IBOutlet weak var profilePhoto: UIImageView!
     @IBOutlet weak var nameField: UITextField!
@@ -169,8 +170,13 @@ class ProfileSettingsController: UIViewController, UITextFieldDelegate, UIPicker
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
+        confirm.backgroundColor = AppDelegate.theme_Color
+        nameField.tintColor = AppDelegate.theme_Color
+        schoolField.tintColor = AppDelegate.theme_Color
+        majorField.tintColor = AppDelegate.theme_Color
+        yearField.tintColor = AppDelegate.theme_Color
+        descriptionField.tintColor = AppDelegate.theme_Color
         
         //Photo update functionality
         profilePhoto.layer.cornerRadius = 40

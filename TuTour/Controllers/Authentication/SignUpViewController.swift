@@ -40,6 +40,12 @@ class SignUpViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        fullNameTextField.tintColor = AppDelegate.theme_Color
+        usernameTextField.tintColor = AppDelegate.theme_Color
+        emailTextField.tintColor = AppDelegate.theme_Color
+        passwordTextField.tintColor = AppDelegate.theme_Color
+        
+        
         //initial state of picker
         school = schoolArray[0]
         major = majorArray[0]

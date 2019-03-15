@@ -17,6 +17,10 @@ class DatePickerViewController: UIViewController {
 	
 	var meeting: MeetingRequest?
 	
+    override func viewDidLoad() {
+            super.viewDidLoad()
+        submitButton.backgroundColor = AppDelegate.theme_Color
+    }
 	@IBAction func submitPressed(_ sender: Any) {
 		
 		let date = datePicker.date

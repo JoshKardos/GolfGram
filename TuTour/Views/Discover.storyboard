@@ -265,7 +265,7 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pAG-hK-zgY">
                                 <rect key="frame" x="12" y="552" width="351" height="40"/>
-                                <color key="backgroundColor" red="0.27371908420000002" green="0.6388793586" blue="0.7114133883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.1019607857" green="0.27843138579999999" blue="0.40000000600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="FP6-T7-F5j"/>
                                 </constraints>
@@ -299,6 +299,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="yXm-of-g13"/>
                     <connections>
+                        <outlet property="lookForATutor" destination="pAG-hK-zgY" id="Lmf-HS-HZx"/>
                         <outlet property="tableView" destination="aMx-06-o6M" id="0P5-aJ-gJl"/>
                     </connections>
                 </viewController>
