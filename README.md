@@ -14,7 +14,7 @@ Navigate to project folder
 	open -a Xcode Podfile
 ```
 Add these pods to the podfile
-```swift
+```podfile
 pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
 pod 'Firebase/Core'
 pod 'Firebase/Auth'
