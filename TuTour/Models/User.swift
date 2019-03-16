@@ -33,6 +33,12 @@ class User: NSObject{
 		uid = uidString
 		username = usernameString
 	}
+    init(json: [String: AnyObject]){
+        email = json["email"] as! String
+        profileImageUrl = json["profileImageUrl"] as! String
+        uid = json["uid"] as! String
+        username = json["username"] as! String
+    }
 //	init(uid: String){
 //		Database.database().reference().child("users").child(uid).observe(.value) { (snapshot) in
 //			print(snapshot)

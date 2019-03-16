@@ -25,6 +25,7 @@ class PostCell: UITableViewCell {
     var postId = String()
     
     func configure(_ viewModel: PostViewModel) {
+        
         postId = viewModel.postId!
         setOpaqueBackground()
         profileImage.downloadImageFromUrl(viewModel.photoUrl!)

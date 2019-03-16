@@ -23,20 +23,10 @@ class HomeViewController: UITableViewController {
         tableView.delegate = self
         logOutButton.tintColor = AppDelegate.theme_Color
         // Do any additional setup after loading the view.
-        //        Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).observeSingleEvent(of: .value, with: {(snapshot) in
-        //
-        //            if !snapshot.exists(){
-        //                self.logout()
-        //            }
-        //
-        //        })
         
     }
     fileprivate let postViewModelController = PostViewModelController()
     override func viewWillAppear(_ animated: Bool) {
-        
-        
-        
         
         postViewModelController.loadPosts() { [weak self] (success, error) in
             guard let strongSelf = self else { return }
@@ -57,6 +47,7 @@ class HomeViewController: UITableViewController {
                 }
             }
         }
+        
     }
     
     
@@ -87,8 +78,8 @@ class HomeViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(postViewModelController.viewModelsCount)
-        return 3
+        
+        return postViewModelController.viewModelsCount
     }
     
     
@@ -100,7 +91,6 @@ class HomeViewController: UITableViewController {
         if let viewModel = postViewModelController.viewModel(at: (indexPath as NSIndexPath).row) {
             cell.configure(viewModel)
         }
-        //        cell.post = posts[indexPath.row]
         //        cell.isUserInteractionEnabled = true
         //        cell.delegate = self
         
@@ -119,7 +109,7 @@ class HomeViewController: UITableViewController {
 }
 
 //MARK: - SenderUsername
-class PostViewModel {
+struct PostViewModel {
     var caption: String?
     var postId: String?
     var photoUrl: String?
@@ -127,6 +117,7 @@ class PostViewModel {
     var numberOfLikes: Int?
     var numberOfComments: Int?
     var senderUsername: String?
+    var senderUserProfileUrl: String?
     
     init(post: Post) {
         caption = post.caption
@@ -135,19 +126,21 @@ class PostViewModel {
         senderId = post.senderId
         numberOfLikes = post.numberOfLikes
         numberOfComments = post.numberOfComments
-        senderUsername = post.senderUsername
+        senderUsername = post.sender.username
+        senderUserProfileUrl = post.sender.profileImageUrl
     }
 }
 //MARK: - SenderUsername
-class Post{
+struct Post{
     var caption: String?
     var postId: String?
     var photoUrl: String?
     var senderId: String?
     var numberOfLikes: Int?
     var numberOfComments: Int?
-    var senderUsername: String?
-    
+//    var senderUsername: String?
+//    var senderUserProfileUrl: String?
+    var sender = User()
     init(captionString: String, photoIdString: String, photoUrlString: String, senderIdString: String){
         caption = captionString
         postId = photoIdString
@@ -189,11 +182,10 @@ class PostViewModelController {
                         
                         //dont call function, just create new queries...
                         ref.child("users").child(post.senderId!).observeSingleEvent(of: .value, with: { (snapshot) in
-                            if let user = snapshot.value as? [String: AnyObject]{
+                            let user = User(json: snapshot.value as! [String: AnyObject])
+                            post.sender = user
                                 
-                                post.senderUsername = user["username"] as? String
-                                
-                            }
+                            
                         })
                         
                         ref.child("post-likes").child(post.postId!).observe(.value, with: { (snapshot) in
@@ -234,6 +226,12 @@ class PostViewModelController {
     }
     
 }
+
+//struct PostStatistics{
+//    let numberOfLikes
+//    let numberOfComments =
+//
+//}
 
 private extension PostViewModelController {
     
