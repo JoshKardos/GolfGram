@@ -23,24 +23,23 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var shareButton: UIButton!
     
     var postId = String()
-    
-    func configure(_ viewModel: PostViewModel) {
-        
-        postId = viewModel.postId!
+    var post: Post?
+    func configure(_ post: Post) {
+        self.post = post
+        postId = post.postId!
         setOpaqueBackground()
-        profileImage.downloadImageFromUrl(viewModel.photoUrl!)
-        usernameLabel.text = viewModel.senderUsername
+        usernameLabel.text = post.senderUsername
         
-        if let likeCount = viewModel.numberOfLikes{
+        if let likeCount = post.numberOfLikes{
             likesCount = likeCount
         }
-        if let commentCount = viewModel.numberOfComments{
+        if let commentCount = post.numberOfComments{
             commentsCount = commentCount
         }
         
-        captionLabel.text = viewModel.caption
-        postImage.downloadImageFromUrl(viewModel.photoUrl!)
-        
+        captionLabel.text = post.caption
+        postImage.downloadImageFromUrl(post.photoUrl!)
+        profileImage.downloadImageFromUrl(post.profileImageUrl!)
         //timeAgoLabel.text = post.timestamp
         universalIcon.isHidden = false
         
@@ -48,7 +47,7 @@ class PostCell: UITableViewCell {
         ///////////////////////////////////////////////
         //Check if currentUser has liked this post/////
         ///////////////////////////////////////////////
-        Database.database().reference().child("post-likes").child(viewModel.postId!).observe(.value) { (snapshot) in
+        Database.database().reference().child("post-likes").child(post.postId!).observe(.value) { (snapshot) in
             
             self.likesCount = Int(snapshot.childrenCount)
             if let postDictionary = snapshot.value as? NSDictionary{
@@ -64,24 +63,9 @@ class PostCell: UITableViewCell {
             self.likesButtonActive = true
         }
         
-        Database.database().reference().child("post-likes").child(viewModel.postId!).observe(.childAdded) { (snapshot) in
-            
-            self.likesCount = Int(snapshot.childrenCount)
-            
-        }
-        Database.database().reference().child("post-likes").child(viewModel.postId!).observe(.childRemoved) { (snapshot) in
-            
-            self.likesCount = Int(snapshot.childrenCount)
-            
-        }
         
-        //////////////////////////////////////////
-        //Check amount of comments on this post///
-        //////////////////////////////////////////
-        Database.database().reference().child("post-comments").child(viewModel.postId!).observe(.value) { (snapshot) in
-            self.commentsCount = Int(snapshot.childrenCount)
-            
-        }
+        
+        
         
         
     }
@@ -126,7 +110,7 @@ class PostCell: UITableViewCell {
     @IBAction func commentPressed(_ sender: UIButton) {
         
         
-       // delegate.cellCommentPressed(post: post)
+        delegate.cellCommentPressed(post: post!)
         
     }
     
@@ -148,8 +132,6 @@ class PostCell: UITableViewCell {
             thisPostLikes.child((Auth.auth().currentUser?.uid)!).removeValue()
 
         }
-
-//        updateUI()
     }
 }
 
