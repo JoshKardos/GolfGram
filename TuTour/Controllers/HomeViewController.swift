@@ -14,7 +14,7 @@ import ChameleonFramework
 class HomeViewController: UITableViewController {
     
     @IBOutlet weak var logOutButton: UIBarButtonItem!
-    
+    var renderredCells = [PostCell]()
     
     override func viewDidLoad() {
         
@@ -22,23 +22,9 @@ class HomeViewController: UITableViewController {
         tableView.dataSource = self
         tableView.delegate = self
         logOutButton.tintColor = AppDelegate.theme_Color
+        
         // Do any additional setup after loading the view.
-        //        Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).observeSingleEvent(of: .value, with: {(snapshot) in
-        //
-        //            if !snapshot.exists(){
-        //                self.logout()
-        //            }
-        //
-        //        })
-        
-    }
-    fileprivate let postViewModelController = PostViewModelController()
-    override func viewWillAppear(_ animated: Bool) {
-        
-        
-        
-        
-        postViewModelController.loadPosts() { [weak self] (success, error) in
+        loadPosts() { [weak self] (success, error) in
             guard let strongSelf = self else { return }
             if !success {
                 DispatchQueue.main.async {
@@ -58,9 +44,66 @@ class HomeViewController: UITableViewController {
             }
         }
     }
+    var posts = [Post]()
+   
     
     
-    
+    func loadPosts(_ completionBlock: @escaping (_ success: Bool, _ error: NSError?) -> ()){
+        posts = []
+        print("IN LOAD POSTS")
+        let ref = Database.database().reference()
+        
+        
+        
+        //access posts
+        ref.child("posts").queryOrderedByKey().observe(.value, with: { (snap) in//get all posts
+            
+            if let postsSnap = snap.value as? [String: [String: AnyObject]]{
+                
+                for(_, post) in postsSnap {
+                    
+                    let postId = post["postId"] as! String
+                    ref.child("post-likes").child(postId).observeSingleEvent(of: .value, with: { (snapshot) in
+                        
+                        
+                        let numberOfLikes = Int(snapshot.childrenCount)
+                        
+                        ref.child("post-comments").child(postId).observeSingleEvent(of: .value, with: { (snapshot) in
+                            
+                            let numberOfComments = Int(snapshot.childrenCount)
+                            
+                            ref.child("users").child(post["senderId"] as! String).observeSingleEvent(of: .value, with: { (snapshot) in
+                                let dictionary = snapshot.value as! [String: AnyObject]
+                                let username = (dictionary["username"] as! String)
+                                
+                                let profileImageString = (snapshot.value as! NSDictionary)["profileImageUrl"] as! String
+                                
+                                let post = Post(dictionary: post, numComments: numberOfComments, numLikes: numberOfLikes, username: username, profileImageUrl: profileImageString)
+                                
+                                self.posts.append(post)
+                                DispatchQueue.main.async {
+                                    self.tableView.reloadData()
+                                }
+                            })
+
+                            
+                            
+                            
+                        })
+                    })
+                    
+                }
+                
+                completionBlock(true, nil)
+                print("COMPLETE")
+            } else {
+                completionBlock(false, nil)
+            }
+            
+        })
+        
+        
+    }
     
     func logout(){
         do {
@@ -87,22 +130,23 @@ class HomeViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(postViewModelController.viewModelsCount)
-        return 3
+        
+        return posts.count
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostCell
-        
-        
-        if let viewModel = postViewModelController.viewModel(at: (indexPath as NSIndexPath).row) {
-            cell.configure(viewModel)
+        var cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostCell
+        if indexPath.row < renderredCells.count{
+            
+            cell = renderredCells[indexPath.row]
+            
+        } else {
+            cell.configure(posts[indexPath.row])
+            renderredCells.append(cell)
         }
-        //        cell.post = posts[indexPath.row]
-        //        cell.isUserInteractionEnabled = true
-        //        cell.delegate = self
+        cell.delegate = self
         
         return cell
     }
@@ -118,26 +162,7 @@ class HomeViewController: UITableViewController {
     
 }
 
-//MARK: - SenderUsername
-class PostViewModel {
-    var caption: String?
-    var postId: String?
-    var photoUrl: String?
-    var senderId: String?
-    var numberOfLikes: Int?
-    var numberOfComments: Int?
-    var senderUsername: String?
-    
-    init(post: Post) {
-        caption = post.caption
-        postId = post.postId
-        photoUrl = post.photoUrl
-        senderId = post.senderId
-        numberOfLikes = post.numberOfLikes
-        numberOfComments = post.numberOfComments
-        senderUsername = post.senderUsername
-    }
-}
+
 //MARK: - SenderUsername
 class Post{
     var caption: String?
@@ -147,114 +172,57 @@ class Post{
     var numberOfLikes: Int?
     var numberOfComments: Int?
     var senderUsername: String?
-    
-    init(captionString: String, photoIdString: String, photoUrlString: String, senderIdString: String){
-        caption = captionString
-        postId = photoIdString
-        photoUrl = photoUrlString
-        senderId = senderIdString
-    }
-    init(captionString: String, photoIdString: String, photoUrlString: String, senderIdString: String, numberOfLikesInt: Int, numberOfCommentsInt: Int){
-        caption = captionString
-        postId = photoIdString
-        photoUrl = photoUrlString
-        senderId = senderIdString
-        numberOfLikes = numberOfLikesInt
-        numberOfComments = numberOfCommentsInt
+    var profileImageUrl: String?
+   
+    init(dictionary: [String: AnyObject], numComments: Int, numLikes: Int, username: String, profileImageUrl: String){
+        
+        
+        caption = (dictionary["caption"] as! String)
+        postId = (dictionary["postId"] as! String)
+        photoUrl = (dictionary["photoUrl"] as! String)
+        senderId = (dictionary["senderId"] as! String)
+        
+        //get statistics
+        numberOfLikes = numLikes
+        print("LIKES \(numberOfLikes)")
+        numberOfComments = numComments
+        print("Comments \(numberOfComments)")
+        senderUsername = username
+        self.profileImageUrl = profileImageUrl
+        
+        //get sender info
     }
     
 }
+//                    if var post = PostViewModelController.parse(post) {
+//
+//                        //dont call function, just create new queries...
+//                        ref.child("users").child(post.senderId!).observeSingleEvent(of: .value, with: { (snapshot) in
+//                            let user = User(json: snapshot.value as! [String: AnyObject])
+//                            post.sender = user
+//
+//                        })
+//
+//                        ref.child("post-likes").child(post.postId!).observe(.value, with: { (snapshot) in
+//
+//                            post.numberOfLikes = Int(snapshot.childrenCount)
+//                        })
+//                        ref.child("post-comments").child(post.postId!).observe(.value, with: { (snapshot) in
+//
+//                            post.numberOfComments = Int(snapshot.childrenCount)
+//                        })
+//
+//                        posts.append(post)
+//
+//                    } else {
+//                        completionBlock(false, nil)
+//                    }
+//                }
+//                DispatchQueue.main.async {
+//                    print("Post size \(posts.count)")
+//                    self.viewModels = PostViewModelController.initViewModels(posts)
+//                    completionBlock(true, nil)
+//                }
+//            } else {
+//                completionBlock(false, nil)
 
-//Mark: - FIX: Fetch sender information
-class PostViewModelController {
-    
-    fileprivate var viewModels: [PostViewModel?] = []
-    
-    func loadPosts(_ completionBlock: @escaping (_ success: Bool, _ error: NSError?) -> ()){
-        
-        print("IN LOAD POSTS")
-        let ref = Database.database().reference()
-        
-        
-        
-        //access posts
-        ref.child("posts").queryOrderedByKey().observeSingleEvent(of: .value, with: { (snap) in//get all posts
-            
-            if let postsSnap = snap.value as? [String: [String: AnyObject]]{
-                
-                var posts = [Post]()
-                for(_, post) in postsSnap {
-                    
-                    if var post = PostViewModelController.parse(post) {
-                        
-                        //dont call function, just create new queries...
-                        ref.child("users").child(post.senderId!).observeSingleEvent(of: .value, with: { (snapshot) in
-                            if let user = snapshot.value as? [String: AnyObject]{
-                                
-                                post.senderUsername = user["username"] as? String
-                                
-                            }
-                        })
-                        
-                        ref.child("post-likes").child(post.postId!).observe(.value, with: { (snapshot) in
-                            
-                            post.numberOfLikes = Int(snapshot.childrenCount)
-                        })
-                        ref.child("post-comments").child(post.postId!).observe(.value, with: { (snapshot) in
-                            
-                            post.numberOfComments = Int(snapshot.childrenCount)
-                        })
-                        
-                        posts.append(post)
-                        
-                    } else {
-                        completionBlock(false, nil)
-                    }
-                }
-                DispatchQueue.main.async {
-                    print("Post size \(posts.count)")
-                    self.viewModels = PostViewModelController.initViewModels(posts)
-                    completionBlock(true, nil)
-                }
-            } else {
-                completionBlock(false, nil)
-            }
-            
-            
-        })
-    }
-    
-    var viewModelsCount: Int {
-        return viewModels.count
-    }
-    
-    func viewModel(at index: Int) -> PostViewModel? {
-        guard index >= 0 && index < viewModelsCount else { return nil }
-        return viewModels[index]
-    }
-    
-}
-
-private extension PostViewModelController {
-    
-    static func parse(_ post: [String: AnyObject]) -> Post? {
-        
-        let caption = post["caption"] as! String
-        let postId = post["postId"] as! String
-        let photoUrl = post["photoUrl"]as! String
-        let senderId = post["senderId"] as! String
-        
-        return Post(captionString: caption, photoIdString: postId, photoUrlString: photoUrl, senderIdString: senderId)
-    }
-    
-    static func initViewModels(_ posts: [Post?]) -> [PostViewModel?] {
-        return posts.map { post in
-            if let post = post {
-                return PostViewModel(post: post)
-            } else {
-                return nil
-            }
-        }
-    }
-    
-}

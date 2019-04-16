@@ -178,7 +178,7 @@ class SignUpViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
                     
                     
                     ProgressHUD.showSuccess("Success")
-                    self.performSegue(withIdentifier: "signUpToDaySelect", sender: nil)
+                    self.performSegue(withIdentifier: "toAddSkillsDays", sender: nil)
                     
                     
                     
