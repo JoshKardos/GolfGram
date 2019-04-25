@@ -187,6 +187,7 @@ class ProfileSettingsController: UIViewController, UITextFieldDelegate, UIPicker
         
         profilePhoto.addGestureRecognizer(tapGesture)
 
+        profilePhoto.clipsToBounds = true
         getData(uid: userID)
         
     }

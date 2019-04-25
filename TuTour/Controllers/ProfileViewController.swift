@@ -68,6 +68,7 @@ class ProfileViewController: UIViewController {
         }
     }
     
+
     func selectMeetingOptions(){
         
         let storyboard: UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
@@ -79,6 +80,7 @@ class ProfileViewController: UIViewController {
         
     }
     
+
     func disableComponents(){
         dmButton.isEnabled = false
         dmButton.image = nil
@@ -147,6 +149,8 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         super.loadView()
@@ -158,5 +162,6 @@ class ProfileViewController: UIViewController {
         ProgressHUD.show("Loading...")
         dmButton?.tintColor = AppDelegate.theme_Color
         
+        profileImage.clipsToBounds = true
     }
 }
