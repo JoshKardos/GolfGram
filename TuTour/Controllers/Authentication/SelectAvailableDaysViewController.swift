@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Firebase
+import TaggerKit
 class SelectAvailableDaysViewController: UIViewController{
     
     
@@ -21,82 +22,79 @@ class SelectAvailableDaysViewController: UIViewController{
     //Saturday
     //Sunday
     @IBOutlet var dayLabels: [UILabel]!
-    @IBOutlet var xLabels: [UIButton]!
-    
-    
-    //ADD tag elements
-    @IBOutlet weak var tagsTextField: UITextField!
-    @IBOutlet weak var addTagButton: UIButton!
+
     var tagsArray = [String]()
-    @IBOutlet var addedTagsLabels: [AddedTagsLabelViewInSignUp]!
     
+    @IBOutlet weak var addedTagsCollectionView: UIView!
+    @IBOutlet weak var tagsTextField: TKTextField!
+    var addedTagsCollection = TKCollectionView()
+    @IBOutlet weak var topTagsCollection: UIView!
+    var filteredTagsCollection = TKCollectionView()
+    override func tagIsBeingAdded(name: String?) {
+        print("TAG ADDED")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tagsTextField.tintColor = AppDelegate.theme_Color
-        
-        for dayS in daySwitches {
-            dayS.onTintColor = AppDelegate.theme_Color
+        addedTagsCollection.tags = []
+//        tagsTextField.tintColor = AppDelegate.theme_Color
+        Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).child("skills").observe(.value) { (snapshot) in
+            let dictionary = snapshot.value as! [String: AnyObject]
+            
+            for (skill, _) in dictionary{
+                print(skill)
+                self.addedTagsCollection.tags.append(skill)
+            }
+            
+            
+            
+            
+            
+            //all tags
+            self.add(self.filteredTagsCollection, toView: self.topTagsCollection)
+            self.filteredTagsCollection.action = .addTag
+            self.filteredTagsCollection.receiver = self.addedTagsCollection
+            
+            //add tags
+            self.add(self.addedTagsCollection, toView: self.addedTagsCollectionView)
+            self.addedTagsCollection.action = .removeTag
+            
+            
+            self.tagsTextField.sender = self.filteredTagsCollection
+            self.tagsTextField.receiver = self.addedTagsCollection
+            
+            
+            
+            
+            self.addedTagsCollection.delegate = self
+            self.filteredTagsCollection.delegate = self
+
+            
         }
         
-        for xL in xLabels {
-            xL.setTitleColor(AppDelegate.theme_Color, for: .normal)
-        }
         
-        addTagButton.isEnabled = false
-        handleTags()//disable addTagButton if textfield is empty
-        updateTagsFromArray()
         
-        //initiliaze each tag label's signup vc as self
-        //needed for when user deletes an added tag
-        for i in 0..<addedTagsLabels.count{
-            addedTagsLabels[i].signUpViewController = self
+        for sw in daySwitches {
+            sw.onTintColor = AppDelegate.theme_Color
         }
+        for i in 0..<dayLabels.count{
+            
+            
+            Database.database().reference().child("availableDay-users").child(dayLabels[i].text!).observe(.value) { (snapshot) in
+                if let snap = snapshot.value as? [String: AnyObject]{
+                    if snap[(Auth.auth().currentUser?.uid)!] != nil{
+                        self.daySwitches[i].isOn = true
+                    }
+                }
+                
+                
+            }
+        }
+       
         self.hideKeyboard()
         
     }
-    
-    @IBAction func addTagButtonPressed(_ sender: UIButton) {
-        
-        print("ADD")
-        if tagsTextField.text != nil && tagsTextField.text != ""{
-            
-            tagsArray.append(tagsTextField.text!)
-            tagsTextField.text = nil
-            addTagButton.isEnabled = false
-        }
-        updateTagsFromArray()
-        
-    }
-    
-    func updateTagsFromArray(){
-        for i in 0..<addedTagsLabels.count{
-            if i < tagsArray.count{
-                addedTagsLabels[i].isHidden = false
-                addedTagsLabels[i].label.text = tagsArray[i]
-            } else {
-                addedTagsLabels[i].isHidden = true
-            }
-        }
-    }
-    func handleTags(){
-        tagsTextField.addTarget(self, action: #selector(self.tagsDidChange), for: UIControl.Event.editingChanged)
-        
-    }
-    
-    @objc func tagsDidChange(){
-        
-        if (tagsTextField.text?.trimmingCharacters(in: .whitespaces).isEmpty)!{
-            addTagButton.isEnabled = false
-        } else {
-            addTagButton.isEnabled = true
-        }
-        
-        
-    }
-    
-    
+
     @IBAction func addDays(_ sender: UIButton) {
         
         
@@ -116,7 +114,7 @@ class SelectAvailableDaysViewController: UIViewController{
         for index in daysOpen.indices{
             daysOpenMap[daysOpen[index]] = 1
         }
-        if daysOpen.count > 0 || tagsArray.count>0{
+        if daysOpen.count > 0 || addedTagsCollection.tags.count>0{
             Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).child("availableDays").setValue(daysOpenMap)
             
             //need to delete from "availableDay-users" node if not a key in days open map
@@ -148,10 +146,10 @@ class SelectAvailableDaysViewController: UIViewController{
             }
             
             var skillsMap = [String: Int]()
-            for index in tagsArray.indices{
-                skillsMap[tagsArray[index]] = 1
+            for index in addedTagsCollection.tags.indices{
+                skillsMap[addedTagsCollection.tags[index]] = 1
             }
-            if daysOpenMap.count > 0{
+            if skillsMap.count > 0{
                 Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).child("skills").updateChildValues(skillsMap)
                 
                 //key is the skill/tag

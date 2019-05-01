@@ -14,10 +14,10 @@ class CommentCell: UITableViewCell{
     @IBOutlet weak var commentsLabel: UILabel!
     @IBOutlet weak var senderProfileImage: UIImageView!
     
-    var comment: Comment!{
-        didSet{
-        }
+    func configure(_ comment: Comment){
+        senderProfileImage.downloadImageFromString(comment.senderImageUrl)
+        commentsLabel.text = comment.commentText
+        
     }
-    
     
 }

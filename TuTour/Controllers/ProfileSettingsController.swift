@@ -47,11 +47,8 @@ class ProfileSettingsController: UIViewController, UITextFieldDelegate, UIPicker
         ///////////////////////////////////////
         let storageRef = Storage.storage().reference(forURL: "gs://golfgram-68599.appspot.com").child("profile_image").child(userID)
         
-        print(userID)
-        print("wassup")
         
         if let profileImage = self.selectedPhoto {
-            print("profileImage = self.selectedPhoto")
             if let imageData = profileImage.jpegData(compressionQuality: 0.1) {
                 
                 storageRef.putData(imageData, metadata: nil, completion: { (metadata, error) in
@@ -67,7 +64,7 @@ class ProfileSettingsController: UIViewController, UITextFieldDelegate, UIPicker
                         }
                         //get url of image
                         guard let profileImageUrl = url?.absoluteString else {return}
-                        print(profileImageUrl)
+                        
                         //self.photoURLString = profileImageUrl
                         let updatedValueList = ["fullname": self.nameField.text!, "major": self.majorField.text!, "school": self.schoolField.text!, "year": self.yearField.text!, "profileImageUrl": profileImageUrl, "description": self.descriptionField.text!]
                         
@@ -200,8 +197,9 @@ class ProfileSettingsController: UIViewController, UITextFieldDelegate, UIPicker
         present(pickerController, animated: true, completion: nil)
         
     }
-
-    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
 }
 
 extension ProfileSettingsController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{

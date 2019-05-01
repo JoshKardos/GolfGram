@@ -91,10 +91,7 @@ class SubjectVCFindTutor: SubjectsViewController{
 			//no tutors in this subject
 		}
 	}
-	
-	//Mark: - Text To put in cell
-	
-	
+
 	//text to put in cell
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		
