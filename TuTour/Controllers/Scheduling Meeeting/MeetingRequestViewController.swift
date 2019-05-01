@@ -11,6 +11,9 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 import ProgressHUD
+import EventKit
+import UserNotifications
+
 class MeetingRequestViewController: UIViewController{
 	
 	@IBOutlet weak var titleLabel: UILabel!
@@ -23,15 +26,15 @@ class MeetingRequestViewController: UIViewController{
 	//Building
 	//Day
 	//Time
-	
+	var labelsText = [String?]()//for eventkit
 	var user: User?
 	var meetingRequest: MeetingRequest?
     override func viewDidLoad() {
         super.viewDidLoad()
         
         fillMeetingRequestLabels()
-        
-        if (meetingRequest?.lastUserToSendId)! == (Auth.auth().currentUser?.uid)!{
+        //if last senderToSendId = nil then it is a shceduled meeting
+        if meetingRequest?.lastUserToSendId == nil || (meetingRequest?.lastUserToSendId)! == (Auth.auth().currentUser?.uid)!{
             denyButton.isEnabled = false
             acceptButton.isEnabled = false
             denyButton.isHidden = true
@@ -114,6 +117,46 @@ class MeetingRequestViewController: UIViewController{
                 return
             }
         
+            //use eventKit to save to user's phone
+            
+            let eventStore = EKEventStore()
+            eventStore.requestAccess(to: .event, completion: { (granted, error) in
+                if (granted) && (error == nil) {
+                    let event = EKEvent(eventStore: eventStore)
+                    print("GRANTDE")
+                    event.title = "Scheduled Meeting via TuTour\n Location: \((self.meetingRequest?.location)!)"
+                    let timeInterval = self.meetingRequest?.date?.timeIntervalSince1970
+                    event.startDate = Date(timeIntervalSince1970: timeInterval!)
+                    event.endDate = Date(timeIntervalSince1970: timeInterval!)
+                    let notes = "Subject: \(self.labelsText[0]!) \n Student: \(self.labelsText[1]!) \n Building: \(self.labelsText[2]!) \n Day: \(self.labelsText[3]!) \n Time: \(self.labelsText[4]!) \n"
+                    event.notes = notes
+                    event.calendar = eventStore.defaultCalendarForNewEvents
+                    //set reminders
+                    
+                    do {
+                        print("SAVING EVENT")
+                        try eventStore.save(event, span: .thisEvent)
+                        //push notification that meeting was added to your calendar
+                        let content = UNMutableNotificationContent()
+                        content.title = "Meeting saved in your calendar"
+                        content.subtitle = event.title
+                        content.badge = 1
+                        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+                        let request = UNNotificationRequest(identifier: "meetingAdded", content: content, trigger: trigger)
+                        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+                        
+                        //send notificiation to other user
+                        
+                    } catch let error as NSError {
+                        print("ERROR : \(error)")
+
+                    }
+                    
+                } else {
+                    print("ERROR : \(error)")
+                }
+                
+            })
         }
         
         //add to user-shceduledMeeting nodes
@@ -148,7 +191,7 @@ class MeetingRequestViewController: UIViewController{
 		
 		//subject
 		meetingRequestLabels[0].text = meetingRequest!.subject
-		
+		labelsText.append(meetingRequest!.subject)
         
         Database.database().reference().child("users").child((meetingRequest?.tutorUid!)!).observe(.value) { (snapshot) in
             let user = snapshot.value as! [String: AnyObject]
@@ -156,23 +199,25 @@ class MeetingRequestViewController: UIViewController{
             
             //username
             self.meetingRequestLabels[1].text = user["username"] as! String
+            self.labelsText.append(user["username"] as? String)
         }
 		
 		
 		//building
 		meetingRequestLabels[2].text = meetingRequest!.location
-		
+		labelsText.append(meetingRequest!.location)
 		//day
 		let dateFormatter = DateFormatter()
 		dateFormatter.dateFormat = "MM-dd-yyyy"
 		meetingRequestLabels[3].text = dateFormatter.string(from: meetingRequest!.date!)
 		//https://medium.com/@tjcarney89/using-dateformatter-to-format-dates-and-times-from-apis-57622ce11d04
+        labelsText.append(dateFormatter.string(from: meetingRequest!.date!))
 		
 		//time
 		let dateFormatter2 = DateFormatter()
 		dateFormatter2.dateFormat = "h:mm a"
 		meetingRequestLabels[4].text = dateFormatter2.string(from: meetingRequest!.date!)
-		
+		labelsText.append(dateFormatter2.string(from: meetingRequest!.date!))
 		
 		
 	}

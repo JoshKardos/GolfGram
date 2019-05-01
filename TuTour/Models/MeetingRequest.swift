@@ -42,7 +42,12 @@ class MeetingRequest{
 		self.tutoreeUid = tutoree
 		self.subject = subject
 	}
-	
+    init(dictionary : [String : AnyObject]){
+        tutorUid = (dictionary["tutorUid"] as! String)
+        tutoreeUid = (dictionary["tutoreeUid"] as! String)
+        subject = (dictionary["subject"] as! String)
+        meetingId = (dictionary["meetingId"] as! String)
+    }
 	func meetingPartnerId() -> String?{
 		
 		let uid = Auth.auth().currentUser!.uid

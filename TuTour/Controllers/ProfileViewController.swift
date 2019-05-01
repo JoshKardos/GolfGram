@@ -62,13 +62,13 @@ class ProfileViewController: UIViewController {
             print("HERE" )
             
         } else{//is other users profile
-            selectMeetingOptions()
+            selectMeetingOptions(meeting: meeting!)
             print("ELSE")
             
         }
     }
     
-    func selectMeetingOptions(){
+    func selectMeetingOptions(meeting: MeetingRequest){
         
         let storyboard: UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
         let timeOptionsVC = storyboard.instantiateViewController(withIdentifier: "TimeOptions") as! DatePickerViewController

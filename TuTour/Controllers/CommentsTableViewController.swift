@@ -102,10 +102,18 @@ class CommentsTableViewController: UIViewController, UITableViewDataSource{
             
             let postToCommentsRef = Database.database().reference().child("post-comments").child(post.postId!).childByAutoId()
             postToCommentsRef.setValue(1)
+            let userRef = Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).child("profileImageUrl").observe(.value) { (snapshot) in
+                
+                let senderProfileImageUrl = snapshot.value as! String
+                
+                print(snapshot.value)
+                
+                let ref = Database.database().reference().child("comments").child(postToCommentsRef.key!)
+                
+                ref.updateChildValues(["text": commentText, "senderId": (Auth.auth().currentUser?.uid)!,"senderProfileImageUrl": senderProfileImageUrl, "commentId": postToCommentsRef.key! , "timestamp": NSDate().timeIntervalSince1970, "postId": self.post.postId!])
+                
+            }
             
-            let ref = Database.database().reference().child("comments").child(postToCommentsRef.key!)
-            
-            ref.updateChildValues(["text": commentText, "senderId": (Auth.auth().currentUser?.uid)!, "commentId": postToCommentsRef.key! , "timestamp": NSDate().timeIntervalSince1970, "postId": post.postId!])
         }
         
         self.textField.text = nil
@@ -120,7 +128,7 @@ class CommentsTableViewController: UIViewController, UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as! CommentCell
         
         //set profile image to sender profile image
-        
+        cell.commentsLabel.text = comments[indexPath.row].commentText
         Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).observeSingleEvent(of: .value) { (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject]{
                 if let profileImageUrl = dictionary["profileImageUrl"]{
@@ -144,7 +152,7 @@ class CommentsTableViewController: UIViewController, UITableViewDataSource{
             }
             
         }
-        cell.commentsLabel.text = comments[indexPath.row].commentText
+        
         cell.isUserInteractionEnabled = true
         
         return cell

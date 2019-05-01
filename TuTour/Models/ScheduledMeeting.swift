@@ -11,6 +11,8 @@ import Foundation
 class ScheduledMeeting: MeetingRequest{
     
     
-    
+    override init(dictionary: [String: AnyObject]){
+        super.init(dictionary: dictionary)
+    }
     
 }

@@ -12,7 +12,7 @@ import FirebaseDatabase
 import FirebaseStorage
 import FirebaseDatabase
 import FirebaseAuth
-
+import TaggerKit
 class CameraViewController: UIViewController , UITextViewDelegate{
     
     static let captionPlaceholder = "Add caption..."
@@ -24,29 +24,76 @@ class CameraViewController: UIViewController , UITextViewDelegate{
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var removeButton: UIBarButtonItem!
     
+    @IBOutlet weak var textField: TKTextField!
     var selectedImage: UIImage?
     
+    @IBOutlet weak var topTagsContainerView: UIView!
+    @IBOutlet weak var addedTagsContainerView: UIView!
+    
+    
+    var addedTagCollection = TKCollectionView()
+    var allTagCollection = TKCollectionView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(CameraViewController.handleSelectPhoto))
         
         captionTextView.delegate = self
         captionTextView.text = CameraViewController.captionPlaceholder
         captionTextView.textColor = UIColor.lightGray
         
+        Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).child("skills").observe(.value) { (snapshot) in
+            
+            let dictionary = snapshot.value as! [String: AnyObject]
+            for (skill, _) in dictionary{
+                self.allTagCollection.tags.append(skill)
+            }
+            
+            
+            print(dictionary)
+            
+            self.addedTagCollection.tags = []
+            
+            //all tags
+            self.add(self.allTagCollection, toView: self.topTagsContainerView)
+            self.allTagCollection.action = .addTag
+            self.allTagCollection.receiver = self.addedTagCollection
+            
+            //add tags
+            self.add(self.addedTagCollection, toView: self.addedTagsContainerView)
+            self.addedTagCollection.action = .removeTag
+            
+            
+            
+            self.textField.sender = self.allTagCollection
+            self.textField.receiver = self.addedTagCollection
+            
+            
+            
+            
+            self.addedTagCollection.delegate = self
+            self.allTagCollection.delegate = self
+            self.photo.isUserInteractionEnabled = true
+            
+            self.photo.addGestureRecognizer(tapGesture)
+            
+            // Do any additional setup after loading the view.
+            
+        }
         
         
-        photo.isUserInteractionEnabled = true
-        
-        photo.addGestureRecognizer(tapGesture)
-        
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         handlePost()
+    }
+    override func tagIsBeingAdded(name: String?) {
+        print("TAG ADDED")
+    }
+    override func tagIsBeingRemoved(name: String?) {
+        print("TAG REMOVED")
     }
     func textViewDidBeginEditing(_ textView: UITextView) {
         
@@ -158,8 +205,14 @@ class CameraViewController: UIViewController , UITextViewDelegate{
         //set current user id
         let userId = Auth.auth().currentUser!.uid
         
+        var skillsMap = [String: Int]()
+        for skill in addedTagCollection.tags{
+            skillsMap[skill] = 1
+        }
+        
+        
         //set the value of the new post reference
-        newPostRef.setValue(["photoUrl": photoUrl, "caption": captionTextView.text!, "postId": newPostId, "senderId":userId]) { (error, ref) in
+        newPostRef.setValue(["photoUrl": photoUrl, "caption": captionTextView.text!, "postId": newPostId, "senderId":userId, "skillsRequired": skillsMap]) { (error, ref) in
             if error != nil {
                 ProgressHUD.showError(error!.localizedDescription)
                 return
