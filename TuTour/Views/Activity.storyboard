@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,7 +15,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="MeetingRequestsVC" title="Activity" useStoryboardIdentifierAsRestorationIdentifier="YES" id="we9-M0-mCc" customClass="MeetingRequestsTableViewController" customModule="TuTour" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="TJy-Tv-k2g">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="774"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
@@ -55,10 +55,10 @@
             </objects>
             <point key="canvasLocation" x="9465" y="-1763"/>
         </scene>
-        <!--MeetingRequestVC-->
+        <!--Meetig VC-->
         <scene sceneID="b4L-Aj-WeH">
             <objects>
-                <viewController storyboardIdentifier="MeetingRequestVC" title="MeetingRequestVC" id="ejP-EV-ucu" customClass="MeetingRequestViewController" customModule="TuTour" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MeetingRequestVC" title="Meeting Request" id="ejP-EV-ucu" userLabel="Meetig VC" customClass="MeetingRequestViewController" customModule="TuTour" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vxz-tu-uTY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -249,15 +249,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fnS-4K-bkS">
-                                <rect key="frame" x="0.0" y="-141" width="375" height="774"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fnS-4K-bkS">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <connections>
                                     <segue destination="we9-M0-mCc" kind="embed" id="7Dg-ch-bWM"/>
                                 </connections>
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fnS-4K-bkS" firstAttribute="leading" secondItem="pF5-tT-ezu" secondAttribute="leading" id="Nw0-j8-j3y"/>
+                            <constraint firstItem="fnS-4K-bkS" firstAttribute="bottom" secondItem="pF5-tT-ezu" secondAttribute="bottom" id="bhJ-3M-Qe3"/>
+                            <constraint firstItem="fnS-4K-bkS" firstAttribute="trailing" secondItem="pF5-tT-ezu" secondAttribute="trailing" id="oOU-mL-rdr"/>
+                            <constraint firstItem="fnS-4K-bkS" firstAttribute="top" secondItem="pF5-tT-ezu" secondAttribute="top" id="yzq-eF-h9O"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="pF5-tT-ezu"/>
                     </view>
                     <navigationItem key="navigationItem" id="YNK-yz-C2z">
@@ -278,7 +283,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z6R-se-mc3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8550.7246376811599" y="-1552.9017857142856"/>
+            <point key="canvasLocation" x="8549.6000000000004" y="-1553.0734632683659"/>
         </scene>
         <!--Activity-->
         <scene sceneID="sFq-9W-T2v">

@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import ProgressHUD
 class PostCell: UITableViewCell {
     
     var delegate = HomeViewController()
@@ -21,10 +22,14 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var likesButton: UIButton!
     @IBOutlet weak var commentButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var skillsRequiredTextView: UITextView!
+    
     
     var postId = String()
     var post: Post?
     func configure(_ post: Post) {
+        
+        self.selectionStyle = .none
         self.post = post
         postId = post.postId!
         setOpaqueBackground()
@@ -38,10 +43,26 @@ class PostCell: UITableViewCell {
         }
         
         captionLabel.text = post.caption
-        postImage.downloadImageFromUrl(post.photoUrl!)
-        profileImage.downloadImageFromUrl(post.profileImageUrl!)
+        postImage.downloadImageFromString(post.photoUrl!)
+        profileImage.downloadImageFromString(post.profileImageUrl!)
         //timeAgoLabel.text = post.timestamp
         universalIcon.isHidden = false
+        
+        
+        
+        //set up required stats label
+        skillsRequiredTextView.layer.cornerRadius = 16
+        if post.skillsRequired.count > 0 {
+            skillsRequiredTextView.text = ""
+            
+            for skill in post.skillsRequired{
+                skillsRequiredTextView.text = skillsRequiredTextView.text! + "\u{2022}\(skill)" + "\n"
+            }
+        } else {
+            skillsRequiredTextView.text = "None"
+        }
+        
+        
         
         
         ///////////////////////////////////////////////
@@ -69,10 +90,10 @@ class PostCell: UITableViewCell {
         
         
     }
-
+    
     var likesButtonActive = Bool()//didset
     
-
+    
     var likesCount = Int(){
         didSet{
             setUpStatsLabel()
@@ -115,29 +136,43 @@ class PostCell: UITableViewCell {
     }
     
     
+    
     //Mark: - FIX
     @IBAction func likePressed(_ sender: UIButton) {
-
+        
         let postLikesRef = Database.database().reference().child("post-likes")
         let thisPostLikes = postLikesRef.child(postId)
-
+        
         if likesButtonActive == true{
-
+            
             let newLikeRef = thisPostLikes.child((Auth.auth().currentUser?.uid)!)
             newLikeRef.setValue(1)
-
-
+            
+            
         } else {
             //remove like
             thisPostLikes.child((Auth.auth().currentUser?.uid)!).removeValue()
-
+            
+        }
+    }
+    
+    
+    @IBAction func requestPressed(_ sender: Any) {
+        if (post!.senderId!) != (Auth.auth().currentUser?.uid)!{
+            
+            delegate.requestPressed(post: post!)
+            
+        } else {
+            
+            ProgressHUD.showError("Can't meet with yourself")
+        
         }
     }
 }
 
 extension UIImageView {
     
-    func downloadImageFromUrl(_ url: String){
+    func downloadImageFromString(_ url: String){
         
         DispatchQueue.global(qos: .userInteractive).async {
             
@@ -163,7 +198,7 @@ private extension PostCell {
         backgroundColor = PostCell.defaultBackgroundColor
         
         self.profileImage.alpha = 1.0
-//        self.profileImage.backgroundColor! = PostCell.defaultBackgroundColor
-
+        //        self.profileImage.backgroundColor! = PostCell.defaultBackgroundColor
+        
     }
 }

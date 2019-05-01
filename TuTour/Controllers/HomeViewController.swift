@@ -10,8 +10,8 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 import ChameleonFramework
-
-class HomeViewController: UITableViewController {
+import UserNotifications
+class HomeViewController: UITableViewController, UNUserNotificationCenterDelegate{
     
     @IBOutlet weak var logOutButton: UIBarButtonItem!
     var renderredCells = [PostCell]()
@@ -43,13 +43,34 @@ class HomeViewController: UITableViewController {
                 }
             }
         }
+        UNUserNotificationCenter.current().delegate = self
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { [weak self] (didAllow, error) in
+            
+            guard didAllow else { return }
+            self?.getNotificationSettings()
+            
+        }
+        
+    }
+    
+    func getNotificationSettings() {
+        UNUserNotificationCenter.current().getNotificationSettings { settings in
+            print("Notification settings: \(settings)")
+            guard settings.authorizationStatus == .authorized else { return }
+            DispatchQueue.main.async {
+                UIApplication.shared.registerForRemoteNotifications()
+            }
+        }
+    }
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert, .sound])
     }
     var posts = [Post]()
-   
+    
     
     
     func loadPosts(_ completionBlock: @escaping (_ success: Bool, _ error: NSError?) -> ()){
-        posts = []
+        
         print("IN LOAD POSTS")
         let ref = Database.database().reference()
         
@@ -57,22 +78,25 @@ class HomeViewController: UITableViewController {
         
         //access posts
         ref.child("posts").queryOrderedByKey().observe(.value, with: { (snap) in//get all posts
-            
+            self.posts = []
+            print("FIRST")
             if let postsSnap = snap.value as? [String: [String: AnyObject]]{
                 
                 for(_, post) in postsSnap {
                     
                     let postId = post["postId"] as! String
                     ref.child("post-likes").child(postId).observeSingleEvent(of: .value, with: { (snapshot) in
-                        
+                        print("SECOND")
                         
                         let numberOfLikes = Int(snapshot.childrenCount)
                         
                         ref.child("post-comments").child(postId).observeSingleEvent(of: .value, with: { (snapshot) in
-                            
+                            print("THIRD")
                             let numberOfComments = Int(snapshot.childrenCount)
                             
                             ref.child("users").child(post["senderId"] as! String).observeSingleEvent(of: .value, with: { (snapshot) in
+                                
+                                print("FOURTH")
                                 let dictionary = snapshot.value as! [String: AnyObject]
                                 let username = (dictionary["username"] as! String)
                                 
@@ -85,7 +109,7 @@ class HomeViewController: UITableViewController {
                                     self.tableView.reloadData()
                                 }
                             })
-
+                            
                             
                             
                             
@@ -95,7 +119,6 @@ class HomeViewController: UITableViewController {
                 }
                 
                 completionBlock(true, nil)
-                print("COMPLETE")
             } else {
                 completionBlock(false, nil)
             }
@@ -160,6 +183,19 @@ class HomeViewController: UITableViewController {
         navigationController?.pushViewController(commentVC, animated: true)
     }
     
+    func requestPressed(post: Post){
+        print("request pressed")
+        //start meeting request
+        
+        let meeting = MeetingRequest(tutor: (Auth.auth().currentUser?.uid)!, tutoree: post.senderId!, subject: "Response To Post")
+        let storyboard: UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
+        
+        let timeOptionsVC = storyboard.instantiateViewController(withIdentifier: "TimeOptions") as! DatePickerViewController
+        
+        timeOptionsVC.meeting = meeting
+        
+        navigationController?.pushViewController(timeOptionsVC, animated: true)
+    }
 }
 
 
@@ -173,7 +209,7 @@ class Post{
     var numberOfComments: Int?
     var senderUsername: String?
     var profileImageUrl: String?
-   
+    var skillsRequired = [String]()
     init(dictionary: [String: AnyObject], numComments: Int, numLikes: Int, username: String, profileImageUrl: String){
         
         
@@ -184,45 +220,20 @@ class Post{
         
         //get statistics
         numberOfLikes = numLikes
-        print("LIKES \(numberOfLikes)")
         numberOfComments = numComments
-        print("Comments \(numberOfComments)")
         senderUsername = username
         self.profileImageUrl = profileImageUrl
         
+        if let skillsMap = dictionary["skillsRequired"] as? [String: AnyObject] {
+            
+            for (skill, _) in skillsMap{
+                print(skill)
+                skillsRequired.append(skill)
+            }
+        } else {
+            print("No skills required for post \(postId!)")
+        }
         //get sender info
     }
     
 }
-//                    if var post = PostViewModelController.parse(post) {
-//
-//                        //dont call function, just create new queries...
-//                        ref.child("users").child(post.senderId!).observeSingleEvent(of: .value, with: { (snapshot) in
-//                            let user = User(json: snapshot.value as! [String: AnyObject])
-//                            post.sender = user
-//
-//                        })
-//
-//                        ref.child("post-likes").child(post.postId!).observe(.value, with: { (snapshot) in
-//
-//                            post.numberOfLikes = Int(snapshot.childrenCount)
-//                        })
-//                        ref.child("post-comments").child(post.postId!).observe(.value, with: { (snapshot) in
-//
-//                            post.numberOfComments = Int(snapshot.childrenCount)
-//                        })
-//
-//                        posts.append(post)
-//
-//                    } else {
-//                        completionBlock(false, nil)
-//                    }
-//                }
-//                DispatchQueue.main.async {
-//                    print("Post size \(posts.count)")
-//                    self.viewModels = PostViewModelController.initViewModels(posts)
-//                    completionBlock(true, nil)
-//                }
-//            } else {
-//                completionBlock(false, nil)
-

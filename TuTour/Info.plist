@@ -26,6 +26,8 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Start</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>This application uses your Calendars to add Scheduled Meetings</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

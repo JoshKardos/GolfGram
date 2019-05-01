@@ -14,4 +14,5 @@ pod 'Firebase/Storage'
 pod 'ProgressHUD'
 pod 'TextFieldEffects'
 pod 'PagingKit'
+pod 'TaggerKit'
 end
