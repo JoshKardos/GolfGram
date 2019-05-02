@@ -79,6 +79,7 @@ class ProfileViewController: UIViewController {
         
     }
     
+
     func disableComponents(){
         dmButton.isEnabled = false
         dmButton.image = nil
@@ -147,6 +148,8 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         super.loadView()
@@ -158,5 +161,11 @@ class ProfileViewController: UIViewController {
         ProgressHUD.show("Loading...")
         dmButton?.tintColor = AppDelegate.theme_Color
         
+        
+        profileImage.layer.borderWidth = 1
+        profileImage.layer.masksToBounds = false
+        profileImage.layer.borderColor = UIColor.white.cgColor
+        profileImage.layer.cornerRadius = profileImage.frame.height / 2
+        profileImage.clipsToBounds = true
     }
 }
