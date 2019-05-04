@@ -117,6 +117,13 @@ class ProfileViewController: UIViewController {
             let yearString = (snapshot.value as! NSDictionary)["year"] as! String
             self.yearLabel.text = yearString
             
+            let skillsMap = (snapshot.value as! NSDictionary)["skills"] as? [String: AnyObject]
+            
+            print(skillsMap)
+            
+            let availDays = (snapshot.value as! NSDictionary)["availableDays"] as? [String: AnyObject]
+            print(availDays)
+            
             //let descString = (snapshot.value as! NSDictionary)["description"] as! String
             //self.descriptionLabel.text = descString
             
