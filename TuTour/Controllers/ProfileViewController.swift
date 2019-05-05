@@ -188,6 +188,10 @@ class ProfileViewController: UIViewController {
         label.backgroundColor = UIColor(red: 211.0/255, green: 211.0/255, blue: 211.0/255, alpha: 1.0)
     }
     
+    func roundButtons(button: UIButton) {
+        button.layer.cornerRadius = 5
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         if let otherUser_ID = self.uid {//other users pprofile
             
@@ -239,6 +243,9 @@ class ProfileViewController: UIViewController {
         setDayLabelStyle(label: satLabel)
         setDayLabelStyle(label: sunLabel)
         
+        roundButtons(button: registerAsTutorButton)
+        roundButtons(button: updateButton)
+        roundButtons(button: availAndSkillsButton)
         
         self.scrollView.addSubview(stackView)
         self.stackView.translatesAutoresizingMaskIntoConstraints = false
