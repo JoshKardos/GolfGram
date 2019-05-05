@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sign_in_bg" translatesAutoresizingMaskIntoConstraints="NO" id="7aw-12-j29">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667.00000000000023"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="HKD-wd-PQw">
                                 <rect key="frame" x="20" y="261.5" width="335" height="144"/>

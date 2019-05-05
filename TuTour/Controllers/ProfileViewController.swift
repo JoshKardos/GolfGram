@@ -179,6 +179,11 @@ class ProfileViewController: UIViewController {
         
     }
     
+    func setDayLabelStyle(label: UILabel) {
+        label.layer.borderColor = UIColor.black.cgColor
+        label.layer.borderWidth = 0.5
+    }
+    
     func setUILabelColor(label: UILabel) {
         label.backgroundColor = UIColor(red: 211.0/255, green: 211.0/255, blue: 211.0/255, alpha: 1.0)
     }
@@ -226,20 +231,13 @@ class ProfileViewController: UIViewController {
         profileImage.layer.cornerRadius = profileImage.frame.size.height / 2
         profileImage.clipsToBounds = true
         
-        monLabel.layer.borderColor = UIColor.black.cgColor
-        monLabel.layer.borderWidth = 0.5
-        tueLabel.layer.borderColor = UIColor.black.cgColor
-        tueLabel.layer.borderWidth = 0.5
-        wedLabel.layer.borderColor = UIColor.black.cgColor
-        wedLabel.layer.borderWidth = 0.5
-        thuLabel.layer.borderColor = UIColor.black.cgColor
-        thuLabel.layer.borderWidth = 0.5
-        friLabel.layer.borderColor = UIColor.black.cgColor
-        friLabel.layer.borderWidth = 0.5
-        satLabel.layer.borderColor = UIColor.black.cgColor
-        satLabel.layer.borderWidth = 0.5
-        sunLabel.layer.borderColor = UIColor.black.cgColor
-        sunLabel.layer.borderWidth = 0.5
+        setDayLabelStyle(label: monLabel)
+        setDayLabelStyle(label: tueLabel)
+        setDayLabelStyle(label: wedLabel)
+        setDayLabelStyle(label: thuLabel)
+        setDayLabelStyle(label: friLabel)
+        setDayLabelStyle(label: satLabel)
+        setDayLabelStyle(label: sunLabel)
         
         
         self.scrollView.addSubview(stackView)
