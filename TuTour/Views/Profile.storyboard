@@ -84,14 +84,13 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstItem="y0F-AU-i0E" firstAttribute="leading" secondItem="RNr-lM-HBP" secondAttribute="leading" constant="120" id="9zd-Md-eya"/>
                                 <constraint firstItem="y0F-AU-i0E" firstAttribute="top" secondItem="RNr-lM-HBP" secondAttribute="top" constant="51" id="A1J-ss-QLR"/>
                                 <constraint firstAttribute="height" constant="311" id="BL8-ar-VJW"/>
                                 <constraint firstAttribute="trailing" secondItem="i2d-JG-ggp" secondAttribute="trailing" constant="65" id="EAD-HW-GUU"/>
-                                <constraint firstAttribute="trailing" secondItem="y0F-AU-i0E" secondAttribute="trailing" constant="120" id="Pbt-Ap-5Av"/>
                                 <constraint firstAttribute="bottom" secondItem="i2d-JG-ggp" secondAttribute="bottom" constant="20" id="TbX-g1-zLI"/>
                                 <constraint firstItem="i2d-JG-ggp" firstAttribute="leading" secondItem="RNr-lM-HBP" secondAttribute="leading" constant="65" id="Ugy-5b-JsE"/>
                                 <constraint firstItem="i2d-JG-ggp" firstAttribute="top" secondItem="y0F-AU-i0E" secondAttribute="bottom" constant="30" id="ZXU-IM-tDy"/>
+                                <constraint firstItem="y0F-AU-i0E" firstAttribute="centerX" secondItem="RNr-lM-HBP" secondAttribute="centerX" id="zCK-Dm-7C5"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UuM-Oa-5Ha" userLabel="InfoView">
