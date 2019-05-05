@@ -9,6 +9,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 import ProgressHUD
+import TaggerKit
 class ProfileViewController: UIViewController {
     
     @IBOutlet weak var emailTextbox: UITextField!
@@ -25,8 +26,16 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var dmButton: UIBarButtonItem!
     @IBOutlet weak var registerAsTutorButton: UIButton!
     @IBOutlet weak var availAndSkillsButton: UIButton!
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var monLabel: UILabel!
+    @IBOutlet weak var tueLabel: UILabel!
+    @IBOutlet weak var wedLabel: UILabel!
+    @IBOutlet weak var thuLabel: UILabel!
+    @IBOutlet weak var friLabel: UILabel!
+    @IBOutlet weak var satLabel: UILabel!
+    @IBOutlet weak var sunLabel: UILabel!
     
-    
+    var tagCollection = TKCollectionView()
     var isOtherUser = false//must change to false if vc is pushed programatically!!
     
     var uid: String?
@@ -119,10 +128,40 @@ class ProfileViewController: UIViewController {
             
             let skillsMap = (snapshot.value as! NSDictionary)["skills"] as? [String: AnyObject]
             
-            print(skillsMap)
+            for (skill, _) in skillsMap! {
+                self.tagCollection.tags.append(skill)
+            }
+            print("HI2")
+//            print(self.tagCollection.tags)
             
+            self.add(self.tagCollection, toView: self.containerView)
             let availDays = (snapshot.value as! NSDictionary)["availableDays"] as? [String: AnyObject]
-            print(availDays)
+            
+            for (days, _) in availDays! {
+                print(days)
+                
+                if days == "Monday" {
+                    self.monLabel.backgroundColor = UIColor.lightGray
+                }
+                else if days == "Tuesday" {
+                    self.tueLabel.backgroundColor = UIColor.lightGray
+                }
+                else if days == "Wednesday" {
+                    self.wedLabel.backgroundColor = UIColor.lightGray
+                }
+                else if days == "Thursday" {
+                    self.thuLabel.backgroundColor = UIColor.lightGray
+                }
+                else if days == "Friday" {
+                    self.friLabel.backgroundColor = UIColor.lightGray
+                }
+                else if days == "Saturday" {
+                    self.satLabel.backgroundColor = UIColor.lightGray
+                }
+                else if days == "Sunday" {
+                    self.sunLabel.backgroundColor = UIColor.lightGray
+                }
+            }
             
             //let descString = (snapshot.value as! NSDictionary)["description"] as! String
             //self.descriptionLabel.text = descString
@@ -156,10 +195,10 @@ class ProfileViewController: UIViewController {
     }
     
     
-    
     override func viewDidLoad() {
-        super.viewDidLoad()
         super.loadView()
+        super.viewDidLoad()
+        
         
         availAndSkillsButton.backgroundColor = AppDelegate.theme_Color
         updateButton.backgroundColor = AppDelegate.theme_Color
@@ -174,5 +213,6 @@ class ProfileViewController: UIViewController {
         profileImage.layer.borderColor = UIColor.white.cgColor
         profileImage.layer.cornerRadius = profileImage.frame.height / 2
         profileImage.clipsToBounds = true
+        
     }
 }
