@@ -39,12 +39,14 @@ class SelectAvailableDaysViewController: UIViewController{
         addedTagsCollection.tags = []
 //        tagsTextField.tintColor = AppDelegate.theme_Color
         Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).child("skills").observe(.value) { (snapshot) in
-            let dictionary = snapshot.value as! [String: AnyObject]
-            
-            for (skill, _) in dictionary{
-                print(skill)
-                self.addedTagsCollection.tags.append(skill)
+            if let dictionary = snapshot.value as? [String: AnyObject] {
+                for (skill, _) in dictionary{
+                    print(skill)
+                    self.addedTagsCollection.tags.append(skill)
+                }
             }
+            
+
             
             
             

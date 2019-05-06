@@ -45,13 +45,13 @@ class CameraViewController: UIViewController , UITextViewDelegate{
         
         Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).child("skills").observe(.value) { (snapshot) in
             
-            let dictionary = snapshot.value as! [String: AnyObject]
-            for (skill, _) in dictionary{
-                self.allTagCollection.tags.append(skill)
+            if let dictionary = snapshot.value as? [String: AnyObject] {
+                for (skill, _) in dictionary{
+                    self.allTagCollection.tags.append(skill)
+                }
             }
+
             
-            
-            print(dictionary)
             
             self.addedTagCollection.tags = []
             

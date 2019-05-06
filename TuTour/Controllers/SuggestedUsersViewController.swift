@@ -39,7 +39,7 @@ class SuggestedUsersViewController: UIViewController, UITableViewDataSource{
         
         title.textAlignment = .center
         title.sizeToFit()
-
+//        title.backgroundColor = UIColor.redColor()
         title.center = blurredView.center
         
         title.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
