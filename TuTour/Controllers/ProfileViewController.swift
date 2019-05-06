@@ -9,6 +9,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 import ProgressHUD
+import TaggerKit
 class ProfileViewController: UIViewController {
     
     @IBOutlet weak var emailTextbox: UITextField!
@@ -25,8 +26,18 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var dmButton: UIBarButtonItem!
     @IBOutlet weak var registerAsTutorButton: UIButton!
     @IBOutlet weak var availAndSkillsButton: UIButton!
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var monLabel: UILabel!
+    @IBOutlet weak var tueLabel: UILabel!
+    @IBOutlet weak var wedLabel: UILabel!
+    @IBOutlet weak var thuLabel: UILabel!
+    @IBOutlet weak var friLabel: UILabel!
+    @IBOutlet weak var satLabel: UILabel!
+    @IBOutlet weak var sunLabel: UILabel!
+    @IBOutlet var stackView: UIStackView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
-    
+    var tagCollection = TKCollectionView()
     var isOtherUser = false//must change to false if vc is pushed programatically!!
     
     var uid: String?
@@ -117,12 +128,68 @@ class ProfileViewController: UIViewController {
             let yearString = (snapshot.value as! NSDictionary)["year"] as! String
             self.yearLabel.text = yearString
             
+            if let skillsMap = (snapshot.value as! NSDictionary)["skills"] as? [String: AnyObject] {
+                for (skill, _) in skillsMap {
+                    self.tagCollection.tags.append(skill)
+                }
+            } else {
+                self.tagCollection.tags.append("No Skills")
+            }
+            
+
+            print("HI2")
+//            print(self.tagCollection.tags)
+            
+            self.add(self.tagCollection, toView: self.containerView)
+            if let availDays = (snapshot.value as! NSDictionary)["availableDays"] as? [String: AnyObject] {
+                for (days, _) in availDays {
+                    print(days)
+                    
+                    if days == "Monday" {
+                        self.setUILabelColor(label: self.monLabel)
+                    }
+                    else if days == "Tuesday" {
+                        self.setUILabelColor(label: self.tueLabel)
+                    }
+                    else if days == "Wednesday" {
+                        self.setUILabelColor(label: self.wedLabel)
+                    }
+                    else if days == "Thursday" {
+                        self.setUILabelColor(label: self.thuLabel)
+                    }
+                    else if days == "Friday" {
+                        self.setUILabelColor(label: self.friLabel)
+                    }
+                    else if days == "Saturday" {
+                        self.setUILabelColor(label: self.satLabel)
+                    }
+                    else if days == "Sunday" {
+                        self.setUILabelColor(label: self.sunLabel)
+                    }
+                }
+            }
+            
+
+            
             //let descString = (snapshot.value as! NSDictionary)["description"] as! String
             //self.descriptionLabel.text = descString
             
             ProgressHUD.dismiss()
         })
         
+    }
+    
+    func setDayLabelStyle(label: UILabel) {
+        label.layer.borderColor = UIColor.black.cgColor
+        label.layer.borderWidth = 0.5
+    }
+    
+    func setUILabelColor(label: UILabel) {
+        label.backgroundColor = UIColor(red: 211.0/255, green: 211.0/255, blue: 211.0/255, alpha: 1.0)
+    }
+    
+    func roundButtons(button: UIButton) {
+        button.layer.cornerRadius = 5
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -149,10 +216,10 @@ class ProfileViewController: UIViewController {
     }
     
     
-    
     override func viewDidLoad() {
-        super.viewDidLoad()
         super.loadView()
+        super.viewDidLoad()
+        
         
         availAndSkillsButton.backgroundColor = AppDelegate.theme_Color
         updateButton.backgroundColor = AppDelegate.theme_Color
@@ -163,9 +230,32 @@ class ProfileViewController: UIViewController {
         
         
         profileImage.layer.borderWidth = 1
-        profileImage.layer.masksToBounds = false
+        profileImage.layer.masksToBounds = true
         profileImage.layer.borderColor = UIColor.white.cgColor
-        profileImage.layer.cornerRadius = profileImage.frame.height / 2
+        profileImage.layer.cornerRadius = profileImage.frame.size.height / 2
         profileImage.clipsToBounds = true
+        
+        setDayLabelStyle(label: monLabel)
+        setDayLabelStyle(label: tueLabel)
+        setDayLabelStyle(label: wedLabel)
+        setDayLabelStyle(label: thuLabel)
+        setDayLabelStyle(label: friLabel)
+        setDayLabelStyle(label: satLabel)
+        setDayLabelStyle(label: sunLabel)
+        
+        roundButtons(button: registerAsTutorButton)
+        roundButtons(button: updateButton)
+        roundButtons(button: availAndSkillsButton)
+        
+        self.scrollView.addSubview(stackView)
+        self.stackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.stackView.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor).isActive = true
+        self.stackView.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor).isActive = true
+        self.stackView.topAnchor.constraint(equalTo: self.scrollView.topAnchor).isActive = true
+        self.stackView.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor).isActive = true
+        
+        self.stackView.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
+        
     }
 }

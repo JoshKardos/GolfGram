@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0B45D9026E4F7B11C516484B /* Pods_TuTour.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FABFCB1540A14F77E90BE2EA /* Pods_TuTour.framework */; };
 		5BF43D7A220AB02C00B83085 /* ProfileSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF43D79220AB02C00B83085 /* ProfileSettingsController.swift */; };
 		9406F93F22151AA800FBFC35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9406F93E22151AA800FBFC35 /* Assets.xcassets */; };
+		B121FA3ECE01D835217E0F53 /* Pods_TuTour.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85ACB923AE449EA5A49E4C4A /* Pods_TuTour.framework */; };
 		B305646B218FFD5E0022EE7F /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = B305646A218FFD5E0022EE7F /* Message.swift */; };
 		B3082FFE2158961B004D0B1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3082FFD2158961B004D0B1A /* AppDelegate.swift */; };
 		B30830082158961C004D0B1A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B30830062158961C004D0B1A /* LaunchScreen.storyboard */; };
@@ -61,9 +61,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4923FC0A93FB08F55D26ACB2 /* Pods-TuTour.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TuTour.release.xcconfig"; path = "Target Support Files/Pods-TuTour/Pods-TuTour.release.xcconfig"; sourceTree = "<group>"; };
+		4B488484B1750DA64F0FC1F0 /* Pods-TuTour.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TuTour.debug.xcconfig"; path = "Target Support Files/Pods-TuTour/Pods-TuTour.debug.xcconfig"; sourceTree = "<group>"; };
 		5BF43D79220AB02C00B83085 /* ProfileSettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsController.swift; sourceTree = "<group>"; };
-		85561150EBBC681E8263A1F5 /* Pods-TuTour.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TuTour.release.xcconfig"; path = "Pods/Target Support Files/Pods-TuTour/Pods-TuTour.release.xcconfig"; sourceTree = "<group>"; };
-		902A4077071442423A48C8FA /* Pods-TuTour.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TuTour.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TuTour/Pods-TuTour.debug.xcconfig"; sourceTree = "<group>"; };
+		85ACB923AE449EA5A49E4C4A /* Pods_TuTour.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TuTour.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9406F93E22151AA800FBFC35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B305646A218FFD5E0022EE7F /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		B3082FFA2158961B004D0B1A /* TuTour.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TuTour.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,7 +117,6 @@
 		B3CE030921B2035900BABFD9 /* DirectMessageBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectMessageBubble.swift; sourceTree = "<group>"; };
 		B3CE617A21FFDF1A00AB4DF7 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		B3F1A3A6222C1056001C8DC3 /* CommentsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTableViewController.swift; sourceTree = "<group>"; };
-		FABFCB1540A14F77E90BE2EA /* Pods_TuTour.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TuTour.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,19 +124,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B45D9026E4F7B11C516484B /* Pods_TuTour.framework in Frameworks */,
+				B121FA3ECE01D835217E0F53 /* Pods_TuTour.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9F33963AA030F70C5B4A62E2 /* Frameworks */ = {
+		09B31ED2D257709AD6ABB3A3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				FABFCB1540A14F77E90BE2EA /* Pods_TuTour.framework */,
+				4B488484B1750DA64F0FC1F0 /* Pods-TuTour.debug.xcconfig */,
+				4923FC0A93FB08F55D26ACB2 /* Pods-TuTour.release.xcconfig */,
 			);
-			name = Frameworks;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		B3082FF12158961B004D0B1A = {
@@ -144,8 +145,8 @@
 			children = (
 				B3082FFC2158961B004D0B1A /* TuTour */,
 				B3082FFB2158961B004D0B1A /* Products */,
-				E21E1B553B1464165E8A7708 /* Pods */,
-				9F33963AA030F70C5B4A62E2 /* Frameworks */,
+				09B31ED2D257709AD6ABB3A3 /* Pods */,
+				E91F72198E9A6E29706832D5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -280,13 +281,12 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		E21E1B553B1464165E8A7708 /* Pods */ = {
+		E91F72198E9A6E29706832D5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				902A4077071442423A48C8FA /* Pods-TuTour.debug.xcconfig */,
-				85561150EBBC681E8263A1F5 /* Pods-TuTour.release.xcconfig */,
+				85ACB923AE449EA5A49E4C4A /* Pods_TuTour.framework */,
 			);
-			name = Pods;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,11 +296,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B308300C2158961C004D0B1A /* Build configuration list for PBXNativeTarget "TuTour" */;
 			buildPhases = (
-				C8F1766BCE519E9FBE46B21D /* [CP] Check Pods Manifest.lock */,
+				B86B9C42E707103C4861313A /* [CP] Check Pods Manifest.lock */,
 				B3082FF62158961B004D0B1A /* Sources */,
 				B3082FF72158961B004D0B1A /* Frameworks */,
 				B3082FF82158961B004D0B1A /* Resources */,
-				1D8A8D85BAD9302219C538D5 /* [CP] Embed Pods Frameworks */,
+				3D0B0B2D9D3696D007CC09D3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -370,7 +370,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1D8A8D85BAD9302219C538D5 /* [CP] Embed Pods Frameworks */ = {
+		3D0B0B2D9D3696D007CC09D3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -378,7 +378,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-TuTour/Pods-TuTour-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-TuTour/Pods-TuTour-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
@@ -405,10 +405,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TuTour/Pods-TuTour-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TuTour/Pods-TuTour-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C8F1766BCE519E9FBE46B21D /* [CP] Check Pods Manifest.lock */ = {
+		B86B9C42E707103C4861313A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -612,7 +612,7 @@
 		};
 		B308300D2158961C004D0B1A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 902A4077071442423A48C8FA /* Pods-TuTour.debug.xcconfig */;
+			baseConfigurationReference = 4B488484B1750DA64F0FC1F0 /* Pods-TuTour.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TuTour/TuTour.entitlements;
@@ -632,7 +632,7 @@
 		};
 		B308300E2158961C004D0B1A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 85561150EBBC681E8263A1F5 /* Pods-TuTour.release.xcconfig */;
+			baseConfigurationReference = 4923FC0A93FB08F55D26ACB2 /* Pods-TuTour.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TuTour/TuTour.entitlements;
