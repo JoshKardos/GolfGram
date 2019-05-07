@@ -1,6 +1,6 @@
 # TuTour
 
-TuTour is an iOS application for studetns to find peer tutoring quickly.
+TuTour is an iOS social networking application for students to find peer tutoring efficiently. Tools used for this project include Swift 4, Xcode, Firebase, and Cocoapods.
 
 Alan Boo
 Josh Kardos
@@ -22,6 +22,8 @@ pod 'Firebase/Database'
 pod 'Firebase/Storage'
 pod 'ProgressHUD'
 pod 'TextFieldEffects'
+pod 'PagingKit'
+pod 'TaggerKit'
 ```
 ```bash
 	pod install
