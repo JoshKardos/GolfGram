@@ -3,10 +3,10 @@
 TuTour is an iOS social networking application for students to find peer tutoring efficiently. Tools used for this project include Swift, Xcode, Firebase, and Cocoapods.
 
 ## Project Team
-Alan Boo
-Josh Kardos
-Philip Nguyen
-Gideon Ubaldo
+Alan Boo <br />
+Josh Kardos <br />
+Philip Nguyen <br />
+Gideon Ubaldo <br />
 
 ## Versions
 Swift: 4 <br />
