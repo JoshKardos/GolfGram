@@ -431,7 +431,7 @@
                                 <rect key="frame" x="16" y="120" width="343" height="73"/>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sbJ-XF-9NS">
-                                <rect key="frame" x="16" y="220" width="343" height="90"/>
+                                <rect key="frame" x="16" y="219.5" width="343" height="90.5"/>
                             </containerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Added:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IWV-ZA-e7K">
                                 <rect key="frame" x="16" y="193" width="70" height="26.5"/>
