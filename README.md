@@ -1,19 +1,26 @@
 # TuTour
 
-TuTour is an iOS application for studetns to find peer tutoring quickly.
+TuTour is an iOS social networking application for students to find peer tutoring efficiently. Tools used for this project include Swift, Xcode, Firebase, and Cocoapods.
 
-Alan Boo
-Josh Kardos
-Philip Nguyen
-Gideon Ubaldo
+## Project Team
+Alan Boo <br />
+Josh Kardos <br />
+Philip Nguyen <br />
+Gideon Ubaldo <br />
 
-## Cocoapods
-Navigate to project folder
+## Versions
+Swift: 4 <br />
+Xcode: 10.2 <br />
+Cocoapods: 1.5.3 <br />
+
+## Getting Started - Cocoapods
+
+Navigate to project folder in terminal
 ```bash
-	pod init
-	open -a Xcode Podfile
+pod init
+open -a Xcode Podfile
 ```
-Add these pods to the podfile
+Add the following lines to the podfile
 ```podfile
 pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
 pod 'Firebase/Core'
@@ -22,8 +29,10 @@ pod 'Firebase/Database'
 pod 'Firebase/Storage'
 pod 'ProgressHUD'
 pod 'TextFieldEffects'
+pod 'PagingKit'
+pod 'TaggerKit'
 ```
 ```bash
-	pod install
+pod install
 ```
 
