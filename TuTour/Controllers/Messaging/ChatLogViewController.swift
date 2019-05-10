@@ -15,7 +15,7 @@ class ChatLogViewController: UIViewController, UICollectionViewDataSource, UICol
 	var messages = [Message]()
 	var collectionView: UICollectionView?
     let toolbar = UIToolbar()
-
+let containerView = UIView() // holds text field and send button
 	var otherUser: User?{
 		didSet {
 			navigationItem.title = otherUser?.username
@@ -168,7 +168,7 @@ class ChatLogViewController: UIViewController, UICollectionViewDataSource, UICol
 	}
 	func setupBottomComponents(){
 	
-		let containerView = UIView()
+		
 		containerView.backgroundColor = UIColor.white
 		containerView.translatesAutoresizingMaskIntoConstraints = false
 		view.addSubview(containerView)
@@ -221,9 +221,7 @@ class ChatLogViewController: UIViewController, UICollectionViewDataSource, UICol
         toolbar.setItems([flexibleSpace, doneButton], animated: false)
         inputTextField.inputAccessoryView = toolbar
 	}
-	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-		view.endEditing(true)
-	}
+	
     @objc func doneClicked(){
         view.endEditing(true)
     }
@@ -233,8 +231,14 @@ class ChatLogViewController: UIViewController, UICollectionViewDataSource, UICol
             let keyboardHeight = keyboardRectangle.height
             print("KEYBOARD IS UP \(keyboardHeight)")
             
-            self.view.frame.origin.y -= keyboardHeight - (tabBarController?.tabBar.layer.bounds.height)!
+            if let tabbarHeight = tabBarController?.tabBar.bounds.height {
+                
+                
+                self.view.frame.origin.y =  self.view.frame.origin.y + tabbarHeight - keyboardHeight
+            }
             
+            
+
         }
         
     }
@@ -245,6 +249,10 @@ class ChatLogViewController: UIViewController, UICollectionViewDataSource, UICol
 	
 	
 	@objc func sendPressed(){
+        
+        if inputTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+            return
+        }
         
 		let uid = Auth.auth().currentUser!.uid
 		let ref = Database.database().reference().child("messages")
