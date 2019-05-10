@@ -17,11 +17,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PAw-tX-l8c">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </scrollView>
-
                         </subviews>
                         <color key="backgroundColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -33,6 +31,11 @@
                         <viewLayoutGuide key="safeArea" id="8Z5-Kf-OuU"/>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="Q8v-v5-6kW">
+                        <barButtonItem key="leftBarButtonItem" title="Log Out" id="ThW-DG-E7t">
+                            <connections>
+                                <action selector="logoutPressed:" destination="aMB-cz-M2r" id="4St-Lq-sRp"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="new-post" id="KHT-wW-UvG">
                             <connections>
                                 <segue destination="yxT-1b-9lf" kind="show" id="VDK-ZK-bc4"/>
@@ -46,6 +49,7 @@
                         <outlet property="emailLabel" destination="20d-7l-0Op" id="eIH-4f-4Ge"/>
                         <outlet property="friLabel" destination="hHN-ce-aFb" id="4Ug-8u-aGF"/>
                         <outlet property="fullnameLabel" destination="vL8-SD-Ddp" id="Aa6-ie-Iwc"/>
+                        <outlet property="logoutButton" destination="ThW-DG-E7t" id="eoF-Hq-cGG"/>
                         <outlet property="majorLabel" destination="nAr-v4-eNe" id="w8k-UB-z8Q"/>
                         <outlet property="monLabel" destination="Uy9-q7-O8e" id="AWg-DP-idy"/>
                         <outlet property="profileImage" destination="y0F-AU-i0E" id="20X-yQ-rD6"/>
@@ -559,7 +563,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qKk-l0-nfl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9172" y="-1558"/>
+            <point key="canvasLocation" x="8236" y="-1614"/>
         </scene>
         <!--Settings-->
         <scene sceneID="PiM-nS-KLj">

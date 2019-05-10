@@ -14,6 +14,8 @@ class ChatLogViewController: UIViewController, UICollectionViewDataSource, UICol
 	
 	var messages = [Message]()
 	var collectionView: UICollectionView?
+    let toolbar = UIToolbar()
+
 	var otherUser: User?{
 		didSet {
 			navigationItem.title = otherUser?.username
@@ -204,11 +206,42 @@ class ChatLogViewController: UIViewController, UICollectionViewDataSource, UICol
 		separatorLineView.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
 		separatorLineView.widthAnchor.constraint(equalTo: containerView.widthAnchor).isActive = true
 		separatorLineView.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        toolbar.sizeToFit()
+        
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        
+        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.cancel, target: self, action: #selector(self.doneClicked))
+        
+        toolbar.setItems([flexibleSpace, doneButton], animated: false)
+        inputTextField.inputAccessoryView = toolbar
 	}
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 		view.endEditing(true)
 	}
-	
+    @objc func doneClicked(){
+        view.endEditing(true)
+    }
+    @objc func keyboardWillShow(_ notification: Notification) {
+        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            let keyboardHeight = keyboardRectangle.height
+            print("KEYBOARD IS UP \(keyboardHeight)")
+            
+            self.view.frame.origin.y -= keyboardHeight - (tabBarController?.tabBar.layer.bounds.height)!
+            
+        }
+        
+    }
+    @objc func keyboardWillHide(_ notification: Notification) {
+        
+        self.view.frame.origin.y = 0
+    }
 	
 	
 	@objc func sendPressed(){
