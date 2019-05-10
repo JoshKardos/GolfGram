@@ -19,10 +19,37 @@ class SuggestedUsersViewController: UIViewController, UITableViewDataSource{
     var suggestedUsers = [String]()
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var blurredView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         lookForATutor.backgroundColor = AppDelegate.theme_Color
+        
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = blurredView.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+       blurredView.addSubview(blurEffectView)
+        
+        
+        
+        let title = UILabel()
+        title.text = "Suggested Users Coming Soon..."
+        title.numberOfLines = 0
+        
+        title.textAlignment = .center
+        title.sizeToFit()
+//        title.backgroundColor = UIColor.redColor()
+        title.center = blurredView.center
+        
+        title.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        title.layer.cornerRadius = 16
+        title.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+//        title.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        
+        blurredView.addSubview(title)
+        title.centerXAnchor.constraint(equalTo: blurEffectView.centerXAnchor).isActive = true
+        title.centerYAnchor.constraint(equalTo: blurEffectView.centerYAnchor).isActive = true
         
         tableView.dataSource = self
         self.compareByDays()

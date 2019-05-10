@@ -25,6 +25,7 @@ class CameraViewController: UIViewController , UITextViewDelegate{
     @IBOutlet weak var removeButton: UIBarButtonItem!
     
     @IBOutlet weak var textField: TKTextField!
+    let toolbar = UIToolbar()
     var selectedImage: UIImage?
     
     @IBOutlet weak var topTagsContainerView: UIView!
@@ -43,6 +44,11 @@ class CameraViewController: UIViewController , UITextViewDelegate{
         captionTextView.text = CameraViewController.captionPlaceholder
         captionTextView.textColor = UIColor.lightGray
         
+        
+        
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).child("skills").observe(.value) { (snapshot) in
             
             if let dictionary = snapshot.value as? [String: AnyObject] {
@@ -78,19 +84,49 @@ class CameraViewController: UIViewController , UITextViewDelegate{
             
             self.photo.addGestureRecognizer(tapGesture)
             
-            // Do any additional setup after loading the view.
+            
+            
+            
             
         }
+        
+        toolbar.sizeToFit()
+        
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        
+        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.cancel, target: self, action: #selector(self.doneClicked))
+        
+        toolbar.setItems([flexibleSpace, doneButton], animated: false)
+        captionTextView.inputAccessoryView = toolbar
         
         
     }
     
+    @objc func doneClicked(){
+        view.endEditing(true)
+    }
+    @objc func keyboardWillShow(_ notification: Notification) {
+        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            let keyboardHeight = keyboardRectangle.height
+            print("KEYBOARD IS UP \(keyboardHeight)")
+            
+            self.view.frame.origin.y -= keyboardHeight
+            
+        }
+        
+    }
+    @objc func keyboardWillHide(_ notification: Notification) {
+        
+        self.view.frame.origin.y = 0
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         handlePost()
     }
     override func tagIsBeingAdded(name: String?) {
         print("TAG ADDED")
+        ProgressHUD.showSuccess("Added")
     }
     override func tagIsBeingRemoved(name: String?) {
         print("TAG REMOVED")

@@ -12,6 +12,8 @@ import ProgressHUD
 import TaggerKit
 class ProfileViewController: UIViewController {
     
+    
+    @IBOutlet weak var logoutButton: UIBarButtonItem!
     @IBOutlet weak var emailTextbox: UITextField!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var fullnameLabel: UILabel!
@@ -257,5 +259,29 @@ class ProfileViewController: UIViewController {
         
         self.stackView.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
         
+        logoutButton.tintColor = AppDelegate.theme_Color
+        
+    }
+    
+    
+    @IBAction func logoutPressed(_ sender: Any) {
+        
+        logout()
+    }
+    func logout(){
+        do {
+            try Auth.auth().signOut()
+            
+            let storyboard = UIStoryboard(name: "Start", bundle: nil)
+            
+            let signInVC = storyboard.instantiateViewController(withIdentifier: "SignInViewController")
+            
+            present(signInVC, animated: true, completion: nil)
+            
+        } catch let logoutError{
+            
+            print(logoutError)
+            
+        }
     }
 }

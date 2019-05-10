@@ -9,45 +9,63 @@
 import Foundation
 import UIKit
 import Firebase
-class CommentsTableViewController: UIViewController, UITableViewDataSource{
+class CommentsTableViewController: UIViewController, UITableViewDataSource, UITextFieldDelegate{
     
-    var tabBarHeight = CGFloat()
     @IBOutlet weak var bottomContainerView: UIView!
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var sendButton: UIButton!
-    
+    let toolbar = UIToolbar()
     var comments = [Comment]()
     
     
     var post: Post!{
         didSet{
-            print(post.caption)
             loadComments()
         }
     }
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
         
         tableView.dataSource = self
         tableView.separatorStyle = .none
         
-        sendButton.setTitleColor(AppDelegate.theme_Color, for: .normal)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         
         self.tabBarController?.tabBar.isHidden = true
         setupBottomComponents()
-        for index in comments.indices{
-            print("Comment")
-            print(comments[index])
+        
+        
+    }
+    @objc func doneClicked(){
+        view.endEditing(true)
+    }
+    @objc func keyboardWillShow(_ notification: Notification) {
+        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            let keyboardHeight = keyboardRectangle.height
+            print("KEYBOARD IS UP \(keyboardHeight)")
+          
+            self.view.frame.origin.y -= keyboardHeight 
+            
         }
         
+    }
+    @objc func keyboardWillHide(_ notification: Notification) {
         
+        self.view.frame.origin.y = 0
     }
     override func viewWillDisappear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
     }
+    
+    
     
     func loadComments(){
         
@@ -69,12 +87,10 @@ class CommentsTableViewController: UIViewController, UITableViewDataSource{
                 let comment = Comment(dictionary: dictionary)
                 
                 self.comments.append(comment)
-                print("COmment count \(self.comments.count)")
-
-                    if let tableView = self.tableView{
-                        print("RELOAD")
-                        tableView.reloadData()
-                    }
+                
+                if let tableView = self.tableView{
+                    tableView.reloadData()
+                }
             })
             
         })
@@ -91,6 +107,18 @@ class CommentsTableViewController: UIViewController, UITableViewDataSource{
         textField.placeholder = "Enter comment..."
         textField.borderStyle = .none
         
+        sendButton.setTitleColor(AppDelegate.theme_Color, for: .normal)
+        
+        
+        
+        toolbar.sizeToFit()
+        
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        
+        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.cancel, target: self, action: #selector(self.doneClicked))
+        
+        toolbar.setItems([flexibleSpace, doneButton], animated: false)
+        textField.inputAccessoryView = toolbar
     }
     @IBAction func sendPressed(_ sender: Any) {
         
@@ -106,7 +134,6 @@ class CommentsTableViewController: UIViewController, UITableViewDataSource{
                 
                 let senderProfileImageUrl = snapshot.value as! String
                 
-                print(snapshot.value)
                 
                 let ref = Database.database().reference().child("comments").child(postToCommentsRef.key!)
                 
@@ -160,25 +187,12 @@ class CommentsTableViewController: UIViewController, UITableViewDataSource{
         
     }
     
-    //
-    //    override func viewDidLoad() {
-    //        print("Comments viewdidload")
-    //        super.viewDidLoad()
-    //        tableView.dataSource = self
-    //        tableView.delegate = self
-    //    }
-    //
-    //    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    //        return 5
-    //    }
-    //
-    //    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    //        let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as! CommentCell
-    //        cell.commentsLabel.text = "Hello"
-    //        cell.isUserInteractionEnabled = true
-    //        return cell
-    //    }
     
     
+    
+    
+}
+
+extension UITextField{
     
 }

@@ -13,7 +13,6 @@ import ChameleonFramework
 import UserNotifications
 class HomeViewController: UITableViewController, UNUserNotificationCenterDelegate{
     
-    @IBOutlet weak var logOutButton: UIBarButtonItem!
     var renderredCells = [PostCell]()
     
     override func viewDidLoad() {
@@ -21,7 +20,6 @@ class HomeViewController: UITableViewController, UNUserNotificationCenterDelegat
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-        logOutButton.tintColor = AppDelegate.theme_Color
         
         // Do any additional setup after loading the view.
         loadPosts() { [weak self] (success, error) in
@@ -128,29 +126,6 @@ class HomeViewController: UITableViewController, UNUserNotificationCenterDelegat
         
     }
     
-    func logout(){
-        do {
-            try Auth.auth().signOut()
-            
-            let storyboard = UIStoryboard(name: "Start", bundle: nil)
-            
-            let signInVC = storyboard.instantiateViewController(withIdentifier: "SignInViewController")
-            
-            present(signInVC, animated: true, completion: nil)
-            
-        } catch let logoutError{
-            
-            print(logoutError)
-            
-        }
-    }
-    
-    
-    @IBAction func logoutPressed(_ sender: Any) {
-        
-        logout()
-        
-    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
