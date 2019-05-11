@@ -577,7 +577,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wi0-fm-qPs">
-                                        <rect key="frame" x="16" y="224.5" width="343" height="324.5"/>
+                                        <rect key="frame" x="16" y="225.5" width="343" height="324.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NjA-DQ-adU">
                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="20.5"/>
@@ -686,7 +686,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hT7-OF-gYp">
-                                        <rect key="frame" x="16" y="595" width="343" height="35"/>
+                                        <rect key="frame" x="16" y="596" width="343" height="35"/>
                                         <color key="backgroundColor" red="0.27400000000000002" green="0.63900000000000001" blue="0.71099999999999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="cBU-Eu-API"/>
@@ -700,9 +700,11 @@
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="j2U-qf-nl0">
-                                        <rect key="frame" x="85" y="52" width="205" height="134"/>
+                                        <rect key="frame" x="120" y="52" width="135" height="135"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="134" id="CsC-fz-5kF"/>
+                                            <constraint firstAttribute="width" secondItem="j2U-qf-nl0" secondAttribute="height" multiplier="1:1" id="AtA-1d-VlH"/>
+                                            <constraint firstAttribute="height" constant="135" id="H9k-cj-b2z"/>
+                                            <constraint firstAttribute="width" constant="135" id="vS8-Vc-vbD"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
@@ -719,7 +721,6 @@
                                     <constraint firstItem="j2U-qf-nl0" firstAttribute="centerX" secondItem="QTh-eE-vL1" secondAttribute="centerX" id="mVO-Js-URH"/>
                                     <constraint firstItem="j2U-qf-nl0" firstAttribute="top" secondItem="QTh-eE-vL1" secondAttribute="top" constant="52" id="nM4-jV-2mk"/>
                                     <constraint firstItem="hT7-OF-gYp" firstAttribute="top" secondItem="wi0-fm-qPs" secondAttribute="bottom" constant="46" id="qiR-fQ-EGF"/>
-                                    <constraint firstItem="j2U-qf-nl0" firstAttribute="leading" secondItem="QTh-eE-vL1" secondAttribute="leading" constant="85" id="xmj-Gl-h9B"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
