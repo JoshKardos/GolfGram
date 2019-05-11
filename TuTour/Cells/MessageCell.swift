@@ -10,6 +10,9 @@ import Foundation
 import UIKit
 import Firebase
 
+//table view when you click the dm btton first,
+//cell for table that contains list of message threads with other users
+
 class MessageCell: UITableViewCell{
 	
 	var databaseRef = Database.database().reference()

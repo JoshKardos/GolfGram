@@ -498,7 +498,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ohq-s3-9s9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2904.8000000000002" y="-607.64617691154433"/>
+            <point key="canvasLocation" x="2975" y="-608"/>
         </scene>
         <!--Main-->
         <scene sceneID="JDx-y5-tiE">
@@ -515,6 +515,6 @@
         <image name="sign_up_bg" width="423.5" height="662"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bkN-sh-c6a"/>
+        <segue reference="TjC-J5-m29"/>
     </inferredMetricsTieBreakers>
 </document>

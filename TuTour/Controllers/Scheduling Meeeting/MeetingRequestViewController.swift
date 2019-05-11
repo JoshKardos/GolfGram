@@ -44,15 +44,18 @@ class MeetingRequestViewController: UIViewController{
     }
 	@IBAction func denyPressed(_ sender: UIButton) {
         
+        
+        
+        deleteMeetingRequest()
         //ask to edit or kindly decline meeting
-        let alert = UIAlertController(title: "Confirm", message: "Would you like to edit this request or deny and end talks?", preferredStyle: .alert)
-        
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Edit", comment: "Default action"), style: .default, handler: { _ in
-            self.editMeetingRequest()}))
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Deny", comment: "Default action"), style: .default, handler: { _ in
-            self.deleteMeetingRequest()}))
-        
-        self.present(alert, animated: true, completion: nil)
+//        let alert = UIAlertController(title: "Confirm", message: "Would you like to edit this request or deny and end talks?", preferredStyle: .alert)
+//
+//        alert.addAction(UIAlertAction(title: NSLocalizedString("Edit", comment: "Default action"), style: .default, handler: { _ in
+//            self.editMeetingRequest()}))
+//        alert.addAction(UIAlertAction(title: NSLocalizedString("Deny", comment: "Default action"), style: .default, handler: { _ in
+//            self.deleteMeetingRequest()}))
+//
+//        self.present(alert, animated: true, completion: nil)
         
         
 	}
@@ -75,7 +78,7 @@ class MeetingRequestViewController: UIViewController{
         }))
         alert.addAction(UIAlertAction(title: NSLocalizedString("No", comment: "Default action"), style: .default, handler: { _ in
             NSLog("The \"OK\" alert occured.")
-            self.navigationController?.popToRootViewController(animated: true)
+            alert.remove()
             
         }))
         
@@ -91,7 +94,6 @@ class MeetingRequestViewController: UIViewController{
         
         //Add to users' array of scheduled meetings
         //store id
-        print(meetingRequest!.meetingId)
         let alert = UIAlertController(title: "Confirm", message: "Would you like to confirm to plan this meeting?", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: "Default action"), style: .default, handler: { _ in

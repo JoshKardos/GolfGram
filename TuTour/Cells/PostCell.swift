@@ -112,7 +112,7 @@ class PostCell: UITableViewCell {
         }
     }
     func setUpStatsLabel(){
-        postStatsLabel.text = "\(likesCount) Likes     \(commentsCount) Comments     \(sharesCount) Shares"
+        postStatsLabel.text = "\(likesCount) Likes     \(commentsCount) Comments"
     }
     
     
