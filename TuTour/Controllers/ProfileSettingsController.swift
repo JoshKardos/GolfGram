@@ -35,9 +35,9 @@ class ProfileSettingsController: UIViewController, UITextFieldDelegate, UIPicker
     var currentTextField = UITextField()
     var pickerView = UIPickerView()
     
-    let schoolArray = ["SJSU", "UCSD", "UCLA"]
-    let majorArray = ["Engineering", "English", "Media"]
-    let yearArray = ["19", "20", "21", "22"]
+    let schoolArray = ["SJSU", "UCSD", "UCLA", "DA", "SFSU", "SCU", "CSUEB", "Cal"]
+    let majorArray = ["Engineering", "English", "Media", "Software Engineering", "Computer Engineering", "Business", "Accounting", "Electrical Engineering", "Mechanical Engineering", "Music", "Art", "Chemistry", "Biology", "Dance", "Economics", "Film", "Mathematics", "Meterology", "Nursing", "Political Science", "Sociology"]
+    let yearArray = ["19", "20", "21", "22", "23", "24"]
     
     // pressed confirm button to update all data
     @IBAction func confirmAction(_ sender: Any) {
@@ -67,8 +67,8 @@ class ProfileSettingsController: UIViewController, UITextFieldDelegate, UIPicker
                         guard let profileImageUrl = url?.absoluteString else {return}
                         
                         //self.photoURLString = profileImageUrl
-                        let updatedValueList = ["fullname": self.nameField.text!, "major": self.majorField.text!, "school": self.schoolField.text!, "year": self.yearField.text!, "profileImageUrl": profileImageUrl, "description": self.descriptionField.text!]
-                        
+                        let updatedValueList = ["fullname": self.nameField.text!, "major": self.majorField.text!, "school": self.schoolField.text!, "year": self.yearField.text!, "profileImageUrl": profileImageUrl, ]
+                        // "description": self.descriptionField.text!
                         usersRef.child(self.userID).updateChildValues(updatedValueList)
                         
                     }
@@ -76,7 +76,8 @@ class ProfileSettingsController: UIViewController, UITextFieldDelegate, UIPicker
             }
             
         } else {
-            let updatedValueList = ["fullname": self.nameField.text!, "major": self.majorField.text!, "school": self.schoolField.text!, "year": self.yearField.text!, "profileImageUrl": self.photoURLString!, "description": self.descriptionField.text!]
+            let updatedValueList = ["fullname": self.nameField.text!, "major": self.majorField.text!, "school": self.schoolField.text!, "year": self.yearField.text!, "profileImageUrl": self.photoURLString!]
+            //"description": self.descriptionField.text!
             usersRef.child(self.userID).updateChildValues(updatedValueList)
         }
         
@@ -181,7 +182,7 @@ class ProfileSettingsController: UIViewController, UITextFieldDelegate, UIPicker
         schoolField.tintColor = AppDelegate.theme_Color
         majorField.tintColor = AppDelegate.theme_Color
         yearField.tintColor = AppDelegate.theme_Color
-        descriptionField.tintColor = AppDelegate.theme_Color
+        //descriptionField.tintColor = AppDelegate.theme_Color
         
         profilePhoto.layer.borderWidth = 1
         profilePhoto.layer.masksToBounds = true
