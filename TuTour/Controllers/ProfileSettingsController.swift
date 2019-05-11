@@ -197,9 +197,7 @@ class ProfileSettingsController: UIViewController, UITextFieldDelegate, UIPicker
         present(pickerController, animated: true, completion: nil)
         
     }
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
-    }
+    
 }
 
 extension ProfileSettingsController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
@@ -217,5 +215,7 @@ extension ProfileSettingsController: UIImagePickerControllerDelegate, UINavigati
         dismiss(animated: true, completion: nil)
     }
     
-    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
 }

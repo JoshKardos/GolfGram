@@ -265,10 +265,23 @@ class ProfileViewController: UIViewController {
     
     
     @IBAction func logoutPressed(_ sender: Any) {
+        let alert = UIAlertController(title: "Confirm", message: "Are you sure you want to logout?", preferredStyle: .alert)
         
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: "Default action"), style: .default, handler: { _ in
+            self.logout()}))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("No", comment: "Default action"), style: .default, handler: { _ in
+            alert.remove()}))
+        
+        self.present(alert, animated: true, completion: nil)
         logout()
     }
     func logout(){
+        
+        
+        
+        
+        
+        
         do {
             try Auth.auth().signOut()
             

@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import FirebaseDatabase
 import FirebaseAuth
+import ProgressHUD
 class ChatLogViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout ,UICollectionViewDelegate , UITextFieldDelegate {
 	
 	var messages = [Message]()
@@ -216,9 +217,13 @@ let containerView = UIView() // holds text field and send button
         
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
         
-        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.cancel, target: self, action: #selector(self.doneClicked))
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.cancel, target: self, action: #selector(self.doneClicked))
         
-        toolbar.setItems([flexibleSpace, doneButton], animated: false)
+//        cancelButton.titleLabel?.font =  UIFont(name: "Cancel", size: 12)
+        let font = UIFont.systemFont(ofSize: 15);
+        cancelButton.setTitleTextAttributes([NSAttributedString.Key.font: font, NSAttributedString.Key.foregroundColor: UIColor.red], for:UIControl.State.normal)
+
+        toolbar.setItems([flexibleSpace, cancelButton], animated: false)
         inputTextField.inputAccessoryView = toolbar
 	}
 	
@@ -251,6 +256,8 @@ let containerView = UIView() // holds text field and send button
 	@objc func sendPressed(){
         
         if inputTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+            view.endEditing(true)
+            ProgressHUD.showError("Did Not Send")
             return
         }
         
@@ -278,6 +285,7 @@ let containerView = UIView() // holds text field and send button
 			let recipientUserMessagesRef = Database.database().reference().child("user-messages").child(toId!)
 			recipientUserMessagesRef.updateChildValues([messageId!: 1])
 		})
+        view.endEditing(true)
 	}
 	
 	

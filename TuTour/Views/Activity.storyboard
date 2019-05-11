@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Activity-->
+        <!--Meeting Request Scene-->
         <scene sceneID="zUM-Mk-1b4">
             <objects>
-                <tableViewController storyboardIdentifier="MeetingRequestsVC" title="Activity" useStoryboardIdentifierAsRestorationIdentifier="YES" id="we9-M0-mCc" customClass="MeetingRequestsTableViewController" customModule="TuTour" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="MeetingRequestsVC" title="Activity" useStoryboardIdentifierAsRestorationIdentifier="YES" id="we9-M0-mCc" userLabel="Meeting Request Scene" customClass="MeetingRequestsTableViewController" customModule="TuTour" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="TJy-Tv-k2g">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -239,7 +239,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wsT-JV-rg9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7526" y="-1592"/>
+            <point key="canvasLocation" x="7470" y="-1553"/>
         </scene>
         <!--Master Activity View Controller-->
         <scene sceneID="QHn-ld-QZ1">
@@ -285,10 +285,10 @@
             </objects>
             <point key="canvasLocation" x="8549.6000000000004" y="-1553.0734632683659"/>
         </scene>
-        <!--Activity-->
+        <!--Scheduled Meeting Scene-->
         <scene sceneID="sFq-9W-T2v">
             <objects>
-                <tableViewController storyboardIdentifier="ScheduledMeetingsVC" title="Activity" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9r3-x0-o8a" customClass="ScheduledMeetingsTableViewController" customModule="TuTour" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ScheduledMeetingsVC" title="Activity" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9r3-x0-o8a" userLabel="Scheduled Meeting Scene" customClass="ScheduledMeetingsTableViewController" customModule="TuTour" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="jdz-mo-ZgL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
