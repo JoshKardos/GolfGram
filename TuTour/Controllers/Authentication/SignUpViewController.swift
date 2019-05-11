@@ -28,8 +28,8 @@ class SignUpViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
   
     
     
-    let schoolArray = ["SJSU", "UCSD", "UCLA", "DA", "SFSU", "SCU", "CSUEB", "Cal"]
-    let majorArray = ["Engineering", "English", "Media", "Software Engineering", "Computer Engineering", "Business", "Accounting", "Electrical Engineering", "Mechanical Engineering", "Music", "Art", "Chemistry", "Biology", "Dance", "Economics", "Film", "Mathematics", "Meterology", "Nursing", "Political Science", "Sociology"]
+    var schoolArray = ["SJSU", "UCSD", "UCLA", "DA", "SFSU", "SCU", "CSUEB", "Cal"]
+    var majorArray = ["Engineering", "English", "Media", "Software Engineering", "Computer Engineering", "Business", "Accounting", "Electrical Engineering", "Mechanical Engineering", "Music", "Art", "Chemistry", "Biology", "Dance", "Economics", "Film", "Mathematics", "Meterology", "Nursing", "Political Science", "Sociology"]
     let yearArray = ["19", "20", "21", "22", "23", "24"]
     
     var school = ""
@@ -39,6 +39,9 @@ class SignUpViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        majorArray.sort()
+        schoolArray.sort()
         
         fullNameTextField.tintColor = AppDelegate.theme_Color
         usernameTextField.tintColor = AppDelegate.theme_Color
