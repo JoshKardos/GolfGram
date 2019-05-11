@@ -26,6 +26,7 @@ class ProfileSettingsController: UIViewController, UITextFieldDelegate, UIPicker
     @IBOutlet weak var majorField: UITextField!
     @IBOutlet weak var yearField: UITextField!
     @IBOutlet weak var descriptionField: UITextField!
+    let toolbar = UIToolbar()
     
     let userID = Auth.auth().currentUser!.uid
     var selectedPhoto: UIImage?
@@ -197,10 +198,23 @@ class ProfileSettingsController: UIViewController, UITextFieldDelegate, UIPicker
 
         profilePhoto.clipsToBounds = true
         getData(uid: userID)
+       
+        toolbar.sizeToFit()
+        
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        
+        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.cancel, target: self, action: #selector(self.doneClicked))
+        
+        toolbar.setItems([flexibleSpace, doneButton], animated: false)
+        nameField.inputAccessoryView = toolbar
+        
         
     }
     
-    
+    @objc func doneClicked(){
+        view.endEditing(true)
+    }
+  
     @objc func handleSelectProfileImageView() {
         let pickerController = UIImagePickerController()
         //access to extension

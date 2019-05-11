@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import FirebaseDatabase
 import FirebaseAuth
+import ProgressHUD
 class MessagesViewController:UITableViewController{
 	
 	var usersMessaged = [User]()
@@ -20,7 +21,7 @@ class MessagesViewController:UITableViewController{
 	
 	override func viewDidLoad() {
 		
-		
+//        ProgressHUD.show("Loading...")
 		super.viewDidLoad()
 		tableView.dataSource = self
 		

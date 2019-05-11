@@ -92,7 +92,10 @@ class ProfileViewController: UIViewController {
         
     }
     
-
+    
+    
+    
+    
     func disableComponents(){
         dmButton.isEnabled = false
         dmButton.image = nil

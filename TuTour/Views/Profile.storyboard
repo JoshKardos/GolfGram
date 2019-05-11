@@ -38,7 +38,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="new-post" id="KHT-wW-UvG">
                             <connections>
-                                <segue destination="yxT-1b-9lf" kind="show" id="VDK-ZK-bc4"/>
+                                <segue destination="yxT-1b-9lf" kind="show" identifier="slideToDMs" id="VDK-ZK-bc4"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -367,7 +367,7 @@
                             <rect key="frame" x="0.0" y="688" width="414" height="130"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3tL-iO-RJc">
-                                    <rect key="frame" x="20" y="45" width="374" height="20"/>
+                                    <rect key="frame" x="20" y="44" width="374" height="20"/>
                                     <color key="backgroundColor" red="0.27400000000000002" green="0.63900000000000001" blue="0.71099999999999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="20" id="qFl-LW-hhW"/>
@@ -381,7 +381,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfY-hw-gQe">
-                                    <rect key="frame" x="20" y="73" width="374" height="20"/>
+                                    <rect key="frame" x="20" y="16" width="374" height="20"/>
                                     <color key="backgroundColor" red="0.27400000000000002" green="0.63900000000000001" blue="0.71099999999999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="20" id="M86-Lw-TCL"/>
@@ -395,7 +395,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IyA-d8-w63" userLabel="Update free days and skills">
-                                    <rect key="frame" x="20" y="17" width="374" height="20"/>
+                                    <rect key="frame" x="20" y="72" width="374" height="20"/>
                                     <color key="backgroundColor" red="0.0" green="0.63900000000000001" blue="0.71099999999999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="20" id="beP-oj-ZJT"/>
@@ -412,15 +412,15 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="3tL-iO-RJc" firstAttribute="leading" secondItem="ICX-eF-Oeu" secondAttribute="leading" constant="20" id="5wv-aN-Y3T"/>
+                                <constraint firstItem="3tL-iO-RJc" firstAttribute="top" secondItem="bfY-hw-gQe" secondAttribute="bottom" constant="8" id="LRF-dc-0vN"/>
                                 <constraint firstAttribute="height" constant="130" id="VaN-qf-BWa"/>
                                 <constraint firstAttribute="trailing" secondItem="3tL-iO-RJc" secondAttribute="trailing" constant="20" id="acn-ub-t1W"/>
-                                <constraint firstItem="bfY-hw-gQe" firstAttribute="top" secondItem="3tL-iO-RJc" secondAttribute="bottom" constant="8" id="cYm-fA-SgZ"/>
                                 <constraint firstItem="bfY-hw-gQe" firstAttribute="leading" secondItem="ICX-eF-Oeu" secondAttribute="leading" constant="20" id="e1X-ud-nmN"/>
                                 <constraint firstAttribute="trailing" secondItem="bfY-hw-gQe" secondAttribute="trailing" constant="20" id="eTS-bE-5Tb"/>
+                                <constraint firstItem="bfY-hw-gQe" firstAttribute="top" secondItem="ICX-eF-Oeu" secondAttribute="top" constant="16" id="hTE-i0-g7I"/>
                                 <constraint firstItem="IyA-d8-w63" firstAttribute="leading" secondItem="ICX-eF-Oeu" secondAttribute="leading" constant="20" id="jsI-2g-A6p"/>
                                 <constraint firstAttribute="trailing" secondItem="IyA-d8-w63" secondAttribute="trailing" constant="20" id="npy-N6-MTU"/>
-                                <constraint firstItem="3tL-iO-RJc" firstAttribute="top" secondItem="IyA-d8-w63" secondAttribute="bottom" constant="8" id="rJk-lo-9wr"/>
-                                <constraint firstItem="IyA-d8-w63" firstAttribute="top" secondItem="ICX-eF-Oeu" secondAttribute="top" constant="17" id="v6U-Wi-aYa"/>
+                                <constraint firstItem="IyA-d8-w63" firstAttribute="top" secondItem="3tL-iO-RJc" secondAttribute="bottom" constant="8" id="pHJ-oA-Wwu"/>
                             </constraints>
                         </view>
                     </subviews>
