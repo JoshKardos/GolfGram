@@ -45,6 +45,8 @@ let containerView = UIView() // holds text field and send button
 	
 	
 	override func viewDidLoad() {
+        
+        ProgressHUD.show("Loading...")
 		super.viewDidLoad()
 		
 		let layout = UICollectionViewFlowLayout()
@@ -99,6 +101,7 @@ let containerView = UIView() // holds text field and send button
 	@objc func handleReloadCollection(){
 		DispatchQueue.main.async {
 			self.collectionView!.reloadData()
+            ProgressHUD.showSuccess()
 		}
 	}
 	func numberOfSections(in collectionView: UICollectionView) -> Int {

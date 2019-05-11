@@ -23,6 +23,8 @@ class DiscoverViewController: UITableViewController, UISearchResultsUpdating {
 	let cellId = "tutorCell"
 
 	override func viewDidLoad() {
+        
+        ProgressHUD.show("Loading...")
         super.viewDidLoad()
         
 
@@ -55,6 +57,7 @@ class DiscoverViewController: UITableViewController, UISearchResultsUpdating {
 	@objc func handleReloadCollection(){
 		DispatchQueue.main.async {
 			self.tableView.reloadData()//.collectionView!.reloadData()
+            ProgressHUD.showSuccess()
 		}
 	}
 
@@ -127,7 +130,11 @@ class DiscoverViewController: UITableViewController, UISearchResultsUpdating {
 		var meeting = MeetingRequest(tutor: otherUserUid, tutoree:(Auth.auth().currentUser?.uid)!, subject: subject!)
 		
 		otherUserProfile.meeting = meeting
-		navigationController?.pushViewController(otherUserProfile, animated: true)
+//        otherUserProfile
+		
+//        otherUserProfile.navigationController?.setNavigationBarHidden(true, animated: false)
+        
+        navigationController?.pushViewController(otherUserProfile, animated: true)
 		
 
 	
