@@ -577,7 +577,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wi0-fm-qPs">
-                                        <rect key="frame" x="16" y="225.5" width="343" height="324.5"/>
+                                        <rect key="frame" x="16" y="225.5" width="343" height="258"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NjA-DQ-adU">
                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="20.5"/>
@@ -663,30 +663,10 @@
                                                     <outlet property="delegate" destination="5Mc-mx-mho" id="wVM-cW-0w9"/>
                                                 </connections>
                                             </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mDM-8e-OfZ">
-                                                <rect key="frame" x="0.0" y="266" width="343" height="20.5"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="20.5" id="1ix-Jv-lSg"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e1V-Ig-3Jc">
-                                                <rect key="frame" x="0.0" y="294.5" width="343" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="JmW-fE-W4a"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                                <connections>
-                                                    <outlet property="delegate" destination="5Mc-mx-mho" id="eXH-Dw-nk9"/>
-                                                </connections>
-                                            </textField>
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hT7-OF-gYp">
-                                        <rect key="frame" x="16" y="596" width="343" height="35"/>
+                                        <rect key="frame" x="16" y="529.5" width="343" height="35"/>
                                         <color key="backgroundColor" red="0.27400000000000002" green="0.63900000000000001" blue="0.71099999999999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="cBU-Eu-API"/>
@@ -735,7 +715,6 @@
                     </view>
                     <connections>
                         <outlet property="confirm" destination="hT7-OF-gYp" id="L1G-UC-saG"/>
-                        <outlet property="descriptionField" destination="e1V-Ig-3Jc" id="7Or-8K-aeH"/>
                         <outlet property="majorField" destination="7E7-wh-WwC" id="s1q-Vt-TpH"/>
                         <outlet property="nameField" destination="LCw-X3-ZaR" id="pJd-cz-4Nm"/>
                         <outlet property="profilePhoto" destination="j2U-qf-nl0" id="HjB-jS-rYo"/>

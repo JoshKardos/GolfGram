@@ -66,8 +66,8 @@ class ProfileSettingsController: UIViewController, UITextFieldDelegate, UIPicker
                         guard let profileImageUrl = url?.absoluteString else {return}
                         
                         //self.photoURLString = profileImageUrl
-                        let updatedValueList = ["fullname": self.nameField.text!, "major": self.majorField.text!, "school": self.schoolField.text!, "year": self.yearField.text!, "profileImageUrl": profileImageUrl, "description": self.descriptionField.text!]
-                        
+                        let updatedValueList = ["fullname": self.nameField.text!, "major": self.majorField.text!, "school": self.schoolField.text!, "year": self.yearField.text!, "profileImageUrl": profileImageUrl, ]
+                        // "description": self.descriptionField.text!
                         usersRef.child(self.userID).updateChildValues(updatedValueList)
                         
                     }
@@ -75,7 +75,8 @@ class ProfileSettingsController: UIViewController, UITextFieldDelegate, UIPicker
             }
             
         } else {
-            let updatedValueList = ["fullname": self.nameField.text!, "major": self.majorField.text!, "school": self.schoolField.text!, "year": self.yearField.text!, "profileImageUrl": self.photoURLString!, "description": self.descriptionField.text!]
+            let updatedValueList = ["fullname": self.nameField.text!, "major": self.majorField.text!, "school": self.schoolField.text!, "year": self.yearField.text!, "profileImageUrl": self.photoURLString!]
+            //"description": self.descriptionField.text!
             usersRef.child(self.userID).updateChildValues(updatedValueList)
         }
         
@@ -180,7 +181,7 @@ class ProfileSettingsController: UIViewController, UITextFieldDelegate, UIPicker
         schoolField.tintColor = AppDelegate.theme_Color
         majorField.tintColor = AppDelegate.theme_Color
         yearField.tintColor = AppDelegate.theme_Color
-        descriptionField.tintColor = AppDelegate.theme_Color
+        //descriptionField.tintColor = AppDelegate.theme_Color
         
         profilePhoto.layer.borderWidth = 1
         profilePhoto.layer.masksToBounds = true
