@@ -34,9 +34,9 @@ class ProfileSettingsController: UIViewController, UITextFieldDelegate, UIPicker
     var currentTextField = UITextField()
     var pickerView = UIPickerView()
     
-    let schoolArray = ["SJSU", "UCSD", "UCLA"]
-    let majorArray = ["Engineering", "English", "Media"]
-    let yearArray = ["19", "20", "21", "22"]
+    let schoolArray = ["SJSU", "UCSD", "UCLA", "DA", "SFSU", "SCU", "CSUEB", "Cal"]
+    let majorArray = ["Engineering", "English", "Media", "Software Engineering", "Computer Engineering", "Business", "Accounting", "Electrical Engineering", "Mechanical Engineering", "Music", "Art", "Chemistry", "Biology", "Dance", "Economics", "Film", "Mathematics", "Meterology", "Nursing", "Political Science", "Sociology"]
+    let yearArray = ["19", "20", "21", "22", "23", "24"]
     
     // pressed confirm button to update all data
     @IBAction func confirmAction(_ sender: Any) {
