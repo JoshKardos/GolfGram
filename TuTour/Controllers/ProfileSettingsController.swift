@@ -182,9 +182,12 @@ class ProfileSettingsController: UIViewController, UITextFieldDelegate, UIPicker
         yearField.tintColor = AppDelegate.theme_Color
         descriptionField.tintColor = AppDelegate.theme_Color
         
-        //Photo update functionality
-        profilePhoto.layer.cornerRadius = 40
+        profilePhoto.layer.borderWidth = 1
+        profilePhoto.layer.masksToBounds = true
+        profilePhoto.layer.borderColor = UIColor.white.cgColor
+        profilePhoto.layer.cornerRadius = profilePhoto.frame.size.height / 2
         profilePhoto.clipsToBounds = true
+
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SignUpViewController.handleSelectProfileImageView))
         profilePhoto.isUserInteractionEnabled = true
